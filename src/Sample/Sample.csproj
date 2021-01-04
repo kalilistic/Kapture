@@ -86,7 +86,9 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\DataManager\DataManager.cs" />
     <Compile Include="Common\Extension\FontAwesomeExtensions.cs" />
+    <Compile Include="Common\Extension\IntExtensions.cs" />
     <Compile Include="Common\Extension\LongExtensions.cs" />
     <Compile Include="Common\Extension\StringExtensions.cs" />
     <Compile Include="Common\Model\ChatColor.cs" />
@@ -100,6 +102,7 @@
     <Compile Include="Common\Model\UIColor.cs" />
     <Compile Include="Common\Util\DateUtil.cs" />
     <Compile Include="Common\Util\FontAwesomeUtil.cs" />
+    <Compile Include="Common\Util\ImGuiUtil.cs" />
     <Compile Include="Common\Util\SerializerUtil.cs" />
     <Compile Include="Common\WebClient\CustomWebClient.cs">
       <SubType>Component</SubType>
