@@ -44,8 +44,8 @@ namespace Sample
 
 		public void Draw()
 		{
-			OverlayWindow.DrawWindow();
-			SettingsWindow.DrawWindow();
+			OverlayWindow.DrawView();
+			SettingsWindow.DrawView();
 		}
 	}
 }

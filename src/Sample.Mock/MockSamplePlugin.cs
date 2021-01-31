@@ -42,6 +42,16 @@ namespace Sample.Mock
 			throw new NotImplementedException();
 		}
 
+		public bool IsLoggedIn()
+		{
+			throw new NotImplementedException();
+		}
+
+		public double ConvertHeightToInches(int raceId, int tribeId, int genderId, int sliderHeight)
+		{
+			throw new NotImplementedException();
+		}
+
 		string IPluginBase.GetSeIcon(SeIconChar seIconChar)
 		{
 			throw new NotImplementedException();

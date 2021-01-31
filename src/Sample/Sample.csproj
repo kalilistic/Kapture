@@ -91,6 +91,7 @@
     <Compile Include="Common\Extension\IntExtensions.cs" />
     <Compile Include="Common\Extension\LongExtensions.cs" />
     <Compile Include="Common\Extension\StringExtensions.cs" />
+    <Compile Include="Common\Model\CharHeight.cs" />
     <Compile Include="Common\Model\ChatColor.cs" />
     <Compile Include="Common\Model\FontAwesomeIcon.cs" />
     <Compile Include="Common\ResourceManager\ResourceManager.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Common\Plugin\PluginBase.cs" />
     <Compile Include="Common\UserInterface\CustomWidgets.cs" />
     <Compile Include="Common\Model\UIColor.cs" />
+    <Compile Include="Common\UserInterface\Windows\IWindowBase.cs" />
     <Compile Include="Common\Util\DateUtil.cs" />
     <Compile Include="Common\Util\FontAwesomeUtil.cs" />
     <Compile Include="Common\Util\ImGuiUtil.cs" />

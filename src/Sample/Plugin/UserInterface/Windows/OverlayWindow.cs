@@ -14,18 +14,21 @@ namespace Sample
 			_samplePlugin = samplePlugin;
 		}
 
-		public void DrawWindow()
+		public override void DrawView()
 		{
 			if (!IsVisible) return;
+			var isVisible = IsVisible;
 			_uiScale = ImGui.GetIO().FontGlobalScale;
 			ImGui.SetNextWindowSize(new Vector2(300 * _uiScale, 150 * _uiScale), ImGuiCond.FirstUseEver);
 			if (ImGui.Begin(Loc.Localize("OverlayWindow", "Sample Overlay") + "###Sample_Overlay_Window",
-				ref IsVisible,
+				ref isVisible,
 				ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse))
+			{
 				ImGui.Text(!_samplePlugin.Configuration.Enabled
 					? Loc.Localize("PluginDisabled", "SamplePlugin is disabled.")
 					: Loc.Localize("PluginEnabled", "SamplePlugin is enabled."));
-
+				IsVisible = isVisible;
+			}
 			ImGui.End();
 		}
 	}
