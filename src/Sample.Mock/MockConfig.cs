@@ -1,6 +1,6 @@
 ﻿namespace Sample.Mock
 {
-	public class MockConfig : SampleConfig
-	{
-	}
+    public class MockConfig : SampleConfig
+    {
+    }
 }

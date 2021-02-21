@@ -1,6 +1,6 @@
 ﻿namespace Sample
 {
-	public interface ISampleService
-	{
-	}
+    public interface ISampleService
+    {
+    }
 }
