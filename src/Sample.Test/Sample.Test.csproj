@@ -52,42 +52,42 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Dalamud">
-      <HintPath Condition="Exists('$(AppData)\XIVLauncher\addon\Hooks')">$(AppData)\XIVLauncher\addon\Hooks\Dalamud.dll</HintPath>
+      <HintPath Condition="Exists('$(AppData)\XIVLauncher\addon\Hooks\dev')">$(AppData)\XIVLauncher\addon\Hooks\dev\Dalamud.dll</HintPath>
       <HintPath Condition="Exists('$(DalamudHooks)')">$(DalamudHooks)\Dalamud.dll</HintPath>
       <HintPath Condition="Exists('..\Dalamud\Dalamud\bin\Debug')">..\..\Dalamud\Dalamud\bin\Debug\Dalamud.dll</HintPath>
       <HintPath Condition="Exists('..\..\Dalamud\Dalamud\bin\Debug')">..\..\..\Dalamud\Dalamud\bin\Debug\Dalamud.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="ImGui.NET">
-      <HintPath Condition="Exists('$(AppData)\XIVLauncher\addon\Hooks')">$(AppData)\XIVLauncher\addon\Hooks\ImGui.NET.dll</HintPath>
+      <HintPath Condition="Exists('$(AppData)\XIVLauncher\addon\Hooks\dev')">$(AppData)\XIVLauncher\addon\Hooks\dev\ImGui.NET.dll</HintPath>
       <HintPath Condition="Exists('$(DalamudHooks)')">$(DalamudHooks)\ImGuiScene.dll</HintPath>
       <HintPath Condition="Exists('..\..\Dalamud\Dalamud\bin\Debug')">..\..\Dalamud\Dalamud\bin\Debug\ImGui.NET.dll</HintPath>
       <HintPath Condition="Exists('..\..\..\Dalamud\Dalamud\bin\Debug')">..\..\..\Dalamud\Dalamud\bin\Debug\ImGui.NET.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="ImGuiScene">
-      <HintPath Condition="Exists('$(AppData)\XIVLauncher\addon\Hooks')">$(AppData)\XIVLauncher\addon\Hooks\ImGuiScene.dll</HintPath>
+      <HintPath Condition="Exists('$(AppData)\XIVLauncher\addon\Hooks\dev')">$(AppData)\XIVLauncher\addon\Hooks\dev\ImGuiScene.dll</HintPath>
       <HintPath Condition="Exists('$(DalamudHooks)')">$(DalamudHooks)\ImGuiScene.dll</HintPath>
       <HintPath Condition="Exists('..\..\Dalamud\Dalamud\bin\Debug')">..\..\Dalamud\Dalamud\bin\Debug\ImGuiScene.dll</HintPath>
       <HintPath Condition="Exists('..\..\..\Dalamud\Dalamud\bin\Debug')">..\..\..\Dalamud\Dalamud\bin\Debug\ImGuiScene.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="Serilog">
-      <HintPath Condition="Exists('$(AppData)\XIVLauncher\addon\Hooks')">$(AppData)\XIVLauncher\addon\Hooks\Serilog.dll</HintPath>
+      <HintPath Condition="Exists('$(AppData)\XIVLauncher\addon\Hooks\dev')">$(AppData)\XIVLauncher\addon\Hooks\dev\Serilog.dll</HintPath>
       <HintPath Condition="Exists('$(DalamudHooks)')">$(DalamudHooks)\Serilog.dll</HintPath>
       <HintPath Condition="Exists('..\..\Dalamud\Dalamud\bin\Debug')">..\..\Dalamud\Dalamud\bin\Debug\Serilog.dll</HintPath>
       <HintPath Condition="Exists('..\..\..\Dalamud\Dalamud\bin\Debug')">..\..\..\Dalamud\Dalamud\bin\Debug\Serilog.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="Serilog.Sinks.Async">
-      <HintPath Condition="Exists('$(AppData)\XIVLauncher\addon\Hooks')">$(AppData)\XIVLauncher\addon\Hooks\Serilog.Sinks.Async.dll</HintPath>
+      <HintPath Condition="Exists('$(AppData)\XIVLauncher\addon\Hooks\dev')">$(AppData)\XIVLauncher\addon\Hooks\dev\Serilog.Sinks.Async.dll</HintPath>
       <HintPath Condition="Exists('$(DalamudHooks)')">$(DalamudHooks)\Serilog.Sinks.Async.dll</HintPath>
       <HintPath Condition="Exists('..\..\Dalamud\Dalamud\bin\Debug')">..\..\Dalamud\Dalamud\bin\Debug\Serilog.Sinks.Async.dll</HintPath>
       <HintPath Condition="Exists('..\..\..\Dalamud\Dalamud\bin\Debug')">..\..\..\Dalamud\Dalamud\bin\Debug\Serilog.Sinks.Async.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="Serilog.Sinks.File">
-      <HintPath Condition="Exists('$(AppData)\XIVLauncher\addon\Hooks')">$(AppData)\XIVLauncher\addon\Hooks\Serilog.Sinks.File.dll</HintPath>
+      <HintPath Condition="Exists('$(AppData)\XIVLauncher\addon\Hooks\dev')">$(AppData)\XIVLauncher\addon\Hooks\dev\Serilog.Sinks.File.dll</HintPath>
       <HintPath Condition="Exists('$(DalamudHooks)')">$(DalamudHooks)\Serilog.Sinks.File.dll</HintPath>
       <HintPath Condition="Exists('..\..\Dalamud\Dalamud\bin\Debug')">..\..\Dalamud\Dalamud\bin\Debug\Serilog.Sinks.File.dll</HintPath>
       <HintPath Condition="Exists('..\..\..\Dalamud\Dalamud\bin\Debug')">..\..\..\Dalamud\Dalamud\bin\Debug\Serilog.Sinks.File.dll</HintPath>
