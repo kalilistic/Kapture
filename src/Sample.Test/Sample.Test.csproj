@@ -37,6 +37,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);MSB3277</MSBuildWarningsAsMessages>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Lumina.Excel">
       <HintPath>..\..\..\Dalamud\Dalamud\bin\Debug\Lumina.Excel.dll</HintPath>
