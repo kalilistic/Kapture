@@ -1,22 +1,78 @@
 {
-    "HelpMessage": {
-        "message": "This is a helpful message!",
-        "description": "KapturePlugin.PrintHelpMessage"
-    },
     "InstallThankYou": {
-        "message": "Thank you for installing Kapture Plugin!",
+        "message": "Thank you for installing the Kapture Loot Tracker Plugin!",
         "description": "KapturePlugin.HandleFreshInstall"
+    },
+    "Instructions": {
+        "message": "Use /loot and /roll for the overlays and /lootconfig for settings.",
+        "description": "KapturePlugin.HandleFreshInstall"
+    },
+    "RollMonitorOverlayWindow": {
+        "message": "Roll Monitor",
+        "description": "RollMonitorOverlayWindow.DrawView"
+    },
+    "LanguageNotSupported1": {
+        "message": "Sorry, only English is supported for this test release.",
+        "description": "RollMonitorOverlayWindow.DrawView"
+    },
+    "LanguageNotSupported2": {
+        "message": "I'll be adding support for other client languages soon.",
+        "description": "RollMonitorOverlayWindow.DrawView"
+    },
+    "MonitorItemName": {
+        "message": "Item",
+        "description": "RollMonitorOverlayWindow.DrawView"
+    },
+    "MonitorRollers": {
+        "message": "Rollers",
+        "description": "RollMonitorOverlayWindow.DrawView"
+    },
+    "MonitorWinner": {
+        "message": "Winner",
+        "description": "RollMonitorOverlayWindow.DrawView"
+    },
+    "WaitingForItems": {
+        "message": "Waiting for items.",
+        "description": "RollMonitorOverlayWindow.DrawView"
     },
     "SettingsWindow": {
         "message": "Kapture Settings",
-        "description": "SettingsWindow.DrawWindow"
+        "description": "SettingsWindow.DrawView"
     },
     "General": {
         "message": "General",
         "description": "SettingsWindow.DrawTabs"
     },
-    "Other": {
-        "message": "Other",
+    "Loot": {
+        "message": "Loot",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Rolls": {
+        "message": "Rolls",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Events": {
+        "message": "Events",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Content": {
+        "message": "Content",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Items": {
+        "message": "Items",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Filters": {
+        "message": "Filters",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Log": {
+        "message": "Log",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Links": {
+        "message": "Links",
         "description": "SettingsWindow.DrawTabs"
     },
     "PluginEnabled": {
@@ -27,14 +83,6 @@
         "message": "toggle the plugin on/off",
         "description": "SettingsWindow.DrawGeneral"
     },
-    "ShowOverlay": {
-        "message": "Show Overlay",
-        "description": "SettingsWindow.DrawGeneral"
-    },
-    "ShowOverlay_HelpMarker": {
-        "message": "show overlay window",
-        "description": "SettingsWindow.DrawGeneral"
-    },
     "Language": {
         "message": "Language",
         "description": "SettingsWindow.DrawGeneral"
@@ -43,20 +91,220 @@
         "message": "use default or override plugin ui language",
         "description": "SettingsWindow.DrawGeneral"
     },
+    "ShowLootOverlay": {
+        "message": "Show Loot Overlay",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "ShowLootOverlay_HelpMarker": {
+        "message": "show loot overlay window",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "LootNameFormat": {
+        "message": "Name Format",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "LootNameFormat_HelpMarker": {
+        "message": "how to display player names in the loot overlay",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "ShowRollOverlay": {
+        "message": "Show Roll Monitor Overlay",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "ShowRollOverlay_HelpMarker": {
+        "message": "show roll monitor overlay window",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "ShowRollerCount": {
+        "message": "Show Roller Count",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "ShowRollerCount_HelpMarker": {
+        "message": "show number of rollers on roll monitor overlay",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollNameFormat": {
+        "message": "Name Format",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollNameFormat_HelpMarker": {
+        "message": "how to display player names in the roll monitor overlay",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollMonitorTimeout": {
+        "message": "Show Rolled Items (minutes)",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollMonitorTimeout_HelpMarker": {
+        "message": "amount of time before removing items from roll monitor",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "AddEnabled": {
+        "message": "Add",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "CastEnabled": {
+        "message": "Cast",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "CraftEnabled": {
+        "message": "Craft",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "DesynthEnabled": {
+        "message": "Desynth",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "DiscardEnabled": {
+        "message": "Discard",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "GatherEnabled": {
+        "message": "Gather",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "GreedEnabled": {
+        "message": "Greed",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "LostEnabled": {
+        "message": "Lost",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "NeedEnabled": {
+        "message": "Need",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "ObtainEnabled": {
+        "message": "Obtain",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "PurchaseEnabled": {
+        "message": "Purchase",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "SearchEnabled": {
+        "message": "Search",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "SellEnabled": {
+        "message": "Sell",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "UseEnabled": {
+        "message": "Use",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "RestrictToContent": {
+        "message": "Content Only",
+        "description": "SettingsWindow.RestrictToContent"
+    },
+    "RestrictToContent_HelpMarker": {
+        "message": "restrict to instanced content and exclude overworld encounters",
+        "description": "SettingsWindow.RestrictToContent"
+    },
+    "RestrictToHighEndDuty": {
+        "message": "High-End Duty Only",
+        "description": "SettingsWindow.RestrictToHighEndDuty"
+    },
+    "RestrictToHighEndDuty_HelpMarker": {
+        "message": "restrict to high-end duties only (e.g. savage)",
+        "description": "SettingsWindow.RestrictToHighEndDuty"
+    },
+    "RestrictToCustom": {
+        "message": "Restrict to Following Content",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "RestrictToCustom_HelpMarker": {
+        "message": "add content to list by using dropdown or remove by clicking on them",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "Add": {
+        "message": "Add",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "Reset": {
+        "message": "Reset",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "DupeContent": {
+        "message": "This content is already added!",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "RestrictToCustomItems": {
+        "message": "Restrict to Following Items",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "RestrictToCustomItems_HelpMarker": {
+        "message": "add item to list by using dropdown or remove by clicking on them",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "SelectCategory": {
+        "message": "Select Category",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "SelectItem": {
+        "message": "Select Item",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "DupeCustomItem": {
+        "message": "This item is already added!",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "PermittedItems": {
+        "message": "Permitted Items",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "NoPermittedItems": {
+        "message": "None",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "SelfOnly": {
+        "message": "Self Only",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "LoggingEnabled": {
+        "message": "Enable Logging",
+        "description": "SettingsWindow.DrawLog"
+    },
     "OpenGithub": {
         "message": "Github",
-        "description": "SettingsWindow.DrawOther"
+        "description": "SettingsWindow.DrawLinks"
     },
     "ImproveTranslate": {
         "message": "Translations",
-        "description": "SettingsWindow.DrawOther"
+        "description": "SettingsWindow.DrawLinks"
     },
-    "PrintHelp": {
-        "message": "Instructions",
-        "description": "SettingsWindow.DrawOther"
+    "LoadTestData": {
+        "message": "Test Data",
+        "description": "SettingsWindow.DrawLinks"
     },
-    "OverlayWindow": {
-        "message": "Kapture Overlay",
-        "description": "OverlayWindow.DrawWindow"
+    "ClearData": {
+        "message": "Clear Data",
+        "description": "SettingsWindow.DrawLinks"
+    },
+    "LootOverlayWindow": {
+        "message": "Loot",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "LootItemName": {
+        "message": "Item",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "LootEventType": {
+        "message": "Event",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "LootPlayer": {
+        "message": "Player",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "RollMonitorNone": {
+        "message": "No one has rolled",
+        "description": "RollMonitor.ProcessRoll"
+    },
+    "RollMonitorLost": {
+        "message": "Dropped to floor",
+        "description": "RollMonitor.ProcessRoll"
     }
 }
