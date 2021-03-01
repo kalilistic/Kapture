@@ -14,7 +14,7 @@ Dalamud plugin to track your loot in FFXIV.
 
 ## Preview
 
-![image](assets/preview.jpg)<br>
+![image](assets/preview.png)<br>
 
 ## Commands
 
