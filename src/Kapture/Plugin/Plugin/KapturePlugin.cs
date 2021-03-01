@@ -83,6 +83,117 @@ namespace KapturePlugin
             return string.Empty;
         }
 
+        public void LoadTestData()
+        {
+            // add
+            var event1 = new LootEvent
+            {
+                LootEventType = LootEventType.Add,
+                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Add),
+                Timestamp = DateUtil.CurrentTime(),
+                LootEventId = Guid.NewGuid(),
+                TerritoryTypeId = 1,
+                ContentId = 1,
+                LootMessage = new LootMessage
+                {
+                    ItemId = 1,
+                    ItemName = "Boiled Egg"
+                },
+                ItemDisplayName = "Boiled Egg"
+            };
+            RollMonitor.ProcessRoll(event1);
+            LootEvents.Add(event1);
+
+            // add again
+            var event2 = new LootEvent
+            {
+                LootEventType = LootEventType.Add,
+                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Add),
+                Timestamp = DateUtil.CurrentTime(),
+                LootEventId = Guid.NewGuid(),
+                TerritoryTypeId = 1,
+                ContentId = 1,
+                LootMessage = new LootMessage
+                {
+                    ItemId = 1,
+                    ItemName = "Wind-up Aldgoat"
+                },
+                ItemDisplayName = "Wind-up Aldgoat"
+            };
+            RollMonitor.ProcessRoll(event2);
+            LootEvents.Add(event2);
+
+            // cast
+            var event3 = new LootEvent
+            {
+                LootEventType = LootEventType.Cast,
+                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Cast),
+                Timestamp = DateUtil.CurrentTime(),
+                LootEventId = Guid.NewGuid(),
+                TerritoryTypeId = 1,
+                ContentId = 1,
+                LootMessage = new LootMessage
+                {
+                    ItemId = 1,
+                    ItemName = "Boiled Egg"
+                },
+                ItemDisplayName = "Boiled Egg",
+                PlayerName = "Wyatt Earp",
+                PlayerDisplayName = "Wyatt Earp"
+            };
+            RollMonitor.ProcessRoll(event3);
+            LootEvents.Add(event3);
+
+            // cast again
+            var event4 = new LootEvent
+            {
+                LootEventType = LootEventType.Cast,
+                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Cast),
+                Timestamp = DateUtil.CurrentTime(),
+                LootEventId = Guid.NewGuid(),
+                TerritoryTypeId = 1,
+                ContentId = 1,
+                LootMessage = new LootMessage
+                {
+                    ItemId = 1,
+                    ItemName = "Boiled Egg"
+                },
+                ItemDisplayName = "Boiled Egg",
+                PlayerName = "April O'Neil",
+                PlayerDisplayName = "April O'Neil"
+            };
+            RollMonitor.ProcessRoll(event4);
+            LootEvents.Add(event4);
+
+            // obtain
+            var event5 = new LootEvent
+            {
+                LootEventType = LootEventType.Obtain,
+                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Obtain),
+                Timestamp = DateUtil.CurrentTime(),
+                LootEventId = Guid.NewGuid(),
+                TerritoryTypeId = 1,
+                ContentId = 1,
+                LootMessage = new LootMessage
+                {
+                    ItemId = 1,
+                    ItemName = "Boiled Egg"
+                },
+                ItemDisplayName = "Boiled Egg",
+                PlayerName = "Wyatt Earp",
+                PlayerDisplayName = "Wyatt Earp"
+            };
+            RollMonitor.ProcessRoll(event5);
+            LootEvents.Add(event5);
+        }
+
+        public void ClearData()
+        {
+            LootEvents.Clear();
+            LootRolls.Clear();
+            LootRollsDisplay.Clear();
+        }
+
         public new void Dispose()
         {
             DisposeListeners();
@@ -204,117 +315,6 @@ namespace KapturePlugin
             _pluginInterface.Framework.Gui.Chat.OnCheckMessageHandled -= OnChatMessageHandled;
         }
 
-        public void LoadTestData()
-        {
-            // add
-            var event1 = new LootEvent
-            {
-                LootEventType = LootEventType.Add,
-                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Add),
-                Timestamp = DateUtil.CurrentTime(),
-                LootEventId = Guid.NewGuid(),
-                TerritoryTypeId = 1,
-                ContentId = 1,
-                LootMessage = new LootMessage
-                {
-                    ItemId = 1,
-                    ItemName = "Boiled Egg"
-                },
-                ItemDisplayName = "Boiled Egg"
-            };
-            RollMonitor.ProcessRoll(event1);
-            LootEvents.Add(event1);
-            
-            // add again
-            var event2 = new LootEvent
-            {
-                LootEventType = LootEventType.Add,
-                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Add),
-                Timestamp = DateUtil.CurrentTime(),
-                LootEventId = Guid.NewGuid(),
-                TerritoryTypeId = 1,
-                ContentId = 1,
-                LootMessage = new LootMessage
-                {
-                    ItemId = 1,
-                    ItemName = "Wind-up Aldgoat"
-                },
-                ItemDisplayName = "Wind-up Aldgoat"
-            };
-            RollMonitor.ProcessRoll(event2);
-            LootEvents.Add(event2);
-            
-            // cast
-            var event3 = new LootEvent
-            {
-                LootEventType = LootEventType.Cast,
-                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Cast),
-                Timestamp = DateUtil.CurrentTime(),
-                LootEventId = Guid.NewGuid(),
-                TerritoryTypeId = 1,
-                ContentId = 1,
-                LootMessage = new LootMessage
-                {
-                    ItemId = 1,
-                    ItemName = "Boiled Egg"
-                },
-                ItemDisplayName = "Boiled Egg",
-                PlayerName = "Wyatt Earp",
-                PlayerDisplayName = "Wyatt Earp"
-            };
-            RollMonitor.ProcessRoll(event3);
-            LootEvents.Add(event3);
-
-            // cast again
-            var event4 = new LootEvent
-            {
-                LootEventType = LootEventType.Cast,
-                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Cast),
-                Timestamp = DateUtil.CurrentTime(),
-                LootEventId = Guid.NewGuid(),
-                TerritoryTypeId = 1,
-                ContentId = 1,
-                LootMessage = new LootMessage
-                {
-                    ItemId = 1,
-                    ItemName = "Boiled Egg"
-                },
-                ItemDisplayName = "Boiled Egg",
-                PlayerName = "April O'Neil",
-                PlayerDisplayName = "April O'Neil"
-            };
-            RollMonitor.ProcessRoll(event4);
-            LootEvents.Add(event4);
-            
-            // obtain
-            var event5 = new LootEvent
-            {
-                LootEventType = LootEventType.Obtain,
-                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Obtain),
-                Timestamp = DateUtil.CurrentTime(),
-                LootEventId = Guid.NewGuid(),
-                TerritoryTypeId = 1,
-                ContentId = 1,
-                LootMessage = new LootMessage
-                {
-                    ItemId = 1,
-                    ItemName = "Boiled Egg"
-                },
-                ItemDisplayName = "Boiled Egg",
-                PlayerName = "Wyatt Earp",
-                PlayerDisplayName = "Wyatt Earp"
-            };
-            RollMonitor.ProcessRoll(event5);
-            LootEvents.Add(event5);
-        }
-
-        public void ClearData()
-        {
-            LootEvents.Clear();
-            LootRolls.Clear();
-            LootRollsDisplay.Clear();
-        }
-
         private void OnChatMessageHandled(XivChatType type, uint senderId, ref SeString sender, ref SeString message,
             ref bool isHandled)
         {
@@ -328,23 +328,6 @@ namespace KapturePlugin
             var xivChatType = (ushort) type;
             var territoryTypeId = GetTerritoryType();
             var contentId = GetContentId(territoryTypeId);
-
-
-            // print chat message for troubleshooting
-            var lootMessage1 = new LootMessage
-            {
-                XivChatType = xivChatType,
-                Message = message.TextValue
-            };
-            foreach (var payload in message.Payloads)
-                switch (payload)
-                {
-                    case TextPayload textPayload:
-                        lootMessage1.MessageParts.Add(textPayload.Text);
-                        break;
-                }
-
-            LogInfo("Raw Message: " + lootMessage1);
 
             // restrict by user settings
             if (Configuration.RestrictToContent && contentId == 0) return;
