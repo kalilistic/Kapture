@@ -1,4 +1,3 @@
-[submodule "src/Sample/Common"]
-	path = src/Sample/Common
+[submodule "src\\Kapture\\Common"]
+	path = src\\Kapture\\Common
 	url = https://github.com/kalilistic/DalamudPluginCommon.git
-	branch = master

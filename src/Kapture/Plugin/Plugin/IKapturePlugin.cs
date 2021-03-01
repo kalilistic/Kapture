@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace KapturePlugin
+{
+    public interface IKapturePlugin
+    {
+        KaptureConfig Configuration { get; }
+        Localization Localization { get; }
+        uint[] ContentIds { get; }
+        string[] ContentNames { get; }
+        uint[] ItemIds { get; }
+        string[] ItemNames { get; }
+        uint[] ItemCategoryIds { get; }
+        string[] ItemCategoryNames { get; }
+        List<KeyValuePair<uint, ItemList>> ItemLists { get; }
+        bool IsInitializing { get; }
+        List<LootEvent> LootEvents { get; }
+        DataManager DataManager { get; }
+        List<LootRoll> LootRolls { get; }
+        List<LootRoll> LootRollsDisplay { get; set; }
+        void SaveConfig();
+        string GetSeIcon(SeIconChar seIconChar);
+        void LogInfo(string messageTemplate);
+        void LogError(Exception exception, string messageTemplate, params object[] values);
+        string GetLocalPlayerName();
+        ushort ClientLanguage();
+        string FormatPlayerName(int nameFormatCode, string playerName);
+        bool IsLoggedIn();
+        void LoadTestData();
+        void ClearData();
+    }
+}

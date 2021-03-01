@@ -1,6 +1,16 @@
-# DalamudSamplePlugin
+# Kapture (Dalamud Edition)
 
-Sample Plugin template that uses things I often use including my common code library.
+Dalamud plugin to track your loot in FFXIV. 
+
+## Features
+- Track your loot in Final Fantasy XIV.
+- Capture drops, obtained items, rolls, and more.
+- Keep track of loot events in "Loot" overlay.
+- Keep track of who has rolled in "Roll Monitor" overlay.
+- Filter by content (e.g. high-end duty only).
+- Filter by specific items.
+- Filter to only see your own loot.
+- Save loot events to a csv file for future reference.
 
 ## Preview
 
@@ -8,12 +18,7 @@ Sample Plugin template that uses things I often use including my common code lib
 
 ## Commands
 
-**/sample** to open overlay.<br>
-**/sampleconfig** to open settings.<br>
+**/loot** to open loot overlay.<br>
+**/roll** to open roll monitor overlay.<br>
+**/lootconfig** to open settings.<br>
 
-## Configuration
-
-### General
-**Plugin Enabled** - toggle the plugin off/on.<br>
-**Show Overlay** - show overlay window.<br>
-**Language** - use default or override plugin ui language.<br>

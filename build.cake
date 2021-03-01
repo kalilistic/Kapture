@@ -3,7 +3,7 @@
 #addin nuget:?package=Cake.FileHelpers&version=3.2.1
 #addin nuget:?package=Cake.Git&version=0.22.0
 
-var pluginName = "Sample";
+var pluginName = "Kapture";
 var configuration = Argument ("configuration", "Release");
 var version = GitVersion ().SemVer;
 
