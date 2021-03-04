@@ -321,6 +321,9 @@ namespace KapturePlugin
             // check if enabled
             if (!Configuration.Enabled) return;
 
+            // combat check
+            if (Configuration.RestrictInCombat && InCombat()) return;
+
             // remove old rolls if monitor is enabled
             if (Configuration.ShowRollMonitorOverlay) RollMonitor.RemoveOldRolls();
 

@@ -1,5 +1,6 @@
 ﻿// ReSharper disable InconsistentNaming
 // ReSharper disable InvertIf
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -174,6 +175,20 @@ namespace KapturePlugin
                 "toggle the plugin on/off"));
             ImGui.Spacing();
 
+            // combat
+            var restrictInCombat = _plugin.Configuration.RestrictInCombat;
+            if (ImGui.Checkbox(
+                Loc.Localize("RestrictInCombat", "Don't process in combat") + "###Kapture_RestrictInCombat_Checkbox",
+                ref restrictInCombat))
+            {
+                _plugin.Configuration.RestrictInCombat = restrictInCombat;
+                _plugin.SaveConfig();
+            }
+
+            CustomWidgets.HelpMarker(Loc.Localize("PluginEnabled_HelpMarker",
+                "stop processing data while in combat"));
+            ImGui.Spacing();
+
             // language
             ImGui.Text(Loc.Localize("Language", "Language"));
             CustomWidgets.HelpMarker(Loc.Localize("Language_HelpMarker",
@@ -239,7 +254,7 @@ namespace KapturePlugin
             CustomWidgets.HelpMarker(Loc.Localize("ShowRollOverlay_HelpMarker",
                 "show roll monitor overlay window"));
             ImGui.Spacing();
-            
+
             // show roller count
             var showRollerCount = _plugin.Configuration.ShowRollerCount;
             if (ImGui.Checkbox(

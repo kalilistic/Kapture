@@ -24,6 +24,7 @@ namespace KapturePlugin
         public bool SearchEnabled { get; set; }
         public bool SellEnabled { get; set; }
         public bool UseEnabled { get; set; }
+        public bool RestrictInCombat { get; set; } = true;
         public bool RestrictToContent { get; set; } = true;
         public bool RestrictToCustomContent { get; set; }
         public bool RestrictToHighEndDuty { get; set; }
