@@ -678,7 +678,7 @@ namespace KapturePlugin
             // logging enabled
             var loggingEnabled = _plugin.Configuration.LoggingEnabled;
             if (ImGui.Checkbox(
-                Loc.Localize("LoggingEnabled", "Enable Logging") +
+                Loc.Localize("LoggingEnabled", "Enable Loot Logging") +
                 "###Kapture_LoggingEnabled_Checkbox",
                 ref loggingEnabled))
             {
@@ -687,8 +687,12 @@ namespace KapturePlugin
                 if (loggingEnabled) _plugin.LootLogger.SetLogFormat();
             }
 
+            CustomWidgets.HelpMarker(Loc.Localize("LoggingEnabled_HelpMarker",
+                "save your loot messages to a file in config (see links)"));
+            ImGui.Spacing();
+
             // log format
-            ImGui.Text(Loc.Localize("LogFormat", "LogFormat"));
+            ImGui.Text(Loc.Localize("LogFormat", "Log Format"));
             CustomWidgets.HelpMarker(Loc.Localize("LogFormat_HelpMarker",
                 "set format for log file with loot info"));
             ImGui.Spacing();
