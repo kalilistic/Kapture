@@ -88,13 +88,6 @@ namespace KapturePlugin.Mock
         public List<LootEvent> LootEvents { get; set; }
         public DataManager DataManager { get; set; }
 
-        public string PluginVersion()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string PluginName { get; }
-
         public bool IsLoggedIn()
         {
             throw new NotImplementedException();
@@ -109,6 +102,15 @@ namespace KapturePlugin.Mock
         {
             throw new NotImplementedException();
         }
+
+        public LootLogger LootLogger { get; set; }
+
+        public string PluginVersion()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string PluginName { get; }
 
         public void LogVerbose(string messageTemplate)
         {
@@ -196,46 +198,6 @@ namespace KapturePlugin.Mock
         }
 
         void IPluginBase.PrintMessage(string message)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void PrintHelpMessage()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetupCommands()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveCommands()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ToggleKapture(string command, string args)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ToggleConfig(string command, string args)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ExportLocalizable(string command, string args)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int PluginVersionNumber()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CreateDataFolder()
         {
             throw new NotImplementedException();
         }

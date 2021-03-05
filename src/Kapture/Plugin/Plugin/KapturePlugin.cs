@@ -42,9 +42,10 @@ namespace KapturePlugin
             });
         }
 
-        private Kapture Kapture { get; set; }
         private RollMonitor.RollMonitor RollMonitor { get; set; }
         private LootProcessor LootProcessor { get; set; }
+
+        public LootLogger LootLogger { get; set; }
         public bool IsInitializing { get; private set; } = true;
         public List<LootEvent> LootEvents { get; } = new List<LootEvent>();
         public List<LootRoll> LootRolls { get; } = new List<LootRoll>();
@@ -197,7 +198,7 @@ namespace KapturePlugin
         public new void Dispose()
         {
             DisposeListeners();
-            Kapture.Dispose();
+            LootLogger.Dispose();
             base.Dispose();
             RemoveCommands();
             ClearData();
@@ -256,7 +257,7 @@ namespace KapturePlugin
         {
             RollMonitor = new RollMonitor.RollMonitor(this);
             LootProcessor = new ENLootProcessor(this);
-            Kapture = new Kapture(this);
+            LootLogger = new LootLogger(this);
         }
 
         private void LoadUI()
@@ -394,7 +395,7 @@ namespace KapturePlugin
             RollMonitor.ProcessRoll(lootEvent);
 
             // output
-            if (Configuration.LoggingEnabled) Kapture.LogLoot(lootEvent);
+            if (Configuration.LoggingEnabled) LootLogger.LogLoot(lootEvent);
         }
     }
 }

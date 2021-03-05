@@ -37,5 +37,6 @@ namespace KapturePlugin
         public bool ShowRollerCount { get; set; }
         public int LootNameFormat { get; set; }
         public int RollNameFormat { get; set; } = 2;
+        public int LogFormat { get; set; }
     }
 }

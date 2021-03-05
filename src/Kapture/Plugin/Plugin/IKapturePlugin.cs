@@ -19,6 +19,7 @@ namespace KapturePlugin
         DataManager DataManager { get; }
         List<LootRoll> LootRolls { get; }
         List<LootRoll> LootRollsDisplay { get; set; }
+        LootLogger LootLogger { get; set; }
         void SaveConfig();
         string GetSeIcon(SeIconChar seIconChar);
         void LogInfo(string messageTemplate);

@@ -9,26 +9,36 @@ using System.Timers;
 
 namespace KapturePlugin
 {
-    public class Kapture
+    public class LootLogger
     {
-        private readonly int _csvSchemaVersion = 1;
-        private readonly string _fileName;
-        private readonly Queue<string> _logEventQueue = new Queue<string>();
-        private readonly Timer _writeTimer;
+        private readonly Queue<LootEvent> _logEventQueue = new Queue<LootEvent>();
         private readonly IKapturePlugin _plugin;
+        private readonly Timer _writeTimer;
         private bool _isProcessing = true;
 
-        public Kapture(IKapturePlugin plugin)
+        public LootLogger(IKapturePlugin plugin)
         {
             _plugin = plugin;
-            _fileName = "Loot_v" + _csvSchemaVersion + ".csv";
-            var alreadyExists = _plugin.DataManager.DoesDataFileExist(_fileName);
-            _plugin.DataManager.InitDataFiles(new[] {_fileName});
-            if (!alreadyExists) _plugin.DataManager.SaveDataStr(_fileName, LootEvent.GetCsvHeadings() + Environment.NewLine);
+            SetLogFormat();
             _writeTimer = new Timer
                 {Interval = _plugin.Configuration.WriteToLogFrequency, Enabled = true};
             _writeTimer.Elapsed += WriteToLogFile;
             _isProcessing = false;
+        }
+
+        public void SetLogFormat()
+        {
+            var logFormat = LogFormat.GetLogFormatByCode(_plugin.Configuration.LogFormat);
+            var fileName = LogFormat.GetFileName(logFormat);
+            var alreadyExists = _plugin.DataManager.DoesDataFileExist(fileName);
+            _plugin.DataManager.InitDataFiles(new[] {fileName});
+            if (!alreadyExists)
+            {
+                if (logFormat == LogFormat.CSV)
+                    _plugin.DataManager.SaveDataStr(fileName, LootEvent.GetCsvHeadings() + Environment.NewLine);
+                else
+                    _plugin.DataManager.CreateDataFile(fileName);
+            }
         }
 
         private void WriteToLogFile(object sender, ElapsedEventArgs e)
@@ -37,14 +47,10 @@ namespace KapturePlugin
             {
                 if (_isProcessing) return;
                 _isProcessing = true;
-                var logEventsData = new List<string>();
-                while (_logEventQueue.Count > 0)
-                {
-                    var logEventData = _logEventQueue.Dequeue();
-                    logEventsData.Add(logEventData);
-                }
-
-                if (logEventsData.Count > 0) _plugin.DataManager.AppendDataStr(_fileName, logEventsData);
+                var logFormat = LogFormat.GetLogFormatByCode(_plugin.Configuration.LogFormat);
+                var fileName = LogFormat.GetFileName(logFormat);
+                var logEventsData = BuildData(logFormat);
+                if (logEventsData.Count > 0) _plugin.DataManager.AppendDataStr(fileName, logEventsData);
             }
             catch (Exception ex)
             {
@@ -54,12 +60,35 @@ namespace KapturePlugin
             _isProcessing = false;
         }
 
+        private List<string> BuildData(LogFormat logFormat)
+        {
+            var logEventsData = new List<string>();
+            if (logFormat == LogFormat.CSV)
+                while (_logEventQueue.Count > 0)
+                {
+                    var logEvent = _logEventQueue.Dequeue();
+                    logEventsData.Add(logEvent.ToCsv());
+                }
+            else if (logFormat == LogFormat.JSON)
+                while (_logEventQueue.Count > 0)
+                {
+                    var logEvent = _logEventQueue.Dequeue();
+                    logEventsData.Add(logEvent.ToString());
+                }
+            else if (logFormat == LogFormat.ChatLog)
+                while (_logEventQueue.Count > 0)
+                {
+                    var logEvent = _logEventQueue.Dequeue();
+                    logEventsData.Add(logEvent.LootMessage.Message);
+                }
+
+            return logEventsData;
+        }
+
         public void LogLoot(LootEvent lootEvent)
         {
             if (lootEvent == null) return;
-            var lootEventCsv = lootEvent.ToCsv();
-            if (string.IsNullOrEmpty(lootEventCsv)) return;
-            _logEventQueue.Enqueue(lootEventCsv);
+            _logEventQueue.Enqueue(lootEvent);
         }
 
         public void Dispose()

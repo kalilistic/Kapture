@@ -675,6 +675,7 @@ namespace KapturePlugin
 
         private void DrawLog()
         {
+            // logging enabled
             var loggingEnabled = _plugin.Configuration.LoggingEnabled;
             if (ImGui.Checkbox(
                 Loc.Localize("LoggingEnabled", "Enable Logging") +
@@ -683,6 +684,22 @@ namespace KapturePlugin
             {
                 _plugin.Configuration.LoggingEnabled = loggingEnabled;
                 _plugin.SaveConfig();
+                if (loggingEnabled) _plugin.LootLogger.SetLogFormat();
+            }
+
+            // log format
+            ImGui.Text(Loc.Localize("LogFormat", "LogFormat"));
+            CustomWidgets.HelpMarker(Loc.Localize("LogFormat_HelpMarker",
+                "set format for log file with loot info"));
+            ImGui.Spacing();
+            var pluginLogFormat = _plugin.Configuration.LogFormat;
+            if (ImGui.Combo("###Kapture_LogFormat_Combo", ref pluginLogFormat,
+                LogFormat.LogFormatNames.ToArray(),
+                LogFormat.LogFormatNames.Count))
+            {
+                _plugin.Configuration.LogFormat = pluginLogFormat;
+                _plugin.SaveConfig();
+                _plugin.LootLogger.SetLogFormat();
             }
         }
 

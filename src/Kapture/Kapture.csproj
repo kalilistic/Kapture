@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="Common\Model\PrimaryKey.cs" />
     <Compile Include="Common\Model\ModifierKey.cs" />
+    <Compile Include="Model\LogFormat.cs" />
     <Compile Include="Model\LootEvent.cs" />
     <Compile Include="Model\LootEventType.cs" />
     <Compile Include="Model\LootMessageType.cs" />
