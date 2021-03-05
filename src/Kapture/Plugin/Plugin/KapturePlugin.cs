@@ -285,6 +285,7 @@ namespace KapturePlugin
             LogInfo("Running command {0} with args {1}", command, args);
             Configuration.ShowLootOverlay = !Configuration.ShowLootOverlay;
             _pluginUI.LootOverlayWindow.IsVisible = !_pluginUI.LootOverlayWindow.IsVisible;
+            SaveConfig();
         }
 
         private void ToggleRollOverlay(string command, string args)
@@ -292,6 +293,7 @@ namespace KapturePlugin
             LogInfo("Running command {0} with args {1}", command, args);
             Configuration.ShowRollMonitorOverlay = !Configuration.ShowRollMonitorOverlay;
             _pluginUI.RollMonitorOverlayWindow.IsVisible = !_pluginUI.RollMonitorOverlayWindow.IsVisible;
+            SaveConfig();
         }
 
         private void ToggleConfig(string command, string args)

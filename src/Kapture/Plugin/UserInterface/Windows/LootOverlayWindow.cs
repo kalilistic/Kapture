@@ -26,7 +26,7 @@ namespace KapturePlugin
 
         public override void DrawView()
         {
-            if (ShowOverlay()) return;
+            if (!ShowOverlay()) return;
             var isVisible = IsVisible;
             _uiScale = ImGui.GetIO().FontGlobalScale;
             ImGui.SetNextWindowSize(new Vector2(300 * _uiScale, 150 * _uiScale), ImGuiCond.FirstUseEver);

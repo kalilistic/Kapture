@@ -11,15 +11,15 @@ namespace KapturePlugin
         public int PluginLanguage { get; set; }
         public bool ShowLootOverlay { get; set; } = true;
         public bool ShowRollMonitorOverlay { get; set; } = true;
-        public bool AddEnabled { get; set; }
-        public bool CastEnabled { get; set; }
+        public bool AddEnabled { get; set; } = true;
+        public bool CastEnabled { get; set; } = true;
         public bool CraftEnabled { get; set; }
         public bool DesynthEnabled { get; set; }
         public bool DiscardEnabled { get; set; }
         public bool GatherEnabled { get; set; }
-        public bool GreedEnabled { get; set; }
-        public bool LostEnabled { get; set; }
-        public bool NeedEnabled { get; set; }
+        public bool GreedEnabled { get; set; } = true;
+        public bool LostEnabled { get; set; } = true;
+        public bool NeedEnabled { get; set; } = true;
         public bool ObtainEnabled { get; set; } = true;
         public bool PurchaseEnabled { get; set; }
         public bool SearchEnabled { get; set; }
