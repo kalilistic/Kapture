@@ -764,7 +764,7 @@ namespace KapturePlugin
         {
             var buttonSize = new Vector2(120f * _uiScale, 25f * _uiScale);
             if (ImGui.Button(Loc.Localize("OpenGithub", "Github") + "###Kapture_OpenGithub_Button", buttonSize))
-                Process.Start("https://github.com/kalilistic/Kapture");
+                Process.Start("https://github.com/kalilistic/Dalamud.Kapture");
             if (ImGui.Button(
                 Loc.Localize("ImproveTranslate", "Translations") + "###Kapture_ImproveTranslate_Button",
                 buttonSize))

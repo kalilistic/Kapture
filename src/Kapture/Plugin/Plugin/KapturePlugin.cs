@@ -21,9 +21,10 @@ namespace KapturePlugin
     {
         private DalamudPluginInterface _pluginInterface;
         private PluginUI _pluginUI;
+        private const string _repoName = "Dalamud.Kapture";
 
         public KapturePlugin(string pluginName, DalamudPluginInterface pluginInterface) : base(pluginName,
-            pluginInterface)
+            pluginInterface, _repoName)
         {
             Task.Run(() =>
             {
