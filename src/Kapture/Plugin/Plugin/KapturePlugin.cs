@@ -167,9 +167,53 @@ namespace KapturePlugin
             };
             RollMonitor.ProcessRoll(event4);
             LootEvents.Add(event4);
+            
+            // need roll
+            var event5 = new LootEvent
+            {
+                LootEventType = LootEventType.Need,
+                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Need),
+                Timestamp = DateUtil.CurrentTime(),
+                LootEventId = Guid.NewGuid(),
+                TerritoryTypeId = 1,
+                ContentId = 1,
+                LootMessage = new LootMessage
+                {
+                    ItemId = 1,
+                    ItemName = "Boiled Egg"
+                },
+                ItemDisplayName = "Boiled Egg",
+                PlayerName = "April O'Neil",
+                PlayerDisplayName = "April O'Neil",
+                Roll = 23
+            };
+            RollMonitor.ProcessRoll(event5);
+            LootEvents.Add(event5);
+            
+            // need roll again
+            var event6 = new LootEvent
+            {
+                LootEventType = LootEventType.Need,
+                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Need),
+                Timestamp = DateUtil.CurrentTime(),
+                LootEventId = Guid.NewGuid(),
+                TerritoryTypeId = 1,
+                ContentId = 1,
+                LootMessage = new LootMessage
+                {
+                    ItemId = 1,
+                    ItemName = "Boiled Egg"
+                },
+                ItemDisplayName = "Boiled Egg",
+                PlayerName = "Wyatt Earp",
+                PlayerDisplayName = "Wyatt Earp",
+                Roll = 94
+            };
+            RollMonitor.ProcessRoll(event6);
+            LootEvents.Add(event6);
 
             // obtain
-            var event5 = new LootEvent
+            var event7 = new LootEvent
             {
                 LootEventType = LootEventType.Obtain,
                 LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Obtain),
@@ -186,8 +230,8 @@ namespace KapturePlugin
                 PlayerName = "Wyatt Earp",
                 PlayerDisplayName = "Wyatt Earp"
             };
-            RollMonitor.ProcessRoll(event5);
-            LootEvents.Add(event5);
+            RollMonitor.ProcessRoll(event7);
+            LootEvents.Add(event7);
         }
 
         public void ClearData()

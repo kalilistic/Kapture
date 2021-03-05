@@ -41,5 +41,6 @@ namespace KapturePlugin
         public int LogFormat { get; set; }
         public int RollDisplayMode { get; set; }
         public int LootDisplayMode { get; set; }
+        public bool ShowRollNumbers { get; set; }
     }
 }

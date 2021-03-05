@@ -8,9 +8,10 @@ namespace KapturePlugin
         public long Timestamp { get; set; }
         public uint ItemId { get; set; }
         public string ItemName { get; set; } = string.Empty;
-        public List<string> Rollers { get; } = new List<string>();
+        public List<LootRoller> Rollers { get; } = new List<LootRoller>();
         public string RollersDisplay { get; set; } = string.Empty;
         public string Winner { get; set; } = string.Empty;
+        public bool IsWon { get; set; }
 
         public override string ToString()
         {

@@ -47,7 +47,7 @@ namespace KapturePlugin
             if (!IsVisible) return;
             var isVisible = IsVisible;
             _uiScale = ImGui.GetIO().FontGlobalScale;
-            ImGui.SetNextWindowSize(new Vector2(440 * _uiScale, 300 * _uiScale), ImGuiCond.Appearing);
+            ImGui.SetNextWindowSize(new Vector2(440 * _uiScale, 380 * _uiScale), ImGuiCond.Appearing);
             if (ImGui.Begin(Loc.Localize("SettingsWindow", "Kapture Settings") + "###Kapture_Settings_Window",
                 ref isVisible,
                 ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoScrollbar))
@@ -269,6 +269,19 @@ namespace KapturePlugin
                 "show roll monitor overlay window"));
             ImGui.Spacing();
             
+            // show rolls
+            var showRollNumbers = _plugin.Configuration.ShowRollNumbers;
+            if (ImGui.Checkbox(
+                Loc.Localize("ShowRollNumbers", "Show Roll Numbers") + "###Kapture_ShowRollNumbers_Checkbox",
+                ref showRollNumbers))
+            {
+                _plugin.Configuration.ShowRollNumbers = showRollNumbers;
+                _plugin.SaveConfig();
+            }
+            CustomWidgets.HelpMarker(Loc.Localize("ShowRollNumbers_HelpMarker",
+                "show the actual roll numbers when available"));
+            ImGui.Spacing();
+            
             // show roller count
             var showRollerCount = _plugin.Configuration.ShowRollerCount;
             if (ImGui.Checkbox(
@@ -278,7 +291,6 @@ namespace KapturePlugin
                 _plugin.Configuration.ShowRollerCount = showRollerCount;
                 _plugin.SaveConfig();
             }
-
             CustomWidgets.HelpMarker(Loc.Localize("ShowRollerCount_HelpMarker",
                 "show number of rollers on roll monitor overlay"));
             ImGui.Spacing();

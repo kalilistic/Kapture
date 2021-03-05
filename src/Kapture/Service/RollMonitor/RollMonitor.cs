@@ -49,7 +49,6 @@ namespace KapturePlugin.RollMonitor
                 }
             }
         }
-
         public void ProcessRoll(LootEvent lootEvent)
         {
             lock (Lock)
@@ -71,23 +70,61 @@ namespace KapturePlugin.RollMonitor
                         case LootEventType.Cast:
                         {
                             var lootRoll = _plugin.LootRolls.FirstOrDefault(roll =>
-                                roll.ItemId == lootEvent.LootMessage.ItemId && string.IsNullOrEmpty(roll.Winner) &&
-                                !roll.Rollers.Contains(lootEvent.PlayerName));
+                                roll.ItemId == lootEvent.LootMessage.ItemId && !roll.IsWon &&
+                                !roll.Rollers.Any(roller => roller.PlayerName.Equals(lootEvent.PlayerName)));
                             if (lootRoll == null) return;
-                            lootRoll.Rollers.Add(lootEvent.PlayerName);
+                            lootRoll.Rollers.Add(new LootRoller { PlayerName = lootEvent.PlayerName});
                             var rollers = lootRoll.Rollers.Select(roller =>
-                                _plugin.FormatPlayerName(_plugin.Configuration.RollNameFormat, roller)).ToList();
+                                _plugin.FormatPlayerName(_plugin.Configuration.RollNameFormat, roller.PlayerName)).ToList();
                             lootRoll.RollersDisplay = string.Join(", ", rollers);
                             if (_plugin.Configuration.ShowRollerCount)
                                 lootRoll.RollersDisplay = "[" + rollers.Count + "] " + lootRoll.RollersDisplay;
+                            break;
+                        }
+                        case LootEventType.Need:
+                        case LootEventType.Greed:
+                        {
+                            var lootRoll = _plugin.LootRolls.FirstOrDefault(roll =>
+                                roll.ItemId == lootEvent.LootMessage.ItemId && !roll.IsWon &&
+                                roll.Rollers.Any(roller =>
+                                    roller.PlayerName.Equals(lootEvent.PlayerName) && roller.Roll == 0));
+                            var lootRoller = lootRoll?.Rollers.FirstOrDefault(roller =>
+                                roller.PlayerName.Equals(lootEvent.PlayerName) && roller.Roll == 0);
+                            if (lootRoller == null) return;
+                            lootRoller.Roll = lootEvent.Roll;
+                            var rollers = new List<string>();
+                            if (_plugin.Configuration.ShowRollNumbers)
+                            {
+                                foreach (var roller in lootRoll.Rollers)
+                                {
+                                    if (roller.Roll == 0)
+                                    {
+                                        rollers.Add(_plugin.FormatPlayerName(_plugin.Configuration.RollNameFormat,
+                                            roller.PlayerName));
+                                    }
+                                    else
+                                    {
+                                        rollers.Add(_plugin.FormatPlayerName(_plugin.Configuration.RollNameFormat,
+                                            roller.PlayerName) + "[" + roller.Roll + "]");
+                                    }
+                                }
+                                lootRoll.RollersDisplay = string.Join(", ", rollers);
+                                if (_plugin.Configuration.ShowRollerCount)
+                                    lootRoll.RollersDisplay = "[" + rollers.Count + "] " + lootRoll.RollersDisplay; 
+                            }
                             break;
                         }
                         case LootEventType.Obtain:
                         {
                             var lootRoll =
                                 _plugin.LootRolls.FirstOrDefault(roll =>
-                                    roll.ItemId == lootEvent.LootMessage.ItemId && string.IsNullOrEmpty(roll.Winner));
+                                    roll.ItemId == lootEvent.LootMessage.ItemId && !roll.IsWon);
                             if (lootRoll == null) return;
+                            var winningRoller = lootRoll.Rollers.FirstOrDefault(roller => roller.PlayerName.Equals(lootEvent.PlayerName));
+                            if (winningRoller != null)
+                            {
+                                winningRoller.IsWinner = true;
+                            }
                             lootRoll.Winner =
                                 _plugin.FormatPlayerName(_plugin.Configuration.RollNameFormat, lootEvent.PlayerName);
                             break;
@@ -96,8 +133,9 @@ namespace KapturePlugin.RollMonitor
                         {
                             var lootRoll =
                                 _plugin.LootRolls.FirstOrDefault(roll =>
-                                    roll.ItemId == lootEvent.LootMessage.ItemId && string.IsNullOrEmpty(roll.Winner));
+                                    roll.ItemId == lootEvent.LootMessage.ItemId && !roll.IsWon);
                             if (lootRoll == null) return;
+                            lootRoll.IsWon = true;
                             lootRoll.Winner = Loc.Localize("RollMonitorLost", "Dropped to floor");
                             break;
                         }
