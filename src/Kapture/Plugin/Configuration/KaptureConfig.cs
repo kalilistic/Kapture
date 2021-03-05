@@ -4,7 +4,8 @@ namespace KapturePlugin
 {
     public abstract class KaptureConfig
     {
-        public int RollMonitorTimeout = 600000;
+        public int RollMonitorObtainedTimeout = 10000;
+        public int RollMonitorAddedTimeout = 600000;
         public bool FreshInstall { get; set; } = true;
         public bool Enabled { get; set; } = true;
         public int PluginLanguage { get; set; }
@@ -38,5 +39,7 @@ namespace KapturePlugin
         public int LootNameFormat { get; set; }
         public int RollNameFormat { get; set; } = 2;
         public int LogFormat { get; set; }
+        public int RollDisplayMode { get; set; }
+        public int LootDisplayMode { get; set; }
     }
 }

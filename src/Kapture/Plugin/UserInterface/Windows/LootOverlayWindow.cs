@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Configuration;
+using System.Linq;
 using System.Numerics;
 using CheapLoc;
 using ImGuiNET;
@@ -15,12 +16,17 @@ namespace KapturePlugin
             _plugin = plugin;
         }
 
+        private bool ShowOverlay()
+        {
+            return !_plugin.IsInitializing && _plugin.IsLoggedIn() && _plugin.Configuration.Enabled && IsVisible &&
+                   (_plugin.Configuration.LootDisplayMode == DisplayMode.AlwaysOn.Code ||
+                    _plugin.Configuration.LootDisplayMode == DisplayMode.ContentOnly.Code && _plugin.InContent ||
+                    _plugin.Configuration.LootDisplayMode == DisplayMode.DuringRollsOnly.Code && _plugin.IsRolling);
+        }
+
         public override void DrawView()
         {
-            if (_plugin.IsInitializing) return;
-            if (!_plugin.IsLoggedIn()) return;
-            if (!_plugin.Configuration.Enabled) return;
-            if (!IsVisible) return;
+            if (ShowOverlay()) return;
             var isVisible = IsVisible;
             _uiScale = ImGui.GetIO().FontGlobalScale;
             ImGui.SetNextWindowSize(new Vector2(300 * _uiScale, 150 * _uiScale), ImGuiCond.FirstUseEver);

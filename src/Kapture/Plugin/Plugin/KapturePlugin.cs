@@ -52,6 +52,8 @@ namespace KapturePlugin
         public List<LootRoll> LootRollsDisplay { get; set; } = new List<LootRoll>();
         public DataManager DataManager { get; private set; }
         public KaptureConfig Configuration { get; private set; }
+        public bool InContent { get; set; }
+        public bool IsRolling { get; set; }
 
         public void SaveConfig()
         {
@@ -326,12 +328,15 @@ namespace KapturePlugin
             if (Configuration.RestrictInCombat && InCombat()) return;
 
             // remove old rolls if monitor is enabled
-            if (Configuration.ShowRollMonitorOverlay) RollMonitor.RemoveOldRolls();
+            if (Configuration.ShowRollMonitorOverlay) RollMonitor.UpdateRolls();
 
             // lookup territory and content
             var xivChatType = (ushort) type;
             var territoryTypeId = GetTerritoryType();
             var contentId = GetContentId(territoryTypeId);
+            
+            // update content
+            InContent = contentId != 0;
 
             // restrict by user settings
             if (Configuration.RestrictToContent && contentId == 0) return;

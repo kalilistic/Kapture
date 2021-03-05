@@ -47,7 +47,7 @@ namespace KapturePlugin
             if (!IsVisible) return;
             var isVisible = IsVisible;
             _uiScale = ImGui.GetIO().FontGlobalScale;
-            ImGui.SetNextWindowSize(new Vector2(440 * _uiScale, 250 * _uiScale), ImGuiCond.Appearing);
+            ImGui.SetNextWindowSize(new Vector2(440 * _uiScale, 300 * _uiScale), ImGuiCond.Appearing);
             if (ImGui.Begin(Loc.Localize("SettingsWindow", "Kapture Settings") + "###Kapture_Settings_Window",
                 ref isVisible,
                 ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoScrollbar))
@@ -222,7 +222,21 @@ namespace KapturePlugin
                 "show loot overlay window"));
             ImGui.Spacing();
 
-
+            // display mode
+            ImGui.Text(Loc.Localize("LootDisplayMode", "Display Mode"));
+            CustomWidgets.HelpMarker(Loc.Localize("LootDisplayMode_HelpMarker",
+                "when to show loot overlay"));
+            ImGui.Spacing();
+            var pluginLootDisplayMode = _plugin.Configuration.LootDisplayMode;
+            if (ImGui.Combo("###Kapture_LootDisplayMode_Combo", ref pluginLootDisplayMode,
+                DisplayMode.DisplayModeNames.ToArray(),
+                DisplayMode.DisplayModeNames.Count))
+            {
+                _plugin.Configuration.LootDisplayMode = pluginLootDisplayMode;
+                _plugin.SaveConfig();
+            }
+            ImGui.Spacing();
+            
             // loot name format
             ImGui.Text(Loc.Localize("LootNameFormat", "Name Format"));
             CustomWidgets.HelpMarker(Loc.Localize("LootNameFormat_HelpMarker",
@@ -254,7 +268,7 @@ namespace KapturePlugin
             CustomWidgets.HelpMarker(Loc.Localize("ShowRollOverlay_HelpMarker",
                 "show roll monitor overlay window"));
             ImGui.Spacing();
-
+            
             // show roller count
             var showRollerCount = _plugin.Configuration.ShowRollerCount;
             if (ImGui.Checkbox(
@@ -268,7 +282,22 @@ namespace KapturePlugin
             CustomWidgets.HelpMarker(Loc.Localize("ShowRollerCount_HelpMarker",
                 "show number of rollers on roll monitor overlay"));
             ImGui.Spacing();
-
+            
+            // display mode
+            ImGui.Text(Loc.Localize("RollDisplayMode", "Display Mode"));
+            CustomWidgets.HelpMarker(Loc.Localize("RollDisplayMode_HelpMarker",
+                "when to show roll monitor overlay"));
+            ImGui.Spacing();
+            var pluginRollDisplayMode = _plugin.Configuration.RollDisplayMode;
+            if (ImGui.Combo("###Kapture_RollDisplayMode_Combo", ref pluginRollDisplayMode,
+                DisplayMode.DisplayModeNames.ToArray(),
+                DisplayMode.DisplayModeNames.Count))
+            {
+                _plugin.Configuration.RollDisplayMode = pluginRollDisplayMode;
+                _plugin.SaveConfig();
+            }
+            ImGui.Spacing();
+            
             // roll name format
             ImGui.Text(Loc.Localize("RollNameFormat", "Name Format"));
             CustomWidgets.HelpMarker(Loc.Localize("RollNameFormat_HelpMarker",
@@ -282,22 +311,34 @@ namespace KapturePlugin
                 _plugin.Configuration.RollNameFormat = pluginRollNameFormat;
                 _plugin.SaveConfig();
             }
-
+            ImGui.Spacing();
+            
+            // roll timeout
+            ImGui.Text(Loc.Localize("RollMonitorAddedTimeout", "Show Added Items (minutes)"));
+            CustomWidgets.HelpMarker(Loc.Localize("RollMonitorAddedTimeout_HelpMarker",
+                "amount of time before removing added items from roll monitor"));
+            var RollMonitorAddedTimeout =
+                _plugin.Configuration.RollMonitorAddedTimeout.FromMillisecondsToMinutes();
+            if (ImGui.SliderInt("###PlayerTrack_RollMonitorAddedTimeout_Slider", ref RollMonitorAddedTimeout, 5, 60))
+            {
+                _plugin.Configuration.RollMonitorAddedTimeout =
+                    RollMonitorAddedTimeout.FromMinutesToMilliseconds();
+                _plugin.SaveConfig();
+            }
             ImGui.Spacing();
 
             // roll timeout
-            ImGui.Text(Loc.Localize("RollMonitorTimeout", "Show Rolled Items (minutes)"));
-            CustomWidgets.HelpMarker(Loc.Localize("RollMonitorTimeout_HelpMarker",
-                "amount of time before removing items from roll monitor"));
-            var RollMonitorTimeout =
-                _plugin.Configuration.RollMonitorTimeout.FromMillisecondsToMinutes();
-            if (ImGui.SliderInt("###PlayerTrack_RollMonitorTimeout_Slider", ref RollMonitorTimeout, 5, 60))
+            ImGui.Text(Loc.Localize("RollMonitorObtainedTimeout", "Show Obtained Items (seconds)"));
+            CustomWidgets.HelpMarker(Loc.Localize("RollMonitorObtainedTimeout_HelpMarker",
+                "amount of time before removing obtained/lost items from roll monitor"));
+            var RollMonitorObtainedTimeout =
+                _plugin.Configuration.RollMonitorObtainedTimeout.FromMillisecondsToSeconds();
+            if (ImGui.SliderInt("###PlayerTrack_RollMonitorObtainedTimeout_Slider", ref RollMonitorObtainedTimeout, 5, 60))
             {
-                _plugin.Configuration.RollMonitorTimeout =
-                    RollMonitorTimeout.FromMinutesToMilliseconds();
+                _plugin.Configuration.RollMonitorObtainedTimeout =
+                    RollMonitorObtainedTimeout.FromSecondsToMilliseconds();
                 _plugin.SaveConfig();
             }
-
             ImGui.Spacing();
         }
 

@@ -28,7 +28,7 @@ namespace KapturePlugin.RollMonitor
                 JsonConvert.DeserializeObject<List<LootRoll>>(JsonConvert.SerializeObject(_plugin.LootRolls));
         }
 
-        public void RemoveOldRolls()
+        public void UpdateRolls()
         {
             lock (Lock)
             {
@@ -36,8 +36,11 @@ namespace KapturePlugin.RollMonitor
                 {
                     if (_plugin.LootRolls.Count == 0) return;
                     var currentTime = DateUtil.CurrentTime();
-                    _plugin.LootRolls.RemoveAll(roll =>
-                        currentTime - roll.Timestamp > _plugin.Configuration.RollMonitorTimeout);
+                    _plugin.LootRolls.RemoveAll(roll => string.IsNullOrEmpty(roll.Winner) &&
+                        currentTime - roll.Timestamp > _plugin.Configuration.RollMonitorAddedTimeout);
+                    _plugin.LootRolls.RemoveAll(roll => !string.IsNullOrEmpty(roll.Winner) && 
+                        currentTime - roll.Timestamp > _plugin.Configuration.RollMonitorObtainedTimeout);
+                    _plugin.IsRolling = _plugin.LootRolls.Count > 0;
                     CreateDisplayList();
                 }
                 catch (Exception ex)

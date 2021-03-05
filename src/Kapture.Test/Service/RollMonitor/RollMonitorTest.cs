@@ -138,7 +138,7 @@ namespace KapturePlugin.Test
         public void TimeoutTest()
         {
             // set timeout
-            _kapturePlugin.Configuration.RollMonitorTimeout = 1;
+            _kapturePlugin.Configuration.RollMonitorAddedTimeout = 1;
 
             // add item
             var lootEvent1 = BuildTestEvent();
@@ -147,7 +147,7 @@ namespace KapturePlugin.Test
 
             // try to remove roll
             Thread.Sleep(1000);
-            _kapturePlugin.RollMonitor.RemoveOldRolls();
+            _kapturePlugin.RollMonitor.UpdateRolls();
 
             Assert.AreEqual(0, _kapturePlugin.LootRolls.Count);
         }

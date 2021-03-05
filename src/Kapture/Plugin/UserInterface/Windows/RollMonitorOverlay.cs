@@ -15,12 +15,17 @@ namespace KapturePlugin
             _plugin = plugin;
         }
 
+        private bool ShowOverlay()
+        {
+            return !_plugin.IsInitializing && _plugin.IsLoggedIn() && _plugin.Configuration.Enabled && IsVisible &&
+                   (_plugin.Configuration.RollDisplayMode == DisplayMode.AlwaysOn.Code ||
+                    _plugin.Configuration.RollDisplayMode == DisplayMode.ContentOnly.Code && _plugin.InContent ||
+                    _plugin.Configuration.RollDisplayMode == DisplayMode.DuringRollsOnly.Code && _plugin.IsRolling);
+        }
+        
         public override void DrawView()
         {
-            if (_plugin.IsInitializing) return;
-            if (!_plugin.IsLoggedIn()) return;
-            if (!_plugin.Configuration.Enabled) return;
-            if (!IsVisible) return;
+            if (ShowOverlay()) return;
             var isVisible = IsVisible;
             _uiScale = ImGui.GetIO().FontGlobalScale;
             ImGui.SetNextWindowSize(new Vector2(300 * _uiScale, 150 * _uiScale), ImGuiCond.FirstUseEver);

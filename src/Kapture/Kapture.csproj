@@ -123,6 +123,7 @@
     <Compile Include="Model\LogKind.cs" />
     <Compile Include="Model\LootRoll.cs" />
     <Compile Include="Model\NameFormat.cs" />
+    <Compile Include="Model\DisplayMode.cs" />
     <Compile Include="Plugin\Configuration\PluginConfig.cs" />
     <Compile Include="Plugin\Configuration\KaptureConfig.cs" />
     <Compile Include="Plugin\Plugin\IKapturePlugin.cs" />

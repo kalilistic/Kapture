@@ -30,5 +30,7 @@ namespace KapturePlugin
         bool IsLoggedIn();
         void LoadTestData();
         void ClearData();
+        bool InContent { get; set; }
+        bool IsRolling { get; set; }
     }
 }
