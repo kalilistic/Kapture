@@ -720,6 +720,10 @@ namespace KapturePlugin
                 Loc.Localize("ClearData", "Clear Data") + "###Kapture_ClearData_Button",
                 buttonSize))
                 _plugin.ClearData();
+            if (ImGui.Button(
+                Loc.Localize("OpenLogs", "Open Logs") + "###Kapture_OpenLogs_Button",
+                buttonSize))
+                Process.Start(_plugin.DataManager.DataPath);
         }
 
         private enum Tab
