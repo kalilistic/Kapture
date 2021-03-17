@@ -1,5 +1,6 @@
 ﻿// ReSharper disable FieldCanBeMadeReadOnly.Global
 // ReSharper disable ConvertToConstant.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Global
 
 using System.Collections.Generic;
 
@@ -46,5 +47,7 @@ namespace Kapture
         public int RollDisplayMode { get; set; }
         public int LootDisplayMode { get; set; }
         public bool ShowRollNumbers { get; set; }
+        public bool LogLootMessages { get; set; }
+        public bool LogLootEvents { get; set; }
     }
 }

@@ -427,11 +427,17 @@ namespace Kapture
             // filter out non-permitted item ids
             if (Configuration.RestrictToCustomItems && !Configuration.PermittedItems.Contains(lootMessage.ItemId)) return;
 
+            // log for debugging
+            if (Configuration.LogLootMessages) LogInfo(lootMessage.ToString());
+
             // send to loot processor
             var lootEvent = LootProcessor.ProcessLoot(lootMessage);
 
             // kick out if didn't process
             if (lootEvent == null) return;
+
+            // log for debugging
+            if (Configuration.LogLootEvents) LogInfo(lootEvent.ToString());
 
             // enrich
             lootEvent.Timestamp = DateUtil.CurrentTime();
