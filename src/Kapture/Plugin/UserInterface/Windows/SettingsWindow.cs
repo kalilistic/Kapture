@@ -235,8 +235,9 @@ namespace KapturePlugin
                 _plugin.Configuration.LootDisplayMode = pluginLootDisplayMode;
                 _plugin.SaveConfig();
             }
+
             ImGui.Spacing();
-            
+
             // loot name format
             ImGui.Text(Loc.Localize("LootNameFormat", "Name Format"));
             CustomWidgets.HelpMarker(Loc.Localize("LootNameFormat_HelpMarker",
@@ -268,7 +269,7 @@ namespace KapturePlugin
             CustomWidgets.HelpMarker(Loc.Localize("ShowRollOverlay_HelpMarker",
                 "show roll monitor overlay window"));
             ImGui.Spacing();
-            
+
             // show rolls
             var showRollNumbers = _plugin.Configuration.ShowRollNumbers;
             if (ImGui.Checkbox(
@@ -278,10 +279,11 @@ namespace KapturePlugin
                 _plugin.Configuration.ShowRollNumbers = showRollNumbers;
                 _plugin.SaveConfig();
             }
+
             CustomWidgets.HelpMarker(Loc.Localize("ShowRollNumbers_HelpMarker",
                 "show the actual roll numbers when available"));
             ImGui.Spacing();
-            
+
             // show roller count
             var showRollerCount = _plugin.Configuration.ShowRollerCount;
             if (ImGui.Checkbox(
@@ -291,10 +293,11 @@ namespace KapturePlugin
                 _plugin.Configuration.ShowRollerCount = showRollerCount;
                 _plugin.SaveConfig();
             }
+
             CustomWidgets.HelpMarker(Loc.Localize("ShowRollerCount_HelpMarker",
                 "show number of rollers on roll monitor overlay"));
             ImGui.Spacing();
-            
+
             // display mode
             ImGui.Text(Loc.Localize("RollDisplayMode", "Display Mode"));
             CustomWidgets.HelpMarker(Loc.Localize("RollDisplayMode_HelpMarker",
@@ -308,8 +311,9 @@ namespace KapturePlugin
                 _plugin.Configuration.RollDisplayMode = pluginRollDisplayMode;
                 _plugin.SaveConfig();
             }
+
             ImGui.Spacing();
-            
+
             // roll name format
             ImGui.Text(Loc.Localize("RollNameFormat", "Name Format"));
             CustomWidgets.HelpMarker(Loc.Localize("RollNameFormat_HelpMarker",
@@ -323,8 +327,9 @@ namespace KapturePlugin
                 _plugin.Configuration.RollNameFormat = pluginRollNameFormat;
                 _plugin.SaveConfig();
             }
+
             ImGui.Spacing();
-            
+
             // roll timeout
             ImGui.Text(Loc.Localize("RollMonitorAddedTimeout", "Show Added Items (minutes)"));
             CustomWidgets.HelpMarker(Loc.Localize("RollMonitorAddedTimeout_HelpMarker",
@@ -337,6 +342,7 @@ namespace KapturePlugin
                     RollMonitorAddedTimeout.FromMinutesToMilliseconds();
                 _plugin.SaveConfig();
             }
+
             ImGui.Spacing();
 
             // roll timeout
@@ -345,12 +351,13 @@ namespace KapturePlugin
                 "amount of time before removing obtained/lost items from roll monitor"));
             var RollMonitorObtainedTimeout =
                 _plugin.Configuration.RollMonitorObtainedTimeout.FromMillisecondsToSeconds();
-            if (ImGui.SliderInt("###PlayerTrack_RollMonitorObtainedTimeout_Slider", ref RollMonitorObtainedTimeout, 5, 60))
+            if (ImGui.SliderInt("###PlayerTrack_RollMonitorObtainedTimeout_Slider", ref RollMonitorObtainedTimeout, 5, 300))
             {
                 _plugin.Configuration.RollMonitorObtainedTimeout =
                     RollMonitorObtainedTimeout.FromSecondsToMilliseconds();
                 _plugin.SaveConfig();
             }
+
             ImGui.Spacing();
         }
 

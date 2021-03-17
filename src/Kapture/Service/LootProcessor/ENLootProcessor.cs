@@ -25,8 +25,8 @@ namespace KapturePlugin
             ProcessLocalPlayerRollGreedRegex = BuildRegex(@"^You roll Greed on *?");
             ProcessOtherPlayerObtainLootRegex = BuildRegex(@""); // not used
             ProcessOtherPlayerRollCastRegex = BuildRegex(@" casts (his|her) lot *?");
-            ProcessOtherPlayerRollNeedRegex = BuildRegex(@"^ rolls Need *?");
-            ProcessOtherPlayerRollGreedRegex = BuildRegex(@"^ rolls Greed *?");
+            ProcessOtherPlayerRollNeedRegex = BuildRegex(@" rolls Need *?");
+            ProcessOtherPlayerRollGreedRegex = BuildRegex(@" rolls Greed *?");
             ProcessAddDesynthSellDesynthRegex = BuildRegex(@"^You desynthesize *?");
             ProcessAddDesynthSellOrchestrationRegex = BuildRegex(@"^ is added to your orchestrion list.$");
             ProcessAddDesynthSellSellRegex = BuildRegex(@"^You sell *?");

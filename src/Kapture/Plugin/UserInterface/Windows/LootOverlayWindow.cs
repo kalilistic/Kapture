@@ -1,5 +1,4 @@
-﻿using System.Configuration;
-using System.Linq;
+﻿using System.Linq;
 using System.Numerics;
 using CheapLoc;
 using ImGuiNET;
@@ -68,7 +67,7 @@ namespace KapturePlugin
                         ImGui.Text(Loc.Localize("WaitingForItems", "Waiting for items."));
                     }
                 }
-                
+
                 IsVisible = isVisible;
             }
 

@@ -1,7 +1,6 @@
 ﻿// ReSharper disable MemberCanBePrivate.Global
 
 using System.Collections.Generic;
-using System.Linq;
 
 namespace KapturePlugin
 {

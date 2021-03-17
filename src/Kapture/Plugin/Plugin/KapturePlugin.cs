@@ -19,9 +19,9 @@ namespace KapturePlugin
 {
     public sealed class KapturePlugin : PluginBase, IKapturePlugin
     {
+        private const string _repoName = "Dalamud.Kapture";
         private DalamudPluginInterface _pluginInterface;
         private PluginUI _pluginUI;
-        private const string _repoName = "Dalamud.Kapture";
 
         public KapturePlugin(string pluginName, DalamudPluginInterface pluginInterface) : base(pluginName,
             pluginInterface, _repoName)
@@ -168,7 +168,7 @@ namespace KapturePlugin
             };
             RollMonitor.ProcessRoll(event4);
             LootEvents.Add(event4);
-            
+
             // need roll
             var event5 = new LootEvent
             {
@@ -190,7 +190,7 @@ namespace KapturePlugin
             };
             RollMonitor.ProcessRoll(event5);
             LootEvents.Add(event5);
-            
+
             // need roll again
             var event6 = new LootEvent
             {
@@ -246,6 +246,7 @@ namespace KapturePlugin
         {
             DisposeListeners();
             LootLogger.Dispose();
+            RollMonitor.Dispose();
             base.Dispose();
             RemoveCommands();
             ClearData();
@@ -374,14 +375,11 @@ namespace KapturePlugin
             // combat check
             if (Configuration.RestrictInCombat && InCombat()) return;
 
-            // remove old rolls if monitor is enabled
-            if (Configuration.ShowRollMonitorOverlay) RollMonitor.UpdateRolls();
-
             // lookup territory and content
             var xivChatType = (ushort) type;
             var territoryTypeId = GetTerritoryType();
             var contentId = GetContentId(territoryTypeId);
-            
+
             // update content
             InContent = contentId != 0;
 
@@ -444,7 +442,7 @@ namespace KapturePlugin
             if (LootProcessor.IsEnabledEvent(lootEvent)) LootEvents.Add(lootEvent);
 
             // process for roll monitor
-            RollMonitor.ProcessRoll(lootEvent);
+            RollMonitor.LootEvents.Enqueue(lootEvent);
 
             // output
             if (Configuration.LoggingEnabled) LootLogger.LogLoot(lootEvent);

@@ -22,7 +22,7 @@ namespace KapturePlugin
                     _plugin.Configuration.RollDisplayMode == DisplayMode.ContentOnly.Code && _plugin.InContent ||
                     _plugin.Configuration.RollDisplayMode == DisplayMode.DuringRollsOnly.Code && _plugin.IsRolling);
         }
-        
+
         public override void DrawView()
         {
             if (!ShowOverlay()) return;
@@ -68,7 +68,7 @@ namespace KapturePlugin
                         ImGui.Text(Loc.Localize("WaitingForItems", "Waiting for items."));
                     }
                 }
-                
+
                 IsVisible = isVisible;
             }
 

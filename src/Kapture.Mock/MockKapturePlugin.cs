@@ -106,6 +106,11 @@ namespace KapturePlugin.Mock
         public bool InContent { get; set; }
         public bool IsRolling { get; set; }
 
+        public bool InCombat()
+        {
+            throw new NotImplementedException();
+        }
+
         public LootLogger LootLogger { get; set; }
 
         public string PluginVersion()

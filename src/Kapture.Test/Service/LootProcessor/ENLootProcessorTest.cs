@@ -297,6 +297,25 @@ namespace KapturePlugin.Test
         }
 
         [Test]
+        public void ProcessOtherPlayerRoll_GreedOtherWorld_Test()
+        {
+            var message = new LootMessage
+            {
+                LootMessageType = LootMessageType.OtherPlayerRoll,
+                MessageParts = new List<string>
+                {
+                    "Gary Oak", "Faerie rolls Greed on ", "", "shadowless necklace of casting", ". 77!"
+                }
+            };
+            var result = _kapturePlugin.LootProcessor.ProcessLoot(message);
+            Assert.IsNotNull(result);
+            Assert.IsFalse(result.IsLocalPlayer);
+            Assert.AreEqual("Gary Oak", result.PlayerName);
+            Assert.AreEqual(77, result.Roll);
+            Assert.AreEqual(LootEventType.Greed, result.LootEventType);
+        }
+
+        [Test]
         public void ProcessAddDesynthSell_Desynth_Test()
         {
             var message = new LootMessage

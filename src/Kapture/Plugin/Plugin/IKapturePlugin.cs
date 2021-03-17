@@ -20,6 +20,8 @@ namespace KapturePlugin
         List<LootRoll> LootRolls { get; }
         List<LootRoll> LootRollsDisplay { get; set; }
         LootLogger LootLogger { get; set; }
+        bool InContent { get; set; }
+        bool IsRolling { get; set; }
         void SaveConfig();
         string GetSeIcon(SeIconChar seIconChar);
         void LogInfo(string messageTemplate);
@@ -30,7 +32,6 @@ namespace KapturePlugin
         bool IsLoggedIn();
         void LoadTestData();
         void ClearData();
-        bool InContent { get; set; }
-        bool IsRolling { get; set; }
+        bool InCombat();
     }
 }

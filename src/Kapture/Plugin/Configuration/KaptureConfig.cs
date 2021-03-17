@@ -1,11 +1,15 @@
-﻿using System.Collections.Generic;
+﻿// ReSharper disable FieldCanBeMadeReadOnly.Global
+// ReSharper disable ConvertToConstant.Global
+
+using System.Collections.Generic;
 
 namespace KapturePlugin
 {
     public abstract class KaptureConfig
     {
-        public int RollMonitorObtainedTimeout = 10000;
         public int RollMonitorAddedTimeout = 600000;
+        public int RollMonitorObtainedTimeout = 10000;
+        public int RollMonitorProcessFrequency = 3000;
         public bool FreshInstall { get; set; } = true;
         public bool Enabled { get; set; } = true;
         public int PluginLanguage { get; set; }
