@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Lumina.Excel.GeneratedSheets;
 using Newtonsoft.Json;
 
-namespace KapturePlugin
+namespace Kapture
 {
     public class LootMessage
     {

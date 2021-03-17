@@ -4,7 +4,7 @@
 using System;
 using Dalamud.Plugin;
 
-namespace KapturePlugin
+namespace Kapture
 {
     public class Plugin : IDalamudPlugin
     {

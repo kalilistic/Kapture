@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace KapturePlugin
+namespace Kapture
 {
     public interface IKapturePlugin
     {

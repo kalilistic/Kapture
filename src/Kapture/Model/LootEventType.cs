@@ -1,4 +1,4 @@
-namespace KapturePlugin
+namespace Kapture
 {
     public enum LootEventType : ushort
     {

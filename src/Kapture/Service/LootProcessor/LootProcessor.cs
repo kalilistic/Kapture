@@ -6,7 +6,7 @@
 using System;
 using System.Text.RegularExpressions;
 
-namespace KapturePlugin
+namespace Kapture
 {
     public abstract class LootProcessor
     {

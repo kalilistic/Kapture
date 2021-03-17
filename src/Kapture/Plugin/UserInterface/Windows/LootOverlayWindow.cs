@@ -3,7 +3,7 @@ using System.Numerics;
 using CheapLoc;
 using ImGuiNET;
 
-namespace KapturePlugin
+namespace Kapture
 {
     public class LootOverlayWindow : WindowBase
     {

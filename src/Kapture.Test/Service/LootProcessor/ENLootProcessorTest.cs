@@ -1,10 +1,10 @@
 ﻿// ReSharper disable NotAccessedField.Local
 
 using System.Collections.Generic;
-using KapturePlugin.Mock;
+using Kapture.Mock;
 using NUnit.Framework;
 
-namespace KapturePlugin.Test
+namespace Kapture.Test
 {
     [TestFixture]
     public class KaptureServiceTest

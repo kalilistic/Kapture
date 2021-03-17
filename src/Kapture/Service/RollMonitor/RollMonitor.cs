@@ -13,7 +13,7 @@ using System.Timers;
 using CheapLoc;
 using Newtonsoft.Json;
 
-namespace KapturePlugin.RollMonitor
+namespace Kapture.RollMonitor
 {
     public class RollMonitor
     {

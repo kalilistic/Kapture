@@ -7,7 +7,7 @@
     <ProjectGuid>{C1CE1090-9425-4BB4-AE63-CEF441B38EDE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KapturePlugin.Mock</RootNamespace>
+    <RootNamespace>Kapture.Mock</RootNamespace>
     <AssemblyName>Kapture.Mock</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

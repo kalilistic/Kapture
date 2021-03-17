@@ -15,7 +15,7 @@ using Dalamud.Game.Chat.SeStringHandling.Payloads;
 using Dalamud.Game.Command;
 using Dalamud.Plugin;
 
-namespace KapturePlugin
+namespace Kapture
 {
     public sealed class KapturePlugin : PluginBase, IKapturePlugin
     {

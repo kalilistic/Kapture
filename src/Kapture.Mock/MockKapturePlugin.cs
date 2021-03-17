@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace KapturePlugin.Mock
+namespace Kapture.Mock
 {
     public class MockKapturePlugin : IKapturePlugin, IPluginBase
     {

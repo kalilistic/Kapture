@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Threading;
-using KapturePlugin.Mock;
+using Kapture.Mock;
 using NUnit.Framework;
 
 // ReSharper disable NotAccessedField.Local
 
-namespace KapturePlugin.Test
+namespace Kapture.Test
 {
     [TestFixture]
     public class RollMonitorTest

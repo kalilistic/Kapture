@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace KapturePlugin
+namespace Kapture
 {
     public class ENLootProcessor : LootProcessor
     {

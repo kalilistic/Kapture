@@ -1,7 +1,7 @@
 ﻿using System;
 using Dalamud.Configuration;
 
-namespace KapturePlugin
+namespace Kapture
 {
     [Serializable]
     public class PluginConfig : KaptureConfig, IPluginConfiguration

@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace KapturePlugin
+namespace Kapture
 {
     public class LogFormat
     {

@@ -1,6 +1,6 @@
 ﻿// ReSharper disable InconsistentNaming
 
-namespace KapturePlugin
+namespace Kapture
 {
     public class PluginUI : PluginUIBase
     {

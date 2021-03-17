@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace KapturePlugin
+namespace Kapture
 {
     public abstract class KaptureConfig
     {

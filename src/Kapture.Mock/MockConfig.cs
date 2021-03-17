@@ -1,4 +1,4 @@
-﻿namespace KapturePlugin.Mock
+﻿namespace Kapture.Mock
 {
     public class MockConfig : KaptureConfig
     {

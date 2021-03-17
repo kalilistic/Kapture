@@ -7,7 +7,7 @@
     <ProjectGuid>{7C750FCA-465A-46E8-A8C5-4AF8B3532B47}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KapturePlugin.Test</RootNamespace>
+    <RootNamespace>Kapture.Test</RootNamespace>
     <AssemblyName>Kapture.Test</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

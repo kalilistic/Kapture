@@ -2,7 +2,7 @@
 
 using System;
 
-namespace KapturePlugin
+namespace Kapture
 {
     public class PluginUIBase : IDisposable
     {
