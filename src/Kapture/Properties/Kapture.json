@@ -1,6 +1,6 @@
 {
     "Author": "kalilistic",
-    "Name": "Kapture",
+    "Name": "<%name%>",
     "Description": "Track your loot.",
     "InternalName": "Kapture",
     "AssemblyVersion": "<%version%>",

@@ -38,6 +38,7 @@ Task ("Update-Plugin-Json")
     .IsDependentOn ("Update-Assembly-Info")
     .Does (() => {
         string json = System.IO.File.ReadAllText("./src/" + pluginName + "/Properties/" + pluginName + ".json");
+        json = TransformText(json).WithToken("name", pluginName).ToString();
         json = TransformText(json).WithToken("version", version).ToString();
         System.IO.File.WriteAllText("./src/" + pluginName + "/bin/" + pluginName + ".json", json);
 });
@@ -59,30 +60,60 @@ Task("Run-Unit-Tests")
         });
 });
 
-Task("Publish")
+Task("Publish-Official-Repo")
     .IsDependentOn ("Run-Unit-Tests")
     .Does(() => {
+
+        // package
         CreateDirectory("./src/" + pluginName + "/bin/latest");
         CopyFile("./src/" + pluginName + "/bin/" + pluginName + ".json", "./src/" + pluginName + "/bin/latest/" + pluginName + ".json");
         CopyFile("./src/" + pluginName + "/bin/" + pluginName + ".dll", "./src/" + pluginName + "/bin/latest/" + pluginName + ".dll");
         Zip("./src/" + pluginName + "/bin/latest", "./src/" + pluginName + "/bin/latest.zip");
-        Information("Packaged plugin for publishing.");
+        Information("Packaged plugin for publishing to official repo.");
+
+        // copy to official repo workspace
         EnsureDirectoryExists("../DalamudPlugins/plugins/" + pluginName);
         CleanDirectory("../DalamudPlugins/plugins/" + pluginName);
         CopyFile("./src/" + pluginName + "/bin/" + pluginName + ".json", "../DalamudPlugins/plugins/" + pluginName + "/" + pluginName + ".json");
         CopyFile("./src/" + pluginName + "/bin/latest.zip", "../DalamudPlugins/plugins/" + pluginName + "/latest.zip");
-        Information("Copied package into dalamud plugins workspace.");
+        Information("Copied package into official plugin workspace.");
+});
+
+Task("Publish-Custom-Repo")
+    .IsDependentOn ("Publish-Official-Repo")
+    .Does(() => {
+
+        // create new json for test version
+        string json = System.IO.File.ReadAllText("./src/" + pluginName + "/Properties/" + pluginName + ".json");
+        json = TransformText(json).WithToken("name", pluginName + " [Canary]").ToString();
+        json = TransformText(json).WithToken("version", version).ToString();
+        System.IO.File.WriteAllText("./src/" + pluginName + "/bin/" + pluginName + ".json", json);
+
+        // package
+        EnsureDirectoryExists("./src/" + pluginName + "/bin/latest");
+        CleanDirectory("./src/" + pluginName + "/bin/latest");
+        CopyFile("./src/" + pluginName + "/bin/" + pluginName + ".json", "./src/" + pluginName + "/bin/latest/" + pluginName + ".json");
+        CopyFile("./src/" + pluginName + "/bin/" + pluginName + ".dll", "./src/" + pluginName + "/bin/latest/" + pluginName + ".dll");
+        Zip("./src/" + pluginName + "/bin/latest", "./src/" + pluginName + "/bin/latest.zip");
+        Information("Packaged plugin for publishing to custom repo.");
+
+        // copy to custom repo workspace
+        EnsureDirectoryExists("../DalamudPluginRepo/plugins/" + pluginName);
+        CleanDirectory("../DalamudPluginRepo/plugins/" + pluginName);
+        CopyFile("./src/" + pluginName + "/bin/" + pluginName + ".json", "../DalamudPluginRepo/plugins/" + pluginName + "/" + pluginName + ".json");
+        CopyFile("./src/" + pluginName + "/bin/latest.zip", "../DalamudPluginRepo/plugins/" + pluginName + "/latest.zip");
+        Information("Copied package into custom plugin workspace.");
 });
 
 Task("Cleanup")
-    .IsDependentOn ("Publish")
+    .IsDependentOn ("Publish-Custom-Repo")
     .Does(() => {
 
         // revert assembly info
         GitCheckout("./", MakeAbsolute(File("./src/" + pluginName + "/Properties/AssemblyInfo.cs")));
         GitCheckout("./", MakeAbsolute(File("./src/" + pluginName + ".Test/Properties/AssemblyInfo.cs")));
         GitCheckout("./", MakeAbsolute(File("./src/" + pluginName + ".Mock/Properties/AssemblyInfo.cs")));
-        
+
         // revert commons
         GitCheckout("./src/" + pluginName + "/Common/");
 
@@ -97,7 +128,8 @@ Task ("Default")
     .IsDependentOn ("Update-Plugin-Json")
     .IsDependentOn ("Build")
     .IsDependentOn ("Run-Unit-Tests")
-    .IsDependentOn ("Publish")
+    .IsDependentOn ("Publish-Official-Repo")
+    .IsDependentOn ("Publish-Custom-Repo")
     .IsDependentOn ("Cleanup");
 
 RunTarget ("Default");
