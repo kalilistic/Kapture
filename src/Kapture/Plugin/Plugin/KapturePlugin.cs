@@ -240,6 +240,7 @@ namespace Kapture
             LootEvents.Clear();
             LootRolls.Clear();
             LootRollsDisplay.Clear();
+            IsRolling = false;
         }
 
         public new void Dispose()
