@@ -34,9 +34,12 @@ namespace Kapture
                 if (_plugin.ClientLanguage() != 1)
                 {
                     ImGui.Text(Loc.Localize("LanguageNotSupported1",
-                        "Sorry, only English is supported for this test release."));
+                        "Sorry, only English is supported at this time."));
+                    ImGui.Spacing();
                     ImGui.Text(Loc.Localize("LanguageNotSupported2",
-                        "I'll be adding support for other client languages soon."));
+                        "Please reach out on discord if you want to help."));
+                    ImGui.Text(Loc.Localize("LanguageNotSupported3",
+                        "add German, French, or Japanese support."));
                 }
                 else if (_plugin.Configuration.Enabled)
                 {
