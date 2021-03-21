@@ -28,7 +28,7 @@ namespace Kapture
             if (!ShowOverlay()) return;
             var isVisible = IsVisible;
             _uiScale = ImGui.GetIO().FontGlobalScale;
-            ImGui.SetNextWindowSize(new Vector2(300 * _uiScale, 150 * _uiScale), ImGuiCond.FirstUseEver);
+            ImGui.SetNextWindowSize(new Vector2(380 * _uiScale, 220 * _uiScale), ImGuiCond.FirstUseEver);
             if (ImGui.Begin(Loc.Localize("LootOverlayWindow", "Loot") + "###Kapture_Loot_Window"))
             {
                 if (_plugin.ClientLanguage() != 1)
@@ -46,21 +46,22 @@ namespace Kapture
                     var lootEvents = _plugin.LootEvents.ToList();
                     if (lootEvents.Count > 0)
                     {
-                        ImGui.Columns(3);
+                        var col1 = 200f * Scale;
+                        var col2 = 270f * Scale;
+
                         ImGui.TextColored(UIColor.Violet, Loc.Localize("LootItemName", "Item"));
-                        ImGui.NextColumn();
+                        ImGui.SameLine(col1);
                         ImGui.TextColored(UIColor.Violet, Loc.Localize("LootEventType", "Event"));
-                        ImGui.NextColumn();
+                        ImGui.SameLine(col2);
                         ImGui.TextColored(UIColor.Violet, Loc.Localize("LootPlayer", "Player"));
-                        ImGui.NextColumn();
                         ImGui.Separator();
 
                         foreach (var lootEvent in lootEvents)
                         {
-                            ImGui.Text(lootEvent.ItemDisplayName);
-                            ImGui.NextColumn();
+                            ImGui.Text(lootEvent.ItemNameAbbreviated);
+                            ImGui.SameLine(col1);
                             ImGui.Text(lootEvent.LootEventTypeName);
-                            ImGui.NextColumn();
+                            ImGui.SameLine(col2);
                             ImGui.Text(lootEvent.PlayerDisplayName);
                             ImGui.NextColumn();
                         }

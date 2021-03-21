@@ -101,9 +101,10 @@ namespace Kapture
                 LootMessage = new LootMessage
                 {
                     ItemId = 1,
-                    ItemName = "Boiled Egg"
+                    ItemName = "Ruby Tide Bracelets of Fending"
                 },
-                ItemDisplayName = "Boiled Egg"
+                ItemName = "Ruby Tide Bracelets of Fending",
+                ItemNameAbbreviated = "Ruby Tide Bracelets of Fending"
             };
             RollMonitor.ProcessRoll(event1);
             LootEvents.Add(event1);
@@ -122,7 +123,8 @@ namespace Kapture
                     ItemId = 1,
                     ItemName = "Wind-up Aldgoat"
                 },
-                ItemDisplayName = "Wind-up Aldgoat"
+                ItemName = "Wind-up Aldgoat",
+                ItemNameAbbreviated = "Wind-up Aldgoat"
             };
             RollMonitor.ProcessRoll(event2);
             LootEvents.Add(event2);
@@ -139,9 +141,10 @@ namespace Kapture
                 LootMessage = new LootMessage
                 {
                     ItemId = 1,
-                    ItemName = "Boiled Egg"
+                    ItemName = "Ruby Tide Bracelets of Fending"
                 },
-                ItemDisplayName = "Boiled Egg",
+                ItemName = "Ruby Tide Bracelets of Fending",
+                ItemNameAbbreviated = "Ruby Tide Bracelets of Fending",
                 PlayerName = "Wyatt Earp",
                 PlayerDisplayName = "Wyatt Earp"
             };
@@ -160,9 +163,10 @@ namespace Kapture
                 LootMessage = new LootMessage
                 {
                     ItemId = 1,
-                    ItemName = "Boiled Egg"
+                    ItemName = "Ruby Tide Bracelets of Fending"
                 },
-                ItemDisplayName = "Boiled Egg",
+                ItemName = "Ruby Tide Bracelets of Fending",
+                ItemNameAbbreviated = "Ruby Tide Bracelets of Fending",
                 PlayerName = "April O'Neil",
                 PlayerDisplayName = "April O'Neil"
             };
@@ -181,12 +185,13 @@ namespace Kapture
                 LootMessage = new LootMessage
                 {
                     ItemId = 1,
-                    ItemName = "Boiled Egg"
+                    ItemName = "Ruby Tide Bracelets of Fending"
                 },
-                ItemDisplayName = "Boiled Egg",
+                ItemName = "Ruby Tide Bracelets of Fending",
+                ItemNameAbbreviated = "Ruby Tide Bracelets of Fending",
                 PlayerName = "April O'Neil",
                 PlayerDisplayName = "April O'Neil",
-                Roll = 23
+                Roll = 45
             };
             RollMonitor.ProcessRoll(event5);
             LootEvents.Add(event5);
@@ -203,12 +208,13 @@ namespace Kapture
                 LootMessage = new LootMessage
                 {
                     ItemId = 1,
-                    ItemName = "Boiled Egg"
+                    ItemName = "Ruby Tide Bracelets of Fending"
                 },
-                ItemDisplayName = "Boiled Egg",
+                ItemName = "Ruby Tide Bracelets of Fending",
+                ItemNameAbbreviated = "Ruby Tide Bracelets of Fending",
                 PlayerName = "Wyatt Earp",
                 PlayerDisplayName = "Wyatt Earp",
-                Roll = 94
+                Roll = 57
             };
             RollMonitor.ProcessRoll(event6);
             LootEvents.Add(event6);
@@ -225,9 +231,10 @@ namespace Kapture
                 LootMessage = new LootMessage
                 {
                     ItemId = 1,
-                    ItemName = "Boiled Egg"
+                    ItemName = "Ruby Tide Bracelets of Fending"
                 },
-                ItemDisplayName = "Boiled Egg",
+                ItemName = "Ruby Tide Bracelets of Fending",
+                ItemNameAbbreviated = "Ruby Tide Bracelets of Fending",
                 PlayerName = "Wyatt Earp",
                 PlayerDisplayName = "Wyatt Earp"
             };

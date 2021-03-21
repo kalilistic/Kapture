@@ -28,7 +28,7 @@ namespace Kapture
             if (!ShowOverlay()) return;
             var isVisible = IsVisible;
             _uiScale = ImGui.GetIO().FontGlobalScale;
-            ImGui.SetNextWindowSize(new Vector2(300 * _uiScale, 150 * _uiScale), ImGuiCond.FirstUseEver);
+            ImGui.SetNextWindowSize(new Vector2(350 * _uiScale, 150 * _uiScale), ImGuiCond.FirstUseEver);
             if (ImGui.Begin(Loc.Localize("RollMonitorOverlayWindow", "Roll Monitor") + "###Kapture_RollMonitor_Window"))
             {
                 if (_plugin.ClientLanguage() != 1)
@@ -47,23 +47,36 @@ namespace Kapture
 
                     if (lootRolls.Count > 0)
                     {
-                        ImGui.Columns(3);
+                        var col1 = 200f * Scale;
+                        var col2 = 258f * Scale;
+
                         ImGui.TextColored(UIColor.Violet, Loc.Localize("MonitorItemName", "Item"));
-                        ImGui.NextColumn();
+                        ImGui.SameLine(col1);
                         ImGui.TextColored(UIColor.Violet, Loc.Localize("MonitorRollers", "Rollers"));
-                        ImGui.NextColumn();
+                        ImGui.SameLine(col2);
                         ImGui.TextColored(UIColor.Violet, Loc.Localize("MonitorWinner", "Winner"));
-                        ImGui.NextColumn();
-                        ImGui.Separator();
 
                         foreach (var lootRoll in lootRolls.ToList())
                         {
-                            ImGui.Text(lootRoll.ItemName);
-                            ImGui.NextColumn();
-                            ImGui.Text(lootRoll.RollersDisplay);
-                            ImGui.NextColumn();
+                            ImGui.BeginGroup();
+                            ImGui.Text(lootRoll.ItemNameAbbreviated);
+                            ImGui.SameLine(col1 - 7f);
+                            ImGui.Text(lootRoll.RollerCount.ToString());
+                            ImGui.SameLine(col2 - 7f);
                             ImGui.Text(lootRoll.Winner);
-                            ImGui.NextColumn();
+                            ImGui.EndGroup();
+                            if (!ImGui.IsItemHovered()) continue;
+                            ImGui.BeginTooltip();
+                            ImGui.PushTextWrapPos(ImGui.GetFontSize() * 35.0f);
+                            ImGui.TextColored(UIColor.Violet, lootRoll.ItemName);
+                            ImGui.Separator();
+                            if (lootRoll.RollerCount > 0)
+                                foreach (var roller in lootRoll.RollersDisplay)
+                                    ImGui.TextColored(roller.Value, roller.Key);
+                            else
+                                ImGui.Text(Loc.Localize("RollMonitorNone", "No one has rolled"));
+                            ImGui.PopTextWrapPos();
+                            ImGui.EndTooltip();
                         }
                     }
                     else

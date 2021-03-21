@@ -9,6 +9,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Timers;
 using CheapLoc;
 using Newtonsoft.Json;
@@ -98,8 +99,8 @@ namespace Kapture.RollMonitor
                         {
                             Timestamp = lootEvent.Timestamp,
                             ItemId = lootEvent.LootMessage.ItemId,
-                            ItemName = lootEvent.ItemDisplayName,
-                            RollersDisplay = Loc.Localize("RollMonitorNone", "No one has rolled")
+                            ItemName = lootEvent.ItemName,
+                            ItemNameAbbreviated = lootEvent.ItemNameAbbreviated
                         });
                         break;
                     case LootEventType.Cast:
@@ -109,11 +110,13 @@ namespace Kapture.RollMonitor
                             !roll.Rollers.Any(roller => roller.PlayerName.Equals(lootEvent.PlayerName)));
                         if (lootRoll == null) return;
                         lootRoll.Rollers.Add(new LootRoller {PlayerName = lootEvent.PlayerName});
-                        var rollers = lootRoll.Rollers.Select(roller =>
-                            _plugin.FormatPlayerName(_plugin.Configuration.RollNameFormat, roller.PlayerName)).ToList();
-                        lootRoll.RollersDisplay = string.Join(", ", rollers);
-                        if (_plugin.Configuration.ShowRollerCount)
-                            lootRoll.RollersDisplay = "[" + rollers.Count + "] " + lootRoll.RollersDisplay;
+                        lootRoll.RollerCount += 1;
+                        lootRoll.RollersDisplay.Clear();
+                        foreach (var roller in lootRoll.Rollers)
+                            lootRoll.RollersDisplay.Add(new KeyValuePair<string, Vector4>(_plugin.FormatPlayerName(
+                                _plugin.Configuration.RollNameFormat,
+                                roller.PlayerName), UIColor.GetColorByNumber(0)));
+                        lootRoll.RollersDisplay = lootRoll.RollersDisplay.OrderBy(pair => pair.Key).ToList();
                         break;
                     }
                     case LootEventType.Need:
@@ -127,21 +130,17 @@ namespace Kapture.RollMonitor
                             roller.PlayerName.Equals(lootEvent.PlayerName) && roller.Roll == 0);
                         if (lootRoller == null) return;
                         lootRoller.Roll = lootEvent.Roll;
-                        var rollers = new List<string>();
-                        if (_plugin.Configuration.ShowRollNumbers)
-                            foreach (var roller in lootRoll.Rollers)
-                                if (roller.Roll == 0)
-                                    rollers.Add(_plugin.FormatPlayerName(_plugin.Configuration.RollNameFormat,
-                                        roller.PlayerName));
-                                else
-                                    rollers.Add(_plugin.FormatPlayerName(_plugin.Configuration.RollNameFormat,
-                                        roller.PlayerName) + "[" + roller.Roll + "]");
-                        else
-                            rollers.AddRange(lootRoll.Rollers.Select(roller =>
-                                _plugin.FormatPlayerName(_plugin.Configuration.RollNameFormat, roller.PlayerName)));
-                        lootRoll.RollersDisplay = string.Join(", ", rollers);
-                        if (_plugin.Configuration.ShowRollerCount)
-                            lootRoll.RollersDisplay = "[" + rollers.Count + "] " + lootRoll.RollersDisplay;
+                        lootRoll.RollersDisplay.Clear();
+                        foreach (var roller in lootRoll.Rollers)
+                            if (roller.Roll == 0)
+                                lootRoll.RollersDisplay.Add(new KeyValuePair<string, Vector4>(_plugin.FormatPlayerName(
+                                    _plugin.Configuration.RollNameFormat,
+                                    roller.PlayerName) + " [x]", UIColor.GetColorByNumber(0)));
+                            else
+                                lootRoll.RollersDisplay.Add(new KeyValuePair<string, Vector4>(_plugin.FormatPlayerName(
+                                    _plugin.Configuration.RollNameFormat,
+                                    roller.PlayerName) + " [" + roller.Roll + "]", UIColor.GetColorByNumber(roller.Roll)));
+                        lootRoll.RollersDisplay = lootRoll.RollersDisplay.OrderBy(pair => pair.Key).ToList();
                         break;
                     }
                     case LootEventType.Obtain:
@@ -169,6 +168,12 @@ namespace Kapture.RollMonitor
                         lootRoll.Timestamp = lootEvent.Timestamp;
                         lootRoll.IsWon = true;
                         lootRoll.Winner = Loc.Localize("RollMonitorLost", "Dropped to floor");
+                        lootRoll.RollersDisplay.Clear();
+                        foreach (var roller in lootRoll.Rollers)
+                            lootRoll.RollersDisplay.Add(new KeyValuePair<string, Vector4>(_plugin.FormatPlayerName(
+                                _plugin.Configuration.RollNameFormat,
+                                roller.PlayerName) + " [x]", UIColor.GetColorByNumber(0)));
+                        lootRoll.RollersDisplay = lootRoll.RollersDisplay.OrderBy(pair => pair.Key).ToList();
                         break;
                     }
                 }

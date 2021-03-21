@@ -113,11 +113,17 @@ namespace Kapture
                 // set common fields
                 lootEvent.LootMessage = message;
                 lootEvent.LootEventTypeName = Enum.GetName(typeof(LootEventType), lootEvent.LootEventType);
-                lootEvent.ItemDisplayName = lootEvent.LootMessage.ItemName;
+                lootEvent.ItemName = lootEvent.LootMessage.ItemName;
+                if (string.IsNullOrEmpty(lootEvent.ItemName))
+                    lootEvent.ItemNameAbbreviated = lootEvent.ItemName;
+                else
+                    lootEvent.ItemNameAbbreviated = lootEvent.LootMessage.ItemName.Length <= 30
+                        ? lootEvent.LootMessage.ItemName
+                        : lootEvent.LootMessage.ItemName.Substring(0, 26) + "...";
                 lootEvent.PlayerDisplayName =
                     Plugin.FormatPlayerName(Plugin.Configuration.LootNameFormat, lootEvent.PlayerName);
-                if (lootEvent.LootMessage.IsHq) lootEvent.ItemDisplayName += " " + Plugin.GetSeIcon(SeIconChar.HighQuality);
-
+                if (lootEvent.LootMessage.IsHq)
+                    lootEvent.ItemNameAbbreviated += " " + Plugin.GetSeIcon(SeIconChar.HighQuality);
                 return lootEvent;
             }
             catch (Exception ex)

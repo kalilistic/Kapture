@@ -27,6 +27,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.System,
                 MessageParts = new List<string>
                 {
@@ -43,6 +44,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.System,
                 MessageParts = new List<string>
                 {
@@ -59,6 +61,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.System,
                 MessageParts = new List<string>
                 {
@@ -75,6 +78,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.System,
                 MessageParts = new List<string>
                 {
@@ -91,6 +95,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.System,
                 MessageParts = new List<string>
                 {
@@ -107,6 +112,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.System,
                 MessageParts = new List<string>
                 {
@@ -123,6 +129,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.System,
                 MessageParts = new List<string>
                 {
@@ -139,6 +146,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.System,
                 MessageParts = new List<string>
                 {
@@ -155,6 +163,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.LocalPlayerObtainLoot,
                 MessageParts = new List<string>
                 {
@@ -173,6 +182,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.LocalPlayerRoll,
                 MessageParts = new List<string>
                 {
@@ -190,6 +200,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.LocalPlayerRoll,
                 MessageParts = new List<string>
                 {
@@ -208,6 +219,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.LocalPlayerRoll,
                 MessageParts = new List<string>
                 {
@@ -227,6 +239,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.OtherPlayerObtainLoot,
                 MessageParts = new List<string>
                 {
@@ -245,6 +258,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.OtherPlayerRoll,
                 MessageParts = new List<string>
                 {
@@ -263,6 +277,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.OtherPlayerRoll,
                 MessageParts = new List<string>
                 {
@@ -282,6 +297,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.OtherPlayerRoll,
                 MessageParts = new List<string>
                 {
@@ -301,6 +317,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.OtherPlayerRoll,
                 MessageParts = new List<string>
                 {
@@ -320,6 +337,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.AddDesynthSell,
                 MessageParts = new List<string>
                 {
@@ -336,6 +354,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.AddDesynthSell,
                 MessageParts = new List<string>
                 {
@@ -352,6 +371,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.AddDesynthSell,
                 MessageParts = new List<string>
                 {
@@ -368,6 +388,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.LocalPlayerUse,
                 MessageParts = new List<string>
                 {
@@ -384,6 +405,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.LocalPlayerSpecialObtain,
                 MessageParts = new List<string>
                 {
@@ -400,6 +422,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.OtherPlayerUse,
                 MessageParts = new List<string>
                 {
@@ -416,6 +439,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.FastCraft,
                 MessageParts = new List<string>
                 {
@@ -433,6 +457,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.FastCraft,
                 MessageParts = new List<string>
                 {
@@ -450,6 +475,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.FastCraft,
                 MessageParts = new List<string>
                 {
@@ -466,6 +492,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.Gather,
                 MessageParts = new List<string>
                 {
@@ -482,6 +509,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.Gather,
                 MessageParts = new List<string>
                 {
@@ -498,6 +526,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.LocalPlayerSynthesize,
                 MessageParts = new List<string>
                 {
@@ -514,6 +543,7 @@ namespace Kapture.Test
         {
             var message = new LootMessage
             {
+                ItemName = "ItemName",
                 LootMessageType = LootMessageType.OtherPlayerSynthesize,
                 MessageParts = new List<string>
                 {

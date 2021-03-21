@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Numerics;
 using Newtonsoft.Json;
 
 namespace Kapture
@@ -8,8 +9,10 @@ namespace Kapture
         public long Timestamp { get; set; }
         public uint ItemId { get; set; }
         public string ItemName { get; set; } = string.Empty;
+        public string ItemNameAbbreviated { get; set; } = string.Empty;
         public List<LootRoller> Rollers { get; } = new List<LootRoller>();
-        public string RollersDisplay { get; set; } = string.Empty;
+        public List<KeyValuePair<string, Vector4>> RollersDisplay { get; set; } = new List<KeyValuePair<string, Vector4>>();
+        public uint RollerCount { get; set; }
         public string Winner { get; set; } = string.Empty;
         public bool IsWon { get; set; }
 

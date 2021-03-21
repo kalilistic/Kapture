@@ -17,7 +17,8 @@ namespace Kapture
         public uint TerritoryTypeId { get; set; }
         public uint ContentId { get; set; }
         public Guid LootEventId { get; set; }
-        public string ItemDisplayName { get; set; }
+        public string ItemName { get; set; }
+        [JsonIgnore] public string ItemNameAbbreviated { get; set; }
 
         public override string ToString()
         {

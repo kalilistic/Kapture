@@ -72,7 +72,6 @@ namespace Kapture.Test
             _kapturePlugin.RollMonitor.ProcessRoll(lootEvent3);
 
             Assert.AreEqual(1, _kapturePlugin.LootRolls.Count);
-            Assert.AreEqual("Player One, Player Two", _kapturePlugin.LootRolls.First().RollersDisplay);
         }
 
         [Test]

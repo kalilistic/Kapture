@@ -40,13 +40,11 @@ namespace Kapture
         public int WriteToLogFrequency { get; } = 30000;
         public bool LoggingEnabled { get; set; }
         public bool SelfOnly { get; set; }
-        public bool ShowRollerCount { get; set; }
         public int LootNameFormat { get; set; }
-        public int RollNameFormat { get; set; } = 2;
+        public int RollNameFormat { get; set; }
         public int LogFormat { get; set; }
         public int RollDisplayMode { get; set; }
         public int LootDisplayMode { get; set; }
-        public bool ShowRollNumbers { get; set; }
         public bool LogLootMessages { get; set; }
         public bool LogLootEvents { get; set; }
     }
