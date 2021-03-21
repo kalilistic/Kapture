@@ -554,5 +554,73 @@ namespace Kapture.Test
             Assert.IsNotNull(result);
             Assert.AreEqual(LootEventType.Craft, result.LootEventType);
         }
+
+        [Test]
+        public void ProcessAllianceOtherPlayerRoll_Cast_Test()
+        {
+            var message = new LootMessage
+            {
+                ItemName = "ItemName",
+                LootMessageType = LootMessageType.AllianceOtherPlayerRoll,
+                MessageParts = new List<string>
+                {
+                    "Gary Oak", " casts his lot for the ", "", "Antipyretic", " orchestrion roll", "."
+                }
+            };
+            var result = _kapturePlugin.LootProcessor.ProcessLoot(message);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(LootEventType.Cast, result.LootEventType);
+        }
+
+        [Test]
+        public void ProcessAllianceOtherPlayerRoll_Need_Test()
+        {
+            var message = new LootMessage
+            {
+                ItemName = "ItemName",
+                LootMessageType = LootMessageType.AllianceOtherPlayerRoll,
+                MessageParts = new List<string>
+                {
+                    "Gary Oak", " rolls Need on the ", "", "Antipyretic", " orchestrion roll", ". 40!"
+                }
+            };
+            var result = _kapturePlugin.LootProcessor.ProcessLoot(message);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(LootEventType.Need, result.LootEventType);
+        }
+
+        [Test]
+        public void ProcessAllianceOtherPlayerRoll_Greed_Test()
+        {
+            var message = new LootMessage
+            {
+                ItemName = "ItemName",
+                LootMessageType = LootMessageType.AllianceOtherPlayerRoll,
+                MessageParts = new List<string>
+                {
+                    "Gary Oak", " rolls Greed on the ", "", "Antipyretic", " orchestrion roll", ". 40!"
+                }
+            };
+            var result = _kapturePlugin.LootProcessor.ProcessLoot(message);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(LootEventType.Greed, result.LootEventType);
+        }
+
+        [Test]
+        public void ProcessAllianceOtherPlayerObtain_Test()
+        {
+            var message = new LootMessage
+            {
+                ItemName = "ItemName",
+                LootMessageType = LootMessageType.AllianceOtherPlayerObtain,
+                MessageParts = new List<string>
+                {
+                    "Gary Oak", " obtains an ", "", "Antipyretic", " orchestrion roll", "."
+                }
+            };
+            var result = _kapturePlugin.LootProcessor.ProcessLoot(message);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(LootEventType.Obtain, result.LootEventType);
+        }
     }
 }

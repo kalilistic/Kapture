@@ -14,6 +14,8 @@ namespace Kapture
         OtherPlayerObtainLoot = 4158,
         OtherPlayerRoll = 4161,
         OtherPlayerUse = 8236,
+        AllianceOtherPlayerObtain = 8254,
+        AllianceOtherPlayerRoll = 8257,
         OtherPlayerSynthesize = 8258
     }
 }

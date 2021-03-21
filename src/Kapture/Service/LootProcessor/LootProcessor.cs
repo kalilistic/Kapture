@@ -102,6 +102,12 @@ namespace Kapture
                     case LootMessageType.OtherPlayerSynthesize:
                         lootEvent = ProcessOtherPlayerSynthesize(message);
                         break;
+                    case LootMessageType.AllianceOtherPlayerObtain:
+                        lootEvent = ProcessOtherPlayerObtainLoot(message);
+                        break;
+                    case LootMessageType.AllianceOtherPlayerRoll:
+                        lootEvent = ProcessOtherPlayerRoll(message);
+                        break;
                     default:
                         lootEvent = null;
                         break;
