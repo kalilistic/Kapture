@@ -12,11 +12,15 @@
         "description": "RollMonitorOverlayWindow.DrawView"
     },
     "LanguageNotSupported1": {
-        "message": "Sorry, only English is supported for this test release.",
+        "message": "Sorry, only English is supported at this time.",
         "description": "RollMonitorOverlayWindow.DrawView"
     },
     "LanguageNotSupported2": {
-        "message": "I'll be adding support for other client languages soon.",
+        "message": "Please reach out on discord if you want to help.",
+        "description": "RollMonitorOverlayWindow.DrawView"
+    },
+    "LanguageNotSupported3": {
+        "message": "add German, French, or Japanese support.",
         "description": "RollMonitorOverlayWindow.DrawView"
     },
     "MonitorItemName": {
@@ -29,6 +33,10 @@
     },
     "MonitorWinner": {
         "message": "Winner",
+        "description": "RollMonitorOverlayWindow.DrawView"
+    },
+    "RollMonitorNone": {
+        "message": "No one has rolled",
         "description": "RollMonitorOverlayWindow.DrawView"
     },
     "WaitingForItems": {
@@ -83,12 +91,8 @@
         "message": "toggle the plugin on/off",
         "description": "SettingsWindow.DrawGeneral"
     },
-    "Language": {
-        "message": "Language",
-        "description": "SettingsWindow.DrawGeneral"
-    },
-    "Language_HelpMarker": {
-        "message": "use default or override plugin ui language",
+    "RestrictInCombat": {
+        "message": "Don't process in combat",
         "description": "SettingsWindow.DrawGeneral"
     },
     "ShowLootOverlay": {
@@ -97,6 +101,14 @@
     },
     "ShowLootOverlay_HelpMarker": {
         "message": "show loot overlay window",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "LootDisplayMode": {
+        "message": "Display Mode",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "LootDisplayMode_HelpMarker": {
+        "message": "when to show loot overlay",
         "description": "SettingsWindow.DrawLoot"
     },
     "LootNameFormat": {
@@ -115,12 +127,12 @@
         "message": "show roll monitor overlay window",
         "description": "SettingsWindow.DrawRolls"
     },
-    "ShowRollerCount": {
-        "message": "Show Roller Count",
+    "RollDisplayMode": {
+        "message": "Display Mode",
         "description": "SettingsWindow.DrawRolls"
     },
-    "ShowRollerCount_HelpMarker": {
-        "message": "show number of rollers on roll monitor overlay",
+    "RollDisplayMode_HelpMarker": {
+        "message": "when to show roll monitor overlay",
         "description": "SettingsWindow.DrawRolls"
     },
     "RollNameFormat": {
@@ -131,12 +143,20 @@
         "message": "how to display player names in the roll monitor overlay",
         "description": "SettingsWindow.DrawRolls"
     },
-    "RollMonitorTimeout": {
-        "message": "Show Rolled Items (minutes)",
+    "RollMonitorAddedTimeout": {
+        "message": "Show Added Items (minutes)",
         "description": "SettingsWindow.DrawRolls"
     },
-    "RollMonitorTimeout_HelpMarker": {
-        "message": "amount of time before removing items from roll monitor",
+    "RollMonitorAddedTimeout_HelpMarker": {
+        "message": "amount of time before removing added items from roll monitor",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollMonitorObtainedTimeout": {
+        "message": "Show Obtained Items (seconds)",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollMonitorObtainedTimeout_HelpMarker": {
+        "message": "amount of time before removing obtained/lost items from roll monitor",
         "description": "SettingsWindow.DrawRolls"
     },
     "AddEnabled": {
@@ -264,7 +284,19 @@
         "description": "SettingsWindow.DrawFilters"
     },
     "LoggingEnabled": {
-        "message": "Enable Logging",
+        "message": "Enable Loot Logging",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LoggingEnabled_HelpMarker": {
+        "message": "save your loot messages to a file in config (see links)",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LogFormat": {
+        "message": "Log Format",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LogFormat_HelpMarker": {
+        "message": "set format for log file with loot info",
         "description": "SettingsWindow.DrawLog"
     },
     "OpenGithub": {
@@ -283,6 +315,10 @@
         "message": "Clear Data",
         "description": "SettingsWindow.DrawLinks"
     },
+    "OpenLogs": {
+        "message": "Open Logs",
+        "description": "SettingsWindow.DrawLinks"
+    },
     "LootOverlayWindow": {
         "message": "Loot",
         "description": "LootOverlayWindow.DrawView"
@@ -298,10 +334,6 @@
     "LootPlayer": {
         "message": "Player",
         "description": "LootOverlayWindow.DrawView"
-    },
-    "RollMonitorNone": {
-        "message": "No one has rolled",
-        "description": "RollMonitor.ProcessRoll"
     },
     "RollMonitorLost": {
         "message": "Dropped to floor",
