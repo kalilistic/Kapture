@@ -364,13 +364,11 @@ namespace Kapture
 
         private void SetupListeners()
         {
-            if (ClientLanguage() != 1) return;
             _pluginInterface.Framework.Gui.Chat.OnCheckMessageHandled += OnChatMessageHandled;
         }
 
         private void DisposeListeners()
         {
-            if (ClientLanguage() != 1) return;
             _pluginInterface.Framework.Gui.Chat.OnCheckMessageHandled -= OnChatMessageHandled;
         }
 
