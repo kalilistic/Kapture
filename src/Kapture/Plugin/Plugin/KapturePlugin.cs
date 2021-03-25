@@ -314,10 +314,25 @@ namespace Kapture
         private void LoadServices()
         {
             RollMonitor = new RollMonitor.RollMonitor(this);
+            var langCode = ClientLanguage();
+            switch (langCode)
+            {
+                case 1:
+                case 2:
+                case 3:
+                    LootProcessor = new ENLootProcessor(this);
+                    break;
+                case 4:
+                    LootProcessor = new ZHLootProcessor(this);
+                    break;
+                default:
+                    LootProcessor = new ENLootProcessor(this);
+                    break;
+            }
             LootProcessor = new ENLootProcessor(this);
             LootLogger = new LootLogger(this);
         }
-
+        
         private void LoadUI()
         {
             Localization.SetLanguage(Configuration.PluginLanguage);

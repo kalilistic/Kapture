@@ -9,7 +9,7 @@ namespace Kapture.Mock
 {
     public class MockKapturePlugin : IKapturePlugin, IPluginBase
     {
-        public MockKapturePlugin()
+        public MockKapturePlugin(int langCode = 0)
         {
             PluginName = "Kapture";
             Localization = new Localization(this);
@@ -31,7 +31,27 @@ namespace Kapture.Mock
                 UseEnabled = true
             };
             RollMonitor = new RollMonitor.RollMonitor(this);
-            LootProcessor = new ENLootProcessor(this);
+            if (langCode == 0)
+            {
+                LootProcessor = new ENLootProcessor(this);
+            }
+            else if (langCode == 1)
+            {
+                LootProcessor = new ENLootProcessor(this); 
+            }
+            else if (langCode == 2)
+            {
+                LootProcessor = new ENLootProcessor(this); 
+            }
+            else if (langCode == 3)
+            {
+                LootProcessor = new ENLootProcessor(this); 
+            }
+            else if (langCode == 4)
+            {
+                LootProcessor = new ZHLootProcessor(this); 
+            }
+
         }
 
         public LootProcessor LootProcessor { get; }

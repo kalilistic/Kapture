@@ -1,0 +1,342 @@
+{
+  "InstallThankYou": {
+    "message": "感谢使用Kapture掉落记录插件！",
+    "description": "KapturePlugin.HandleFreshInstall"
+  },
+  "Instructions": {
+    "message": "使用/loot和/roll显示对应界面，/lootconfig显示设置。",
+    "description": "KapturePlugin.HandleFreshInstall"
+  },
+  "RollMonitorOverlayWindow": {
+    "message": "骰点监控",
+    "description": "RollMonitorOverlayWindow.DrawView"
+  },
+  "LanguageNotSupported1": {
+    "message": "对不起，本插件现在只支持部分语言。",
+    "description": "RollMonitorOverlayWindow.DrawView"
+  },
+  "LanguageNotSupported2": {
+    "message": "如果想要帮助翻译请在Discord联系。",
+    "description": "RollMonitorOverlayWindow.DrawView"
+  },
+  "LanguageNotSupported3": {
+    "message": "正在寻求德语、法语和日语的志愿者的帮助。",
+    "description": "RollMonitorOverlayWindow.DrawView"
+  },
+  "MonitorItemName": {
+    "message": "物品",
+    "description": "RollMonitorOverlayWindow.DrawView"
+  },
+  "MonitorRollers": {
+    "message": "骰点者",
+    "description": "RollMonitorOverlayWindow.DrawView"
+  },
+  "MonitorWinner": {
+    "message": "获得者",
+    "description": "RollMonitorOverlayWindow.DrawView"
+  },
+  "RollMonitorNone": {
+    "message": "无人骰点",
+    "description": "RollMonitorOverlayWindow.DrawView"
+  },
+  "WaitingForItems": {
+    "message": "等待掉落中。",
+    "description": "RollMonitorOverlayWindow.DrawView"
+  },
+  "SettingsWindow": {
+    "message": "Kapture设置",
+    "description": "SettingsWindow.DrawView"
+  },
+  "General": {
+    "message": "基本",
+    "description": "SettingsWindow.DrawTabs"
+  },
+  "Loot": {
+    "message": "掉落",
+    "description": "SettingsWindow.DrawTabs"
+  },
+  "Rolls": {
+    "message": "掷骰",
+    "description": "SettingsWindow.DrawTabs"
+  },
+  "Events": {
+    "message": "事件",
+    "description": "SettingsWindow.DrawTabs"
+  },
+  "Content": {
+    "message": "副本",
+    "description": "SettingsWindow.DrawTabs"
+  },
+  "Items": {
+    "message": "物品",
+    "description": "SettingsWindow.DrawTabs"
+  },
+  "Filters": {
+    "message": "过滤",
+    "description": "SettingsWindow.DrawTabs"
+  },
+  "Log": {
+    "message": "记录",
+    "description": "SettingsWindow.DrawTabs"
+  },
+  "Links": {
+    "message": "链接",
+    "description": "SettingsWindow.DrawTabs"
+  },
+  "PluginEnabled": {
+    "message": "启用插件",
+    "description": "SettingsWindow.DrawGeneral"
+  },
+  "PluginEnabled_HelpMarker": {
+    "message": "开启/关闭插件",
+    "description": "SettingsWindow.DrawGeneral"
+  },
+  "RestrictInCombat": {
+    "message": "不要在战斗中进行处理",
+    "description": "SettingsWindow.DrawGeneral"
+  },
+  "ShowLootOverlay": {
+    "message": "显示掉落界面",
+    "description": "SettingsWindow.DrawLoot"
+  },
+  "ShowLootOverlay_HelpMarker": {
+    "message": "显示掉落记录界面",
+    "description": "SettingsWindow.DrawLoot"
+  },
+  "LootDisplayMode": {
+    "message": "显示模式",
+    "description": "SettingsWindow.DrawLoot"
+  },
+  "LootDisplayMode_HelpMarker": {
+    "message": "何时显示掉落界面",
+    "description": "SettingsWindow.DrawLoot"
+  },
+  "LootNameFormat": {
+    "message": "角色名格式",
+    "description": "SettingsWindow.DrawLoot"
+  },
+  "LootNameFormat_HelpMarker": {
+    "message": "更改角色名显示模式（国服不可用）",
+    "description": "SettingsWindow.DrawLoot"
+  },
+  "ShowRollOverlay": {
+    "message": "显示骰点监控",
+    "description": "SettingsWindow.DrawRolls"
+  },
+  "ShowRollOverlay_HelpMarker": {
+    "message": "显示骰点监控界面",
+    "description": "SettingsWindow.DrawRolls"
+  },
+  "RollDisplayMode": {
+    "message": "显示模式",
+    "description": "SettingsWindow.DrawRolls"
+  },
+  "RollDisplayMode_HelpMarker": {
+    "message": "何时显示骰点监控界面",
+    "description": "SettingsWindow.DrawRolls"
+  },
+  "RollNameFormat": {
+    "message": "角色名格式",
+    "description": "SettingsWindow.DrawRolls"
+  },
+  "RollNameFormat_HelpMarker": {
+    "message": "更改角色名显示模式（国服不可用）",
+    "description": "SettingsWindow.DrawRolls"
+  },
+  "RollMonitorAddedTimeout": {
+    "message": "显示新掉落物持续时间(分)",
+    "description": "SettingsWindow.DrawRolls"
+  },
+  "RollMonitorAddedTimeout_HelpMarker": {
+    "message": "从掉落界面移除新掉落物的时长",
+    "description": "SettingsWindow.DrawRolls"
+  },
+  "RollMonitorObtainedTimeout": {
+    "message": "显示获得的物品(秒)",
+    "description": "SettingsWindow.DrawRolls"
+  },
+  "RollMonitorObtainedTimeout_HelpMarker": {
+    "message": "在掉落界面显示获得/失去的物品的时长",
+    "description": "SettingsWindow.DrawRolls"
+  },
+  "AddEnabled": {
+    "message": "掉落",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "CastEnabled": {
+    "message": "需/贪",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "CraftEnabled": {
+    "message": "制作",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "DesynthEnabled": {
+    "message": "分解",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "DiscardEnabled": {
+    "message": "丢弃",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "GatherEnabled": {
+    "message": "采集",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "GreedEnabled": {
+    "message": "贪婪",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "LostEnabled": {
+    "message": "丢失",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "NeedEnabled": {
+    "message": "需求",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "ObtainEnabled": {
+    "message": "获得",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "PurchaseEnabled": {
+    "message": "购买",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "SearchEnabled": {
+    "message": "搜索",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "SellEnabled": {
+    "message": "出售",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "UseEnabled": {
+    "message": "使用",
+    "description": "SettingsWindow.DrawEventTypes"
+  },
+  "RestrictToContent": {
+    "message": "仅限副本",
+    "description": "SettingsWindow.RestrictToContent"
+  },
+  "RestrictToContent_HelpMarker": {
+    "message": "限定为副本内容，排除世界战斗掉落",
+    "description": "SettingsWindow.RestrictToContent"
+  },
+  "RestrictToHighEndDuty": {
+    "message": "仅限高难度任务",
+    "description": "SettingsWindow.RestrictToHighEndDuty"
+  },
+  "RestrictToHighEndDuty_HelpMarker": {
+    "message": "限定为高难度任务(如零式)",
+    "description": "SettingsWindow.RestrictToHighEndDuty"
+  },
+  "RestrictToCustom": {
+    "message": "仅限以下任务",
+    "description": "SettingsWindow.RestrictToCustom"
+  },
+  "RestrictToCustom_HelpMarker": {
+    "message": "使用下拉菜单添加，或单击已添加内容以删除",
+    "description": "SettingsWindow.RestrictToCustom"
+  },
+  "Add": {
+    "message": "添加",
+    "description": "SettingsWindow.RestrictToCustom"
+  },
+  "Reset": {
+    "message": "重置",
+    "description": "SettingsWindow.RestrictToCustom"
+  },
+  "DupeContent": {
+    "message": "该内容已被添加！",
+    "description": "SettingsWindow.RestrictToCustom"
+  },
+  "RestrictToCustomItems": {
+    "message": "仅限以下物品",
+    "description": "SettingsWindow.DrawItems"
+  },
+  "RestrictToCustomItems_HelpMarker": {
+    "message": "使用下拉菜单添加物品，或单击已添加物品以删除",
+    "description": "SettingsWindow.DrawItems"
+  },
+  "SelectCategory": {
+    "message": "分类",
+    "description": "SettingsWindow.DrawItems"
+  },
+  "SelectItem": {
+    "message": "物品",
+    "description": "SettingsWindow.DrawItems"
+  },
+  "DupeCustomItem": {
+    "message": "该物品已被添加！",
+    "description": "SettingsWindow.DrawItems"
+  },
+  "PermittedItems": {
+    "message": "允许的物品",
+    "description": "SettingsWindow.DrawItems"
+  },
+  "NoPermittedItems": {
+    "message": "无",
+    "description": "SettingsWindow.DrawItems"
+  },
+  "SelfOnly": {
+    "message": "仅自身",
+    "description": "SettingsWindow.DrawFilters"
+  },
+  "LoggingEnabled": {
+    "message": "启用掉落记录",
+    "description": "SettingsWindow.DrawLog"
+  },
+  "LoggingEnabled_HelpMarker": {
+    "message": "保存掉落信息至文件(地址在链接选项卡)",
+    "description": "SettingsWindow.DrawLog"
+  },
+  "LogFormat": {
+    "message": "记录格式",
+    "description": "SettingsWindow.DrawLog"
+  },
+  "LogFormat_HelpMarker": {
+    "message": "设置掉落信息的记录格式",
+    "description": "SettingsWindow.DrawLog"
+  },
+  "OpenGithub": {
+    "message": "Github",
+    "description": "SettingsWindow.DrawLinks"
+  },
+  "ImproveTranslate": {
+    "message": "翻译",
+    "description": "SettingsWindow.DrawLinks"
+  },
+  "LoadTestData": {
+    "message": "测试数据（不要点）",
+    "description": "SettingsWindow.DrawLinks"
+  },
+  "ClearData": {
+    "message": "清除数据",
+    "description": "SettingsWindow.DrawLinks"
+  },
+  "OpenLogs": {
+    "message": "打开记录文件",
+    "description": "SettingsWindow.DrawLinks"
+  },
+  "LootOverlayWindow": {
+    "message": "掉落",
+    "description": "LootOverlayWindow.DrawView"
+  },
+  "LootItemName": {
+    "message": "物品",
+    "description": "LootOverlayWindow.DrawView"
+  },
+  "LootEventType": {
+    "message": "事件",
+    "description": "LootOverlayWindow.DrawView"
+  },
+  "LootPlayer": {
+    "message": "角色",
+    "description": "LootOverlayWindow.DrawView"
+  },
+  "RollMonitorLost": {
+    "message": "无人获得",
+    "description": "RollMonitor.ProcessRoll"
+  }
+}
