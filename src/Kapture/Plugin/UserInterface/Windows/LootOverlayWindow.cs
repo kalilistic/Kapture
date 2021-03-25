@@ -31,7 +31,7 @@ namespace Kapture
             ImGui.SetNextWindowSize(new Vector2(380 * _uiScale, 220 * _uiScale), ImGuiCond.FirstUseEver);
             if (ImGui.Begin(Loc.Localize("LootOverlayWindow", "Loot") + "###Kapture_Loot_Window"))
             {
-                if (_plugin.ClientLanguage() != 1)
+                if ((_plugin.ClientLanguage() != 1) && (_plugin.ClientLanguage() != 4))
                 {
                     ImGui.Text(Loc.Localize("LanguageNotSupported1",
                         "Sorry, only English is supported at this time."));

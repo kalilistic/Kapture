@@ -14,27 +14,27 @@ namespace Kapture
             ProcessSystemSearchRegex = BuildRegex(@"^正在确认“$");
             ProcessSystemAddedRegex = BuildRegex(@"^获得了新的战利品$");
             ProcessSystemLostRegex = BuildRegex(@"^无法获得“$");
-            ProcessSystemPurchasedRegex = BuildRegex(@"^从市场购买了“$");
+            ProcessSystemPurchasedRegex = BuildRegex(@"(^从市场购买了“|的价格买入了“|的价格回购了“)$");
             ProcessSystemDiscardedRegex = BuildRegex(@"^舍弃了“$");
-            ProcessSystemObtainedFromDesynthRegex = BuildRegex(@" 获得了$");
-            ProcessSystemObtainedFromMateriaRegex = BuildRegex(@"取下了魔晶石。$");
+            ProcessSystemObtainedFromDesynthRegex = BuildRegex(@"   获得了$");
+            ProcessSystemObtainedFromMateriaRegex = BuildRegex(@"成功回收了$");
             ProcessSystemLostMateriaRegex = BuildRegex(@"^化成了粉末……$");
             ProcessLocalPlayerObtainLootRegex = BuildRegex(@""); // not used
             ProcessLocalPlayerRollCastRegex = BuildRegex(@"^掷骰。$");
-            ProcessLocalPlayerRollNeedRegex = BuildRegex(@"需求条件下对“$");
+            ProcessLocalPlayerRollNeedRegex = BuildRegex(@"在需求条件下对“$");
             ProcessLocalPlayerRollGreedRegex = BuildRegex(@"在贪婪条件下对“$");
             ProcessOtherPlayerObtainLootRegex = BuildRegex(@""); // not used
             ProcessOtherPlayerRollCastRegex = BuildRegex(@"^掷骰。$");
-            ProcessOtherPlayerRollNeedRegex = BuildRegex(@"需求条件下对“$");
+            ProcessOtherPlayerRollNeedRegex = BuildRegex(@"在需求条件下对“$");
             ProcessOtherPlayerRollGreedRegex = BuildRegex(@"在贪婪条件下对“$");
             ProcessAddDesynthSellDesynthRegex = BuildRegex(@"成功分解了$");
             ProcessAddDesynthSellOrchestrationRegex = BuildRegex(@"^»收录进了管弦乐琴乐谱集之中。$");
-            ProcessAddDesynthSellSellRegex = BuildRegex(@"币的价格卖出了“$");
+            ProcessAddDesynthSellSellRegex = BuildRegex(@"的价格卖出了“$");
             ProcessLocalPlayerUseRegex = BuildRegex(@"使用了“$");
             ProcessLocalPlayerSpecialObtainRegex = BuildRegex(@""); // not used
             ProcessOtherPlayerUseRegex = BuildRegex(@"使用了“$");
             ProcessFastCraftUseMateriaRegex = BuildRegex(@"^镶嵌到了$");
-            ProcessFastCraftExtractMateriaRegex = BuildRegex(@"^刚柔魔晶石柒型$");
+            ProcessFastCraftExtractMateriaRegex = BuildRegex(@"^进行了精制魔晶石！\n获得了$");
             ProcessFastCraftCraftRegex = BuildRegex(@"制作“$");
             ProcessGatherMinBtnRegex = BuildRegex(@"获得了“$");
             ProcessGatherFshRegex = BuildRegex(@"成功钓上了$");
@@ -96,7 +96,7 @@ namespace Kapture
                 };
 
             // Obtained by Retrieving Materia (Local Player)
-            if (ProcessSystemObtainedFromMateriaRegex.IsMatch(message.MessageParts.Last()))
+            if (ProcessSystemObtainedFromMateriaRegex.IsMatch(message.MessageParts[0]))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Obtain,
@@ -109,6 +109,16 @@ namespace Kapture
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Lost,
+                    IsLocalPlayer = true,
+                    PlayerName = Plugin.GetLocalPlayerName()
+                };
+
+            // Sell (Local Player)
+            // CN log:{"XivChatType":57,"LogKind":57,"LogKindName":"System","LootMessageType":57,"LootMessageTypeName":"System","Message":"以2,500金币的价格卖出了“古代银币”×5。","MessageParts":["以2,500金币的价格卖出了“","","古代银币","”×5。"],"ItemId":27994,"ItemName":"古代银币","IsHq":false}
+            if (ProcessAddDesynthSellSellRegex.IsMatch(message.MessageParts[0]))
+                return new LootEvent
+                {
+                    LootEventType = LootEventType.Sell,
                     IsLocalPlayer = true,
                     PlayerName = Plugin.GetLocalPlayerName()
                 };
@@ -229,16 +239,7 @@ namespace Kapture
                     IsLocalPlayer = true,
                     PlayerName = Plugin.GetLocalPlayerName()
                 };
-
-            // Sell (Local Player)
-            if (ProcessAddDesynthSellSellRegex.IsMatch(message.MessageParts[0]))
-                return new LootEvent
-                {
-                    LootEventType = LootEventType.Sell,
-                    IsLocalPlayer = true,
-                    PlayerName = Plugin.GetLocalPlayerName()
-                };
-
+            
             return null;
         }
 
@@ -288,7 +289,7 @@ namespace Kapture
                 };
 
             // Extract Materia (Local Player)
-            if (message.MessageParts.Count >= 6 && ProcessFastCraftExtractMateriaRegex.IsMatch(message.MessageParts[5]))
+            if (message.MessageParts.Count >= 6 && ProcessFastCraftExtractMateriaRegex.IsMatch(message.MessageParts[3]))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Obtain,
@@ -333,7 +334,7 @@ namespace Kapture
         protected override LootEvent ProcessLocalPlayerSynthesize(LootMessage message)
         {
             // Obtain by Crafting (Local Player)
-            if (ProcessLocalPlayerSynthesizeRegex.IsMatch(message.MessageParts[0]))
+            if ((ProcessLocalPlayerSynthesizeRegex.IsMatch(message.MessageParts[0])) && (BuildRegex(@"成功！$").IsMatch(message.MessageParts[3])))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Craft,
@@ -346,7 +347,7 @@ namespace Kapture
         protected override LootEvent ProcessOtherPlayerSynthesize(LootMessage message)
         {
             // Obtain by Crafting (Other Player)
-            if (message.MessageParts.Count >= 2 && ProcessOtherPlayerSynthesizeRegex.IsMatch(message.MessageParts[1]))
+            if (message.MessageParts.Count >= 2 && ProcessOtherPlayerSynthesizeRegex.IsMatch(message.MessageParts[1]) && (BuildRegex(@"成功！$").IsMatch(message.MessageParts[3])))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Craft,
