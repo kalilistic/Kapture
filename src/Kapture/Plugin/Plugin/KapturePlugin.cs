@@ -329,7 +329,6 @@ namespace Kapture
                     LootProcessor = new ENLootProcessor(this);
                     break;
             }
-            LootProcessor = new ENLootProcessor(this);
             LootLogger = new LootLogger(this);
         }
         
