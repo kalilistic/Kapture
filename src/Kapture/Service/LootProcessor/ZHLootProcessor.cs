@@ -1,10 +1,14 @@
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Kapture
 {
     public class ZHLootProcessor : LootProcessor
     {
+        private Regex _processLocalPlayerSynthesizeRegex2;
+        private Regex _processOtherPlayerSynthesizeRegex2;
+
         public ZHLootProcessor(IKapturePlugin kapturePlugin) : base(kapturePlugin)
         {
         }
@@ -41,6 +45,8 @@ namespace Kapture
             ProcessLocalPlayerSynthesizeRegex = BuildRegex(@"制作“$");
             ProcessOtherPlayerSynthesizeRegex = BuildRegex(@"制作“$");
             RollRegex = BuildRegex(@"(?<Roll>\d{1,3})");
+            _processLocalPlayerSynthesizeRegex2 = BuildRegex(@"成功！$");
+            _processOtherPlayerSynthesizeRegex2 = BuildRegex(@"成功！$");
         }
 
         protected override LootEvent ProcessSystem(LootMessage message)
@@ -114,7 +120,6 @@ namespace Kapture
                 };
 
             // Sell (Local Player)
-            // CN log:{"XivChatType":57,"LogKind":57,"LogKindName":"System","LootMessageType":57,"LootMessageTypeName":"System","Message":"以2,500金币的价格卖出了“古代银币”×5。","MessageParts":["以2,500金币的价格卖出了“","","古代银币","”×5。"],"ItemId":27994,"ItemName":"古代银币","IsHq":false}
             if (ProcessAddDesynthSellSellRegex.IsMatch(message.MessageParts[0]))
                 return new LootEvent
                 {
@@ -239,7 +244,7 @@ namespace Kapture
                     IsLocalPlayer = true,
                     PlayerName = Plugin.GetLocalPlayerName()
                 };
-            
+
             return null;
         }
 
@@ -289,7 +294,7 @@ namespace Kapture
                 };
 
             // Extract Materia (Local Player)
-            if (message.MessageParts.Count >= 6 && ProcessFastCraftExtractMateriaRegex.IsMatch(message.MessageParts[3]))
+            if (message.MessageParts.Count >= 4 && ProcessFastCraftExtractMateriaRegex.IsMatch(message.MessageParts[3]))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Obtain,
@@ -334,7 +339,8 @@ namespace Kapture
         protected override LootEvent ProcessLocalPlayerSynthesize(LootMessage message)
         {
             // Obtain by Crafting (Local Player)
-            if ((ProcessLocalPlayerSynthesizeRegex.IsMatch(message.MessageParts[0])) && (BuildRegex(@"成功！$").IsMatch(message.MessageParts[3])))
+            if (message.MessageParts.Count >= 4 && ProcessLocalPlayerSynthesizeRegex.IsMatch(message.MessageParts[0])
+                                                && _processLocalPlayerSynthesizeRegex2.IsMatch(message.MessageParts[3]))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Craft,
@@ -347,7 +353,9 @@ namespace Kapture
         protected override LootEvent ProcessOtherPlayerSynthesize(LootMessage message)
         {
             // Obtain by Crafting (Other Player)
-            if (message.MessageParts.Count >= 2 && ProcessOtherPlayerSynthesizeRegex.IsMatch(message.MessageParts[1]) && (BuildRegex(@"成功！$").IsMatch(message.MessageParts[3])))
+            if (message.MessageParts.Count >= 4 &&
+                ProcessOtherPlayerSynthesizeRegex.IsMatch(message.MessageParts[1]) &&
+                _processOtherPlayerSynthesizeRegex2.IsMatch(message.MessageParts[3]))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Craft,

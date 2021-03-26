@@ -31,17 +31,7 @@ namespace Kapture
             ImGui.SetNextWindowSize(new Vector2(380 * _uiScale, 220 * _uiScale), ImGuiCond.FirstUseEver);
             if (ImGui.Begin(Loc.Localize("LootOverlayWindow", "Loot") + "###Kapture_Loot_Window"))
             {
-                if ((_plugin.ClientLanguage() != 1) && (_plugin.ClientLanguage() != 4))
-                {
-                    ImGui.Text(Loc.Localize("LanguageNotSupported1",
-                        "Sorry, only English is supported at this time."));
-                    ImGui.Spacing();
-                    ImGui.Text(Loc.Localize("LanguageNotSupported2",
-                        "Please reach out on discord if you want to help."));
-                    ImGui.Text(Loc.Localize("LanguageNotSupported3",
-                        "add German, French, or Japanese support."));
-                }
-                else if (_plugin.Configuration.Enabled)
+                if (_plugin.Configuration.Enabled)
                 {
                     var lootEvents = _plugin.LootEvents.ToList();
                     if (lootEvents.Count > 0)
