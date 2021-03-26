@@ -26,11 +26,9 @@ namespace Kapture
         protected Regex ProcessSystemObtainedFromDesynthRegex { get; set; }
         protected Regex ProcessSystemObtainedFromMateriaRegex { get; set; }
         protected Regex ProcessSystemLostMateriaRegex { get; set; }
-        protected Regex ProcessLocalPlayerObtainLootRegex { get; set; }
         protected Regex ProcessLocalPlayerRollCastRegex { get; set; }
         protected Regex ProcessLocalPlayerRollNeedRegex { get; set; }
         protected Regex ProcessLocalPlayerRollGreedRegex { get; set; }
-        protected Regex ProcessOtherPlayerObtainLootRegex { get; set; }
         protected Regex ProcessOtherPlayerRollCastRegex { get; set; }
         protected Regex ProcessOtherPlayerRollNeedRegex { get; set; }
         protected Regex ProcessOtherPlayerRollGreedRegex { get; set; }
@@ -38,7 +36,6 @@ namespace Kapture
         protected Regex ProcessAddDesynthSellOrchestrationRegex { get; set; }
         protected Regex ProcessAddDesynthSellSellRegex { get; set; }
         protected Regex ProcessLocalPlayerUseRegex { get; set; }
-        protected Regex ProcessLocalPlayerSpecialObtainRegex { get; set; }
         protected Regex ProcessOtherPlayerUseRegex { get; set; }
         protected Regex ProcessFastCraftUseMateriaRegex { get; set; }
         protected Regex ProcessFastCraftExtractMateriaRegex { get; set; }

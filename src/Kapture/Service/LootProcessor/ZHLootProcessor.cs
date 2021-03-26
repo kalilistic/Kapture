@@ -23,11 +23,9 @@ namespace Kapture
             ProcessSystemObtainedFromDesynthRegex = BuildRegex(@"   获得了$");
             ProcessSystemObtainedFromMateriaRegex = BuildRegex(@"成功回收了$");
             ProcessSystemLostMateriaRegex = BuildRegex(@"^化成了粉末……$");
-            ProcessLocalPlayerObtainLootRegex = BuildRegex(@""); // not used
             ProcessLocalPlayerRollCastRegex = BuildRegex(@"^掷骰。$");
             ProcessLocalPlayerRollNeedRegex = BuildRegex(@"在需求条件下对“$");
             ProcessLocalPlayerRollGreedRegex = BuildRegex(@"在贪婪条件下对“$");
-            ProcessOtherPlayerObtainLootRegex = BuildRegex(@""); // not used
             ProcessOtherPlayerRollCastRegex = BuildRegex(@"^掷骰。$");
             ProcessOtherPlayerRollNeedRegex = BuildRegex(@"在需求条件下对“$");
             ProcessOtherPlayerRollGreedRegex = BuildRegex(@"在贪婪条件下对“$");
@@ -35,7 +33,6 @@ namespace Kapture
             ProcessAddDesynthSellOrchestrationRegex = BuildRegex(@"^»收录进了管弦乐琴乐谱集之中。$");
             ProcessAddDesynthSellSellRegex = BuildRegex(@"的价格卖出了“$");
             ProcessLocalPlayerUseRegex = BuildRegex(@"使用了“$");
-            ProcessLocalPlayerSpecialObtainRegex = BuildRegex(@""); // not used
             ProcessOtherPlayerUseRegex = BuildRegex(@"使用了“$");
             ProcessFastCraftUseMateriaRegex = BuildRegex(@"^镶嵌到了$");
             ProcessFastCraftExtractMateriaRegex = BuildRegex(@"^进行了精制魔晶石！\n获得了$");
@@ -45,6 +42,8 @@ namespace Kapture
             ProcessLocalPlayerSynthesizeRegex = BuildRegex(@"制作“$");
             ProcessOtherPlayerSynthesizeRegex = BuildRegex(@"制作“$");
             RollRegex = BuildRegex(@"(?<Roll>\d{1,3})");
+            
+            // cn-specific
             _processLocalPlayerSynthesizeRegex2 = BuildRegex(@"成功！$");
             _processOtherPlayerSynthesizeRegex2 = BuildRegex(@"成功！$");
         }

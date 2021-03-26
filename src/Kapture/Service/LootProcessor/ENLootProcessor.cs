@@ -19,11 +19,9 @@ namespace Kapture
             ProcessSystemObtainedFromDesynthRegex = BuildRegex(@"^You obtain *?");
             ProcessSystemObtainedFromMateriaRegex = BuildRegex(@"^You receive *?");
             ProcessSystemLostMateriaRegex = BuildRegex(@"^ shatters...$");
-            ProcessLocalPlayerObtainLootRegex = BuildRegex(@""); // not used
             ProcessLocalPlayerRollCastRegex = BuildRegex(@"^You cast your lot *?");
             ProcessLocalPlayerRollNeedRegex = BuildRegex(@"^You roll Need on *?");
             ProcessLocalPlayerRollGreedRegex = BuildRegex(@"^You roll Greed on *?");
-            ProcessOtherPlayerObtainLootRegex = BuildRegex(@""); // not used
             ProcessOtherPlayerRollCastRegex = BuildRegex(@" casts (his|her) lot *?");
             ProcessOtherPlayerRollNeedRegex = BuildRegex(@" rolls Need *?");
             ProcessOtherPlayerRollGreedRegex = BuildRegex(@" rolls Greed *?");
@@ -31,7 +29,6 @@ namespace Kapture
             ProcessAddDesynthSellOrchestrationRegex = BuildRegex(@"^ is added to your orchestrion list.$");
             ProcessAddDesynthSellSellRegex = BuildRegex(@"^You sell *?");
             ProcessLocalPlayerUseRegex = BuildRegex(@"^ uses *?");
-            ProcessLocalPlayerSpecialObtainRegex = BuildRegex(@""); // not used
             ProcessOtherPlayerUseRegex = BuildRegex(@"^ uses *?");
             ProcessFastCraftUseMateriaRegex = BuildRegex(@"^You successfully attach *?");
             ProcessFastCraftExtractMateriaRegex = BuildRegex(@"^You successfully extract *?");
