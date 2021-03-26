@@ -747,7 +747,7 @@ namespace Kapture
             if (ImGui.Button(
                 Loc.Localize("ImproveTranslate", "Translations") + "###Kapture_ImproveTranslate_Button",
                 buttonSize))
-                Process.Start("https://crowdin.com");
+                Process.Start("https://crowdin.com/project/kapture");
             if (ImGui.Button(
                 Loc.Localize("LoadTestData", "Test Data") + "###Kapture_LoadTestData_Button",
                 buttonSize))
