@@ -22,6 +22,8 @@ namespace Kapture
         LootLogger LootLogger { get; set; }
         bool InContent { get; set; }
         bool IsRolling { get; set; }
+        RollMonitor RollMonitor { get; }
+        LootProcessor LootProcessor { get; }
         void SaveConfig();
         string GetSeIcon(SeIconChar seIconChar);
         void LogInfo(string messageTemplate);

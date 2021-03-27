@@ -30,7 +30,7 @@ namespace Kapture.Mock
                 SellEnabled = true,
                 UseEnabled = true
             };
-            RollMonitor = new RollMonitor.RollMonitor(this);
+            RollMonitor = new RollMonitor(this);
             if (langCode == 0)
             {
                 LootProcessor = new ENLootProcessor(this);
@@ -55,7 +55,7 @@ namespace Kapture.Mock
         }
 
         public LootProcessor LootProcessor { get; }
-        public RollMonitor.RollMonitor RollMonitor { get; }
+        public RollMonitor RollMonitor { get; }
 
         public string GetLocalPlayerName()
         {
