@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\LootProcessor\DELootProcessorTest.cs" />
     <Compile Include="Service\LootProcessor\ZHLootProcessorTest.cs" />
     <Compile Include="Service\LootProcessor\ENLootProcessorTest.cs" />
     <Compile Include="Service\RollMonitor\RollMonitorTest.cs" />

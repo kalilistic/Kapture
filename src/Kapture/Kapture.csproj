@@ -134,6 +134,7 @@
     <Compile Include="Common\Localization\Localization.cs" />
     <Compile Include="Plugin\UserInterface\Windows\RollMonitorOverlay.cs" />
     <Compile Include="Service\LootLogger\LootLogger.cs" />
+    <Compile Include="Service\LootProcessor\DELootProcessor.cs" />
     <Compile Include="Service\LootProcessor\ENLootProcessor.cs" />
     <Compile Include="Service\LootProcessor\LootProcessor.cs" />
     <Compile Include="Plugin\UserInterface\PluginUIBase.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\LootProcessor\ZHLootProcessor.cs" />
     <Compile Include="Service\RollMonitor\RollMonitor.cs" />
+    <Compile Include="Service\TestData\TestData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Kapture.json" />

@@ -43,8 +43,8 @@ namespace Kapture
             });
         }
 
-        private RollMonitor.RollMonitor RollMonitor { get; set; }
-        private LootProcessor LootProcessor { get; set; }
+        public RollMonitor RollMonitor { get; private set; }
+        public LootProcessor LootProcessor { get; private set; }
 
         public LootLogger LootLogger { get; set; }
         public bool IsInitializing { get; private set; } = true;
@@ -89,157 +89,7 @@ namespace Kapture
 
         public void LoadTestData()
         {
-            // add
-            var event1 = new LootEvent
-            {
-                LootEventType = LootEventType.Add,
-                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Add),
-                Timestamp = DateUtil.CurrentTime(),
-                LootEventId = Guid.NewGuid(),
-                TerritoryTypeId = 1,
-                ContentId = 1,
-                LootMessage = new LootMessage
-                {
-                    ItemId = 1,
-                    ItemName = "Ruby Tide Bracelets of Fending"
-                },
-                ItemName = "Ruby Tide Bracelets of Fending",
-                ItemNameAbbreviated = "Ruby Tide Bracelets of Fending"
-            };
-            RollMonitor.ProcessRoll(event1);
-            LootEvents.Add(event1);
-
-            // add again
-            var event2 = new LootEvent
-            {
-                LootEventType = LootEventType.Add,
-                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Add),
-                Timestamp = DateUtil.CurrentTime(),
-                LootEventId = Guid.NewGuid(),
-                TerritoryTypeId = 1,
-                ContentId = 1,
-                LootMessage = new LootMessage
-                {
-                    ItemId = 1,
-                    ItemName = "Wind-up Aldgoat"
-                },
-                ItemName = "Wind-up Aldgoat",
-                ItemNameAbbreviated = "Wind-up Aldgoat"
-            };
-            RollMonitor.ProcessRoll(event2);
-            LootEvents.Add(event2);
-
-            // cast
-            var event3 = new LootEvent
-            {
-                LootEventType = LootEventType.Cast,
-                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Cast),
-                Timestamp = DateUtil.CurrentTime(),
-                LootEventId = Guid.NewGuid(),
-                TerritoryTypeId = 1,
-                ContentId = 1,
-                LootMessage = new LootMessage
-                {
-                    ItemId = 1,
-                    ItemName = "Ruby Tide Bracelets of Fending"
-                },
-                ItemName = "Ruby Tide Bracelets of Fending",
-                ItemNameAbbreviated = "Ruby Tide Bracelets of Fending",
-                PlayerName = "Wyatt Earp",
-                PlayerDisplayName = "Wyatt Earp"
-            };
-            RollMonitor.ProcessRoll(event3);
-            LootEvents.Add(event3);
-
-            // cast again
-            var event4 = new LootEvent
-            {
-                LootEventType = LootEventType.Cast,
-                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Cast),
-                Timestamp = DateUtil.CurrentTime(),
-                LootEventId = Guid.NewGuid(),
-                TerritoryTypeId = 1,
-                ContentId = 1,
-                LootMessage = new LootMessage
-                {
-                    ItemId = 1,
-                    ItemName = "Ruby Tide Bracelets of Fending"
-                },
-                ItemName = "Ruby Tide Bracelets of Fending",
-                ItemNameAbbreviated = "Ruby Tide Bracelets of Fending",
-                PlayerName = "April O'Neil",
-                PlayerDisplayName = "April O'Neil"
-            };
-            RollMonitor.ProcessRoll(event4);
-            LootEvents.Add(event4);
-
-            // need roll
-            var event5 = new LootEvent
-            {
-                LootEventType = LootEventType.Need,
-                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Need),
-                Timestamp = DateUtil.CurrentTime(),
-                LootEventId = Guid.NewGuid(),
-                TerritoryTypeId = 1,
-                ContentId = 1,
-                LootMessage = new LootMessage
-                {
-                    ItemId = 1,
-                    ItemName = "Ruby Tide Bracelets of Fending"
-                },
-                ItemName = "Ruby Tide Bracelets of Fending",
-                ItemNameAbbreviated = "Ruby Tide Bracelets of Fending",
-                PlayerName = "April O'Neil",
-                PlayerDisplayName = "April O'Neil",
-                Roll = 45
-            };
-            RollMonitor.ProcessRoll(event5);
-            LootEvents.Add(event5);
-
-            // need roll again
-            var event6 = new LootEvent
-            {
-                LootEventType = LootEventType.Need,
-                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Need),
-                Timestamp = DateUtil.CurrentTime(),
-                LootEventId = Guid.NewGuid(),
-                TerritoryTypeId = 1,
-                ContentId = 1,
-                LootMessage = new LootMessage
-                {
-                    ItemId = 1,
-                    ItemName = "Ruby Tide Bracelets of Fending"
-                },
-                ItemName = "Ruby Tide Bracelets of Fending",
-                ItemNameAbbreviated = "Ruby Tide Bracelets of Fending",
-                PlayerName = "Wyatt Earp",
-                PlayerDisplayName = "Wyatt Earp",
-                Roll = 57
-            };
-            RollMonitor.ProcessRoll(event6);
-            LootEvents.Add(event6);
-
-            // obtain
-            var event7 = new LootEvent
-            {
-                LootEventType = LootEventType.Obtain,
-                LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Obtain),
-                Timestamp = DateUtil.CurrentTime(),
-                LootEventId = Guid.NewGuid(),
-                TerritoryTypeId = 1,
-                ContentId = 1,
-                LootMessage = new LootMessage
-                {
-                    ItemId = 1,
-                    ItemName = "Ruby Tide Bracelets of Fending"
-                },
-                ItemName = "Ruby Tide Bracelets of Fending",
-                ItemNameAbbreviated = "Ruby Tide Bracelets of Fending",
-                PlayerName = "Wyatt Earp",
-                PlayerDisplayName = "Wyatt Earp"
-            };
-            RollMonitor.ProcessRoll(event7);
-            LootEvents.Add(event7);
+            TestData.LoadTestData(this);
         }
 
         public void ClearData()
@@ -313,25 +163,39 @@ namespace Kapture
 
         private void LoadServices()
         {
-            RollMonitor = new RollMonitor.RollMonitor(this);
+            RollMonitor = new RollMonitor(this);
             var langCode = ClientLanguage();
             switch (langCode)
             {
+                // japanese
+                case 0:
+                    LootProcessor = new ENLootProcessor(this);
+                    break;
+
+                // english
                 case 1:
+                    LootProcessor = new ENLootProcessor(this);
+                    break;
+
+                // german
                 case 2:
+                    LootProcessor = new DELootProcessor(this);
+                    break;
+
+                // french
                 case 3:
                     LootProcessor = new ENLootProcessor(this);
                     break;
+
+                // chinese
                 case 4:
                     LootProcessor = new ZHLootProcessor(this);
                     break;
-                default:
-                    LootProcessor = new ENLootProcessor(this);
-                    break;
             }
+
             LootLogger = new LootLogger(this);
         }
-        
+
         private void LoadUI()
         {
             Localization.SetLanguage(Configuration.PluginLanguage);
@@ -392,6 +256,9 @@ namespace Kapture
             // check if enabled
             if (!Configuration.Enabled) return;
 
+            // log for debugging
+            if (Configuration.DebugLoggingEnabled) LogInfo("[ChatMessage]" + type + ":" + message);
+
             // combat check
             if (Configuration.RestrictInCombat && InCombat()) return;
 
@@ -447,7 +314,7 @@ namespace Kapture
             if (Configuration.RestrictToCustomItems && !Configuration.PermittedItems.Contains(lootMessage.ItemId)) return;
 
             // log for debugging
-            if (Configuration.LogLootMessages) LogInfo(lootMessage.ToString());
+            if (Configuration.DebugLoggingEnabled) LogInfo("[LootChatMessage]" + lootMessage);
 
             // send to loot processor
             var lootEvent = LootProcessor.ProcessLoot(lootMessage);
@@ -456,7 +323,7 @@ namespace Kapture
             if (lootEvent == null) return;
 
             // log for debugging
-            if (Configuration.LogLootEvents) LogInfo(lootEvent.ToString());
+            if (Configuration.DebugLoggingEnabled) LogInfo("[LootEvent]" + lootEvent);
 
             // enrich
             lootEvent.Timestamp = DateUtil.CurrentTime();
