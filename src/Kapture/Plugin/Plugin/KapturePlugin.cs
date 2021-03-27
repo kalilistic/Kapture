@@ -256,6 +256,9 @@ namespace Kapture
             // check if enabled
             if (!Configuration.Enabled) return;
 
+            // log for debugging
+            if (Configuration.DebugLoggingEnabled) LogInfo("[ChatMessage]" + type + ":" + message);
+
             // combat check
             if (Configuration.RestrictInCombat && InCombat()) return;
 
@@ -311,7 +314,7 @@ namespace Kapture
             if (Configuration.RestrictToCustomItems && !Configuration.PermittedItems.Contains(lootMessage.ItemId)) return;
 
             // log for debugging
-            if (Configuration.LogLootMessages) LogInfo(lootMessage.ToString());
+            if (Configuration.DebugLoggingEnabled) LogInfo("[LootChatMessage]" + lootMessage);
 
             // send to loot processor
             var lootEvent = LootProcessor.ProcessLoot(lootMessage);
@@ -320,7 +323,7 @@ namespace Kapture
             if (lootEvent == null) return;
 
             // log for debugging
-            if (Configuration.LogLootEvents) LogInfo(lootEvent.ToString());
+            if (Configuration.DebugLoggingEnabled) LogInfo("[LootEvent]" + lootEvent);
 
             // enrich
             lootEvent.Timestamp = DateUtil.CurrentTime();

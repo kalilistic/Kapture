@@ -45,7 +45,6 @@ namespace Kapture
         public int LogFormat { get; set; }
         public int RollDisplayMode { get; set; }
         public int LootDisplayMode { get; set; }
-        public bool LogLootMessages { get; set; }
-        public bool LogLootEvents { get; set; }
+        public bool DebugLoggingEnabled { get; set; }
     }
 }

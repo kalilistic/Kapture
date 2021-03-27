@@ -11,18 +11,6 @@
     "message": "骰点监控",
     "description": "RollMonitorOverlayWindow.DrawView"
   },
-  "LanguageNotSupported1": {
-    "message": "对不起，本插件现在只支持部分语言。",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "LanguageNotSupported2": {
-    "message": "如果想要帮助翻译请在Discord联系。",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "LanguageNotSupported3": {
-    "message": "正在寻求德语、法语和日语的志愿者的帮助。",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
   "MonitorItemName": {
     "message": "物品",
     "description": "RollMonitorOverlayWindow.DrawView"

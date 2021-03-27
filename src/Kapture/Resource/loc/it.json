@@ -11,18 +11,6 @@
         "message": "Roll Monitor",
         "description": "RollMonitorOverlayWindow.DrawView"
     },
-    "LanguageNotSupported1": {
-        "message": "Sorry, only English is supported at this time.",
-        "description": "RollMonitorOverlayWindow.DrawView"
-    },
-    "LanguageNotSupported2": {
-        "message": "Please reach out on discord if you want to help.",
-        "description": "RollMonitorOverlayWindow.DrawView"
-    },
-    "LanguageNotSupported3": {
-        "message": "add German, French, or Japanese support.",
-        "description": "RollMonitorOverlayWindow.DrawView"
-    },
     "MonitorItemName": {
         "message": "Item",
         "description": "RollMonitorOverlayWindow.DrawView"
