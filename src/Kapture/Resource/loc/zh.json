@@ -152,7 +152,7 @@
     "description": "SettingsWindow.DrawEventTypes"
   },
   "CastEnabled": {
-    "message": "需/贪",
+    "message": "掷骰",
     "description": "SettingsWindow.DrawEventTypes"
   },
   "CraftEnabled": {
