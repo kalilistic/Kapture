@@ -167,16 +167,29 @@ namespace Kapture
             var langCode = ClientLanguage();
             switch (langCode)
             {
+                // japanese
+                case 0:
+                    LootProcessor = new ENLootProcessor(this);
+                    break;
+
+                // english
                 case 1:
+                    LootProcessor = new ENLootProcessor(this);
+                    break;
+
+                // german
                 case 2:
+                    LootProcessor = new DELootProcessor(this);
+                    break;
+
+                // french
                 case 3:
                     LootProcessor = new ENLootProcessor(this);
                     break;
+
+                // chinese
                 case 4:
                     LootProcessor = new ZHLootProcessor(this);
-                    break;
-                default:
-                    LootProcessor = new ENLootProcessor(this);
                     break;
             }
 

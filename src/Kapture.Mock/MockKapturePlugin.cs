@@ -32,26 +32,14 @@ namespace Kapture.Mock
             };
             RollMonitor = new RollMonitor(this);
             if (langCode == 0)
-            {
                 LootProcessor = new ENLootProcessor(this);
-            }
             else if (langCode == 1)
-            {
-                LootProcessor = new ENLootProcessor(this); 
-            }
+                LootProcessor = new ENLootProcessor(this);
             else if (langCode == 2)
-            {
-                LootProcessor = new ENLootProcessor(this); 
-            }
+                LootProcessor = new DELootProcessor(this);
             else if (langCode == 3)
-            {
-                LootProcessor = new ENLootProcessor(this); 
-            }
-            else if (langCode == 4)
-            {
-                LootProcessor = new ZHLootProcessor(this); 
-            }
-
+                LootProcessor = new ENLootProcessor(this);
+            else if (langCode == 4) LootProcessor = new ZHLootProcessor(this);
         }
 
         public LootProcessor LootProcessor { get; }

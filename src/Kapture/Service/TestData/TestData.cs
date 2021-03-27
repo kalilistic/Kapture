@@ -1,5 +1,7 @@
 using System;
 
+// ReSharper disable StringLiteralTypo
+
 namespace Kapture
 {
     public static class TestData
@@ -11,8 +13,33 @@ namespace Kapture
             var langCode = plugin.ClientLanguage();
             switch (langCode)
             {
+                case 0:
+                    testDataSet = new TestDataSet
+                    {
+                        ItemName1 = "Ruby Tide Bracelets of Fending",
+                        ItemName2 = "Wind-up Aldgoat",
+                        PlayerName1 = "Wyatt Earp",
+                        PlayerName2 = "April O'Neil"
+                    };
+                    break;
                 case 1:
+                    testDataSet = new TestDataSet
+                    {
+                        ItemName1 = "Ruby Tide Bracelets of Fending",
+                        ItemName2 = "Wind-up Aldgoat",
+                        PlayerName1 = "Wyatt Earp",
+                        PlayerName2 = "April O'Neil"
+                    };
+                    break;
                 case 2:
+                    testDataSet = new TestDataSet
+                    {
+                        ItemName1 = "Topasring",
+                        ItemName2 = "Kiesgolem",
+                        PlayerName1 = "Hans Yolo",
+                        PlayerName2 = "April O'Neil"
+                    };
+                    break;
                 case 3:
                     testDataSet = new TestDataSet
                     {
