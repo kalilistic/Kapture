@@ -296,7 +296,7 @@
     "description": "SettingsWindow.DrawLinks"
   },
   "LoadTestData": {
-    "message": "测试数据（不要点）",
+    "message": "测试数据",
     "description": "SettingsWindow.DrawLinks"
   },
   "ClearData": {
