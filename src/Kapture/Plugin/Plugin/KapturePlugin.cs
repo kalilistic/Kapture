@@ -77,6 +77,18 @@ namespace Kapture
                     return splitName[0].Substring(0, 1) + splitName[1].Substring(0, 1);
                 }
 
+                if (nameFormatCode == NameFormat.SurnameAbbreviated.Code)
+                {
+                    var splitName = playerName.Split(' ');
+                    return splitName[0] + " " + splitName[1].Substring(0, 1) + ".";
+                }
+
+                if (nameFormatCode == NameFormat.ForenameAbbreviated.Code)
+                {
+                    var splitName = playerName.Split(' ');
+                    return splitName[0].Substring(0, 1) + ". " + splitName[1];
+                }
+
                 return string.Empty;
             }
             catch (Exception ex)
