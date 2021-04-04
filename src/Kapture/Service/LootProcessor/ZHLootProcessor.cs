@@ -6,6 +6,7 @@ namespace Kapture
 {
     public class ZHLootProcessor : LootProcessor
     {
+        private Regex _processFastCraftRegex2;
         private Regex _processLocalPlayerSynthesizeRegex2;
         private Regex _processOtherPlayerSynthesizeRegex2;
 
@@ -44,6 +45,7 @@ namespace Kapture
             RollRegex = BuildRegex(@"(?<Roll>\d{1,3})");
             
             // cn-specific
+            _processFastCraftRegex2 = BuildRegex(@"成功！$");
             _processLocalPlayerSynthesizeRegex2 = BuildRegex(@"成功！$");
             _processOtherPlayerSynthesizeRegex2 = BuildRegex(@"成功！$");
         }
@@ -302,7 +304,8 @@ namespace Kapture
                 };
 
             // Obtain via Crafting (Local Player)
-            if (ProcessFastCraftCraftRegex.IsMatch(message.MessageParts[0]))
+            if (message.MessageParts.Count >= 4 && ProcessFastCraftCraftRegex.IsMatch(message.MessageParts[0]) 
+                                                && _processFastCraftRegex2.IsMatch(message.MessageParts[3]))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Craft,
