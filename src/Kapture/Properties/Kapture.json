@@ -7,5 +7,5 @@
     "RepoUrl": "https://github.com/kalilistic/Dalamud.Kapture",
     "Tags": ["loot", "track"],
     "ApplicableVersion": "any",
-    "DalamudApiLevel": "2"
+    "DalamudApiLevel": "3"
 }
