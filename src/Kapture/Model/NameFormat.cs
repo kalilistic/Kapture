@@ -12,6 +12,8 @@ namespace Kapture
         public static readonly NameFormat FullName = new NameFormat(0, "Full Name");
         public static readonly NameFormat FirstName = new NameFormat(1, "First Name");
         public static readonly NameFormat Initials = new NameFormat(2, "Initials");
+        public static readonly NameFormat SurnameAbbreviated = new NameFormat(3, "Surname Abbreviated");
+        public static readonly NameFormat ForenameAbbreviated = new NameFormat(4, "Forename Abbreviated");
 
         public NameFormat()
         {

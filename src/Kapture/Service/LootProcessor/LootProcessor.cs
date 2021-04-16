@@ -123,8 +123,7 @@ namespace Kapture
                     lootEvent.ItemNameAbbreviated = lootEvent.LootMessage.ItemName.Length <= 30
                         ? lootEvent.LootMessage.ItemName
                         : lootEvent.LootMessage.ItemName.Substring(0, 26) + "...";
-                lootEvent.PlayerDisplayName =
-                    Plugin.FormatPlayerName(Plugin.Configuration.LootNameFormat, lootEvent.PlayerName);
+                lootEvent.PlayerDisplayName = Plugin.FormatPlayerName(Plugin.Configuration.LootNameFormat, lootEvent.PlayerName);
                 if (lootEvent.LootMessage.IsHq)
                     lootEvent.ItemNameAbbreviated += " " + Plugin.GetSeIcon(SeIconChar.HighQuality);
                 return lootEvent;

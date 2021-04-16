@@ -9,9 +9,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CheapLoc;
-using Dalamud.Game.Chat;
-using Dalamud.Game.Chat.SeStringHandling;
-using Dalamud.Game.Chat.SeStringHandling.Payloads;
+using Dalamud.Game.Text;
+using Dalamud.Game.Text.SeStringHandling;
+using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Dalamud.Game.Command;
 using Dalamud.Plugin;
 
@@ -75,6 +75,18 @@ namespace Kapture
                 {
                     var splitName = playerName.Split(' ');
                     return splitName[0].Substring(0, 1) + splitName[1].Substring(0, 1);
+                }
+
+                if (nameFormatCode == NameFormat.SurnameAbbreviated.Code)
+                {
+                    var splitName = playerName.Split(' ');
+                    return splitName[0] + " " + splitName[1].Substring(0, 1) + ".";
+                }
+
+                if (nameFormatCode == NameFormat.ForenameAbbreviated.Code)
+                {
+                    var splitName = playerName.Split(' ');
+                    return splitName[0].Substring(0, 1) + ". " + splitName[1];
                 }
 
                 return string.Empty;

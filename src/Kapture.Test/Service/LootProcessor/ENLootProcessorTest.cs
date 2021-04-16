@@ -9,14 +9,13 @@ namespace Kapture.Test
     [TestFixture]
     public class ENLootProcessorTest
     {
-        private LootMessage _lootMessage;
         [SetUp]
         public void Setup()
         {
             _kapturePlugin = new MockKapturePlugin();
             _lootMessage = new LootMessage
             {
-                ItemName = "ItemName",
+                ItemName = "ItemName"
             };
         }
 
@@ -24,6 +23,8 @@ namespace Kapture.Test
         public void TearDown()
         {
         }
+
+        private LootMessage _lootMessage;
 
         private MockKapturePlugin _kapturePlugin;
 
@@ -492,5 +493,6 @@ namespace Kapture.Test
             Assert.IsNotNull(result);
             Assert.AreEqual(LootEventType.Obtain, result.LootEventType);
         }
+        
     }
 }

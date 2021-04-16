@@ -13,29 +13,29 @@ namespace Kapture
         {
             ProcessSystemSearchRegex = BuildRegex(@"^Searching for $");
             ProcessSystemAddedRegex = BuildRegex(@"^ has been added to the loot list.$");
-            ProcessSystemLostRegex = BuildRegex(@"^Unable to obtain *?");
-            ProcessSystemPurchasedRegex = BuildRegex(@"^You purchase *?");
-            ProcessSystemDiscardedRegex = BuildRegex(@"^You throw away *?");
-            ProcessSystemObtainedFromDesynthRegex = BuildRegex(@"^You obtain *?");
-            ProcessSystemObtainedFromMateriaRegex = BuildRegex(@"^You receive *?");
+            ProcessSystemLostRegex = BuildRegex(@"^Unable to obtain*?");
+            ProcessSystemPurchasedRegex = BuildRegex(@"^You purchase*?");
+            ProcessSystemDiscardedRegex = BuildRegex(@"^You throw away*?");
+            ProcessSystemObtainedFromDesynthRegex = BuildRegex(@" obtain*?");
+            ProcessSystemObtainedFromMateriaRegex = BuildRegex(@"^You receive*?");
             ProcessSystemLostMateriaRegex = BuildRegex(@"^ shatters...$");
-            ProcessLocalPlayerRollCastRegex = BuildRegex(@"^You cast your lot *?");
-            ProcessLocalPlayerRollNeedRegex = BuildRegex(@"^You roll Need on *?");
-            ProcessLocalPlayerRollGreedRegex = BuildRegex(@"^You roll Greed on *?");
-            ProcessOtherPlayerRollCastRegex = BuildRegex(@" casts (his|her) lot *?");
+            ProcessLocalPlayerRollCastRegex = BuildRegex(@" cast[s]? (your|his|her) lot*?");
+            ProcessLocalPlayerRollNeedRegex = BuildRegex(@" roll[s]? Need on*?");
+            ProcessLocalPlayerRollGreedRegex = BuildRegex(@" roll[s]? Greed on*?");
+            ProcessOtherPlayerRollCastRegex = BuildRegex(@" casts (his|her) lot*?");
             ProcessOtherPlayerRollNeedRegex = BuildRegex(@" rolls Need *?");
             ProcessOtherPlayerRollGreedRegex = BuildRegex(@" rolls Greed *?");
-            ProcessAddDesynthSellDesynthRegex = BuildRegex(@"^You desynthesize *?");
+            ProcessAddDesynthSellDesynthRegex = BuildRegex(@" desynthesize[s]? *?");
             ProcessAddDesynthSellOrchestrationRegex = BuildRegex(@"^ is added to your orchestrion list.$");
             ProcessAddDesynthSellSellRegex = BuildRegex(@"^You sell *?");
             ProcessLocalPlayerUseRegex = BuildRegex(@"^ uses *?");
             ProcessOtherPlayerUseRegex = BuildRegex(@"^ uses *?");
-            ProcessFastCraftUseMateriaRegex = BuildRegex(@"^You successfully attach *?");
-            ProcessFastCraftExtractMateriaRegex = BuildRegex(@"^You successfully extract *?");
-            ProcessFastCraftCraftRegex = BuildRegex(@"^You synthesize *?");
-            ProcessGatherMinBtnRegex = BuildRegex(@"^You obtain *?");
-            ProcessGatherFshRegex = BuildRegex(@"^You land *?");
-            ProcessLocalPlayerSynthesizeRegex = BuildRegex(@"^You synthesize *?");
+            ProcessFastCraftUseMateriaRegex = BuildRegex(@"successfully attach*?");
+            ProcessFastCraftExtractMateriaRegex = BuildRegex(@"successfully extract*?");
+            ProcessFastCraftCraftRegex = BuildRegex(@" synthesize[s]? *?");
+            ProcessGatherMinBtnRegex = BuildRegex(@" obtain[s]? *?");
+            ProcessGatherFshRegex = BuildRegex(@"land*?");
+            ProcessLocalPlayerSynthesizeRegex = BuildRegex(@" synthesize[s]? *?");
             ProcessOtherPlayerSynthesizeRegex = BuildRegex(@" synthesizes *?");
             RollRegex = BuildRegex(@"(?<Roll>\d{1,3})");
         }
@@ -43,7 +43,7 @@ namespace Kapture
         protected override LootEvent ProcessSystem(LootMessage message)
         {
             // Searched (Local Player)
-            if (ProcessSystemSearchRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessSystemSearchRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Search,
@@ -59,14 +59,14 @@ namespace Kapture
                 };
 
             // Lost
-            if (ProcessSystemLostRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessSystemLostRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Lost
                 };
 
             // Purchased (Local Player)
-            if (ProcessSystemPurchasedRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessSystemPurchasedRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Purchase,
@@ -75,7 +75,7 @@ namespace Kapture
                 };
 
             // Discarded (Local Player)
-            if (ProcessSystemDiscardedRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessSystemDiscardedRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Discard,
@@ -84,7 +84,7 @@ namespace Kapture
                 };
 
             // Obtained from Desynth (Local Player)
-            if (ProcessSystemObtainedFromDesynthRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessSystemObtainedFromDesynthRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Obtain,
@@ -93,7 +93,7 @@ namespace Kapture
                 };
 
             // Obtained by Retrieving Materia (Local Player)
-            if (ProcessSystemObtainedFromMateriaRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessSystemObtainedFromMateriaRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Obtain,
@@ -128,25 +128,24 @@ namespace Kapture
         {
             var lootEvent = new LootEvent
             {
-                IsLocalPlayer = true,
-                PlayerName = Plugin.GetLocalPlayerName()
+                IsLocalPlayer = true
             };
 
             // Cast Lot (Local Player)
-            if (ProcessLocalPlayerRollCastRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessLocalPlayerRollCastRegex.IsMatch(message.MessageParts.First()))
             {
                 lootEvent.LootEventType = LootEventType.Cast;
             }
 
             // Need Roll (Local Player)
-            else if (ProcessLocalPlayerRollNeedRegex.IsMatch(message.MessageParts[0]))
+            else if (ProcessLocalPlayerRollNeedRegex.IsMatch(message.MessageParts.First()))
             {
                 lootEvent.LootEventType = LootEventType.Need;
                 lootEvent.Roll = Convert.ToUInt16(RollRegex.Match(message.MessageParts.Last()).Groups["Roll"].Value);
             }
 
             // Greed Roll (Local Player)
-            else if (ProcessLocalPlayerRollGreedRegex.IsMatch(message.MessageParts[0]))
+            else if (ProcessLocalPlayerRollGreedRegex.IsMatch(message.MessageParts.First()))
             {
                 lootEvent.LootEventType = LootEventType.Greed;
                 lootEvent.Roll = Convert.ToUInt16(RollRegex.Match(message.MessageParts.Last()).Groups["Roll"].Value);
@@ -156,6 +155,8 @@ namespace Kapture
             {
                 return null;
             }
+
+            lootEvent.PlayerName = Plugin.GetLocalPlayerName();
 
             return lootEvent;
         }
@@ -167,7 +168,7 @@ namespace Kapture
             {
                 LootEventType = LootEventType.Obtain,
                 IsLocalPlayer = false,
-                PlayerName = message.MessageParts[0]
+                PlayerName = message.MessageParts.First()
             };
         }
 
@@ -176,24 +177,24 @@ namespace Kapture
             var lootEvent = new LootEvent
             {
                 IsLocalPlayer = false,
-                PlayerName = message.MessageParts[0]
+                PlayerName = message.MessageParts.First()
             };
 
             // Cast Lot (Other Player)
-            if (ProcessOtherPlayerRollCastRegex.IsMatch(message.MessageParts[1]))
+            if (message.MessageParts.Count >= 2 && ProcessOtherPlayerRollCastRegex.IsMatch(message.MessageParts[1]))
             {
                 lootEvent.LootEventType = LootEventType.Cast;
             }
 
             // Need Roll (Other Player)
-            else if (ProcessOtherPlayerRollNeedRegex.IsMatch(message.MessageParts[1]))
+            else if (message.MessageParts.Count >= 2 && ProcessOtherPlayerRollNeedRegex.IsMatch(message.MessageParts[1]))
             {
                 lootEvent.LootEventType = LootEventType.Need;
                 lootEvent.Roll = Convert.ToUInt16(RollRegex.Match(message.MessageParts.Last()).Groups["Roll"].Value);
             }
 
             // Greed Roll (Other Player)
-            else if (ProcessOtherPlayerRollGreedRegex.IsMatch(message.MessageParts[1]))
+            else if (message.MessageParts.Count >= 2 && ProcessOtherPlayerRollGreedRegex.IsMatch(message.MessageParts[1]))
             {
                 lootEvent.LootEventType = LootEventType.Greed;
                 lootEvent.Roll = Convert.ToUInt16(RollRegex.Match(message.MessageParts.Last()).Groups["Roll"].Value);
@@ -210,7 +211,7 @@ namespace Kapture
         protected override LootEvent ProcessAddDesynthSell(LootMessage message)
         {
             // Desynth (Local Player)
-            if (ProcessAddDesynthSellDesynthRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessAddDesynthSellDesynthRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Desynth,
@@ -228,7 +229,7 @@ namespace Kapture
                 };
 
             // Sell (Local Player)
-            if (ProcessAddDesynthSellSellRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessAddDesynthSellSellRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Sell,
@@ -264,11 +265,11 @@ namespace Kapture
         protected override LootEvent ProcessOtherPlayerUse(LootMessage message)
         {
             // Use (Other Player)
-            if (ProcessOtherPlayerUseRegex.IsMatch(message.MessageParts[1]))
+            if (message.MessageParts.Count >= 2 && ProcessOtherPlayerUseRegex.IsMatch(message.MessageParts[1]))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Use,
-                    PlayerName = message.MessageParts[0]
+                    PlayerName = message.MessageParts.First()
                 };
             return null;
         }
@@ -276,7 +277,7 @@ namespace Kapture
         protected override LootEvent ProcessFastCraft(LootMessage message)
         {
             // Use Materia (Local Player)
-            if (ProcessFastCraftUseMateriaRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessFastCraftUseMateriaRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Use,
@@ -285,7 +286,7 @@ namespace Kapture
                 };
 
             // Extract Materia (Local Player)
-            if (ProcessFastCraftExtractMateriaRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessFastCraftExtractMateriaRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Obtain,
@@ -294,7 +295,7 @@ namespace Kapture
                 };
 
             // Obtain via Crafting (Local Player)
-            if (ProcessFastCraftCraftRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessFastCraftCraftRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Craft,
@@ -308,7 +309,7 @@ namespace Kapture
         protected override LootEvent ProcessGather(LootMessage message)
         {
             // Obtain by MIN/BTN (Local Player)
-            if (ProcessGatherMinBtnRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessGatherMinBtnRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Gather,
@@ -317,7 +318,7 @@ namespace Kapture
                 };
 
             // Obtain by FSH (Local Player)
-            if (ProcessGatherFshRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessGatherFshRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Gather,
@@ -330,7 +331,7 @@ namespace Kapture
         protected override LootEvent ProcessLocalPlayerSynthesize(LootMessage message)
         {
             // Obtain by Crafting (Local Player)
-            if (ProcessLocalPlayerSynthesizeRegex.IsMatch(message.MessageParts[0]))
+            if (ProcessLocalPlayerSynthesizeRegex.IsMatch(message.MessageParts.First()))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Craft,
@@ -343,11 +344,11 @@ namespace Kapture
         protected override LootEvent ProcessOtherPlayerSynthesize(LootMessage message)
         {
             // Obtain by Crafting (Other Player)
-            if (ProcessOtherPlayerSynthesizeRegex.IsMatch(message.MessageParts[1]))
+            if (message.MessageParts.Count >= 2 && ProcessOtherPlayerSynthesizeRegex.IsMatch(message.MessageParts[1]))
                 return new LootEvent
                 {
                     LootEventType = LootEventType.Craft,
-                    PlayerName = message.MessageParts[0]
+                    PlayerName = message.MessageParts.First()
                 };
             return null;
         }
