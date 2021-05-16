@@ -152,7 +152,7 @@
     "description": "SettingsWindow.DrawEventTypes"
   },
   "CastEnabled": {
-    "message": "掷骰",
+    "message": "需/贪",
     "description": "SettingsWindow.DrawEventTypes"
   },
   "CraftEnabled": {
@@ -296,7 +296,7 @@
     "description": "SettingsWindow.DrawLinks"
   },
   "LoadTestData": {
-    "message": "测试数据",
+    "message": "测试数据（不要点）",
     "description": "SettingsWindow.DrawLinks"
   },
   "ClearData": {
