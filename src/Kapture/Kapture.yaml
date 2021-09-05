@@ -1,0 +1,13 @@
+﻿name: Kapture
+author: kalilistic
+punchline: Track your loot. 
+description: |-
+    Kapture is a loot tracker to capture drops, obtained items, rolls, and more.
+    Use the roll monitor to see who you are waiting on to roll.
+tags:
+    - loot
+    - track
+    - roll
+repo_url: https://github.com/kalilistic/Dalamud.Kapture
+icon_url: https://github.com/goatcorp/DalamudPlugins/blob/api4/plugins/Kapture/images/icon.png
+dalamud_api_level: 4

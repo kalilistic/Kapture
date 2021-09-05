@@ -1,4 +1,0 @@
-[submodule "src/Kapture/Common"]
-	path = src/Kapture/Common
-	url = https://github.com/kalilistic/DalamudPluginCommon.git
-	branch = master
