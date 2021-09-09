@@ -1,330 +1,318 @@
 {
-  "InstallThankYou": {
-    "message": "Merci d'avoir installé le plugin Kapture Loot Tracker !",
-    "description": "KapturePlugin.HandleFreshInstall"
-  },
-  "Instructions": {
-    "message": "Utilisez /loot et /roll pour les fenêtres du plugin et /lootconfig pour les paramètres.",
-    "description": "KapturePlugin.HandleFreshInstall"
-  },
-  "RollMonitorOverlayWindow": {
-    "message": "Lancé de dés",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "MonitorItemName": {
-    "message": "Objet",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "MonitorRollers": {
-    "message": "Lanceur",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "MonitorWinner": {
-    "message": "Gagnant",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "RollMonitorNone": {
-    "message": "Personne n'a lancé ses dés",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "WaitingForItems": {
-    "message": "En attente d'objets.",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "SettingsWindow": {
-    "message": "Paramètres de Kapture",
-    "description": "SettingsWindow.DrawView"
-  },
-  "General": {
-    "message": "Général",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Loot": {
-    "message": "Butin",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Rolls": {
-    "message": "Lancés",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Events": {
-    "message": "Évènements",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Content": {
-    "message": "Contenu",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Items": {
-    "message": "Objets",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Filters": {
-    "message": "Filtres",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Log": {
-    "message": "Journal",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Links": {
-    "message": "Liens",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "PluginEnabled": {
-    "message": "Plugin activé",
-    "description": "SettingsWindow.DrawGeneral"
-  },
-  "PluginEnabled_HelpMarker": {
-    "message": "activer/désactiver le plugin",
-    "description": "SettingsWindow.DrawGeneral"
-  },
-  "RestrictInCombat": {
-    "message": "Désactiver le traitement durant les combats",
-    "description": "SettingsWindow.DrawGeneral"
-  },
-  "ShowLootOverlay": {
-    "message": "Afficher la fenêtre du butin",
-    "description": "SettingsWindow.DrawLoot"
-  },
-  "ShowLootOverlay_HelpMarker": {
-    "message": "affiche la fenêtre du butin",
-    "description": "SettingsWindow.DrawLoot"
-  },
-  "LootDisplayMode": {
-    "message": "Mode d'affichage",
-    "description": "SettingsWindow.DrawLoot"
-  },
-  "LootDisplayMode_HelpMarker": {
-    "message": "quand afficher la fenêtre du butin",
-    "description": "SettingsWindow.DrawLoot"
-  },
-  "LootNameFormat": {
-    "message": "Format du nom",
-    "description": "SettingsWindow.DrawLoot"
-  },
-  "LootNameFormat_HelpMarker": {
-    "message": "comment afficher les noms des joueurs dans la fenêtre de butin",
-    "description": "SettingsWindow.DrawLoot"
-  },
-  "ShowRollOverlay": {
-    "message": "Afficher la fenêtre des lancés de dés",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "ShowRollOverlay_HelpMarker": {
-    "message": "affiche la fenêtre des lancés de dés",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollDisplayMode": {
-    "message": "Mode d'affichage",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollDisplayMode_HelpMarker": {
-    "message": "quand afficher la fenêtre des lancés de dés",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollNameFormat": {
-    "message": "Format de nom",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollNameFormat_HelpMarker": {
-    "message": "comment afficher les noms des joueurs dans la fenêtre de lancés de dés",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollMonitorAddedTimeout": {
-    "message": "Afficher les objets ajoutés (minutes)",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollMonitorAddedTimeout_HelpMarker": {
-    "message": "quantité de temps avant de supprimer les éléments ajoutés à la fenêtre des lancés de dés",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollMonitorObtainedTimeout": {
-    "message": "Afficher les objets obtenus (secondes)",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollMonitorObtainedTimeout_HelpMarker": {
-    "message": "quantité de temps avant de retirer les objets récupérés/perdus à la fenêtre des lancés de dés",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "AddEnabled": {
-    "message": "Ajouter",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "CastEnabled": {
-    "message": "Lancé",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "CraftEnabled": {
-    "message": "Synthèse",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "DesynthEnabled": {
-    "message": "Recyclage",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "DiscardEnabled": {
-    "message": "Annuler",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "GatherEnabled": {
-    "message": "Récolte",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "GreedEnabled": {
-    "message": "Cupidité",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "LostEnabled": {
-    "message": "Perdu",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "NeedEnabled": {
-    "message": "Besoin",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "ObtainEnabled": {
-    "message": "Obtention",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "PurchaseEnabled": {
-    "message": "Achat",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "SearchEnabled": {
-    "message": "Recherche",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "SellEnabled": {
-    "message": "Vente",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "UseEnabled": {
-    "message": "Utiliser",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "RestrictToContent": {
-    "message": "Instances uniquement",
-    "description": "SettingsWindow.RestrictToContent"
-  },
-  "RestrictToContent_HelpMarker": {
-    "message": "restreindre au contenu instancié et exclure les rencontres dans l'overworld",
-    "description": "SettingsWindow.RestrictToContent"
-  },
-  "RestrictToHighEndDuty": {
-    "message": "Instances High-End uniquement",
-    "description": "SettingsWindow.RestrictToHighEndDuty"
-  },
-  "RestrictToHighEndDuty_HelpMarker": {
-    "message": "restreindre aux contenus instanciés de haute difficulté (exemple : Sadique, Fatal...)",
-    "description": "SettingsWindow.RestrictToHighEndDuty"
-  },
-  "RestrictToCustom": {
-    "message": "Restreindre uniquement au contenu suivant",
-    "description": "SettingsWindow.RestrictToCustom"
-  },
-  "RestrictToCustom_HelpMarker": {
-    "message": "ajouter des instances à la sélection via la liste déroulante, ou retirez-en en cliquant dessus",
-    "description": "SettingsWindow.RestrictToCustom"
-  },
-  "Add": {
-    "message": "Ajouter",
-    "description": "SettingsWindow.RestrictToCustom"
-  },
-  "Reset": {
-    "message": "Réinitialiser",
-    "description": "SettingsWindow.RestrictToCustom"
-  },
-  "DupeContent": {
-    "message": "Cette instance a déjà été ajoutée !",
-    "description": "SettingsWindow.RestrictToCustom"
-  },
-  "RestrictToCustomItems": {
-    "message": "Restreindre uniquement au contenu suivant",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "RestrictToCustomItems_HelpMarker": {
-    "message": "ajouter des instances à la sélection via la liste déroulante, ou retirez-en en cliquant dessus",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "SelectCategory": {
-    "message": "Sélectionnez une catégorie",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "SelectItem": {
-    "message": "Choisir un objet",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "DupeCustomItem": {
-    "message": "Cet objet est déjà ajouté !",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "PermittedItems": {
-    "message": "Objets autorisés",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "NoPermittedItems": {
-    "message": "Aucun",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "SelfOnly": {
-    "message": "Soi-même seulement",
-    "description": "SettingsWindow.DrawFilters"
-  },
-  "LoggingEnabled": {
-    "message": "Activer la journalisation du butin",
-    "description": "SettingsWindow.DrawLog"
-  },
-  "LoggingEnabled_HelpMarker": {
-    "message": "sauvegarder vos messages de butin dans un fichier de configuration (voir liens)",
-    "description": "SettingsWindow.DrawLog"
-  },
-  "LogFormat": {
-    "message": "Format du journal",
-    "description": "SettingsWindow.DrawLog"
-  },
-  "LogFormat_HelpMarker": {
-    "message": "définir le format du fichier journal avec les informations de butin",
-    "description": "SettingsWindow.DrawLog"
-  },
-  "OpenGithub": {
-    "message": "Github",
-    "description": "SettingsWindow.DrawLinks"
-  },
-  "ImproveTranslate": {
-    "message": "Traductions",
-    "description": "SettingsWindow.DrawLinks"
-  },
-  "LoadTestData": {
-    "message": "Données de test",
-    "description": "SettingsWindow.DrawLinks"
-  },
-  "ClearData": {
-    "message": "Effacer les données",
-    "description": "SettingsWindow.DrawLinks"
-  },
-  "OpenLogs": {
-    "message": "Ouvrir le journal",
-    "description": "SettingsWindow.DrawLinks"
-  },
-  "LootOverlayWindow": {
-    "message": "Butin",
-    "description": "LootOverlayWindow.DrawView"
-  },
-  "LootItemName": {
-    "message": "Objet",
-    "description": "LootOverlayWindow.DrawView"
-  },
-  "LootEventType": {
-    "message": "Événement",
-    "description": "LootOverlayWindow.DrawView"
-  },
-  "LootPlayer": {
-    "message": "Joueur",
-    "description": "LootOverlayWindow.DrawView"
-  },
-  "RollMonitorLost": {
-    "message": "Abandonné au sol",
-    "description": "RollMonitor.ProcessRoll"
-  }
+    "InstallThankYou": {
+        "message": "Merci d'avoir installé le plugin Kapture Loot Tracker !",
+        "description": "KapturePlugin.HandleFreshInstall"
+    },
+    "Instructions": {
+        "message": "Utilisez /loot et /roll pour les fenêtres du plugin et /lootconfig pour les paramètres.",
+        "description": "KapturePlugin.HandleFreshInstall"
+    },
+    "LootOverlayWindow": {
+        "message": "Butin",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "LootItemName": {
+        "message": "Objet",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "LootEventType": {
+        "message": "Événement",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "LootPlayer": {
+        "message": "Joueur",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "WaitingForItems": {
+        "message": "En attente d'objets.",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "RollMonitorOverlayWindow": {
+        "message": "Lancé de dés",
+        "description": "RollMonitorOverlay.DrawView"
+    },
+    "MonitorItemName": {
+        "message": "Objet",
+        "description": "RollMonitorOverlay.DrawView"
+    },
+    "MonitorRollers": {
+        "message": "Lanceur",
+        "description": "RollMonitorOverlay.DrawView"
+    },
+    "MonitorWinner": {
+        "message": "Gagnant",
+        "description": "RollMonitorOverlay.DrawView"
+    },
+    "RollMonitorNone": {
+        "message": "Personne n'a lancé ses dés",
+        "description": "RollMonitorOverlay.DrawView"
+    },
+    "SettingsWindow": {
+        "message": "Paramètres de Kapture",
+        "description": "SettingsWindow.DrawView"
+    },
+    "General": {
+        "message": "Général",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Loot": {
+        "message": "Butin",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Rolls": {
+        "message": "Lancés",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Events": {
+        "message": "Évènements",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Content": {
+        "message": "Contenu",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Items": {
+        "message": "Objets",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Filters": {
+        "message": "Filtres",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Log": {
+        "message": "Journal",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Links": {
+        "message": "Liens",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "PluginEnabled": {
+        "message": "Plugin activé",
+        "description": "SettingsWindow.DrawGeneral"
+    },
+    "PluginEnabled_HelpMarker": {
+        "message": "activer/désactiver le plugin",
+        "description": "SettingsWindow.DrawGeneral"
+    },
+    "RestrictInCombat": {
+        "message": "Désactiver le traitement durant les combats",
+        "description": "SettingsWindow.DrawGeneral"
+    },
+    "ShowLootOverlay": {
+        "message": "Afficher la fenêtre du butin",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "ShowLootOverlay_HelpMarker": {
+        "message": "affiche la fenêtre du butin",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "LootDisplayMode": {
+        "message": "Mode d'affichage",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "LootDisplayMode_HelpMarker": {
+        "message": "quand afficher la fenêtre du butin",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "LootNameFormat": {
+        "message": "Format du nom",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "LootNameFormat_HelpMarker": {
+        "message": "comment afficher les noms des joueurs dans la fenêtre de butin",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "ShowRollOverlay": {
+        "message": "Afficher la fenêtre des lancés de dés",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "ShowRollOverlay_HelpMarker": {
+        "message": "affiche la fenêtre des lancés de dés",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollDisplayMode": {
+        "message": "Mode d'affichage",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollDisplayMode_HelpMarker": {
+        "message": "quand afficher la fenêtre des lancés de dés",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollNameFormat": {
+        "message": "Format de nom",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollNameFormat_HelpMarker": {
+        "message": "comment afficher les noms des joueurs dans la fenêtre de lancés de dés",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollMonitorAddedTimeout": {
+        "message": "Afficher les objets ajoutés (minutes)",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollMonitorAddedTimeout_HelpMarker": {
+        "message": "quantité de temps avant de supprimer les éléments ajoutés à la fenêtre des lancés de dés",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollMonitorObtainedTimeout": {
+        "message": "Afficher les objets obtenus (secondes)",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollMonitorObtainedTimeout_HelpMarker": {
+        "message": "quantité de temps avant de retirer les objets récupérés/perdus à la fenêtre des lancés de dés",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "AddEnabled": {
+        "message": "Ajouter",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "CastEnabled": {
+        "message": "Lancé",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "CraftEnabled": {
+        "message": "Synthèse",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "DesynthEnabled": {
+        "message": "Recyclage",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "DiscardEnabled": {
+        "message": "Annuler",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "GatherEnabled": {
+        "message": "Récolte",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "GreedEnabled": {
+        "message": "Cupidité",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "LostEnabled": {
+        "message": "Perdu",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "NeedEnabled": {
+        "message": "Besoin",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "ObtainEnabled": {
+        "message": "Obtention",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "PurchaseEnabled": {
+        "message": "Achat",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "SearchEnabled": {
+        "message": "Recherche",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "SellEnabled": {
+        "message": "Vente",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "UseEnabled": {
+        "message": "Utiliser",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "RestrictToContent": {
+        "message": "Instances uniquement",
+        "description": "SettingsWindow.RestrictToContent"
+    },
+    "RestrictToContent_HelpMarker": {
+        "message": "restreindre au contenu instancié et exclure les rencontres dans l'overworld",
+        "description": "SettingsWindow.RestrictToContent"
+    },
+    "RestrictToHighEndDuty": {
+        "message": "Instances High-End uniquement",
+        "description": "SettingsWindow.RestrictToHighEndDuty"
+    },
+    "RestrictToHighEndDuty_HelpMarker": {
+        "message": "restreindre aux contenus instanciés de haute difficulté (exemple : Sadique, Fatal...)",
+        "description": "SettingsWindow.RestrictToHighEndDuty"
+    },
+    "RestrictToCustom": {
+        "message": "Restreindre uniquement au contenu suivant",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "RestrictToCustom_HelpMarker": {
+        "message": "ajouter des instances à la sélection via la liste déroulante, ou retirez-en en cliquant dessus",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "Add": {
+        "message": "Ajouter",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "Reset": {
+        "message": "Réinitialiser",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "DupeContent": {
+        "message": "Cette instance a déjà été ajoutée !",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "RestrictToCustomItems": {
+        "message": "Restreindre uniquement au contenu suivant",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "RestrictToCustomItems_HelpMarker": {
+        "message": "ajouter des instances à la sélection via la liste déroulante, ou retirez-en en cliquant dessus",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "SelectCategory": {
+        "message": "Sélectionnez une catégorie",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "SelectItem": {
+        "message": "Choisir un objet",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "DupeCustomItem": {
+        "message": "Cet objet est déjà ajouté !",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "PermittedItems": {
+        "message": "Objets autorisés",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "NoPermittedItems": {
+        "message": "Aucun",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "SelfOnly": {
+        "message": "Soi-même seulement",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "LoggingEnabled": {
+        "message": "Activer la journalisation du butin",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LoggingEnabled_HelpMarker": {
+        "message": "sauvegarder vos messages de butin dans un fichier de configuration (voir liens)",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LogFormat": {
+        "message": "Format du journal",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LogFormat_HelpMarker": {
+        "message": "définir le format du fichier journal avec les informations de butin",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LoadTestData": {
+        "message": "Données de test",
+        "description": "SettingsWindow.DrawLinks"
+    },
+    "ClearData": {
+        "message": "Effacer les données",
+        "description": "SettingsWindow.DrawLinks"
+    },
+    "RollMonitorLost": {
+        "message": "Abandonné au sol",
+        "description": "RollMonitor.ProcessRoll"
+    }
 }
