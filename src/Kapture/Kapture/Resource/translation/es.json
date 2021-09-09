@@ -1,330 +1,318 @@
 {
-  "InstallThankYou": {
-    "message": "¡Gracias por instalar el plugin de Rastreo de Loot Kapture!",
-    "description": "KapturePlugin.HandleFreshInstall"
-  },
-  "Instructions": {
-    "message": "Usa /loot y /roll para los overlays y /lootconfig para los ajustes.",
-    "description": "KapturePlugin.HandleFreshInstall"
-  },
-  "RollMonitorOverlayWindow": {
-    "message": "Monitor de Tiradas",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "MonitorItemName": {
-    "message": "Objeto",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "MonitorRollers": {
-    "message": "Jugadores",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "MonitorWinner": {
-    "message": "Ganador/a",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "RollMonitorNone": {
-    "message": "Nadie ha tirado",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "WaitingForItems": {
-    "message": "Esperando objetos.",
-    "description": "RollMonitorOverlayWindow.DrawView"
-  },
-  "SettingsWindow": {
-    "message": "Ajustes de Kapture",
-    "description": "SettingsWindow.DrawView"
-  },
-  "General": {
-    "message": "General",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Loot": {
-    "message": "Botín",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Rolls": {
-    "message": "Tiradas",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Events": {
-    "message": "Eventos",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Content": {
-    "message": "Contenido",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Items": {
-    "message": "Objetos",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Filters": {
-    "message": "Filtros",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Log": {
-    "message": "Registro",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "Links": {
-    "message": "Enlaces",
-    "description": "SettingsWindow.DrawTabs"
-  },
-  "PluginEnabled": {
-    "message": "Plugin Activado",
-    "description": "SettingsWindow.DrawGeneral"
-  },
-  "PluginEnabled_HelpMarker": {
-    "message": "enciende o apaga el plugin",
-    "description": "SettingsWindow.DrawGeneral"
-  },
-  "RestrictInCombat": {
-    "message": "No procesar en combate",
-    "description": "SettingsWindow.DrawGeneral"
-  },
-  "ShowLootOverlay": {
-    "message": "Mostrar Overlay de Botín",
-    "description": "SettingsWindow.DrawLoot"
-  },
-  "ShowLootOverlay_HelpMarker": {
-    "message": "muestra el overlay de botín",
-    "description": "SettingsWindow.DrawLoot"
-  },
-  "LootDisplayMode": {
-    "message": "Modo de Visualización",
-    "description": "SettingsWindow.DrawLoot"
-  },
-  "LootDisplayMode_HelpMarker": {
-    "message": "cuándo mostrar el overlay de botín",
-    "description": "SettingsWindow.DrawLoot"
-  },
-  "LootNameFormat": {
-    "message": "Formato de Nombre",
-    "description": "SettingsWindow.DrawLoot"
-  },
-  "LootNameFormat_HelpMarker": {
-    "message": "cómo mostrar los nombres en el overlay de botín",
-    "description": "SettingsWindow.DrawLoot"
-  },
-  "ShowRollOverlay": {
-    "message": "Mostrar Overlay del Monitor de Tiradas",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "ShowRollOverlay_HelpMarker": {
-    "message": "muestra el overlay del monitor de tiradas",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollDisplayMode": {
-    "message": "Modo de Visualización",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollDisplayMode_HelpMarker": {
-    "message": "cuándo mostrar el overlay del monitor de tiradas",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollNameFormat": {
-    "message": "Formato de Nombre",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollNameFormat_HelpMarker": {
-    "message": "cómo mostrar los nombres en el overlay del monitor de tiradas",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollMonitorAddedTimeout": {
-    "message": "Mostrar Objetos Añadidos (minutos)",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollMonitorAddedTimeout_HelpMarker": {
-    "message": "cantidad de tiempo antes de eliminar objetos añadidos en el monitor de tiradas",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollMonitorObtainedTimeout": {
-    "message": "Mostrar Objetos Obtenidos (segundos)",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "RollMonitorObtainedTimeout_HelpMarker": {
-    "message": "cantidad de tiempo antes de eliminar los objetos obtenidos/perdidos en el monitor de tiradas",
-    "description": "SettingsWindow.DrawRolls"
-  },
-  "AddEnabled": {
-    "message": "Añadir",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "CastEnabled": {
-    "message": "Tirar",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "CraftEnabled": {
-    "message": "Fabricar",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "DesynthEnabled": {
-    "message": "Desíntesis",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "DiscardEnabled": {
-    "message": "Descartar",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "GatherEnabled": {
-    "message": "Recolectar",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "GreedEnabled": {
-    "message": "Avaricia",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "LostEnabled": {
-    "message": "Perdido",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "NeedEnabled": {
-    "message": "Necesidad",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "ObtainEnabled": {
-    "message": "Obtener",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "PurchaseEnabled": {
-    "message": "Comprar",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "SearchEnabled": {
-    "message": "Buscar",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "SellEnabled": {
-    "message": "Vender",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "UseEnabled": {
-    "message": "Usar",
-    "description": "SettingsWindow.DrawEventTypes"
-  },
-  "RestrictToContent": {
-    "message": "Sólo en Contenido",
-    "description": "SettingsWindow.RestrictToContent"
-  },
-  "RestrictToContent_HelpMarker": {
-    "message": "restringir a contenido instanciado y excluir encuentros en el mundo abierto",
-    "description": "SettingsWindow.RestrictToContent"
-  },
-  "RestrictToHighEndDuty": {
-    "message": "Sólo en contenido High-End",
-    "description": "SettingsWindow.RestrictToHighEndDuty"
-  },
-  "RestrictToHighEndDuty_HelpMarker": {
-    "message": "restringir a contenido high-end (por ejemplo, Savage)",
-    "description": "SettingsWindow.RestrictToHighEndDuty"
-  },
-  "RestrictToCustom": {
-    "message": "Restringir al siguiente contenido",
-    "description": "SettingsWindow.RestrictToCustom"
-  },
-  "RestrictToCustom_HelpMarker": {
-    "message": "añade contenido a la lista usando el menú desplegable, o elimina haciéndoles click",
-    "description": "SettingsWindow.RestrictToCustom"
-  },
-  "Add": {
-    "message": "Añadir",
-    "description": "SettingsWindow.RestrictToCustom"
-  },
-  "Reset": {
-    "message": "Restablecer",
-    "description": "SettingsWindow.RestrictToCustom"
-  },
-  "DupeContent": {
-    "message": "¡Este contenido ya está añadido!",
-    "description": "SettingsWindow.RestrictToCustom"
-  },
-  "RestrictToCustomItems": {
-    "message": "Restringir a los siguientes objetos",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "RestrictToCustomItems_HelpMarker": {
-    "message": "añade objetos a la lista usando el menú desplegable, o elimina haciéndoles click",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "SelectCategory": {
-    "message": "Seleccionar categoría",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "SelectItem": {
-    "message": "Seleccionar objeto",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "DupeCustomItem": {
-    "message": "¡Este objeto ya está añadido!",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "PermittedItems": {
-    "message": "Objetos Permitidos",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "NoPermittedItems": {
-    "message": "Ninguno",
-    "description": "SettingsWindow.DrawItems"
-  },
-  "SelfOnly": {
-    "message": "Sólo propio",
-    "description": "SettingsWindow.DrawFilters"
-  },
-  "LoggingEnabled": {
-    "message": "Habilitar Registro de Botín",
-    "description": "SettingsWindow.DrawLog"
-  },
-  "LoggingEnabled_HelpMarker": {
-    "message": "guarda los mensajes de botín en un archivo en la configuración (ver enlaces)",
-    "description": "SettingsWindow.DrawLog"
-  },
-  "LogFormat": {
-    "message": "Formato de Registros",
-    "description": "SettingsWindow.DrawLog"
-  },
-  "LogFormat_HelpMarker": {
-    "message": "selecciona el formato del archivo de registro con la información de los botines",
-    "description": "SettingsWindow.DrawLog"
-  },
-  "OpenGithub": {
-    "message": "Github",
-    "description": "SettingsWindow.DrawLinks"
-  },
-  "ImproveTranslate": {
-    "message": "Traducciones",
-    "description": "SettingsWindow.DrawLinks"
-  },
-  "LoadTestData": {
-    "message": "Datos de prueba",
-    "description": "SettingsWindow.DrawLinks"
-  },
-  "ClearData": {
-    "message": "Eliminar Datos",
-    "description": "SettingsWindow.DrawLinks"
-  },
-  "OpenLogs": {
-    "message": "Abrir Registros",
-    "description": "SettingsWindow.DrawLinks"
-  },
-  "LootOverlayWindow": {
-    "message": "Botín",
-    "description": "LootOverlayWindow.DrawView"
-  },
-  "LootItemName": {
-    "message": "Objeto",
-    "description": "LootOverlayWindow.DrawView"
-  },
-  "LootEventType": {
-    "message": "Evento",
-    "description": "LootOverlayWindow.DrawView"
-  },
-  "LootPlayer": {
-    "message": "Jugador",
-    "description": "LootOverlayWindow.DrawView"
-  },
-  "RollMonitorLost": {
-    "message": "Soltado al suelo",
-    "description": "RollMonitor.ProcessRoll"
-  }
+    "InstallThankYou": {
+        "message": "¡Gracias por instalar el plugin de Rastreo de Loot Kapture!",
+        "description": "KapturePlugin.HandleFreshInstall"
+    },
+    "Instructions": {
+        "message": "Usa /loot y /roll para los overlays y /lootconfig para los ajustes.",
+        "description": "KapturePlugin.HandleFreshInstall"
+    },
+    "LootOverlayWindow": {
+        "message": "Botín",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "LootItemName": {
+        "message": "Objeto",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "LootEventType": {
+        "message": "Evento",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "LootPlayer": {
+        "message": "Jugador",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "WaitingForItems": {
+        "message": "Esperando objetos.",
+        "description": "LootOverlayWindow.DrawView"
+    },
+    "RollMonitorOverlayWindow": {
+        "message": "Monitor de Tiradas",
+        "description": "RollMonitorOverlay.DrawView"
+    },
+    "MonitorItemName": {
+        "message": "Objeto",
+        "description": "RollMonitorOverlay.DrawView"
+    },
+    "MonitorRollers": {
+        "message": "Jugadores",
+        "description": "RollMonitorOverlay.DrawView"
+    },
+    "MonitorWinner": {
+        "message": "Ganador/a",
+        "description": "RollMonitorOverlay.DrawView"
+    },
+    "RollMonitorNone": {
+        "message": "Nadie ha tirado",
+        "description": "RollMonitorOverlay.DrawView"
+    },
+    "SettingsWindow": {
+        "message": "Ajustes de Kapture",
+        "description": "SettingsWindow.DrawView"
+    },
+    "General": {
+        "message": "General",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Loot": {
+        "message": "Botín",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Rolls": {
+        "message": "Tiradas",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Events": {
+        "message": "Eventos",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Content": {
+        "message": "Contenido",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Items": {
+        "message": "Objetos",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Filters": {
+        "message": "Filtros",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Log": {
+        "message": "Registro",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Links": {
+        "message": "Enlaces",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "PluginEnabled": {
+        "message": "Plugin Activado",
+        "description": "SettingsWindow.DrawGeneral"
+    },
+    "PluginEnabled_HelpMarker": {
+        "message": "enciende o apaga el plugin",
+        "description": "SettingsWindow.DrawGeneral"
+    },
+    "RestrictInCombat": {
+        "message": "No procesar en combate",
+        "description": "SettingsWindow.DrawGeneral"
+    },
+    "ShowLootOverlay": {
+        "message": "Mostrar Overlay de Botín",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "ShowLootOverlay_HelpMarker": {
+        "message": "muestra el overlay de botín",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "LootDisplayMode": {
+        "message": "Modo de Visualización",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "LootDisplayMode_HelpMarker": {
+        "message": "cuándo mostrar el overlay de botín",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "LootNameFormat": {
+        "message": "Formato de Nombre",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "LootNameFormat_HelpMarker": {
+        "message": "cómo mostrar los nombres en el overlay de botín",
+        "description": "SettingsWindow.DrawLoot"
+    },
+    "ShowRollOverlay": {
+        "message": "Mostrar Overlay del Monitor de Tiradas",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "ShowRollOverlay_HelpMarker": {
+        "message": "muestra el overlay del monitor de tiradas",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollDisplayMode": {
+        "message": "Modo de Visualización",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollDisplayMode_HelpMarker": {
+        "message": "cuándo mostrar el overlay del monitor de tiradas",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollNameFormat": {
+        "message": "Formato de Nombre",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollNameFormat_HelpMarker": {
+        "message": "cómo mostrar los nombres en el overlay del monitor de tiradas",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollMonitorAddedTimeout": {
+        "message": "Mostrar Objetos Añadidos (minutos)",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollMonitorAddedTimeout_HelpMarker": {
+        "message": "cantidad de tiempo antes de eliminar objetos añadidos en el monitor de tiradas",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollMonitorObtainedTimeout": {
+        "message": "Mostrar Objetos Obtenidos (segundos)",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollMonitorObtainedTimeout_HelpMarker": {
+        "message": "cantidad de tiempo antes de eliminar los objetos obtenidos/perdidos en el monitor de tiradas",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "AddEnabled": {
+        "message": "Añadir",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "CastEnabled": {
+        "message": "Tirar",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "CraftEnabled": {
+        "message": "Fabricar",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "DesynthEnabled": {
+        "message": "Desíntesis",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "DiscardEnabled": {
+        "message": "Descartar",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "GatherEnabled": {
+        "message": "Recolectar",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "GreedEnabled": {
+        "message": "Avaricia",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "LostEnabled": {
+        "message": "Perdido",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "NeedEnabled": {
+        "message": "Necesidad",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "ObtainEnabled": {
+        "message": "Obtener",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "PurchaseEnabled": {
+        "message": "Comprar",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "SearchEnabled": {
+        "message": "Buscar",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "SellEnabled": {
+        "message": "Vender",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "UseEnabled": {
+        "message": "Usar",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "RestrictToContent": {
+        "message": "Sólo en Contenido",
+        "description": "SettingsWindow.RestrictToContent"
+    },
+    "RestrictToContent_HelpMarker": {
+        "message": "restringir a contenido instanciado y excluir encuentros en el mundo abierto",
+        "description": "SettingsWindow.RestrictToContent"
+    },
+    "RestrictToHighEndDuty": {
+        "message": "Sólo en contenido High-End",
+        "description": "SettingsWindow.RestrictToHighEndDuty"
+    },
+    "RestrictToHighEndDuty_HelpMarker": {
+        "message": "restringir a contenido high-end (por ejemplo, Savage)",
+        "description": "SettingsWindow.RestrictToHighEndDuty"
+    },
+    "RestrictToCustom": {
+        "message": "Restringir al siguiente contenido",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "RestrictToCustom_HelpMarker": {
+        "message": "añade contenido a la lista usando el menú desplegable, o elimina haciéndoles click",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "Add": {
+        "message": "Añadir",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "Reset": {
+        "message": "Restablecer",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "DupeContent": {
+        "message": "¡Este contenido ya está añadido!",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "RestrictToCustomItems": {
+        "message": "Restringir a los siguientes objetos",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "RestrictToCustomItems_HelpMarker": {
+        "message": "añade objetos a la lista usando el menú desplegable, o elimina haciéndoles click",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "SelectCategory": {
+        "message": "Seleccionar categoría",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "SelectItem": {
+        "message": "Seleccionar objeto",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "DupeCustomItem": {
+        "message": "¡Este objeto ya está añadido!",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "PermittedItems": {
+        "message": "Objetos Permitidos",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "NoPermittedItems": {
+        "message": "Ninguno",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "SelfOnly": {
+        "message": "Sólo propio",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "LoggingEnabled": {
+        "message": "Habilitar Registro de Botín",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LoggingEnabled_HelpMarker": {
+        "message": "guarda los mensajes de botín en un archivo en la configuración (ver enlaces)",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LogFormat": {
+        "message": "Formato de Registros",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LogFormat_HelpMarker": {
+        "message": "selecciona el formato del archivo de registro con la información de los botines",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LoadTestData": {
+        "message": "Datos de prueba",
+        "description": "SettingsWindow.DrawLinks"
+    },
+    "ClearData": {
+        "message": "Eliminar Datos",
+        "description": "SettingsWindow.DrawLinks"
+    },
+    "RollMonitorLost": {
+        "message": "Soltado al suelo",
+        "description": "RollMonitor.ProcessRoll"
+    }
 }
