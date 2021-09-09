@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 
-using Dalamud.DrunkenToad;
 using Dalamud.Game.Text;
 
 namespace Kapture
@@ -14,41 +13,6 @@ namespace Kapture
         /// Gets kapture plugin configuration.
         /// </summary>
         KaptureConfig Configuration { get; }
-
-        /// <summary>
-        /// Gets list of content ids.
-        /// </summary>
-        uint[] ContentIds { get; }
-
-        /// <summary>
-        /// Gets list of content names.
-        /// </summary>
-        string[] ContentNames { get; }
-
-        /// <summary>
-        /// Gets list of item ids.
-        /// </summary>
-        uint[] ItemIds { get; }
-
-        /// <summary>
-        /// Gets list of item names.
-        /// </summary>
-        string[] ItemNames { get; }
-
-        /// <summary>
-        /// Gets list of item category ids.
-        /// </summary>
-        uint[] ItemCategoryIds { get; }
-
-        /// <summary>
-        /// Gets list of item category names.
-        /// </summary>
-        string[] ItemCategoryNames { get; }
-
-        /// <summary>
-        /// Gets lists of items.
-        /// </summary>
-        // List<KeyValuePair<uint, ItemList>> ItemLists { get; }
 
         /// <summary>
         /// Gets a value indicating whether plugin is initializing.
@@ -76,14 +40,9 @@ namespace Kapture
         List<LootRoll>? LootRollsDisplay { get; set; }
 
         /// <summary>
-        /// Gets or sets loot Logger.
+        /// Gets a value indicating whether in content.
         /// </summary>
-        LootLogger LootLogger { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether in content.
-        /// </summary>
-        bool InContent { get; set; }
+        bool InContent { get; }
 
         /// <summary>
         /// Gets or sets a value indicating whether is rolling.
@@ -94,16 +53,6 @@ namespace Kapture
         /// Gets roll monitor.
         /// </summary>
         RollMonitor RollMonitor { get; }
-
-        /// <summary>
-        /// Gets loot processor.
-        /// </summary>
-        LootProcessor LootProcessor { get; }
-
-        /// <summary>
-        /// Save configuration.
-        /// </summary>
-        void SaveConfig();
 
         /// <summary>
         /// Get SE Icon.
@@ -137,16 +86,6 @@ namespace Kapture
         /// </summary>
         /// <returns>indicator if logged in.</returns>
         bool IsLoggedIn();
-
-        /// <summary>
-        /// Load test data.
-        /// </summary>
-        void LoadTestData();
-
-        /// <summary>
-        /// Clear current data.
-        /// </summary>
-        void ClearData();
 
         /// <summary>
         /// Gets indicator if in combat.

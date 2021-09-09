@@ -7,7 +7,7 @@ namespace Kapture
     /// <summary>
     /// Kapture config.
     /// </summary>
-    public class KaptureConfig: IPluginConfiguration
+    public class KaptureConfig : IPluginConfiguration
     {
         /// <summary>
         /// Timeout for added items.

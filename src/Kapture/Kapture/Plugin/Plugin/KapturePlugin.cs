@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading;
 
 using CheapLoc;
-using Dalamud.Configuration;
 using Dalamud.Data;
 using Dalamud.DrunkenToad;
 using Dalamud.Game.ClientState;
@@ -104,16 +103,24 @@ namespace Kapture
         /// <inheritdoc />
         public RollMonitor RollMonitor { get; private set; } = null!;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Gets loot processor.
+        /// </summary>
         public LootProcessor LootProcessor { get; private set; } = null!;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets loot Logger.
+        /// </summary>
         public LootLogger LootLogger { get; set; } = null!;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets list of item category names.
+        /// </summary>
         public string[] ItemCategoryNames { get; set; } = null!;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets list of items for settings.
+        /// </summary>
         public List<KeyValuePair<uint, ItemList>> ItemLists { get; set; } = null!;
 
         /// <inheritdoc />
@@ -134,19 +141,29 @@ namespace Kapture
         /// <inheritdoc />
         public KaptureConfig Configuration { get; private set; } = null!;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets list of content ids.
+        /// </summary>
         public uint[] ContentIds { get; set; } = null!;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets list of content names.
+        /// </summary>
         public string[] ContentNames { get; set; } = null!;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets list of item ids.
+        /// </summary>
         public uint[] ItemIds { get; set; } = null!;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets list of item names.
+        /// </summary>
         public string[] ItemNames { get; set; } = null!;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets list of item category ids.
+        /// </summary>
         public uint[] ItemCategoryIds { get; set; } = null!;
 
         /// <inheritdoc />
@@ -155,7 +172,9 @@ namespace Kapture
         /// <inheritdoc />
         public bool IsRolling { get; set; }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Save configuration.
+        /// </summary>
         public void SaveConfig()
         {
             PluginInterface.SavePluginConfig(this.Configuration);
@@ -225,13 +244,17 @@ namespace Kapture
             return ClientState.IsLoggedIn;
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Load test data.
+        /// </summary>
         public void LoadTestData()
         {
             TestData.LoadTestData(this);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Clear current data.
+        /// </summary>
         public void ClearData()
         {
             this.LootEvents.Clear();

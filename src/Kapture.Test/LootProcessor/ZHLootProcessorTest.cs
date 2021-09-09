@@ -1,4 +1,4 @@
-// ReSharper disable NotAccessedField.Local
+#pragma warning disable 1591
 
 using System.Collections.Generic;
 using Xunit;
@@ -12,13 +12,13 @@ namespace Kapture.Test
             _kapturePlugin = new KapturePluginMock(4);
             _lootMessage = new LootMessage
             {
-                ItemName = "ItemName"
+                ItemName = "ItemName",
             };
         }
 
-        private LootMessage _lootMessage;
+        private readonly LootMessage _lootMessage;
 
-        private KapturePluginMock _kapturePlugin;
+        private readonly KapturePluginMock _kapturePlugin;
 
         [Fact]
         public void System_Search_Test()
@@ -30,7 +30,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Search, result.LootEventType);
+            Assert.Equal(LootEventType.Search, result?.LootEventType);
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Add, result.LootEventType);
+            Assert.Equal(LootEventType.Add, result?.LootEventType);
         }
 
         [Fact]
@@ -56,7 +56,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Lost, result.LootEventType);
+            Assert.Equal(LootEventType.Lost, result?.LootEventType);
         }
 
         [Fact]
@@ -69,7 +69,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Purchase, result.LootEventType);
+            Assert.Equal(LootEventType.Purchase, result?.LootEventType);
         }
 
         [Fact]
@@ -82,7 +82,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Discard, result.LootEventType);
+            Assert.Equal(LootEventType.Discard, result?.LootEventType);
         }
 
         [Fact]
@@ -95,7 +95,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Obtain, result.LootEventType);
+            Assert.Equal(LootEventType.Obtain, result?.LootEventType);
 
             _lootMessage.MessageParts = new List<string>
             {
@@ -103,7 +103,7 @@ namespace Kapture.Test
             };
             result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Obtain, result.LootEventType);
+            Assert.Equal(LootEventType.Obtain, result?.LootEventType);
         }
 
         [Fact]
@@ -116,7 +116,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Obtain, result.LootEventType);
+            Assert.Equal(LootEventType.Obtain, result?.LootEventType);
         }
 
         [Fact]
@@ -129,7 +129,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Lost, result.LootEventType);
+            Assert.Equal(LootEventType.Lost, result?.LootEventType);
         }
 
         [Fact]
@@ -142,8 +142,8 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.True(result.IsLocalPlayer);
-            Assert.Equal(LootEventType.Obtain, result.LootEventType);
+            Assert.True(result?.IsLocalPlayer);
+            Assert.Equal(LootEventType.Obtain, result?.LootEventType);
         }
 
 
@@ -157,8 +157,8 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.True(result.IsLocalPlayer);
-            Assert.Equal(LootEventType.Cast, result.LootEventType);
+            Assert.True(result?.IsLocalPlayer);
+            Assert.Equal(LootEventType.Cast, result?.LootEventType);
         }
 
         [Fact]
@@ -171,9 +171,9 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.True(result.IsLocalPlayer);
-            Assert.Equal(22, result.Roll);
-            Assert.Equal(LootEventType.Need, result.LootEventType);
+            Assert.True(result?.IsLocalPlayer);
+            Assert.Equal(22, result?.Roll ?? 0);
+            Assert.Equal(LootEventType.Need, result?.LootEventType);
         }
 
         [Fact]
@@ -186,9 +186,9 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.True(result.IsLocalPlayer);
-            Assert.Equal(39, result.Roll);
-            Assert.Equal(LootEventType.Greed, result.LootEventType);
+            Assert.True(result?.IsLocalPlayer);
+            Assert.Equal(39, result?.Roll ?? 0);
+            Assert.Equal(LootEventType.Greed, result?.LootEventType);
         }
 
 
@@ -202,9 +202,9 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.False(result.IsLocalPlayer);
-            Assert.Equal("风眠", result.PlayerName);
-            Assert.Equal(LootEventType.Obtain, result.LootEventType);
+            Assert.False(result?.IsLocalPlayer);
+            Assert.Equal("风眠", result?.PlayerName);
+            Assert.Equal(LootEventType.Obtain, result?.LootEventType);
         }
 
         [Fact]
@@ -217,9 +217,9 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.False(result.IsLocalPlayer);
-            Assert.Equal("风眠", result.PlayerName);
-            Assert.Equal(LootEventType.Cast, result.LootEventType);
+            Assert.False(result?.IsLocalPlayer);
+            Assert.Equal("风眠", result?.PlayerName);
+            Assert.Equal(LootEventType.Cast, result?.LootEventType);
         }
 
         [Fact]
@@ -232,10 +232,10 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.False(result.IsLocalPlayer);
-            Assert.Equal("风眠", result.PlayerName);
-            Assert.Equal(50, result.Roll);
-            Assert.Equal(LootEventType.Need, result.LootEventType);
+            Assert.False(result?.IsLocalPlayer);
+            Assert.Equal("风眠", result?.PlayerName);
+            Assert.Equal(50, result?.Roll ?? 0);
+            Assert.Equal(LootEventType.Need, result?.LootEventType);
         }
 
         [Fact]
@@ -248,10 +248,10 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.False(result.IsLocalPlayer);
-            Assert.Equal("风眠", result.PlayerName);
-            Assert.Equal(84, result.Roll);
-            Assert.Equal(LootEventType.Greed, result.LootEventType);
+            Assert.False(result?.IsLocalPlayer);
+            Assert.Equal("风眠", result?.PlayerName);
+            Assert.Equal(84, result?.Roll ?? 0);
+            Assert.Equal(LootEventType.Greed, result?.LootEventType);
         }
 
         [Fact]
@@ -264,10 +264,10 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.False(result.IsLocalPlayer);
-            Assert.Equal("风眠", result.PlayerName);
-            Assert.Equal(97, result.Roll);
-            Assert.Equal(LootEventType.Greed, result.LootEventType);
+            Assert.False(result?.IsLocalPlayer);
+            Assert.Equal("风眠", result?.PlayerName);
+            Assert.Equal(97, result?.Roll ?? 0);
+            Assert.Equal(LootEventType.Greed, result?.LootEventType);
         }
 
         [Fact]
@@ -280,7 +280,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Desynth, result.LootEventType);
+            Assert.Equal(LootEventType.Desynth, result?.LootEventType);
         }
 
         [Fact]
@@ -293,7 +293,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Use, result.LootEventType);
+            Assert.Equal(LootEventType.Use, result?.LootEventType);
         }
 
         [Fact]
@@ -306,7 +306,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Sell, result.LootEventType);
+            Assert.Equal(LootEventType.Sell, result?.LootEventType);
         }
 
         [Fact]
@@ -319,7 +319,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Use, result.LootEventType);
+            Assert.Equal(LootEventType.Use, result?.LootEventType);
         }
 
         [Fact]
@@ -332,7 +332,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Obtain, result.LootEventType);
+            Assert.Equal(LootEventType.Obtain, result?.LootEventType);
 
             _lootMessage.MessageParts = new List<string>
             {
@@ -340,7 +340,7 @@ namespace Kapture.Test
             };
             result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Obtain, result.LootEventType);
+            Assert.Equal(LootEventType.Obtain, result?.LootEventType);
 
             _lootMessage.MessageParts = new List<string>
             {
@@ -348,7 +348,7 @@ namespace Kapture.Test
             };
             result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Obtain, result.LootEventType);
+            Assert.Equal(LootEventType.Obtain, result?.LootEventType);
         }
 
         [Fact]
@@ -361,7 +361,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Use, result.LootEventType);
+            Assert.Equal(LootEventType.Use, result?.LootEventType);
         }
 
         [Fact]
@@ -374,7 +374,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Use, result.LootEventType);
+            Assert.Equal(LootEventType.Use, result?.LootEventType);
         }
 
         [Fact]
@@ -387,7 +387,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Obtain, result.LootEventType);
+            Assert.Equal(LootEventType.Obtain, result?.LootEventType);
         }
 
         // ReSharper disable once xUnit1004
@@ -401,7 +401,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Craft, result.LootEventType);
+            Assert.Equal(LootEventType.Craft, result?.LootEventType);
 
             _lootMessage.LootMessageType = LootMessageType.FastCraft;
             _lootMessage.MessageParts = new List<string>
@@ -410,7 +410,7 @@ namespace Kapture.Test
             };
             result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Craft, result.LootEventType);
+            Assert.Equal(LootEventType.Craft, result?.LootEventType);
 
             _lootMessage.LootMessageType = LootMessageType.FastCraft;
             _lootMessage.MessageParts = new List<string>
@@ -419,7 +419,7 @@ namespace Kapture.Test
             };
             result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Craft, result.LootEventType);
+            Assert.Equal(LootEventType.Craft, result?.LootEventType);
         }
 
         [Fact]
@@ -432,7 +432,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Gather, result.LootEventType);
+            Assert.Equal(LootEventType.Gather, result?.LootEventType);
         }
 
         [Fact]
@@ -445,7 +445,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Gather, result.LootEventType);
+            Assert.Equal(LootEventType.Gather, result?.LootEventType);
         }
 
         [Fact]
@@ -458,7 +458,7 @@ namespace Kapture.Test
             };
             var result = _kapturePlugin.LootProcessor.ProcessLoot(_lootMessage);
             Assert.NotNull(result);
-            Assert.Equal(LootEventType.Craft, result.LootEventType);
+            Assert.Equal(LootEventType.Craft, result?.LootEventType);
         }
 
         [Fact]
