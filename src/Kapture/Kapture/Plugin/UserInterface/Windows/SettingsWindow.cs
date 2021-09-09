@@ -220,7 +220,7 @@ namespace Kapture
             }
 
             ImGuiComponents.HelpMarker(Loc.Localize(
-                "PluginEnabled_HelpMarker",
+                "RestrictInComba_HelpMarker",
                 "stop processing data while in combat"));
             ImGui.Spacing();
         }
