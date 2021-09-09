@@ -131,31 +131,32 @@
       <EmbeddedResource Include="Kapture\Resource\translation\zh.json" />
     </ItemGroup>
 
-		<Target Name="PostBuild" AfterTargets="Build">
+		<Target Name="MergeDeps" AfterTargets="Build">
 			<ItemGroup>
 				<InputAssemblies Include="$(TargetPath)" />
 				<InputAssemblies Include="$(TargetDir)*.dll" Exclude="$(TargetPath)" />
+				<DeleteFiles Include="$(TargetDir)*.dll" Exclude="$(TargetDir)$(TargetFileName)" />
 			</ItemGroup>
 			<Exec Command="$(PkgILRepack)\tools\ILRepack.exe /union /lib:$(DalamudLibPath) /out:$(TargetDir)$(TargetFileName) @(InputAssemblies, ' ')" />
-			<MakeDir Directories="$(TargetDir)out\" />
-			<Exec Command="copy $(TargetDir)$(TargetFileName) $(TargetDir)out\$(TargetFileName)" />
-			<Exec Command="copy $(TargetDir)Dalamud.DrunkenToad.dll $(TargetDir)out\Dalamud.DrunkenToad.dll" />
+			<Delete Files="@(DeleteFiles)" />
 		</Target>
 		
-		<Target Name="PostBuild_Debug" AfterTargets="PostBuild" Condition="'$(Configuration)' == 'Debug'">
+		<Target Name="CopyToDevPlugins" AfterTargets="MergeDeps" Condition="'$(Configuration)' == 'Debug'">
 			<Exec Command="if not exist $(AppData)\XIVLauncher\devPlugins\$(TargetName) (mkdir $(AppData)\XIVLauncher\devPlugins\$(TargetName))" />
-			<Exec Command="copy $(TargetDir)out\$(TargetFileName) $(AppData)\XIVLauncher\devPlugins\$(TargetName)\$(TargetFileName)" />
+			<Exec Command="copy $(TargetDir)$(TargetFileName) $(AppData)\XIVLauncher\devPlugins\$(TargetName)\$(TargetFileName)" />
 			<Exec Command="copy $(TargetDir)*.pdb $(AppData)\XIVLauncher\devPlugins\$(TargetName)" />
 		</Target>
 		
-		<Target Name="PostBuild_Release" AfterTargets="PostBuild" Condition=" '$(Configuration)' == 'Release' ">
+		<Target Name="Cleanup" AfterTargets="MergeDeps" Condition=" '$(Configuration)' == 'Release' ">
 			<ItemGroup>
-				<DeleteFiles Include="$(TargetDir)out\*.dll" Exclude="$(TargetDir)out\$(TargetFileName)" />
+				<DeleteFiles Include="$(TargetDir)*.xml;$(TargetDir)*.json;$(TargetDir)*.pdb" />
 			</ItemGroup>
 			<Delete Files="@(DeleteFiles)" />
-			<DalamudPackager ProjectDir="$(ProjectDir)" OutputPath="$(OutputPath)out\" AssemblyName="$(AssemblyName)" VersionComponents="4" MakeZip="true" />
-			<MakeDir Directories="$(TargetDir)out\$(AssemblyName)\images" />
-			<Exec Command="copy $(ProjectDir)..\..\assets\*.png $(TargetDir)out\$(AssemblyName)\images\*.png" />
+		</Target>
+		
+		<Target Name="CopyImages" AfterTargets="Package" Condition=" '$(Configuration)' == 'Release' ">
+			<MakeDir Directories="$(TargetDir)$(AssemblyName)\images" />
+			<Exec Command="copy $(ProjectDir)..\..\assets\*.png $(TargetDir)$(AssemblyName)\images\*.png" />
 		</Target>
 		
 </Project>

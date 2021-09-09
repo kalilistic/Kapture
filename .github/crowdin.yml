@@ -1,0 +1,6 @@
+project_id_env: CROWDIN_PROJECT_ID
+api_token_env: CROWDIN_PERSONAL_TOKEN
+preserve_hierarchy: false
+files:
+  - source: src/Kapture/Kapture/Resource/source/Kapture_Localizable.json
+    translation: src/Kapture/Kapture/Resource/translation/%two_letters_code%.json
