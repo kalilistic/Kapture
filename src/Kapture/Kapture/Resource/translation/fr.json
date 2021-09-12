@@ -99,6 +99,10 @@
         "message": "Désactiver le traitement durant les combats",
         "description": "SettingsWindow.DrawGeneral"
     },
+    "RestrictInComba_HelpMarker": {
+        "message": "arrêter le traitement des données durant les combats",
+        "description": "SettingsWindow.DrawGeneral"
+    },
     "ShowLootOverlay": {
         "message": "Afficher la fenêtre du butin",
         "description": "SettingsWindow.DrawLoot"
