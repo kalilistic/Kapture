@@ -3,6 +3,7 @@ using System.Numerics;
 
 using CheapLoc;
 using Dalamud.DrunkenToad;
+using Dalamud.Interface;
 using ImGuiNET;
 
 namespace Kapture
@@ -51,7 +52,7 @@ namespace Kapture
                             ImGui.BeginGroup();
                             ImGui.Text(lootRoll.ItemNameAbbreviated);
                             ImGui.SameLine(col1 - 7f);
-                            ImGui.Text(lootRoll.RollerCount.ToString());
+                            ImGui.Text(lootRoll.RollerCount + " / " + lootRoll.Rollers.Count);
                             ImGui.SameLine(col2 - 7f);
                             ImGui.Text(lootRoll.Winner);
                             ImGui.EndGroup();
@@ -60,14 +61,28 @@ namespace Kapture
                             ImGui.PushTextWrapPos(ImGui.GetFontSize() * 35.0f);
                             ImGui.TextColored(ImGuiColors2.ToadViolet, lootRoll.ItemName);
                             ImGui.Separator();
-                            if (lootRoll.RollerCount > 0)
+                            foreach (var roller in lootRoll.Rollers)
                             {
-                                foreach (var roller in lootRoll.RollersDisplay)
-                                    ImGui.TextColored(roller.Value, roller.Key);
-                            }
-                            else
-                            {
-                                ImGui.Text(Loc.Localize("RollMonitorNone", "No one has rolled"));
+                                if (roller.HasRolled)
+                                {
+                                    ImGui.TextColored(roller.RollColor, roller.FormattedPlayerName);
+                                    ImGui.SameLine();
+                                    ImGui.PushFont(UiBuilder.IconFont);
+                                    ImGui.TextColored(roller.RollColor, FontAwesomeIcon.Check.ToIconString());
+                                    ImGui.PopFont();
+                                }
+                                else if (lootRoll.IsWon)
+                                {
+                                    ImGui.TextColored(roller.RollColor, roller.FormattedPlayerName);
+                                    ImGui.SameLine();
+                                    ImGui.PushFont(UiBuilder.IconFont);
+                                    ImGui.TextColored(roller.RollColor, FontAwesomeIcon.Times.ToIconString());
+                                    ImGui.PopFont();
+                                }
+                                else
+                                {
+                                    ImGui.TextColored(roller.RollColor, roller.FormattedPlayerName);
+                                }
                             }
 
                             ImGui.PopTextWrapPos();

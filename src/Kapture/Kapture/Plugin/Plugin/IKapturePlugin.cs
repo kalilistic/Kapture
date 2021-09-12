@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 
+using Dalamud.Game.ClientState.Party;
 using Dalamud.Game.Text;
 
 namespace Kapture
@@ -38,6 +39,11 @@ namespace Kapture
         /// Gets or sets loot rolls for display.
         /// </summary>
         List<LootRoll>? LootRollsDisplay { get; set; }
+
+        /// <summary>
+        /// Gets or sets current party list.
+        /// </summary>
+        public PartyMember[] CurrentPartyList { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether in content.
@@ -92,5 +98,11 @@ namespace Kapture
         /// </summary>
         /// <returns>indicator if in combat.</returns>
         bool InCombat();
+
+        /// <summary>
+        /// Get party members.
+        /// </summary>
+        /// <returns>list of party members.</returns>
+        IEnumerable<PartyMember> GetPartyMembers();
     }
 }

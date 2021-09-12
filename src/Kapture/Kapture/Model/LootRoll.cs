@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Numerics;
 
 using Newtonsoft.Json;
 
@@ -16,29 +15,24 @@ namespace Kapture
         public long Timestamp { get; set; }
 
         /// <summary>
-        /// Gets or sets item Id.
+        /// Gets item Id.
         /// </summary>
-        public uint ItemId { get; set; }
+        public uint ItemId { get; init; }
 
         /// <summary>
-        /// Gets or sets item name.
+        /// Gets item name.
         /// </summary>
-        public string ItemName { get; set; } = string.Empty;
+        public string ItemName { get; init; } = string.Empty;
 
         /// <summary>
-        /// Gets or sets item name abbreviated.
+        /// Gets item name abbreviated.
         /// </summary>
-        public string ItemNameAbbreviated { get; set; } = string.Empty;
+        public string ItemNameAbbreviated { get; init; } = string.Empty;
 
         /// <summary>
         /// Gets list of rollers.
         /// </summary>
         public List<LootRoller> Rollers { get; } = new ();
-
-        /// <summary>
-        /// Gets or sets rollers display.
-        /// </summary>
-        public List<KeyValuePair<string, Vector4>> RollersDisplay { get; set; } = new ();
 
         /// <summary>
         /// Gets or sets roller count.

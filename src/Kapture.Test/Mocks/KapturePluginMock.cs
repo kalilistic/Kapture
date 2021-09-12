@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Dalamud.DrunkenToad;
+using Dalamud.Game.ClientState.Party;
 using Dalamud.Game.Text;
 
 namespace Kapture.Test
@@ -45,28 +46,10 @@ namespace Kapture.Test
         }
 
         /// <inheritdoc />
+        public PartyMember[] CurrentPartyList { get; set; } = System.Array.Empty<PartyMember>();
+
+        /// <inheritdoc />
         public KaptureConfig Configuration { get; }
-
-        /// <inheritdoc />
-        public uint[] ContentIds => null!;
-
-        /// <inheritdoc />
-        public string[] ContentNames => null!;
-
-        /// <inheritdoc />
-        public uint[] ItemIds => null!;
-
-        /// <inheritdoc />
-        public string[] ItemNames => null!;
-
-        /// <inheritdoc />
-        public uint[] ItemCategoryIds => null!;
-
-        /// <inheritdoc />
-        public string[] ItemCategoryNames => null!;
-
-        /// <inheritdoc />
-        public List<KeyValuePair<uint, ItemList>> ItemLists => this.itemLists;
 
         /// <inheritdoc />
         public bool IsInitializing { get; }
@@ -84,9 +67,6 @@ namespace Kapture.Test
         public List<LootRoll>? LootRollsDisplay { get; set; } = null!;
 
         /// <inheritdoc />
-        public LootLogger LootLogger { get; set; } = null!;
-
-        /// <inheritdoc />
         public bool InContent { get; set; }
         
         /// <inheritdoc />
@@ -95,13 +75,10 @@ namespace Kapture.Test
         /// <inheritdoc />
         public RollMonitor RollMonitor { get; }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Loot Processor.
+        /// </summary>
         public LootProcessor LootProcessor { get; } = null!;
-
-        /// <inheritdoc />
-        public void SaveConfig()
-        {
-        }
 
         /// <inheritdoc />
         public string GetLocalPlayerName()
@@ -128,19 +105,15 @@ namespace Kapture.Test
         }
 
         /// <inheritdoc />
-        public void LoadTestData()
-        {
-        }
-
-        /// <inheritdoc />
-        public void ClearData()
-        {
-        }
-
-        /// <inheritdoc />
         public bool InCombat()
         {
             return false;
+        }
+
+        /// <inheritdoc />
+        public IEnumerable<PartyMember> GetPartyMembers()
+        {
+            throw new System.NotImplementedException();
         }
 
         /// <inheritdoc />

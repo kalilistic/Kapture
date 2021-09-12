@@ -2,7 +2,6 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using System.Timers;
 
 using CheapLoc;
@@ -82,42 +81,66 @@ namespace Kapture
             try
             {
                 if (lootEvent.ContentId == 0) return;
+                LootRoll? lootRoll;
                 switch (lootEvent.LootEventType)
                 {
                     case LootEventType.Add:
-                        this.plugin.LootRolls.Add(new LootRoll
+                        lootRoll = new LootRoll
                         {
                             Timestamp = lootEvent.Timestamp,
                             ItemId = lootEvent.LootMessage.ItemId,
                             ItemName = lootEvent.ItemName,
                             ItemNameAbbreviated = lootEvent.ItemNameAbbreviated,
-                        });
+                        };
+                        this.plugin.LootRolls.Add(lootRoll);
+
+                        foreach (var player in this.plugin.GetPartyMembers())
+                        {
+                            lootRoll.Rollers.Add(new LootRoller
+                            {
+                                PlayerName = player.Name.ToString(),
+                                FormattedPlayerName = this.plugin.FormatPlayerName(
+                                    this.plugin.Configuration.RollNameFormat,
+                                    player.Name.ToString()),
+                                RollColor = ImGuiColorUtil.GetColorByNumber(0),
+                            });
+                        }
+
                         break;
                     case LootEventType.Cast:
                     {
-                        var lootRoll = this.plugin.LootRolls.FirstOrDefault(roll =>
-                            roll.ItemId == lootEvent.LootMessage.ItemId && !roll.IsWon &&
-                            !roll.Rollers.Any(roller => roller.PlayerName.Equals(lootEvent.PlayerName)));
+                        lootRoll = this.plugin.LootRolls.FirstOrDefault(roll =>
+                            roll.ItemId == lootEvent.LootMessage.ItemId &&
+                            !roll.IsWon &&
+                            !roll.Rollers.Any(roller => roller.PlayerName.Equals(lootEvent.PlayerName) && roller.HasRolled));
                         if (lootRoll == null) return;
-                        lootRoll.Rollers.Add(new LootRoller { PlayerName = lootEvent.PlayerName });
-                        lootRoll.RollerCount += 1;
-                        lootRoll.RollersDisplay.Clear();
-                        foreach (var roller in lootRoll.Rollers)
+                        var lootRoller =
+                            lootRoll.Rollers.FirstOrDefault(roller => roller.PlayerName.Equals(lootEvent.PlayerName));
+                        if (lootRoller != null)
                         {
-                            lootRoll.RollersDisplay.Add(new KeyValuePair<string, Vector4>(
-                                                            this.plugin.FormatPlayerName(
-                                                                this.plugin.Configuration.RollNameFormat,
-                                                                roller.PlayerName), ImGuiColorUtil.GetColorByNumber(0)));
+                            lootRoller.HasRolled = true;
+                        }
+                        else
+                        {
+                            lootRoll.Rollers.Add(new LootRoller
+                            {
+                                PlayerName = lootEvent.PlayerName,
+                                FormattedPlayerName = this.plugin.FormatPlayerName(
+                                    this.plugin.Configuration.RollNameFormat,
+                                    lootEvent.PlayerName),
+                                RollColor = ImGuiColorUtil.GetColorByNumber(0),
+                                HasRolled = true,
+                            });
                         }
 
-                        lootRoll.RollersDisplay = lootRoll.RollersDisplay.OrderBy(pair => pair.Key).ToList();
+                        lootRoll.RollerCount += 1;
                         break;
                     }
 
                     case LootEventType.Need:
                     case LootEventType.Greed:
                     {
-                        var lootRoll = this.plugin.LootRolls.FirstOrDefault(roll =>
+                        lootRoll = this.plugin.LootRolls.FirstOrDefault(roll =>
                             roll.ItemId == lootEvent.LootMessage.ItemId &&
                             roll.Rollers.Any(roller =>
                                 roller.PlayerName.Equals(lootEvent.PlayerName) && roller.Roll == 0));
@@ -125,32 +148,20 @@ namespace Kapture
                             roller.PlayerName.Equals(lootEvent.PlayerName) && roller.Roll == 0);
                         if (lootRoller == null) return;
                         lootRoller.Roll = lootEvent.Roll;
-                        lootRoll?.RollersDisplay.Clear();
-                        foreach (var roller in lootRoll?.Rollers!)
+                        lootRoller.RollColor = ImGuiColorUtil.GetColorByNumber(lootRoller.Roll);
+                        if (lootRoller.Roll != 0)
                         {
-                            if (roller.Roll == 0)
-                            {
-                                lootRoll.RollersDisplay.Add(new KeyValuePair<string, Vector4>(
-                                                                this.plugin.FormatPlayerName(
-                                                                    this.plugin.Configuration.RollNameFormat,
-                                                                    roller.PlayerName) + " [x]", ImGuiColorUtil.GetColorByNumber(0)));
-                            }
-                            else
-                            {
-                                lootRoll.RollersDisplay.Add(new KeyValuePair<string, Vector4>(
-                                                                this.plugin.FormatPlayerName(
-                                                                    this.plugin.Configuration.RollNameFormat,
-                                                                    roller.PlayerName) + " [" + roller.Roll + "]", ImGuiColorUtil.GetColorByNumber(roller.Roll)));
-                            }
+                            lootRoller.FormattedPlayerName = this.plugin.FormatPlayerName(
+                                                                 this.plugin.Configuration.RollNameFormat,
+                                                                 lootRoller.PlayerName) + " [" + lootRoller.Roll + "]";
                         }
 
-                        lootRoll.RollersDisplay = lootRoll.RollersDisplay.OrderBy(pair => pair.Key).ToList();
                         break;
                     }
 
                     case LootEventType.Obtain:
                     {
-                        var lootRoll =
+                        lootRoll =
                             this.plugin.LootRolls.FirstOrDefault(roll =>
                                 roll.ItemId == lootEvent.LootMessage.ItemId && !roll.IsWon);
                         if (lootRoll == null) return;
@@ -167,23 +178,14 @@ namespace Kapture
 
                     case LootEventType.Lost:
                     {
-                        var lootRoll =
+                        lootRoll =
                             this.plugin.LootRolls.FirstOrDefault(roll =>
                                 roll.ItemId == lootEvent.LootMessage.ItemId && !roll.IsWon);
                         if (lootRoll == null) return;
                         lootRoll.Timestamp = lootEvent.Timestamp;
                         lootRoll.IsWon = true;
                         lootRoll.Winner = Loc.Localize("RollMonitorLost", "Dropped to floor");
-                        lootRoll.RollersDisplay.Clear();
-                        foreach (var roller in lootRoll.Rollers)
-                        {
-                            lootRoll.RollersDisplay.Add(new KeyValuePair<string, Vector4>(
-                                                            this.plugin.FormatPlayerName(
-                                                                this.plugin.Configuration.RollNameFormat,
-                                                                roller.PlayerName) + " [x]", ImGuiColorUtil.GetColorByNumber(0)));
-                        }
 
-                        lootRoll.RollersDisplay = lootRoll.RollersDisplay.OrderBy(pair => pair.Key).ToList();
                         break;
                     }
 

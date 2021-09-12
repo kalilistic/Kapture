@@ -7,7 +7,9 @@ using System.Threading;
 using CheapLoc;
 using Dalamud.Data;
 using Dalamud.DrunkenToad;
+using Dalamud.Game;
 using Dalamud.Game.ClientState;
+using Dalamud.Game.ClientState.Party;
 using Dalamud.Game.Command;
 using Dalamud.Game.Gui;
 using Dalamud.Game.Text;
@@ -27,6 +29,7 @@ namespace Kapture
     {
         private const string RepoName = "Dalamud.Kapture";
         private readonly Localization localization = null!;
+        private readonly object locker = new ();
         private PluginUI pluginUI = null!;
 
         /// <summary>
@@ -97,8 +100,25 @@ namespace Kapture
         [RequiredVersion("1.0")]
         public static Condition Condition { get; private set; } = null!;
 
+        /// <summary>
+        /// Gets party list.
+        /// </summary>
+        [PluginService]
+        [RequiredVersion("1.0")]
+        public static PartyList PartyList { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets framework.
+        /// </summary>
+        [PluginService]
+        [RequiredVersion("1.0")]
+        public static Framework Framework { get; private set; } = null!;
+
         /// <inheritdoc />
-        public string Name { get; } = "Kapture";
+        public string Name => "Kapture";
+
+        /// <inheritdoc />
+        public PartyMember[] CurrentPartyList { get; set; } = Array.Empty<PartyMember>();
 
         /// <inheritdoc />
         public RollMonitor RollMonitor { get; private set; } = null!;
@@ -213,19 +233,19 @@ namespace Kapture
                 if (nameFormatCode == NameFormat.Initials.Code)
                 {
                     var splitName = playerName.Split(' ');
-                    return splitName[0].Substring(0, 1) + splitName[1].Substring(0, 1);
+                    return splitName[0][..1] + splitName[1][..1];
                 }
 
                 if (nameFormatCode == NameFormat.SurnameAbbreviated.Code)
                 {
                     var splitName = playerName.Split(' ');
-                    return splitName[0] + " " + splitName[1].Substring(0, 1) + ".";
+                    return splitName[0] + " " + splitName[1][..1] + ".";
                 }
 
                 if (nameFormatCode == NameFormat.ForenameAbbreviated.Code)
                 {
                     var splitName = playerName.Split(' ');
-                    return splitName[0].Substring(0, 1) + ". " + splitName[1];
+                    return splitName[0][..1] + ". " + splitName[1];
                 }
 
                 return string.Empty;
@@ -281,6 +301,12 @@ namespace Kapture
             this.ClearData();
             PluginInterface.Dispose();
             this.localization.Dispose();
+        }
+
+        /// <inheritdoc />
+        public IEnumerable<PartyMember> GetPartyMembers()
+        {
+            return PartyList.ToArray();
         }
 
         private void PrintMessage(string message)
