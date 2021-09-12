@@ -1,1 +1,118 @@
-{}
+{
+    "ObtainEnabled": {
+        "message": "Obtain",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "PurchaseEnabled": {
+        "message": "Purchase",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "SearchEnabled": {
+        "message": "Search",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "SellEnabled": {
+        "message": "Sell",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "UseEnabled": {
+        "message": "Use",
+        "description": "SettingsWindow.DrawEventTypes"
+    },
+    "RestrictToContent": {
+        "message": "Content Only",
+        "description": "SettingsWindow.RestrictToContent"
+    },
+    "RestrictToContent_HelpMarker": {
+        "message": "restrict to instanced content and exclude overworld encounters",
+        "description": "SettingsWindow.RestrictToContent"
+    },
+    "RestrictToHighEndDuty": {
+        "message": "High-End Duty Only",
+        "description": "SettingsWindow.RestrictToHighEndDuty"
+    },
+    "RestrictToHighEndDuty_HelpMarker": {
+        "message": "restrict to high-end duties only (e.g. savage)",
+        "description": "SettingsWindow.RestrictToHighEndDuty"
+    },
+    "RestrictToCustom": {
+        "message": "Restrict to Following Content",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "RestrictToCustom_HelpMarker": {
+        "message": "add content to list by using dropdown or remove by clicking on them",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "Add": {
+        "message": "Add",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "Reset": {
+        "message": "Reset",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "DupeContent": {
+        "message": "This content is already added!",
+        "description": "SettingsWindow.RestrictToCustom"
+    },
+    "RestrictToCustomItems": {
+        "message": "Restrict to Following Items",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "RestrictToCustomItems_HelpMarker": {
+        "message": "add item to list by using dropdown or remove by clicking on them",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "SelectCategory": {
+        "message": "Select Category",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "SelectItem": {
+        "message": "Select Item",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "DupeCustomItem": {
+        "message": "This item is already added!",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "PermittedItems": {
+        "message": "Permitted Items",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "NoPermittedItems": {
+        "message": "None",
+        "description": "SettingsWindow.DrawItems"
+    },
+    "SelfOnly": {
+        "message": "Self Only",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "LoggingEnabled": {
+        "message": "Enable Loot Logging",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LoggingEnabled_HelpMarker": {
+        "message": "save your loot messages to a file in config (see links)",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LogFormat": {
+        "message": "Log Format",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LogFormat_HelpMarker": {
+        "message": "set format for log file with loot info",
+        "description": "SettingsWindow.DrawLog"
+    },
+    "LoadTestData": {
+        "message": "Test Data",
+        "description": "SettingsWindow.DrawLinks"
+    },
+    "ClearData": {
+        "message": "Clear Data",
+        "description": "SettingsWindow.DrawLinks"
+    },
+    "RollMonitorLost": {
+        "message": "Dropped to floor",
+        "description": "RollMonitor.ProcessRoll"
+    }
+}
