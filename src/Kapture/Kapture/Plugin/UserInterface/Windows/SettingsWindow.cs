@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 
@@ -55,7 +54,7 @@ namespace Kapture
             Rolls,
             Events,
             Content,
-            Items,
+            Watchlist,
             Filters,
             Log,
             Links,
@@ -69,7 +68,7 @@ namespace Kapture
             if (!this.IsVisible) return;
             var isVisible = this.IsVisible;
             this.uiScale = ImGui.GetIO().FontGlobalScale;
-            ImGui.SetNextWindowSize(new Vector2(440 * this.uiScale, 320 * this.uiScale), ImGuiCond.Appearing);
+            ImGui.SetNextWindowSize(new Vector2(500 * this.uiScale, 320 * this.uiScale), ImGuiCond.Appearing);
             if (ImGui.Begin(
                 Loc.Localize("SettingsWindow", "Kapture Settings") + "###Kapture_Settings_Window",
                 ref isVisible,
@@ -80,11 +79,8 @@ namespace Kapture
                 switch (this.currentTab)
                 {
                     case Tab.General:
-                    {
                         this.DrawGeneral();
                         break;
-                    }
-
                     case Tab.Loot:
                         this.DrawLoot();
                         break;
@@ -97,8 +93,8 @@ namespace Kapture
                     case Tab.Content:
                         this.DrawContent();
                         break;
-                    case Tab.Items:
-                        this.DrawItems();
+                    case Tab.Watchlist:
+                        this.DrawWatchlist();
                         break;
                     case Tab.Filters:
                         this.DrawFilters();
@@ -162,9 +158,9 @@ namespace Kapture
                     ImGui.EndTabItem();
                 }
 
-                if (ImGui.BeginTabItem(Loc.Localize("Items", "Items") + "###Kapture_Items_Tab"))
+                if (ImGui.BeginTabItem(Loc.Localize("Watchlist", "Watchlist") + "###Kapture_Watchlist_Tab"))
                 {
-                    this.currentTab = Tab.Items;
+                    this.currentTab = Tab.Watchlist;
                     ImGui.EndTabItem();
                 }
 
@@ -643,8 +639,97 @@ namespace Kapture
             ImGui.Spacing();
         }
 
-        private void DrawItems()
+        private void DrawWatchlist()
         {
+            var offset = 110f * Scale;
+
+            // select category by item ui category
+            ImGui.Text(Loc.Localize("SelectCategory", "Select Category"));
+            ImGui.SameLine(offset);
+            ImGui.SetNextItemWidth(ImGui.GetWindowSize().X / 2 * Scale);
+            if (ImGui.Combo(
+                "###Kapture_WatchListCategoryItems_Combo",
+                ref this.selectedItemCategoryItemIndex,
+                this.plugin.ItemCategoryNames,
+                this.plugin.ItemCategoryIds.Length))
+                this.UpdateItemList();
+
+            // select item based on category
+            ImGui.Text(Loc.Localize("SelectItem", "Select Item"));
+            ImGui.SameLine(offset);
+            ImGui.SetNextItemWidth(ImGui.GetWindowSize().X / 2 * Scale);
+            ImGui.Combo(
+                "###Kapture_WatchListItems_Combo",
+                ref this.selectedItemIndex,
+                this.itemNames,
+                this.itemIds.Length);
+            ImGui.SameLine();
+            if (ImGui.SmallButton(Loc.Localize("Add", "Add") + "###Kapture_AddWatchListItem_Button"))
+            {
+                if (this.plugin.Configuration.WatchListItems.Contains(
+                    this.itemIds[this.selectedItemIndex]))
+                {
+                    ImGui.OpenPopup("###Kapture_DupeCustomWatchListItem_Popup");
+                }
+                else
+                {
+                    this.plugin.Configuration.WatchListItems.Add(
+                        this.itemIds[this.selectedItemIndex]);
+                    this.plugin.SaveConfig();
+                }
+            }
+
+            // dupe popup
+            if (ImGui.BeginPopup("###Kapture_DupeCustomWatchListItem_Popup"))
+            {
+                ImGui.Text(Loc.Localize("DupeCustomWatchListItem", "This item is already added!"));
+                ImGui.EndPopup();
+            }
+
+            ImGui.Spacing();
+
+            // item list
+            ImGui.Text(Loc.Localize("WatchListItems", "Watchlist Items"));
+            ImGui.SameLine(offset - (5f * Scale));
+            ImGui.Indent(offset - (5f * Scale));
+            if (this.plugin.Configuration.WatchListItems.Count > 0)
+            {
+                foreach (var watchListItem in this.plugin.Configuration.WatchListItems.ToList())
+                {
+                    var index = Array.IndexOf(this.plugin.ItemIds, watchListItem);
+                    ImGui.Text(this.plugin.ItemNames[index]);
+                    if (ImGui.IsItemClicked())
+                    {
+                        this.plugin.Configuration.WatchListItems.Remove(watchListItem);
+                        this.plugin.SaveConfig();
+                    }
+                }
+            }
+            else
+            {
+                ImGui.Text(Loc.Localize("NoWatchListItems", "None"));
+            }
+
+            ImGui.Spacing();
+        }
+
+        private void DrawFilters()
+        {
+            // filter to own loot
+            var selfOnly = this.plugin.Configuration.SelfOnly;
+            if (ImGui.Checkbox(
+                Loc.Localize("SelfOnly", "Self Only") +
+                "###Kapture_SelfOnly_Checkbox",
+                ref selfOnly))
+            {
+                this.plugin.Configuration.SelfOnly = selfOnly;
+                this.plugin.SaveConfig();
+            }
+
+            ImGuiComponents.HelpMarker(Loc.Localize(
+                                           "SelfOnly_HelpMarker",
+                                           "filter to own items only"));
+
             var offset = 110f * Scale;
 
             var restrictToCustomItemsList = this.plugin.Configuration.RestrictToCustomItems;
@@ -741,19 +826,6 @@ namespace Kapture
             }
 
             ImGui.Spacing();
-        }
-
-        private void DrawFilters()
-        {
-            var selfOnly = this.plugin.Configuration.SelfOnly;
-            if (ImGui.Checkbox(
-                Loc.Localize("SelfOnly", "Self Only") +
-                "###Kapture_SelfOnly_Checkbox",
-                ref selfOnly))
-            {
-                this.plugin.Configuration.SelfOnly = selfOnly;
-                this.plugin.SaveConfig();
-            }
         }
 
         private void DrawLog()

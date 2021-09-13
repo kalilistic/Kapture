@@ -106,6 +106,13 @@ namespace Kapture
                             });
                         }
 
+                        if (this.plugin.Configuration.WatchListItems.Contains(lootEvent.LootMessage.ItemId))
+                        {
+                            KapturePlugin.Chat.PluginPrintNotice(string.Format(
+                             Loc.Localize("WatchListAddedAlert", "{0} dropped and is on your watch list."),
+                             lootEvent.LootMessage.ItemName));
+                        }
+
                         break;
                     case LootEventType.Cast:
                     {
@@ -173,6 +180,14 @@ namespace Kapture
                         lootRoll.IsWon = true;
                         lootRoll.Winner =
                             this.plugin.FormatPlayerName(this.plugin.Configuration.RollNameFormat, lootEvent.PlayerName);
+                        if (lootEvent.IsLocalPlayer && this.plugin.Configuration.WatchListItems.Contains(lootEvent.LootMessage.ItemId))
+                        {
+                            KapturePlugin.Chat.PluginPrintNotice(string.Format(
+                                Loc.Localize("WatchListObtainedAlert", "{0} obtained so removing from your watch list."),
+                                lootEvent.LootMessage.ItemName));
+                            this.plugin.Configuration.WatchListItems.Remove(lootEvent.LootMessage.ItemId);
+                        }
+
                         break;
                     }
 

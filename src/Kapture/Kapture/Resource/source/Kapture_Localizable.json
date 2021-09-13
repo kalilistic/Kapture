@@ -43,10 +43,6 @@
         "message": "Winner",
         "description": "RollMonitorOverlay.DrawView"
     },
-    "RollMonitorNone": {
-        "message": "No one has rolled",
-        "description": "RollMonitorOverlay.DrawView"
-    },
     "SettingsWindow": {
         "message": "Kapture Settings",
         "description": "SettingsWindow.DrawView"
@@ -71,8 +67,8 @@
         "message": "Content",
         "description": "SettingsWindow.DrawTabs"
     },
-    "Items": {
-        "message": "Items",
+    "Watchlist": {
+        "message": "Watchlist",
         "description": "SettingsWindow.DrawTabs"
     },
     "Filters": {
@@ -259,36 +255,52 @@
         "message": "This content is already added!",
         "description": "SettingsWindow.RestrictToCustom"
     },
-    "RestrictToCustomItems": {
-        "message": "Restrict to Following Items",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "RestrictToCustomItems_HelpMarker": {
-        "message": "add item to list by using dropdown or remove by clicking on them",
-        "description": "SettingsWindow.DrawItems"
-    },
     "SelectCategory": {
         "message": "Select Category",
-        "description": "SettingsWindow.DrawItems"
+        "description": "SettingsWindow.DrawWatchlist"
     },
     "SelectItem": {
         "message": "Select Item",
-        "description": "SettingsWindow.DrawItems"
+        "description": "SettingsWindow.DrawWatchlist"
     },
-    "DupeCustomItem": {
+    "DupeCustomWatchListItem": {
         "message": "This item is already added!",
-        "description": "SettingsWindow.DrawItems"
+        "description": "SettingsWindow.DrawWatchlist"
     },
-    "PermittedItems": {
-        "message": "Permitted Items",
-        "description": "SettingsWindow.DrawItems"
+    "WatchListItems": {
+        "message": "Watchlist Items",
+        "description": "SettingsWindow.DrawWatchlist"
     },
-    "NoPermittedItems": {
+    "NoWatchListItems": {
         "message": "None",
-        "description": "SettingsWindow.DrawItems"
+        "description": "SettingsWindow.DrawWatchlist"
     },
     "SelfOnly": {
         "message": "Self Only",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "SelfOnly_HelpMarker": {
+        "message": "filter to own items only",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "RestrictToCustomItems": {
+        "message": "Restrict to Following Items",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "RestrictToCustomItems_HelpMarker": {
+        "message": "add item to list by using dropdown or remove by clicking on them",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "DupeCustomItem": {
+        "message": "This item is already added!",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "PermittedItems": {
+        "message": "Permitted Items",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "NoPermittedItems": {
+        "message": "None",
         "description": "SettingsWindow.DrawFilters"
     },
     "LoggingEnabled": {
@@ -314,6 +326,14 @@
     "ClearData": {
         "message": "Clear Data",
         "description": "SettingsWindow.DrawLinks"
+    },
+    "WatchListAddedAlert": {
+        "message": "{0} dropped and is on your watch list.",
+        "description": "RollMonitor.ProcessRoll"
+    },
+    "WatchListObtainedAlert": {
+        "message": "{0} obtained so removing from your watch list.",
+        "description": "RollMonitor.ProcessRoll"
     },
     "RollMonitorLost": {
         "message": "Dropped to floor",

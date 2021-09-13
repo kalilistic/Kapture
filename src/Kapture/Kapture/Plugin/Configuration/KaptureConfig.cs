@@ -150,6 +150,11 @@ namespace Kapture
         public List<uint> PermittedItems { get; set; } = new ();
 
         /// <summary>
+        /// Gets or sets list of watch list items.
+        /// </summary>
+        public List<uint> WatchListItems { get; set; } = new ();
+
+        /// <summary>
         /// Gets or sets a value indicating whether to restrict to list of items.
         /// </summary>
         public bool RestrictToCustomItems { get; set; }
