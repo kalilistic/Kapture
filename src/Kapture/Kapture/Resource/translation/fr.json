@@ -43,10 +43,6 @@
         "message": "Gagnant",
         "description": "RollMonitorOverlay.DrawView"
     },
-    "RollMonitorNone": {
-        "message": "Personne n'a lancé ses dés",
-        "description": "RollMonitorOverlay.DrawView"
-    },
     "SettingsWindow": {
         "message": "Paramètres de Kapture",
         "description": "SettingsWindow.DrawView"
@@ -69,10 +65,6 @@
     },
     "Content": {
         "message": "Contenu",
-        "description": "SettingsWindow.DrawTabs"
-    },
-    "Items": {
-        "message": "Objets",
         "description": "SettingsWindow.DrawTabs"
     },
     "Filters": {
@@ -259,36 +251,36 @@
         "message": "Cette instance a déjà été ajoutée !",
         "description": "SettingsWindow.RestrictToCustom"
     },
-    "RestrictToCustomItems": {
-        "message": "Restreindre uniquement au contenu suivant",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "RestrictToCustomItems_HelpMarker": {
-        "message": "ajouter des instances à la sélection via la liste déroulante, ou retirez-en en cliquant dessus",
-        "description": "SettingsWindow.DrawItems"
-    },
     "SelectCategory": {
         "message": "Sélectionnez une catégorie",
-        "description": "SettingsWindow.DrawItems"
+        "description": "SettingsWindow.DrawWatchlist"
     },
     "SelectItem": {
         "message": "Choisir un objet",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "DupeCustomItem": {
-        "message": "Cet objet est déjà ajouté !",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "PermittedItems": {
-        "message": "Objets autorisés",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "NoPermittedItems": {
-        "message": "Aucun",
-        "description": "SettingsWindow.DrawItems"
+        "description": "SettingsWindow.DrawWatchlist"
     },
     "SelfOnly": {
         "message": "Soi-même seulement",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "RestrictToCustomItems": {
+        "message": "Restreindre uniquement au contenu suivant",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "RestrictToCustomItems_HelpMarker": {
+        "message": "ajouter des instances à la sélection via la liste déroulante, ou retirez-en en cliquant dessus",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "DupeCustomItem": {
+        "message": "Cet objet est déjà ajouté !",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "PermittedItems": {
+        "message": "Objets autorisés",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "NoPermittedItems": {
+        "message": "Aucun",
         "description": "SettingsWindow.DrawFilters"
     },
     "LoggingEnabled": {
