@@ -237,7 +237,7 @@ namespace Kapture
             if (this.isProcessing) return;
             if (this.ShouldWait()) return;
             this.isProcessing = true;
-            while (this.LootEvents.IsEmpty && !this.ShouldWait())
+            while (!this.LootEvents.IsEmpty && !this.ShouldWait())
             {
                 var tryDequeue = this.LootEvents.TryDequeue(out var lootEvent);
                 if (!tryDequeue) continue;
