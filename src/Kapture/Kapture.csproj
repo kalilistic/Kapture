@@ -16,7 +16,7 @@
 			<OutputPath>bin\$(Configuration)\</OutputPath>
 			<DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
 			<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-			<Configurations>Debug;Release</Configurations>
+			<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
 		</PropertyGroup>
 		
 		<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

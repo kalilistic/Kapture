@@ -1,0 +1,10 @@
+<Project>
+    <Target Name="Package" AfterTargets="Cleanup" Condition="'$(Configuration)' == 'Release'">
+        <DalamudPackager
+                ProjectDir="$(ProjectDir)"
+                OutputPath="$(OutputPath)"
+                AssemblyName="$(AssemblyName)"
+                VersionComponents="4"
+                MakeZip="true"/>
+    </Target>
+</Project>
