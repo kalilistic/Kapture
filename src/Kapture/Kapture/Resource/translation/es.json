@@ -43,10 +43,6 @@
         "message": "Ganador/a",
         "description": "RollMonitorOverlay.DrawView"
     },
-    "RollMonitorNone": {
-        "message": "Nadie ha tirado",
-        "description": "RollMonitorOverlay.DrawView"
-    },
     "SettingsWindow": {
         "message": "Ajustes de Kapture",
         "description": "SettingsWindow.DrawView"
@@ -69,10 +65,6 @@
     },
     "Content": {
         "message": "Contenido",
-        "description": "SettingsWindow.DrawTabs"
-    },
-    "Items": {
-        "message": "Objetos",
         "description": "SettingsWindow.DrawTabs"
     },
     "Filters": {
@@ -255,36 +247,36 @@
         "message": "¡Este contenido ya está añadido!",
         "description": "SettingsWindow.RestrictToCustom"
     },
-    "RestrictToCustomItems": {
-        "message": "Restringir a los siguientes objetos",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "RestrictToCustomItems_HelpMarker": {
-        "message": "añade objetos a la lista usando el menú desplegable, o elimina haciéndoles click",
-        "description": "SettingsWindow.DrawItems"
-    },
     "SelectCategory": {
         "message": "Seleccionar categoría",
-        "description": "SettingsWindow.DrawItems"
+        "description": "SettingsWindow.DrawWatchlist"
     },
     "SelectItem": {
         "message": "Seleccionar objeto",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "DupeCustomItem": {
-        "message": "¡Este objeto ya está añadido!",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "PermittedItems": {
-        "message": "Objetos Permitidos",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "NoPermittedItems": {
-        "message": "Ninguno",
-        "description": "SettingsWindow.DrawItems"
+        "description": "SettingsWindow.DrawWatchlist"
     },
     "SelfOnly": {
         "message": "Sólo propio",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "RestrictToCustomItems": {
+        "message": "Restringir a los siguientes objetos",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "RestrictToCustomItems_HelpMarker": {
+        "message": "añade objetos a la lista usando el menú desplegable, o elimina haciéndoles click",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "DupeCustomItem": {
+        "message": "¡Este objeto ya está añadido!",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "PermittedItems": {
+        "message": "Objetos Permitidos",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "NoPermittedItems": {
+        "message": "Ninguno",
         "description": "SettingsWindow.DrawFilters"
     },
     "LoggingEnabled": {

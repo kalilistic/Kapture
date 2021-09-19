@@ -43,10 +43,6 @@
         "message": "Winner",
         "description": "RollMonitorOverlay.DrawView"
     },
-    "RollMonitorNone": {
-        "message": "No one has rolled",
-        "description": "RollMonitorOverlay.DrawView"
-    },
     "SettingsWindow": {
         "message": "Kapture Settings",
         "description": "SettingsWindow.DrawView"
@@ -69,10 +65,6 @@
     },
     "Content": {
         "message": "Content",
-        "description": "SettingsWindow.DrawTabs"
-    },
-    "Items": {
-        "message": "Items",
         "description": "SettingsWindow.DrawTabs"
     },
     "Filters": {
@@ -255,36 +247,36 @@
         "message": "This content is already added!",
         "description": "SettingsWindow.RestrictToCustom"
     },
-    "RestrictToCustomItems": {
-        "message": "Restrict to Following Items",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "RestrictToCustomItems_HelpMarker": {
-        "message": "add item to list by using dropdown or remove by clicking on them",
-        "description": "SettingsWindow.DrawItems"
-    },
     "SelectCategory": {
         "message": "Select Category",
-        "description": "SettingsWindow.DrawItems"
+        "description": "SettingsWindow.DrawWatchlist"
     },
     "SelectItem": {
         "message": "Select Item",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "DupeCustomItem": {
-        "message": "This item is already added!",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "PermittedItems": {
-        "message": "Permitted Items",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "NoPermittedItems": {
-        "message": "None",
-        "description": "SettingsWindow.DrawItems"
+        "description": "SettingsWindow.DrawWatchlist"
     },
     "SelfOnly": {
         "message": "Self Only",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "RestrictToCustomItems": {
+        "message": "Restrict to Following Items",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "RestrictToCustomItems_HelpMarker": {
+        "message": "add item to list by using dropdown or remove by clicking on them",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "DupeCustomItem": {
+        "message": "This item is already added!",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "PermittedItems": {
+        "message": "Permitted Items",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "NoPermittedItems": {
+        "message": "None",
         "description": "SettingsWindow.DrawFilters"
     },
     "LoggingEnabled": {

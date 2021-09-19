@@ -43,10 +43,6 @@
         "message": "获得者",
         "description": "RollMonitorOverlay.DrawView"
     },
-    "RollMonitorNone": {
-        "message": "无人骰点",
-        "description": "RollMonitorOverlay.DrawView"
-    },
     "SettingsWindow": {
         "message": "Kapture设置",
         "description": "SettingsWindow.DrawView"
@@ -69,10 +65,6 @@
     },
     "Content": {
         "message": "副本",
-        "description": "SettingsWindow.DrawTabs"
-    },
-    "Items": {
-        "message": "物品",
         "description": "SettingsWindow.DrawTabs"
     },
     "Filters": {
@@ -255,36 +247,36 @@
         "message": "该内容已被添加！",
         "description": "SettingsWindow.RestrictToCustom"
     },
-    "RestrictToCustomItems": {
-        "message": "仅限以下物品",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "RestrictToCustomItems_HelpMarker": {
-        "message": "使用下拉菜单添加物品，或单击已添加物品以删除",
-        "description": "SettingsWindow.DrawItems"
-    },
     "SelectCategory": {
         "message": "分类",
-        "description": "SettingsWindow.DrawItems"
+        "description": "SettingsWindow.DrawWatchlist"
     },
     "SelectItem": {
         "message": "物品",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "DupeCustomItem": {
-        "message": "该物品已被添加！",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "PermittedItems": {
-        "message": "允许的物品",
-        "description": "SettingsWindow.DrawItems"
-    },
-    "NoPermittedItems": {
-        "message": "无",
-        "description": "SettingsWindow.DrawItems"
+        "description": "SettingsWindow.DrawWatchlist"
     },
     "SelfOnly": {
         "message": "仅自身",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "RestrictToCustomItems": {
+        "message": "仅限以下物品",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "RestrictToCustomItems_HelpMarker": {
+        "message": "使用下拉菜单添加物品，或单击已添加物品以删除",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "DupeCustomItem": {
+        "message": "该物品已被添加！",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "PermittedItems": {
+        "message": "允许的物品",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "NoPermittedItems": {
+        "message": "无",
         "description": "SettingsWindow.DrawFilters"
     },
     "LoggingEnabled": {
