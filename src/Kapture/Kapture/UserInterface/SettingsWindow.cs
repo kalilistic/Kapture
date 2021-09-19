@@ -5,6 +5,7 @@ using System.Numerics;
 
 using CheapLoc;
 using Dalamud.DrunkenToad;
+using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using ImGuiNET;
 
@@ -14,14 +15,13 @@ using static Kapture.NameFormat;
 namespace Kapture
 {
     /// <inheritdoc />
-    public class SettingsWindow : WindowBase
+    public class SettingsWindow : PluginWindow
     {
         private readonly KapturePlugin plugin;
         private Tab currentTab = Tab.General;
         private int selectedContentIndex;
         private int selectedItemCategoryItemIndex;
         private int selectedItemIndex;
-        private float uiScale;
         private uint[] contentIds = null!;
         private string[] contentNames = null!;
         private uint[] itemIds = null!;
@@ -32,20 +32,11 @@ namespace Kapture
         /// </summary>
         /// <param name="plugin">kapture plugin.</param>
         public SettingsWindow(KapturePlugin plugin)
+            : base(plugin, "Kapture Config")
         {
             this.plugin = plugin;
             this.UpdateItemList();
         }
-
-        /// <summary>
-        /// Overlay visibility changed.
-        /// </summary>
-        public event EventHandler<bool> LootOverlayVisibilityUpdated = null!;
-
-        /// <summary>
-        /// Roll monitor visibility changed.
-        /// </summary>
-        public event EventHandler<bool> RollMonitorOverlayVisibilityUpdated = null!;
 
         private enum Tab
         {
@@ -61,60 +52,46 @@ namespace Kapture
         }
 
         /// <inheritdoc />
-        public override void DrawView()
+        public override void Draw()
         {
-            if (this.plugin.IsInitializing) return;
-            if (!this.plugin.IsLoggedIn()) return;
-            if (!this.IsVisible) return;
-            var isVisible = this.IsVisible;
-            this.uiScale = ImGui.GetIO().FontGlobalScale;
-            ImGui.SetNextWindowSize(new Vector2(500 * this.uiScale, 320 * this.uiScale), ImGuiCond.Appearing);
-            if (ImGui.Begin(
-                Loc.Localize("SettingsWindow", "Kapture Settings") + "###Kapture_Settings_Window",
-                ref isVisible,
-                ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoScrollbar))
+            ImGui.SetNextWindowSize(new Vector2(500 * ImGuiHelpers.GlobalScale, 320 * ImGuiHelpers.GlobalScale), ImGuiCond.Appearing);
+            this.DrawTabs();
+            switch (this.currentTab)
             {
-                this.IsVisible = isVisible;
-                this.DrawTabs();
-                switch (this.currentTab)
+                case Tab.General:
+                    this.DrawGeneral();
+                    break;
+                case Tab.Loot:
+                    this.DrawLoot();
+                    break;
+                case Tab.Rolls:
+                    this.DrawRolls();
+                    break;
+                case Tab.Events:
+                    this.DrawEventTypes();
+                    break;
+                case Tab.Content:
+                    this.DrawContent();
+                    break;
+                case Tab.Watchlist:
+                    this.DrawWatchlist();
+                    break;
+                case Tab.Filters:
+                    this.DrawFilters();
+                    break;
+                case Tab.Log:
+                    this.DrawLog();
+                    break;
+                case Tab.Links:
                 {
-                    case Tab.General:
-                        this.DrawGeneral();
-                        break;
-                    case Tab.Loot:
-                        this.DrawLoot();
-                        break;
-                    case Tab.Rolls:
-                        this.DrawRolls();
-                        break;
-                    case Tab.Events:
-                        this.DrawEventTypes();
-                        break;
-                    case Tab.Content:
-                        this.DrawContent();
-                        break;
-                    case Tab.Watchlist:
-                        this.DrawWatchlist();
-                        break;
-                    case Tab.Filters:
-                        this.DrawFilters();
-                        break;
-                    case Tab.Log:
-                        this.DrawLog();
-                        break;
-                    case Tab.Links:
-                    {
-                        this.DrawLinks();
-                        break;
-                    }
-
-                    default:
-                        this.DrawGeneral();
-                        break;
+                    this.DrawLinks();
+                    break;
                 }
-            }
 
-            ImGui.End();
+                default:
+                    this.DrawGeneral();
+                    break;
+            }
         }
 
         private void UpdateItemList()
@@ -230,7 +207,7 @@ namespace Kapture
                 ref showLootOverlay))
             {
                 this.plugin.Configuration.ShowLootOverlay = showLootOverlay;
-                this.LootOverlayVisibilityUpdated(this, showLootOverlay);
+                this.Plugin.WindowManager.LootWindow!.IsOpen = showLootOverlay;
                 this.plugin.SaveConfig();
             }
 
@@ -285,7 +262,7 @@ namespace Kapture
                 ref showRollOverlay))
             {
                 this.plugin.Configuration.ShowRollMonitorOverlay = showRollOverlay;
-                this.RollMonitorOverlayVisibilityUpdated(this, showRollOverlay);
+                this.Plugin.WindowManager.RollWindow!.IsOpen = showRollOverlay;
                 this.plugin.SaveConfig();
             }
 
@@ -367,8 +344,8 @@ namespace Kapture
 
         private void DrawEventTypes()
         {
-            var offset1 = 110f * Scale;
-            var offset2 = 220f * Scale;
+            var offset1 = 110f * ImGuiHelpers.GlobalScale;
+            var offset2 = 220f * ImGuiHelpers.GlobalScale;
 
             var addEnabled = this.plugin.Configuration.AddEnabled;
             if (ImGui.Checkbox(
@@ -586,7 +563,7 @@ namespace Kapture
                 "add content to list by using dropdown or remove by clicking on them"));
             ImGui.Spacing();
 
-            ImGui.SetNextItemWidth(ImGui.GetWindowSize().X / 2 * Scale);
+            ImGui.SetNextItemWidth(ImGui.GetWindowSize().X / 2 * ImGuiHelpers.GlobalScale);
             ImGui.Combo(
                 "###Kapture_Content_Combo",
                 ref this.selectedContentIndex,
@@ -641,12 +618,12 @@ namespace Kapture
 
         private void DrawWatchlist()
         {
-            var offset = 110f * Scale;
+            var offset = 110f * ImGuiHelpers.GlobalScale;
 
             // select category by item ui category
             ImGui.Text(Loc.Localize("SelectCategory", "Select Category"));
             ImGui.SameLine(offset);
-            ImGui.SetNextItemWidth(ImGui.GetWindowSize().X / 2 * Scale);
+            ImGui.SetNextItemWidth(ImGui.GetWindowSize().X / 2 * ImGuiHelpers.GlobalScale);
             if (ImGui.Combo(
                 "###Kapture_WatchListCategoryItems_Combo",
                 ref this.selectedItemCategoryItemIndex,
@@ -657,7 +634,7 @@ namespace Kapture
             // select item based on category
             ImGui.Text(Loc.Localize("SelectItem", "Select Item"));
             ImGui.SameLine(offset);
-            ImGui.SetNextItemWidth(ImGui.GetWindowSize().X / 2 * Scale);
+            ImGui.SetNextItemWidth(ImGui.GetWindowSize().X / 2 * ImGuiHelpers.GlobalScale);
             ImGui.Combo(
                 "###Kapture_WatchListItems_Combo",
                 ref this.selectedItemIndex,
@@ -690,8 +667,8 @@ namespace Kapture
 
             // item list
             ImGui.Text(Loc.Localize("WatchListItems", "Watchlist Items"));
-            ImGui.SameLine(offset - (5f * Scale));
-            ImGui.Indent(offset - (5f * Scale));
+            ImGui.SameLine(offset - (5f * ImGuiHelpers.GlobalScale));
+            ImGui.Indent(offset - (5f * ImGuiHelpers.GlobalScale));
             if (this.plugin.Configuration.WatchListItems.Count > 0)
             {
                 foreach (var watchListItem in this.plugin.Configuration.WatchListItems.ToList())
@@ -730,7 +707,7 @@ namespace Kapture
                                            "SelfOnly_HelpMarker",
                                            "filter to own items only"));
 
-            var offset = 110f * Scale;
+            var offset = 110f * ImGuiHelpers.GlobalScale;
 
             var restrictToCustomItemsList = this.plugin.Configuration.RestrictToCustomItems;
             if (ImGui.Checkbox(
@@ -761,7 +738,7 @@ namespace Kapture
             // select category by item ui category
             ImGui.Text(Loc.Localize("SelectCategory", "Select Category"));
             ImGui.SameLine(offset);
-            ImGui.SetNextItemWidth(ImGui.GetWindowSize().X / 2 * Scale);
+            ImGui.SetNextItemWidth(ImGui.GetWindowSize().X / 2 * ImGuiHelpers.GlobalScale);
             if (ImGui.Combo(
                 "###Kapture_ItemCategoryItems_Combo",
                 ref this.selectedItemCategoryItemIndex,
@@ -772,7 +749,7 @@ namespace Kapture
             // select item based on category
             ImGui.Text(Loc.Localize("SelectItem", "Select Item"));
             ImGui.SameLine(offset);
-            ImGui.SetNextItemWidth(ImGui.GetWindowSize().X / 2 * Scale);
+            ImGui.SetNextItemWidth(ImGui.GetWindowSize().X / 2 * ImGuiHelpers.GlobalScale);
             ImGui.Combo(
                 "###Kapture_ItemItems_Combo",
                 ref this.selectedItemIndex,
@@ -805,8 +782,8 @@ namespace Kapture
 
             // item list
             ImGui.Text(Loc.Localize("PermittedItems", "Permitted Items"));
-            ImGui.SameLine(offset - (5f * Scale));
-            ImGui.Indent(offset - (5f * Scale));
+            ImGui.SameLine(offset - (5f * ImGuiHelpers.GlobalScale));
+            ImGui.Indent(offset - (5f * ImGuiHelpers.GlobalScale));
             if (this.plugin.Configuration.PermittedItems.Count > 0)
             {
                 foreach (var permittedItem in this.plugin.Configuration.PermittedItems.ToList())
@@ -868,7 +845,7 @@ namespace Kapture
 
         private void DrawLinks()
         {
-            var buttonSize = new Vector2(120f * this.uiScale, 25f * this.uiScale);
+            var buttonSize = new Vector2(120f * ImGuiHelpers.GlobalScale, 25f * ImGuiHelpers.GlobalScale);
             if (ImGui.Button(
                 Loc.Localize("LoadTestData", "Test Data") + "###Kapture_LoadTestData_Button",
                 buttonSize))

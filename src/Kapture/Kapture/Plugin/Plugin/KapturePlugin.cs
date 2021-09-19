@@ -30,7 +30,6 @@ namespace Kapture
         private const string RepoName = "Dalamud.Kapture";
         private readonly Localization localization = null!;
         private readonly object locker = new ();
-        private PluginUI pluginUI = null!;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="KapturePlugin"/> class.
@@ -50,6 +49,7 @@ namespace Kapture
                 this.HandleFreshInstall();
                 this.SetupListeners();
                 this.IsInitializing = false;
+                this.WindowManager.AddWindows();
             }
             catch (Exception ex)
             {
@@ -160,6 +160,11 @@ namespace Kapture
 
         /// <inheritdoc />
         public KaptureConfig Configuration { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets window manager.
+        /// </summary>
+        public WindowManager WindowManager { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets list of content ids.
@@ -344,7 +349,7 @@ namespace Kapture
         {
             Logger.LogInfo("Running command {0} with args {1}", command, args);
             this.Configuration.ShowLootOverlay = !this.Configuration.ShowLootOverlay;
-            this.pluginUI.LootOverlayWindow.IsVisible = !this.pluginUI.LootOverlayWindow.IsVisible;
+            this.WindowManager.LootWindow?.Toggle();
             this.SaveConfig();
         }
 
@@ -352,14 +357,14 @@ namespace Kapture
         {
             Logger.LogInfo("Running command {0} with args {1}", command, args);
             this.Configuration.ShowRollMonitorOverlay = !this.Configuration.ShowRollMonitorOverlay;
-            this.pluginUI.RollMonitorOverlay.IsVisible = !this.pluginUI.RollMonitorOverlay.IsVisible;
+            this.WindowManager.RollWindow?.Toggle();
             this.SaveConfig();
         }
 
         private void ToggleConfig(string command, string args)
         {
             Logger.LogInfo("Running command {0} with args {1}", command, args);
-            this.pluginUI.SettingsWindow.IsVisible = !this.pluginUI.SettingsWindow.IsVisible;
+            this.WindowManager.SettingsWindow?.Toggle();
         }
 
         private void LoadServices()
@@ -390,14 +395,7 @@ namespace Kapture
 
         private void LoadUI()
         {
-            this.pluginUI = new PluginUI(this);
-            PluginInterface.UiBuilder.Draw += this.Draw;
-            PluginInterface.UiBuilder.OpenConfigUi += this.OpenConfigUi;
-        }
-
-        private void OpenConfigUi()
-        {
-            this.pluginUI.SettingsWindow.IsVisible = true;
+            this.WindowManager = new WindowManager(this);
         }
 
         private void HandleFreshInstall()
@@ -410,12 +408,6 @@ namespace Kapture
                              "Use /loot and /roll for the overlays and /lootconfig for settings."));
             this.Configuration.FreshInstall = false;
             this.SaveConfig();
-            this.pluginUI.SettingsWindow.IsVisible = true;
-        }
-
-        private void Draw()
-        {
-            this.pluginUI.Draw();
         }
 
         private void LoadConfig()
