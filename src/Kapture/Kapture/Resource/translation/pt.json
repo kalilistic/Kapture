@@ -67,6 +67,10 @@
         "message": "Content",
         "description": "SettingsWindow.DrawTabs"
     },
+    "Watchlist": {
+        "message": "Interesses",
+        "description": "SettingsWindow.DrawTabs"
+    },
     "Filters": {
         "message": "Filters",
         "description": "SettingsWindow.DrawTabs"
@@ -89,6 +93,10 @@
     },
     "RestrictInCombat": {
         "message": "Don't process in combat",
+        "description": "SettingsWindow.DrawGeneral"
+    },
+    "RestrictInComba_HelpMarker": {
+        "message": "parar de processar dados enquanto em combate",
         "description": "SettingsWindow.DrawGeneral"
     },
     "ShowLootOverlay": {
@@ -255,8 +263,24 @@
         "message": "Select Item",
         "description": "SettingsWindow.DrawWatchlist"
     },
+    "DupeCustomWatchListItem": {
+        "message": "Este item já foi adicionado!",
+        "description": "SettingsWindow.DrawWatchlist"
+    },
+    "WatchListItems": {
+        "message": "Itens na lista de Interesses",
+        "description": "SettingsWindow.DrawWatchlist"
+    },
+    "NoWatchListItems": {
+        "message": "Nenhum",
+        "description": "SettingsWindow.DrawWatchlist"
+    },
     "SelfOnly": {
         "message": "Self Only",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "SelfOnly_HelpMarker": {
+        "message": "filtrar para somente seus itens",
         "description": "SettingsWindow.DrawFilters"
     },
     "RestrictToCustomItems": {
@@ -302,6 +326,14 @@
     "ClearData": {
         "message": "Clear Data",
         "description": "SettingsWindow.DrawLinks"
+    },
+    "WatchListAddedAlert": {
+        "message": "{0} dropou e está na sua lista de interesses.",
+        "description": "RollMonitor.ProcessRoll"
+    },
+    "WatchListObtainedAlert": {
+        "message": "{0} obtido, então removendo da sua lista de interesses.",
+        "description": "RollMonitor.ProcessRoll"
     },
     "RollMonitorLost": {
         "message": "Dropped to floor",
