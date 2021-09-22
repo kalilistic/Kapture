@@ -7,45 +7,45 @@
         "message": "Use /loot and /roll for the overlays and /lootconfig for settings.",
         "description": "KapturePlugin.HandleFreshInstall"
     },
+    "RollMonitorLost": {
+        "message": "Dropped to floor",
+        "description": "RollMonitor.ProcessRoll"
+    },
     "LootOverlayWindow": {
         "message": "Loot",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow..ctor"
     },
     "LootItemName": {
         "message": "Item",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "LootEventType": {
         "message": "Event",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "LootPlayer": {
         "message": "Player",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "WaitingForItems": {
         "message": "Waiting for items.",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "RollMonitorOverlayWindow": {
         "message": "Roll Monitor",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow..ctor"
     },
     "MonitorItemName": {
         "message": "Item",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow.Draw"
     },
     "MonitorRollers": {
         "message": "Rollers",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow.Draw"
     },
     "MonitorWinner": {
         "message": "Winner",
-        "description": "RollMonitorOverlay.DrawView"
-    },
-    "SettingsWindow": {
-        "message": "Kapture Settings",
-        "description": "SettingsWindow.DrawView"
+        "description": "RollWindow.Draw"
     },
     "General": {
         "message": "General",
@@ -302,9 +302,5 @@
     "ClearData": {
         "message": "Clear Data",
         "description": "SettingsWindow.DrawLinks"
-    },
-    "RollMonitorLost": {
-        "message": "Dropped to floor",
-        "description": "RollMonitor.ProcessRoll"
     }
 }
