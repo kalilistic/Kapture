@@ -64,6 +64,7 @@ namespace Kapture
                                                     this.plugin.Configuration.RollMonitorObtainedTimeout);
                 this.plugin.IsRolling = this.plugin.LootRolls.Count > 0;
                 this.CreateDisplayList();
+                this.SendRollReminder();
             }
             catch (Exception ex)
             {
@@ -103,6 +104,7 @@ namespace Kapture
                                     this.plugin.Configuration.RollNameFormat,
                                     player.Name.ToString()),
                                 RollColor = ImGuiColorUtil.GetColorByNumber(0),
+                                IsLocalPlayer = player.ObjectId == KapturePlugin.ClientState.LocalPlayer?.ObjectId,
                             });
                         }
 
@@ -259,6 +261,23 @@ namespace Kapture
         {
             this.plugin.LootRollsDisplay =
                 JsonConvert.DeserializeObject<List<LootRoll>>(JsonConvert.SerializeObject(this.plugin.LootRolls));
+        }
+
+        private void SendRollReminder()
+        {
+            if (!this.plugin.Configuration.SendRollReminder) return;
+            foreach (var lootRoll in this.plugin.LootRolls.Where(roll => !roll.IsWon))
+            {
+                var rollerMatch = lootRoll.Rollers.FirstOrDefault(roller =>
+                                                         roller.IsLocalPlayer &&
+                                                         !roller.HasRolled && !roller.IsReminderSent &&
+                                                         DateUtil.CurrentTime() > lootRoll.Timestamp + 300000 - this.plugin.Configuration.RollReminderTime);
+                if (rollerMatch != null)
+                {
+                    rollerMatch.IsReminderSent = true;
+                    KapturePlugin.Chat.PluginPrintNotice(string.Format(Loc.Localize("RollReminder", "Roll soon on {0}!"), lootRoll.ItemName));
+                }
+            }
         }
     }
 }

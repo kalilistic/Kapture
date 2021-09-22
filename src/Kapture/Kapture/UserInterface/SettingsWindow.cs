@@ -54,7 +54,7 @@ namespace Kapture
         /// <inheritdoc />
         public override void Draw()
         {
-            ImGui.SetNextWindowSize(new Vector2(500 * ImGuiHelpers.GlobalScale, 320 * ImGuiHelpers.GlobalScale), ImGuiCond.Appearing);
+            ImGui.SetNextWindowSize(new Vector2(500 * ImGuiHelpers.GlobalScale, 360 * ImGuiHelpers.GlobalScale), ImGuiCond.Appearing);
             this.DrawTabs();
             switch (this.currentTab)
             {
@@ -271,6 +271,22 @@ namespace Kapture
                                            "show roll monitor overlay window"));
             ImGui.Spacing();
 
+            // show roll reminder
+            var showRollReminder = this.plugin.Configuration.SendRollReminder;
+            if (ImGui.Checkbox(
+                Loc.Localize("ShowRollReminder", "Show Roll Reminder in Chat") + "###Kapture_ShowRollReminder_Checkbox",
+                ref showRollReminder))
+            {
+                this.plugin.Configuration.ShowRollMonitorOverlay = showRollReminder;
+                this.Plugin.WindowManager.RollWindow!.IsOpen = showRollReminder;
+                this.plugin.SaveConfig();
+            }
+
+            ImGuiComponents.HelpMarker(Loc.Localize(
+                                           "ShowRollReminder_HelpMarker",
+                                           "send roll reminder before item drops"));
+            ImGui.Spacing();
+
             // display mode
             ImGui.Text(Loc.Localize("RollDisplayMode", "Display Mode"));
             ImGuiComponents.HelpMarker(Loc.Localize(
@@ -336,6 +352,22 @@ namespace Kapture
             {
                 this.plugin.Configuration.RollMonitorObtainedTimeout =
                     rollMonitorObtainedTimeout.FromSecondsToMilliseconds();
+                this.plugin.SaveConfig();
+            }
+
+            ImGui.Spacing();
+
+            // roll reminder warning
+            ImGui.Text(Loc.Localize("RollReminderTime", "Roll Reminder Warning (seconds)"));
+            ImGuiComponents.HelpMarker(Loc.Localize(
+                                           "RollReminderTime_HelpMarker",
+                                           "amount of time in advanced of missing roll to send reminder"));
+            var rollReminderTime =
+                this.plugin.Configuration.RollReminderTime.FromMillisecondsToSeconds();
+            if (ImGui.SliderInt("###PlayerTrack_RollReminderTime_Slider", ref rollReminderTime, 5, 60))
+            {
+                this.plugin.Configuration.RollReminderTime =
+                    rollReminderTime.FromSecondsToMilliseconds();
                 this.plugin.SaveConfig();
             }
 

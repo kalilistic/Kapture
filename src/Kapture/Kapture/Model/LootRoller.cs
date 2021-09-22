@@ -36,5 +36,15 @@ namespace Kapture
         /// Gets or sets a value indicating whether is winner.
         /// </summary>
         public bool IsWinner { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether alert roll has been made.
+        /// </summary>
+        public bool IsReminderSent { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether is local player.
+        /// </summary>
+        public bool IsLocalPlayer { get; init; }
     }
 }

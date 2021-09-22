@@ -206,5 +206,15 @@ namespace Kapture
 
         /// <inheritdoc />
         public int Version { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether gets or sets a value indicating to send alert.
+        /// </summary>
+        public bool SendRollReminder { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets the time in ms for alert warning.
+        /// </summary>
+        public int RollReminderTime { get; set; } = 15000;
     }
 }

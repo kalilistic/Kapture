@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Dalamud.DrunkenToad;
 using Dalamud.Game.ClientState.Party;
 using Dalamud.Game.Text;
 

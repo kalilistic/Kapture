@@ -7,45 +7,57 @@
         "message": "Use /loot and /roll for the overlays and /lootconfig for settings.",
         "description": "KapturePlugin.HandleFreshInstall"
     },
+    "WatchListAddedAlert": {
+        "message": "{0} dropped and is on your watch list.",
+        "description": "RollMonitor.ProcessRoll"
+    },
+    "WatchListObtainedAlert": {
+        "message": "{0} obtained so removing from your watch list.",
+        "description": "RollMonitor.ProcessRoll"
+    },
+    "RollMonitorLost": {
+        "message": "Dropped to floor",
+        "description": "RollMonitor.ProcessRoll"
+    },
+    "RollReminder": {
+        "message": "Roll soon on {0}!",
+        "description": "RollMonitor.SendRollReminder"
+    },
     "LootOverlayWindow": {
         "message": "Loot",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow..ctor"
     },
     "LootItemName": {
         "message": "Item",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "LootEventType": {
         "message": "Event",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "LootPlayer": {
         "message": "Player",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "WaitingForItems": {
         "message": "Waiting for items.",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "RollMonitorOverlayWindow": {
         "message": "Roll Monitor",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow..ctor"
     },
     "MonitorItemName": {
         "message": "Item",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow.Draw"
     },
     "MonitorRollers": {
         "message": "Rollers",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow.Draw"
     },
     "MonitorWinner": {
         "message": "Winner",
-        "description": "RollMonitorOverlay.DrawView"
-    },
-    "SettingsWindow": {
-        "message": "Kapture Settings",
-        "description": "SettingsWindow.DrawView"
+        "description": "RollWindow.Draw"
     },
     "General": {
         "message": "General",
@@ -131,6 +143,14 @@
         "message": "show roll monitor overlay window",
         "description": "SettingsWindow.DrawRolls"
     },
+    "ShowRollReminder": {
+        "message": "Show Roll Reminder in Chat",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "ShowRollReminder_HelpMarker": {
+        "message": "send roll reminder before item drops",
+        "description": "SettingsWindow.DrawRolls"
+    },
     "RollDisplayMode": {
         "message": "Display Mode",
         "description": "SettingsWindow.DrawRolls"
@@ -161,6 +181,14 @@
     },
     "RollMonitorObtainedTimeout_HelpMarker": {
         "message": "amount of time before removing obtained/lost items from roll monitor",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollReminderTime": {
+        "message": "Roll Reminder Warning (seconds)",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollReminderTime_HelpMarker": {
+        "message": "amount of time in advanced of missing roll to send reminder",
         "description": "SettingsWindow.DrawRolls"
     },
     "AddEnabled": {
@@ -326,17 +354,5 @@
     "ClearData": {
         "message": "Clear Data",
         "description": "SettingsWindow.DrawLinks"
-    },
-    "WatchListAddedAlert": {
-        "message": "{0} dropped and is on your watch list.",
-        "description": "RollMonitor.ProcessRoll"
-    },
-    "WatchListObtainedAlert": {
-        "message": "{0} obtained so removing from your watch list.",
-        "description": "RollMonitor.ProcessRoll"
-    },
-    "RollMonitorLost": {
-        "message": "Dropped to floor",
-        "description": "RollMonitor.ProcessRoll"
     }
 }
