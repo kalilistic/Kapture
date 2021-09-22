@@ -7,45 +7,45 @@
         "message": "使用/loot和/roll显示对应界面，/lootconfig显示设置。",
         "description": "KapturePlugin.HandleFreshInstall"
     },
+    "RollMonitorLost": {
+        "message": "无人获得",
+        "description": "RollMonitor.ProcessRoll"
+    },
     "LootOverlayWindow": {
         "message": "掉落",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow..ctor"
     },
     "LootItemName": {
         "message": "物品",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "LootEventType": {
         "message": "事件",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "LootPlayer": {
         "message": "角色",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "WaitingForItems": {
         "message": "等待掉落中。",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "RollMonitorOverlayWindow": {
         "message": "骰点监控",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow..ctor"
     },
     "MonitorItemName": {
         "message": "物品",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow.Draw"
     },
     "MonitorRollers": {
         "message": "骰点者",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow.Draw"
     },
     "MonitorWinner": {
         "message": "获得者",
-        "description": "RollMonitorOverlay.DrawView"
-    },
-    "SettingsWindow": {
-        "message": "Kapture设置",
-        "description": "SettingsWindow.DrawView"
+        "description": "RollWindow.Draw"
     },
     "General": {
         "message": "基本",
@@ -302,9 +302,5 @@
     "ClearData": {
         "message": "清除数据",
         "description": "SettingsWindow.DrawLinks"
-    },
-    "RollMonitorLost": {
-        "message": "无人获得",
-        "description": "RollMonitor.ProcessRoll"
     }
 }

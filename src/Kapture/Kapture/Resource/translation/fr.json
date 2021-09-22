@@ -7,45 +7,45 @@
         "message": "Utilisez /loot et /roll pour les fenêtres du plugin et /lootconfig pour les paramètres.",
         "description": "KapturePlugin.HandleFreshInstall"
     },
+    "RollMonitorLost": {
+        "message": "Abandonné au sol",
+        "description": "RollMonitor.ProcessRoll"
+    },
     "LootOverlayWindow": {
         "message": "Butin",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow..ctor"
     },
     "LootItemName": {
         "message": "Objet",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "LootEventType": {
         "message": "Événement",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "LootPlayer": {
         "message": "Joueur",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "WaitingForItems": {
         "message": "En attente d'objets.",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "RollMonitorOverlayWindow": {
         "message": "Lancé de dés",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow..ctor"
     },
     "MonitorItemName": {
         "message": "Objet",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow.Draw"
     },
     "MonitorRollers": {
         "message": "Lanceur",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow.Draw"
     },
     "MonitorWinner": {
         "message": "Gagnant",
-        "description": "RollMonitorOverlay.DrawView"
-    },
-    "SettingsWindow": {
-        "message": "Paramètres de Kapture",
-        "description": "SettingsWindow.DrawView"
+        "description": "RollWindow.Draw"
     },
     "General": {
         "message": "Général",
@@ -306,9 +306,5 @@
     "ClearData": {
         "message": "Effacer les données",
         "description": "SettingsWindow.DrawLinks"
-    },
-    "RollMonitorLost": {
-        "message": "Abandonné au sol",
-        "description": "RollMonitor.ProcessRoll"
     }
 }
