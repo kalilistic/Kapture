@@ -7,45 +7,45 @@
         "message": "Usa /loot y /roll para los overlays y /lootconfig para los ajustes.",
         "description": "KapturePlugin.HandleFreshInstall"
     },
+    "RollMonitorLost": {
+        "message": "Soltado al suelo",
+        "description": "RollMonitor.ProcessRoll"
+    },
     "LootOverlayWindow": {
         "message": "Botín",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow..ctor"
     },
     "LootItemName": {
         "message": "Objeto",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "LootEventType": {
         "message": "Evento",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "LootPlayer": {
         "message": "Jugador",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "WaitingForItems": {
         "message": "Esperando objetos.",
-        "description": "LootOverlayWindow.DrawView"
+        "description": "LootWindow.Draw"
     },
     "RollMonitorOverlayWindow": {
         "message": "Monitor de Tiradas",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow..ctor"
     },
     "MonitorItemName": {
         "message": "Objeto",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow.Draw"
     },
     "MonitorRollers": {
         "message": "Jugadores",
-        "description": "RollMonitorOverlay.DrawView"
+        "description": "RollWindow.Draw"
     },
     "MonitorWinner": {
         "message": "Ganador/a",
-        "description": "RollMonitorOverlay.DrawView"
-    },
-    "SettingsWindow": {
-        "message": "Ajustes de Kapture",
-        "description": "SettingsWindow.DrawView"
+        "description": "RollWindow.Draw"
     },
     "General": {
         "message": "General",
@@ -302,9 +302,5 @@
     "ClearData": {
         "message": "Eliminar Datos",
         "description": "SettingsWindow.DrawLinks"
-    },
-    "RollMonitorLost": {
-        "message": "Soltado al suelo",
-        "description": "RollMonitor.ProcessRoll"
     }
 }
