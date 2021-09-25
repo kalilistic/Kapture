@@ -91,7 +91,11 @@ namespace Kapture
             }
         }
 
-        private bool ShowOverlay()
+        /// <summary>
+        /// Checks whether should display roll window.
+        /// </summary>
+        /// <returns>indicator whether to show roll window.</returns>
+        public bool ShowRollWindow()
         {
             return !this.plugin.IsInitializing && this.plugin.IsLoggedIn() && this.plugin.Configuration.Enabled &&
                    (this.plugin.Configuration.RollDisplayMode == DisplayMode.AlwaysOn.Code ||

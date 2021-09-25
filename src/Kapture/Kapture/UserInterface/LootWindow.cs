@@ -59,7 +59,11 @@ namespace Kapture
             }
         }
 
-        private bool ShowOverlay()
+        /// <summary>
+        /// Checks whether should display loot window.
+        /// </summary>
+        /// <returns>indicator whether to show loot window.</returns>
+        public bool ShowLootWindow()
         {
             return !this.plugin.IsInitializing && this.plugin.IsLoggedIn() && this.plugin.Configuration.Enabled &&
                    (this.plugin.Configuration.LootDisplayMode == DisplayMode.AlwaysOn.Code ||

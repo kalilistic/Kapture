@@ -86,12 +86,12 @@ namespace Kapture
 
             this.ConfigWindowSystem.Draw();
 
-            if (this.Plugin.Configuration.ShowLootOverlay)
+            if (this.LootWindow != null && this.LootWindow.ShowLootWindow())
             {
                 this.LootWindowSystem.Draw();
             }
 
-            if (this.Plugin.Configuration.ShowRollMonitorOverlay)
+            if (this.RollWindow != null && this.RollWindow.ShowRollWindow())
             {
                 this.RollWindowSystem.Draw();
             }
