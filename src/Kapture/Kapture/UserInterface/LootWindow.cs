@@ -21,6 +21,7 @@ namespace Kapture
             : base(plugin, Loc.Localize("LootOverlayWindow", "Loot") + "###Kapture_Loot_Window")
         {
             this.plugin = plugin;
+            this.RespectCloseHotkey = false;
         }
 
         /// <inheritdoc />
