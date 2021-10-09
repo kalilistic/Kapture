@@ -7,9 +7,21 @@
         "message": "使用/loot和/roll显示对应界面，/lootconfig显示设置。",
         "description": "KapturePlugin.HandleFreshInstall"
     },
+    "WatchListAddedAlert": {
+        "message": "掉落了你关注列表上的{0}.",
+        "description": "RollMonitor.ProcessRoll"
+    },
+    "WatchListObtainedAlert": {
+        "message": "{0} 已被获得, 将从关注列表中移除.",
+        "description": "RollMonitor.ProcessRoll"
+    },
     "RollMonitorLost": {
         "message": "无人获得",
         "description": "RollMonitor.ProcessRoll"
+    },
+    "RollReminder": {
+        "message": "即将对{0} 骰点!",
+        "description": "RollMonitor.SendRollReminder"
     },
     "LootOverlayWindow": {
         "message": "掉落",
@@ -67,6 +79,10 @@
         "message": "副本",
         "description": "SettingsWindow.DrawTabs"
     },
+    "Watchlist": {
+        "message": "关注列表",
+        "description": "SettingsWindow.DrawTabs"
+    },
     "Filters": {
         "message": "过滤",
         "description": "SettingsWindow.DrawTabs"
@@ -89,6 +105,10 @@
     },
     "RestrictInCombat": {
         "message": "不要在战斗中进行处理",
+        "description": "SettingsWindow.DrawGeneral"
+    },
+    "RestrictInComba_HelpMarker": {
+        "message": "战斗中停止显示数据",
         "description": "SettingsWindow.DrawGeneral"
     },
     "ShowLootOverlay": {
@@ -123,6 +143,14 @@
         "message": "显示骰点监控界面",
         "description": "SettingsWindow.DrawRolls"
     },
+    "ShowRollReminder": {
+        "message": "在聊天框中显示Roll点提示",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "ShowRollReminder_HelpMarker": {
+        "message": "在物品掉落前发送roll点提示",
+        "description": "SettingsWindow.DrawRolls"
+    },
     "RollDisplayMode": {
         "message": "显示模式",
         "description": "SettingsWindow.DrawRolls"
@@ -153,6 +181,14 @@
     },
     "RollMonitorObtainedTimeout_HelpMarker": {
         "message": "在掉落界面显示获得/失去的物品的时长",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollReminderTime": {
+        "message": "Roll点提示时间(秒)",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollReminderTime_HelpMarker": {
+        "message": "结束前提前提示时间",
         "description": "SettingsWindow.DrawRolls"
     },
     "AddEnabled": {
@@ -255,8 +291,24 @@
         "message": "物品",
         "description": "SettingsWindow.DrawWatchlist"
     },
+    "DupeCustomWatchListItem": {
+        "message": "该物品已被添加！",
+        "description": "SettingsWindow.DrawWatchlist"
+    },
+    "WatchListItems": {
+        "message": "关注列表物品",
+        "description": "SettingsWindow.DrawWatchlist"
+    },
+    "NoWatchListItems": {
+        "message": "无",
+        "description": "SettingsWindow.DrawWatchlist"
+    },
     "SelfOnly": {
         "message": "仅自身",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "SelfOnly_HelpMarker": {
+        "message": "仅显示自己的物品",
         "description": "SettingsWindow.DrawFilters"
     },
     "RestrictToCustomItems": {
