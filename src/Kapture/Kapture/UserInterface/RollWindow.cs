@@ -2,8 +2,8 @@
 using System.Numerics;
 
 using CheapLoc;
-using Dalamud.DrunkenToad;
 using Dalamud.Interface;
+using Dalamud.Interface.Colors;
 using ImGuiNET;
 
 namespace Kapture
@@ -36,11 +36,11 @@ namespace Kapture
                     var col1 = 200f * ImGuiHelpers.GlobalScale;
                     var col2 = 258f * ImGuiHelpers.GlobalScale;
 
-                    ImGui.TextColored(ImGuiColors2.ToadViolet, Loc.Localize("MonitorItemName", "Item"));
+                    ImGui.TextColored(ImGuiColors.DalamudViolet, Loc.Localize("MonitorItemName", "Item"));
                     ImGui.SameLine(col1);
-                    ImGui.TextColored(ImGuiColors2.ToadViolet, Loc.Localize("MonitorRollers", "Rollers"));
+                    ImGui.TextColored(ImGuiColors.DalamudViolet, Loc.Localize("MonitorRollers", "Rollers"));
                     ImGui.SameLine(col2);
-                    ImGui.TextColored(ImGuiColors2.ToadViolet, Loc.Localize("MonitorWinner", "Winner"));
+                    ImGui.TextColored(ImGuiColors.DalamudViolet, Loc.Localize("MonitorWinner", "Winner"));
 
                     foreach (var lootRoll in lootRolls.ToList())
                     {
@@ -54,7 +54,7 @@ namespace Kapture
                         if (!ImGui.IsItemHovered()) continue;
                         ImGui.BeginTooltip();
                         ImGui.PushTextWrapPos(ImGui.GetFontSize() * 35.0f);
-                        ImGui.TextColored(ImGuiColors2.ToadViolet, lootRoll.ItemName);
+                        ImGui.TextColored(ImGuiColors.DalamudViolet, lootRoll.ItemName);
                         ImGui.Separator();
                         foreach (var roller in lootRoll.Rollers)
                         {

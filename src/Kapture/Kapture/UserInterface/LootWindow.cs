@@ -2,8 +2,8 @@
 using System.Numerics;
 
 using CheapLoc;
-using Dalamud.DrunkenToad;
 using Dalamud.Interface;
+using Dalamud.Interface.Colors;
 using ImGuiNET;
 
 namespace Kapture
@@ -21,7 +21,6 @@ namespace Kapture
             : base(plugin, Loc.Localize("LootOverlayWindow", "Loot") + "###Kapture_Loot_Window")
         {
             this.plugin = plugin;
-            this.RespectCloseHotkey = false;
         }
 
         /// <inheritdoc />
@@ -36,11 +35,11 @@ namespace Kapture
                     var col1 = 200f * ImGuiHelpers.GlobalScale;
                     var col2 = 270f * ImGuiHelpers.GlobalScale;
 
-                    ImGui.TextColored(ImGuiColors2.ToadViolet, Loc.Localize("LootItemName", "Item"));
+                    ImGui.TextColored(ImGuiColors.DalamudViolet, Loc.Localize("LootItemName", "Item"));
                     ImGui.SameLine(col1);
-                    ImGui.TextColored(ImGuiColors2.ToadViolet, Loc.Localize("LootEventType", "Event"));
+                    ImGui.TextColored(ImGuiColors.DalamudViolet, Loc.Localize("LootEventType", "Event"));
                     ImGui.SameLine(col2);
-                    ImGui.TextColored(ImGuiColors2.ToadViolet, Loc.Localize("LootPlayer", "Player"));
+                    ImGui.TextColored(ImGuiColors.DalamudViolet, Loc.Localize("LootPlayer", "Player"));
                     ImGui.Separator();
 
                     foreach (var lootEvent in lootEvents)

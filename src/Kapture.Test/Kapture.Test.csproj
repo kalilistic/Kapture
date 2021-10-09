@@ -15,7 +15,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-			<PackageReference Include="Dalamud.DrunkenToad" Version="1.1.3" />
+			<PackageReference Include="Dalamud.DrunkenToad" Version="1.1.4" />
 			<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
 			<PackageReference Include="xunit" Version="2.4.1" />
 			<PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
@@ -33,7 +33,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="Dalamud, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <Reference Include="Dalamud, Version=6.0.0.6, Culture=neutral, PublicKeyToken=null">
         <HintPath>C:\Users\caleb\AppData\Roaming\XIVLauncher\addon\Hooks\dev\Dalamud.dll</HintPath>
       </Reference>
     </ItemGroup>

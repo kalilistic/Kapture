@@ -36,6 +36,7 @@ namespace Kapture
         {
             this.plugin = plugin;
             this.UpdateItemList();
+            this.RespectCloseHotkey = true;
         }
 
         private enum Tab

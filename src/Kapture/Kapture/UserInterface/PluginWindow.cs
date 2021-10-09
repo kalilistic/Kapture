@@ -18,6 +18,7 @@ namespace Kapture
             : base(windowName, flags)
         {
             this.Plugin = plugin;
+            this.RespectCloseHotkey = false;
         }
 
         /// <summary>
