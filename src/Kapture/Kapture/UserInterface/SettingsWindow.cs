@@ -278,8 +278,7 @@ namespace Kapture
                 Loc.Localize("ShowRollReminder", "Show Roll Reminder in Chat") + "###Kapture_ShowRollReminder_Checkbox",
                 ref showRollReminder))
             {
-                this.plugin.Configuration.ShowRollMonitorOverlay = showRollReminder;
-                this.Plugin.WindowManager.RollWindow!.IsOpen = showRollReminder;
+                this.plugin.Configuration.SendRollReminder = showRollReminder;
                 this.plugin.SaveConfig();
             }
 
