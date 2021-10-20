@@ -7,9 +7,21 @@
         "message": "Usa /loot y /roll para los overlays y /lootconfig para los ajustes.",
         "description": "KapturePlugin.HandleFreshInstall"
     },
+    "WatchListAddedAlert": {
+        "message": "{0} ha caído y esta en tu lista de seguimiento.",
+        "description": "RollMonitor.ProcessRoll"
+    },
+    "WatchListObtainedAlert": {
+        "message": "{0} obtenido, se ha borrado de la lista de seguimiento.",
+        "description": "RollMonitor.ProcessRoll"
+    },
     "RollMonitorLost": {
         "message": "Soltado al suelo",
         "description": "RollMonitor.ProcessRoll"
+    },
+    "RollReminder": {
+        "message": "Pronto tirada para {0}!",
+        "description": "RollMonitor.SendRollReminder"
     },
     "LootOverlayWindow": {
         "message": "Botín",
@@ -67,6 +79,10 @@
         "message": "Contenido",
         "description": "SettingsWindow.DrawTabs"
     },
+    "Watchlist": {
+        "message": "Lista de seguimiento",
+        "description": "SettingsWindow.DrawTabs"
+    },
     "Filters": {
         "message": "Filtros",
         "description": "SettingsWindow.DrawTabs"
@@ -89,6 +105,10 @@
     },
     "RestrictInCombat": {
         "message": "No procesar en combate",
+        "description": "SettingsWindow.DrawGeneral"
+    },
+    "RestrictInComba_HelpMarker": {
+        "message": "dejar de procesar datos mientras se está en combate",
         "description": "SettingsWindow.DrawGeneral"
     },
     "ShowLootOverlay": {
@@ -123,6 +143,14 @@
         "message": "muestra el overlay del monitor de tiradas",
         "description": "SettingsWindow.DrawRolls"
     },
+    "ShowRollReminder": {
+        "message": "Mostrar recordatorio de tirada en el chat",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "ShowRollReminder_HelpMarker": {
+        "message": "enviar recordatorio de tirada antes de que caiga el objeto",
+        "description": "SettingsWindow.DrawRolls"
+    },
     "RollDisplayMode": {
         "message": "Modo de Visualización",
         "description": "SettingsWindow.DrawRolls"
@@ -153,6 +181,14 @@
     },
     "RollMonitorObtainedTimeout_HelpMarker": {
         "message": "cantidad de tiempo antes de eliminar los objetos obtenidos/perdidos en el monitor de tiradas",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollReminderTime": {
+        "message": "Aviso del recordatorio de tirada (segundos)",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollReminderTime_HelpMarker": {
+        "message": "cantidad de tiempo antes que falta antes de perder una tirada para enviar recordatorio",
         "description": "SettingsWindow.DrawRolls"
     },
     "AddEnabled": {
@@ -255,8 +291,24 @@
         "message": "Seleccionar objeto",
         "description": "SettingsWindow.DrawWatchlist"
     },
+    "DupeCustomWatchListItem": {
+        "message": "¡Este objeto ya está añadido!",
+        "description": "SettingsWindow.DrawWatchlist"
+    },
+    "WatchListItems": {
+        "message": "Lista de seguimiento de objetos",
+        "description": "SettingsWindow.DrawWatchlist"
+    },
+    "NoWatchListItems": {
+        "message": "Ninguno",
+        "description": "SettingsWindow.DrawWatchlist"
+    },
     "SelfOnly": {
         "message": "Sólo propio",
+        "description": "SettingsWindow.DrawFilters"
+    },
+    "SelfOnly_HelpMarker": {
+        "message": "filtro solo para mis objetos",
         "description": "SettingsWindow.DrawFilters"
     },
     "RestrictToCustomItems": {
