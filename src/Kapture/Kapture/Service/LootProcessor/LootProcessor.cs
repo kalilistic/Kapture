@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 
 using Dalamud.DrunkenToad;
+using Dalamud.Game.Text;
 
 namespace Kapture
 {
@@ -210,7 +211,7 @@ namespace Kapture
 
                 lootEvent.PlayerDisplayName = this.Plugin.FormatPlayerName(this.Plugin.Configuration.LootNameFormat, lootEvent.PlayerName);
                 if (lootEvent.LootMessage.IsHq)
-                    lootEvent.ItemNameAbbreviated += " "; // + this.Plugin.GetSeIcon(SeIconChar.HighQuality);
+                    lootEvent.ItemNameAbbreviated += " " + this.Plugin.GetSeIcon(SeIconChar.HighQuality);
                 return lootEvent;
             }
             catch (Exception ex)
