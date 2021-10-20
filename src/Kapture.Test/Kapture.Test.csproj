@@ -33,9 +33,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="Dalamud, Version=6.0.0.6, Culture=neutral, PublicKeyToken=null">
-        <HintPath>C:\Users\caleb\AppData\Roaming\XIVLauncher\addon\Hooks\dev\Dalamud.dll</HintPath>
-      </Reference>
+			<Reference Include="Dalamud">
+				<HintPath>$(AppData)\XIVLauncher\addon\Hooks\dev\Dalamud.dll</HintPath>
+				<Private>False</Private>
+			</Reference>
     </ItemGroup>
 
 </Project>
