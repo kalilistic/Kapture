@@ -427,11 +427,31 @@ namespace Kapture
         private void SetupListeners()
         {
             Chat.CheckMessageHandled += this.ChatMessageHandled;
+            ClientState.TerritoryChanged += this.TerritoryChanged;
         }
 
         private void DisposeListeners()
         {
             Chat.CheckMessageHandled -= this.ChatMessageHandled;
+            ClientState.TerritoryChanged -= this.TerritoryChanged;
+        }
+
+        private void TerritoryChanged(object? sender, ushort e)
+        {
+            try
+            {
+                foreach (var roll in this.LootRolls.Where(roll => !roll.IsWon))
+                {
+                    roll.IsWon = true;
+                    roll.Winner = Loc.Localize("LeftZone", "Left zone");
+                }
+
+                this.IsRolling = false;
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
         }
 
         private void ChatMessageHandled(

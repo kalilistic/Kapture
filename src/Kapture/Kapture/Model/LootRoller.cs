@@ -10,12 +10,7 @@ namespace Kapture
         /// <summary>
         /// Gets player name.
         /// </summary>
-        public string PlayerName { get; init; } = string.Empty;
-
-        /// <summary>
-        /// Gets or sets player name.
-        /// </summary>
-        public string FormattedPlayerName { get; set; } = string.Empty;
+        public string PlayerName { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets roll color.

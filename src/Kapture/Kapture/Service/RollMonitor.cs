@@ -99,8 +99,7 @@ namespace Kapture
                         {
                             lootRoll.Rollers.Add(new LootRoller
                             {
-                                PlayerName = player.Name.ToString(),
-                                FormattedPlayerName = this.plugin.FormatPlayerName(
+                                PlayerName = this.plugin.FormatPlayerName(
                                     this.plugin.Configuration.RollNameFormat,
                                     player.Name.ToString()),
                                 RollColor = ImGuiColorUtil.GetColorByNumber(0),
@@ -133,8 +132,7 @@ namespace Kapture
                         {
                             lootRoll.Rollers.Add(new LootRoller
                             {
-                                PlayerName = lootEvent.PlayerName,
-                                FormattedPlayerName = this.plugin.FormatPlayerName(
+                                PlayerName = this.plugin.FormatPlayerName(
                                     this.plugin.Configuration.RollNameFormat,
                                     lootEvent.PlayerName),
                                 RollColor = ImGuiColorUtil.GetColorByNumber(0),
@@ -160,7 +158,7 @@ namespace Kapture
                         lootRoller.RollColor = ImGuiColorUtil.GetColorByNumber(lootRoller.Roll);
                         if (lootRoller.Roll != 0)
                         {
-                            lootRoller.FormattedPlayerName = this.plugin.FormatPlayerName(
+                            lootRoller.PlayerName = this.plugin.FormatPlayerName(
                                                                  this.plugin.Configuration.RollNameFormat,
                                                                  lootRoller.PlayerName) + " [" + lootRoller.Roll + "]";
                         }

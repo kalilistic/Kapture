@@ -60,7 +60,7 @@ namespace Kapture
                         {
                             if (roller.HasRolled)
                             {
-                                ImGui.TextColored(roller.RollColor, roller.FormattedPlayerName);
+                                ImGui.TextColored(roller.RollColor, roller.PlayerName);
                                 ImGui.SameLine();
                                 ImGui.PushFont(UiBuilder.IconFont);
                                 ImGui.TextColored(roller.RollColor, FontAwesomeIcon.Check.ToIconString());
@@ -68,7 +68,7 @@ namespace Kapture
                             }
                             else if (lootRoll.IsWon)
                             {
-                                ImGui.TextColored(roller.RollColor, roller.FormattedPlayerName);
+                                ImGui.TextColored(roller.RollColor, roller.PlayerName);
                                 ImGui.SameLine();
                                 ImGui.PushFont(UiBuilder.IconFont);
                                 ImGui.TextColored(roller.RollColor, FontAwesomeIcon.Times.ToIconString());
@@ -76,7 +76,7 @@ namespace Kapture
                             }
                             else
                             {
-                                ImGui.TextColored(roller.RollColor, roller.FormattedPlayerName);
+                                ImGui.TextColored(roller.RollColor, roller.PlayerName);
                             }
                         }
 
