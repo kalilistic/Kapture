@@ -49,6 +49,7 @@ namespace Kapture
             Watchlist,
             Filters,
             Log,
+            HTTP,
             Links,
         }
 
@@ -82,6 +83,9 @@ namespace Kapture
                     break;
                 case Tab.Log:
                     this.DrawLog();
+                    break;
+                case Tab.HTTP:
+                    this.DrawHTTP();
                     break;
                 case Tab.Links:
                 {
@@ -151,6 +155,12 @@ namespace Kapture
                 if (ImGui.BeginTabItem(Loc.Localize("Log", "Log") + "###Kapture_Log_Tab"))
                 {
                     this.currentTab = Tab.Log;
+                    ImGui.EndTabItem();
+                }
+
+                if (ImGui.BeginTabItem(Loc.Localize("HTTP", "HTTP") + "###Kapture_HTTP_Tab"))
+                {
+                    this.currentTab = Tab.HTTP;
                     ImGui.EndTabItem();
                 }
 
@@ -872,6 +882,87 @@ namespace Kapture
                 this.plugin.Configuration.LogFormat = pluginLogFormat;
                 this.plugin.SaveConfig();
                 this.plugin.LootLogger.SetLogFormat();
+            }
+        }
+
+        private void DrawHTTP()
+        {
+            // http enabled
+            var sendHTTPEnabled = this.plugin.Configuration.SendHTTPEnabled;
+            if (ImGui.Checkbox(
+                Loc.Localize("SendHTTPEnabled", "Enable Send to HTTP Endpoint") +
+                "###Kapture_SendHTTPEnabled_Checkbox",
+                ref sendHTTPEnabled))
+            {
+                this.plugin.Configuration.SendHTTPEnabled = sendHTTPEnabled;
+                this.plugin.SaveConfig();
+                if (sendHTTPEnabled) this.plugin.LootLogger.SetLogFormat();
+            }
+
+            ImGuiComponents.HelpMarker(Loc.Localize(
+                                           "SendHTTPEnabled_HelpMarker",
+                                           "send your loot messages to http endpoint"));
+            ImGui.Spacing();
+
+            // http endpoint
+            var httpEndpoint = this.plugin.Configuration.HTTPEndpoint;
+            ImGui.Text(Loc.Localize("HTTPEndpoint", "HTTP Endpoint"));
+            if (ImGui.InputText(string.Empty, ref httpEndpoint, 200))
+            {
+                this.plugin.Configuration.HTTPEndpoint = httpEndpoint;
+                this.plugin.SaveConfig();
+            }
+
+            ImGuiComponents.HelpMarker(Loc.Localize(
+                                           "HTTPEndpoint_HelpMarker",
+                                           "http endpoint to send your loot messages to"));
+            ImGui.Spacing();
+
+            // http frequency
+            ImGui.Text(Loc.Localize("SendHTTPFrequency", "Send HTTP Frequency"));
+            ImGuiComponents.HelpMarker(Loc.Localize(
+                                           "SendHTTPFrequency_HelpMarker",
+                                           "frequency to send HTTP requests in seconds"));
+            var sendHTTPFrequency = this.plugin.Configuration.SendHTTPFrequency.FromMillisecondsToSeconds();
+            if (ImGui.SliderInt("###Kapture_SendHTTPFrequency_Slider", ref sendHTTPFrequency, 0, 300))
+            {
+                this.plugin.Configuration.SendHTTPFrequency = sendHTTPFrequency.FromSecondsToMilliseconds();
+                this.plugin.SaveConfig();
+            }
+
+            ImGui.Spacing();
+
+            // http frequency
+            ImGui.Text(Loc.Localize("SendHTTPRequestTimeout", "HTTP Request Timeout"));
+            ImGuiComponents.HelpMarker(Loc.Localize(
+                                           "SendHTTPRequestTimeout_HelpMarker",
+                                           "amount of time before request time out"));
+            var sendHTTPRequestTimeout = this.plugin.Configuration.SendHTTPRequestTimeout.FromMillisecondsToSeconds();
+            if (ImGui.SliderInt("###Kapture_SendHTTPRequestTimeout_Slider", ref sendHTTPRequestTimeout, 0, 300))
+            {
+                this.plugin.Configuration.SendHTTPRequestTimeout = sendHTTPRequestTimeout.FromSecondsToMilliseconds();
+                this.plugin.SaveConfig();
+            }
+
+            ImGui.Spacing();
+
+            // custom json to send with requests
+            ImGui.Text(Loc.Localize("CustomJSON", "Custom JSON"));
+            ImGui.SameLine();
+            ImGuiComponents.HelpMarker(Loc.Localize(
+                                           "CustomJSON_HelpMarker",
+                                           "custom json to send with each http request"));
+            var customJSON = this.plugin.Configuration.HTTPCustomJSON;
+            if (ImGui.InputTextMultiline(
+                "###Kapture_CustomJSON_MultiText",
+                ref customJSON,
+                2000,
+                new Vector2(
+                    x: ImGui.GetWindowSize().X - (20f * ImGuiHelpers.GlobalScale),
+                    y: -1 - (5f * ImGuiHelpers.GlobalScale))))
+            {
+                this.plugin.Configuration.HTTPCustomJSON = customJSON;
+                this.plugin.SaveConfig();
             }
         }
 

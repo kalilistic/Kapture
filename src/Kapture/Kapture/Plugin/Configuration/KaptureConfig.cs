@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using Dalamud.Configuration;
 
@@ -168,6 +169,31 @@ namespace Kapture
         /// Gets or sets a value indicating whether to enable logging.
         /// </summary>
         public bool LoggingEnabled { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to send loot to HTTP.
+        /// </summary>
+        public bool SendHTTPEnabled { get; set; }
+
+        /// <summary>
+        /// Gets or sets frequency to send http messages.
+        /// </summary>
+        public int SendHTTPFrequency { get; set; } = 5000;
+
+        /// <summary>
+        /// Gets or sets custom json to send.
+        /// </summary>
+        public string HTTPCustomJSON { get; set;  } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets endpoint.
+        /// </summary>
+        public string HTTPEndpoint { get; set;  } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets timeout for sending HTTP messages.
+        /// </summary>
+        public int SendHTTPRequestTimeout { get; set; } = 60000;
 
         /// <summary>
         /// Gets or sets a value indicating whether to restrict to local player events.

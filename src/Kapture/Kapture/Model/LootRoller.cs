@@ -8,7 +8,7 @@ namespace Kapture
     public class LootRoller
     {
         /// <summary>
-        /// Gets player name.
+        /// Gets or sets player name.
         /// </summary>
         public string PlayerName { get; set; } = string.Empty;
 

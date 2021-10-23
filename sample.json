@@ -1,0 +1,36 @@
+{
+  "events": [
+    [
+      {
+        "timestamp": 1635013566076,
+        "lootMessage": {
+          "xivChatType": 2110,
+          "logKind": 62,
+          "logKindName": "LootNotice",
+          "lootMessageType": 2110,
+          "lootMessageTypeName": "LocalPlayerObtainLoot",
+          "message": "You obtain Kujakuo Kai.",
+          "messageParts": [
+            "You obtain ",
+            "",
+            "Kujakuo Kai",
+            "."
+          ],
+          "itemId": 21403,
+          "itemName": "Kujakuo Kai",
+          "isHq": false
+        },
+        "lootEventType": 9,
+        "lootEventTypeName": "Obtain",
+        "isLocalPlayer": true,
+        "playerName": "Blue Clue",
+        "playerDisplayName": "Blue Clue",
+        "roll": 0,
+        "territoryTypeId": 341,
+        "contentId": 0,
+        "lootEventId": "a289b3e6-08a7-4fcd-9a30-18f73ff1de4b",
+        "itemName": "Kujakuo Kai"
+      },
+    ]
+  ]
+}
