@@ -47,7 +47,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{steps.gitversion.outputs.FullSemVer}}
+        tag_name: ${{steps.gitversion.outputs.FullSemVer}}+testing
         release_name: ${{env.PLUGIN_NAME}} ${{steps.gitversion.outputs.MajorMinorPatch}}
         draft: false
         prerelease: false
