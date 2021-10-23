@@ -1,4 +1,4 @@
-name: Build & deploy to Testing
+name: Build & deploy to testing
 
 on:
   workflow_dispatch:
@@ -94,7 +94,7 @@ jobs:
       with:
         name: PluginRepoZip
         path: PluginArtifact
-    - uses: daemitus/DalamudPluginPR@v1
+    - uses: kalilistic/DalamudPluginPR@master
       with:
         enabled: true
         testing: true
