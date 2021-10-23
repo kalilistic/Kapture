@@ -2,9 +2,6 @@ name: Build & deploy to testing
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-    - master
 
 env:
   PLUGIN_NAME: Kapture
