@@ -1,4 +1,4 @@
-name: Build & deploy
+name: [Testing] Build & deploy
 
 on:
   workflow_dispatch:
@@ -97,6 +97,6 @@ jobs:
     - uses: daemitus/DalamudPluginPR@v1
       with:
         enabled: true
-        testing: false
+        testing: true
         token: ${{secrets.PAT}}
         artifact_path: ${{steps.download-artifact.outputs.download-path}}
