@@ -1,4 +1,4 @@
-name: [Testing] Build & deploy
+name: Build & deploy to Testing
 
 on:
   workflow_dispatch:
