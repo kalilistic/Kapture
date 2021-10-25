@@ -139,6 +139,11 @@ namespace Kapture
         public LootHTTP LootHTTP { get; set; } = null!;
 
         /// <summary>
+        /// Gets or sets discord service.
+        /// </summary>
+        public LootDiscord LootDiscord { get; set; } = null!;
+
+        /// <summary>
         /// Gets or sets list of item category names.
         /// </summary>
         public string[] ItemCategoryNames { get; set; } = null!;
@@ -305,6 +310,7 @@ namespace Kapture
             this.DisposeListeners();
             this.LootLogger.Dispose();
             this.LootHTTP.Dispose();
+            this.LootDiscord.Dispose();
             this.RollMonitor.Dispose();
             this.RemoveCommands();
             this.ClearData();
@@ -396,6 +402,7 @@ namespace Kapture
 
             this.LootLogger = new LootLogger(this);
             this.LootHTTP = new LootHTTP(this);
+            this.LootDiscord = new LootDiscord(this);
         }
 
         private void LoadUI()
@@ -551,6 +558,7 @@ namespace Kapture
             // output
             if (this.Configuration.LoggingEnabled) this.LootLogger.LogLoot(lootEvent);
             if (this.Configuration.SendHTTPEnabled) this.LootHTTP.SendToHTTPQueue(lootEvent);
+            if (this.Configuration.SendDiscordEnabled) this.LootDiscord.SendToDiscordQueue(lootEvent);
         }
 
         private bool IsHighEndDuty()

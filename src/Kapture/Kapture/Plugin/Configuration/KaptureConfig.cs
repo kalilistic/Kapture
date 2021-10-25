@@ -196,6 +196,16 @@ namespace Kapture
         public int SendHTTPRequestTimeout { get; set; } = 60000;
 
         /// <summary>
+        /// Gets or sets a value indicating whether to send loot to discord.
+        /// </summary>
+        public bool SendDiscordEnabled { get; set; }
+
+        /// <summary>
+        /// Gets or sets frequency to send discord messages.
+        /// </summary>
+        public int SendDiscordFrequency { get; set; } = 5000;
+
+        /// <summary>
         /// Gets or sets a value indicating whether to restrict to local player events.
         /// </summary>
         public bool SelfOnly { get; set; }

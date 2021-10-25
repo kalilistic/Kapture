@@ -6,6 +6,7 @@ using System.Numerics;
 using CheapLoc;
 using Dalamud.DrunkenToad;
 using Dalamud.Interface;
+using Dalamud.Interface.Colors;
 using Dalamud.Interface.Components;
 using ImGuiNET;
 
@@ -49,6 +50,7 @@ namespace Kapture
             Watchlist,
             Filters,
             Log,
+            Discord,
             HTTP,
             Links,
         }
@@ -56,7 +58,7 @@ namespace Kapture
         /// <inheritdoc />
         public override void Draw()
         {
-            ImGui.SetNextWindowSize(new Vector2(500 * ImGuiHelpers.GlobalScale, 360 * ImGuiHelpers.GlobalScale), ImGuiCond.Appearing);
+            ImGui.SetNextWindowSize(new Vector2(650 * ImGuiHelpers.GlobalScale, 360 * ImGuiHelpers.GlobalScale), ImGuiCond.Appearing);
             this.DrawTabs();
             switch (this.currentTab)
             {
@@ -83,6 +85,9 @@ namespace Kapture
                     break;
                 case Tab.Log:
                     this.DrawLog();
+                    break;
+                case Tab.Discord:
+                    this.DrawDiscord();
                     break;
                 case Tab.HTTP:
                     this.DrawHTTP();
@@ -155,6 +160,12 @@ namespace Kapture
                 if (ImGui.BeginTabItem(Loc.Localize("Log", "Log") + "###Kapture_Log_Tab"))
                 {
                     this.currentTab = Tab.Log;
+                    ImGui.EndTabItem();
+                }
+
+                if (ImGui.BeginTabItem(Loc.Localize("Discord", "Discord") + "###Kapture_Discord_Tab"))
+                {
+                    this.currentTab = Tab.Discord;
                     ImGui.EndTabItem();
                 }
 
@@ -945,6 +956,46 @@ namespace Kapture
                 this.plugin.Configuration.HTTPCustomJSON = customJSON;
                 this.plugin.SaveConfig();
             }
+        }
+
+        private void DrawDiscord()
+        {
+            // discord enabled
+            var sendDiscordEnabled = this.plugin.Configuration.SendDiscordEnabled;
+            if (ImGui.Checkbox(
+                Loc.Localize("SendDiscordEnabled", "Enable Send to Discord") +
+                "###Kapture_SendDiscordEnabled_Checkbox",
+                ref sendDiscordEnabled))
+            {
+                this.plugin.Configuration.SendDiscordEnabled = sendDiscordEnabled;
+                this.plugin.SaveConfig();
+                if (sendDiscordEnabled) this.plugin.LootLogger.SetLogFormat();
+            }
+
+            ImGuiComponents.HelpMarker(Loc.Localize(
+                                           "SendDiscordEnabled_HelpMarker",
+                                           "requires setup of the discord bridge plugin to work"));
+            ImGui.Spacing();
+
+            // discord frequency
+            ImGui.Text(Loc.Localize("SendDiscordFrequency", "Send Discord Message Frequency"));
+            ImGuiComponents.HelpMarker(Loc.Localize(
+                                           "SendDiscordFrequency_HelpMarker",
+                                           "frequency to send discord requests in seconds"));
+            var sendDiscordFrequency = this.plugin.Configuration.SendDiscordFrequency.FromMillisecondsToSeconds();
+            if (ImGui.SliderInt("###Kapture_SendDiscordFrequency_Slider", ref sendDiscordFrequency, 0, 300))
+            {
+                this.plugin.Configuration.SendDiscordFrequency = sendDiscordFrequency.FromSecondsToMilliseconds();
+                this.plugin.SaveConfig();
+            }
+
+            // explanation
+            ImGui.Spacing();
+            ImGui.TextColored(ImGuiColors.DalamudViolet, Loc.Localize("DiscordInstructionsHeading", "Instructions"));
+            ImGui.Text(Loc.Localize("DiscordInstructions1", "* Install DiscordBridge plugin."));
+            ImGui.Text(Loc.Localize("DiscordInstructions2", "* Setup and configure DiscordBridge to send messages to your server."));
+            ImGui.Text(Loc.Localize("DiscordInstructions3", "* Run \"xl!setchannel ipc\" in Discord (the chat type used for Kapture messages)."));
+            ImGui.Spacing();
         }
 
         private void DrawLinks()

@@ -95,6 +95,10 @@
         "message": "Log",
         "description": "SettingsWindow.DrawTabs"
     },
+    "Discord": {
+        "message": "Discord",
+        "description": "SettingsWindow.DrawTabs"
+    },
     "HTTP": {
         "message": "HTTP",
         "description": "SettingsWindow.DrawTabs"
@@ -386,6 +390,38 @@
     "CustomJSON_HelpMarker": {
         "message": "custom json to send with each http request",
         "description": "SettingsWindow.DrawHTTP"
+    },
+    "SendDiscordEnabled": {
+        "message": "Enable Send to Discord",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "SendDiscordEnabled_HelpMarker": {
+        "message": "requires setup of the discord bridge plugin to work",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "SendDiscordFrequency": {
+        "message": "Send Discord Message Frequency",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "SendDiscordFrequency_HelpMarker": {
+        "message": "frequency to send discord requests in seconds",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "DiscordInstructionsHeading": {
+        "message": "Instructions",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "DiscordInstructions1": {
+        "message": "* Install DiscordBridge plugin.",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "DiscordInstructions2": {
+        "message": "* Setup and configure DiscordBridge to send messages to your server.",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "DiscordInstructions3": {
+        "message": "* Run \"xl!setchannel ipc\" in Discord (the chat type used for Kapture messages).",
+        "description": "SettingsWindow.DrawDiscord"
     },
     "LoadTestData": {
         "message": "Test Data",
