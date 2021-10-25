@@ -127,14 +127,6 @@
         "message": "cuándo mostrar el overlay de botín",
         "description": "SettingsWindow.DrawLoot"
     },
-    "LootNameFormat": {
-        "message": "Formato de Nombre",
-        "description": "SettingsWindow.DrawLoot"
-    },
-    "LootNameFormat_HelpMarker": {
-        "message": "cómo mostrar los nombres en el overlay de botín",
-        "description": "SettingsWindow.DrawLoot"
-    },
     "ShowRollOverlay": {
         "message": "Mostrar Overlay del Monitor de Tiradas",
         "description": "SettingsWindow.DrawRolls"
@@ -157,14 +149,6 @@
     },
     "RollDisplayMode_HelpMarker": {
         "message": "cuándo mostrar el overlay del monitor de tiradas",
-        "description": "SettingsWindow.DrawRolls"
-    },
-    "RollNameFormat": {
-        "message": "Formato de Nombre",
-        "description": "SettingsWindow.DrawRolls"
-    },
-    "RollNameFormat_HelpMarker": {
-        "message": "cómo mostrar los nombres en el overlay del monitor de tiradas",
         "description": "SettingsWindow.DrawRolls"
     },
     "RollMonitorAddedTimeout": {

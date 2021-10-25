@@ -111,14 +111,6 @@
         "message": "quand afficher la fenêtre du butin",
         "description": "SettingsWindow.DrawLoot"
     },
-    "LootNameFormat": {
-        "message": "Format du nom",
-        "description": "SettingsWindow.DrawLoot"
-    },
-    "LootNameFormat_HelpMarker": {
-        "message": "comment afficher les noms des joueurs dans la fenêtre de butin",
-        "description": "SettingsWindow.DrawLoot"
-    },
     "ShowRollOverlay": {
         "message": "Afficher la fenêtre des lancés de dés",
         "description": "SettingsWindow.DrawRolls"
@@ -133,14 +125,6 @@
     },
     "RollDisplayMode_HelpMarker": {
         "message": "quand afficher la fenêtre des lancés de dés",
-        "description": "SettingsWindow.DrawRolls"
-    },
-    "RollNameFormat": {
-        "message": "Format de nom",
-        "description": "SettingsWindow.DrawRolls"
-    },
-    "RollNameFormat_HelpMarker": {
-        "message": "comment afficher les noms des joueurs dans la fenêtre de lancés de dés",
         "description": "SettingsWindow.DrawRolls"
     },
     "RollMonitorAddedTimeout": {
