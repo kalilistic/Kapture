@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Timers;
-using CheapLoc;
+
 using Dalamud.DrunkenToad;
 using Dalamud.Game.Text;
-using Dalamud.Game.Text.Sanitizer;
 
 namespace Kapture
 {
@@ -88,7 +87,6 @@ namespace Kapture
                         this.plugin.Name,
                         "https://raw.githubusercontent.com/goatcorp/DalamudPlugins/api4/plugins/Kapture/images/icon.png",
                         message);
-                    this.discordEventQueue.Dequeue();
                 }
                 catch (Exception ex)
                 {
