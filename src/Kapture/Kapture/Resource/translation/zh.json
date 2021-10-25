@@ -127,14 +127,6 @@
         "message": "何时显示掉落界面",
         "description": "SettingsWindow.DrawLoot"
     },
-    "LootNameFormat": {
-        "message": "角色名格式",
-        "description": "SettingsWindow.DrawLoot"
-    },
-    "LootNameFormat_HelpMarker": {
-        "message": "更改角色名显示模式（国服不可用）",
-        "description": "SettingsWindow.DrawLoot"
-    },
     "ShowRollOverlay": {
         "message": "显示骰点监控",
         "description": "SettingsWindow.DrawRolls"
@@ -157,14 +149,6 @@
     },
     "RollDisplayMode_HelpMarker": {
         "message": "何时显示骰点监控界面",
-        "description": "SettingsWindow.DrawRolls"
-    },
-    "RollNameFormat": {
-        "message": "角色名格式",
-        "description": "SettingsWindow.DrawRolls"
-    },
-    "RollNameFormat_HelpMarker": {
-        "message": "更改角色名显示模式（国服不可用）",
         "description": "SettingsWindow.DrawRolls"
     },
     "RollMonitorAddedTimeout": {
