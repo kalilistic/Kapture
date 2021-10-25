@@ -201,14 +201,9 @@ namespace Kapture
         public bool SelfOnly { get; set; }
 
         /// <summary>
-        /// Gets or sets loot name format.
+        /// Gets or sets chat name format.
         /// </summary>
-        public int LootNameFormat { get; set; }
-
-        /// <summary>
-        /// Gets or sets roll name format.
-        /// </summary>
-        public int RollNameFormat { get; set; }
+        public int ChatNameFormat { get; set; }
 
         /// <summary>
         /// Gets or sets log format.

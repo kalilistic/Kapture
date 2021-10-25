@@ -207,6 +207,23 @@ namespace Kapture
                 "RestrictInComba_HelpMarker",
                 "stop processing data while in combat"));
             ImGui.Spacing();
+
+            // loot name format
+            ImGui.Text(Loc.Localize("ChatNameFormat", "Chat Name Format"));
+            ImGuiComponents.HelpMarker(Loc.Localize(
+                                           "ChatNameFormat_HelpMarker",
+                                           "set to match your chat name format setting"));
+            ImGui.Spacing();
+            var characterNameFormat = this.plugin.Configuration.ChatNameFormat;
+            if (ImGui.Combo(
+                "###Kapture_ChatNameFormat_Combo",
+                ref characterNameFormat,
+                NameFormatNames.ToArray(),
+                NameFormatNames.Count))
+            {
+                this.plugin.Configuration.ChatNameFormat = characterNameFormat;
+                this.plugin.SaveConfig();
+            }
         }
 
         private void DrawLoot()
@@ -223,15 +240,15 @@ namespace Kapture
             }
 
             ImGuiComponents.HelpMarker(Loc.Localize(
-                "ShowLootOverlay_HelpMarker",
-                "show loot overlay window"));
+                                           "ShowLootOverlay_HelpMarker",
+                                           "show loot overlay window"));
             ImGui.Spacing();
 
             // display mode
             ImGui.Text(Loc.Localize("LootDisplayMode", "Display Mode"));
             ImGuiComponents.HelpMarker(Loc.Localize(
-                "LootDisplayMode_HelpMarker",
-                "when to show loot overlay"));
+                                           "LootDisplayMode_HelpMarker",
+                                           "when to show loot overlay"));
             ImGui.Spacing();
             var pluginLootDisplayMode = this.plugin.Configuration.LootDisplayMode;
             if (ImGui.Combo(
@@ -245,23 +262,6 @@ namespace Kapture
             }
 
             ImGui.Spacing();
-
-            // loot name format
-            ImGui.Text(Loc.Localize("LootNameFormat", "Name Format"));
-            ImGuiComponents.HelpMarker(Loc.Localize(
-                "LootNameFormat_HelpMarker",
-                "how to display player names in the loot overlay"));
-            ImGui.Spacing();
-            var pluginLootNameFormat = this.plugin.Configuration.LootNameFormat;
-            if (ImGui.Combo(
-                "###Kapture_LootNameFormat_Combo",
-                ref pluginLootNameFormat,
-                NameFormatNames.ToArray(),
-                NameFormatNames.Count))
-            {
-                this.plugin.Configuration.LootNameFormat = pluginLootNameFormat;
-                this.plugin.SaveConfig();
-            }
         }
 
         private void DrawRolls()
@@ -311,25 +311,6 @@ namespace Kapture
                 DisplayModeNames.Count))
             {
                 this.plugin.Configuration.RollDisplayMode = pluginRollDisplayMode;
-                this.plugin.SaveConfig();
-            }
-
-            ImGui.Spacing();
-
-            // roll name format
-            ImGui.Text(Loc.Localize("RollNameFormat", "Name Format"));
-            ImGuiComponents.HelpMarker(Loc.Localize(
-                "RollNameFormat_HelpMarker",
-                "how to display player names in the roll monitor overlay"));
-            ImGui.Spacing();
-            var pluginRollNameFormat = this.plugin.Configuration.RollNameFormat;
-            if (ImGui.Combo(
-                "###Kapture_RollNameFormat_Combo",
-                ref pluginRollNameFormat,
-                NameFormatNames.ToArray(),
-                NameFormatNames.Count))
-            {
-                this.plugin.Configuration.RollNameFormat = pluginRollNameFormat;
                 this.plugin.SaveConfig();
             }
 

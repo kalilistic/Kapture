@@ -119,6 +119,14 @@
         "message": "stop processing data while in combat",
         "description": "SettingsWindow.DrawGeneral"
     },
+    "ChatNameFormat": {
+        "message": "Chat Name Format",
+        "description": "SettingsWindow.DrawGeneral"
+    },
+    "ChatNameFormat_HelpMarker": {
+        "message": "set to match your chat name format setting",
+        "description": "SettingsWindow.DrawGeneral"
+    },
     "ShowLootOverlay": {
         "message": "Show Loot Overlay",
         "description": "SettingsWindow.DrawLoot"
@@ -133,14 +141,6 @@
     },
     "LootDisplayMode_HelpMarker": {
         "message": "when to show loot overlay",
-        "description": "SettingsWindow.DrawLoot"
-    },
-    "LootNameFormat": {
-        "message": "Name Format",
-        "description": "SettingsWindow.DrawLoot"
-    },
-    "LootNameFormat_HelpMarker": {
-        "message": "how to display player names in the loot overlay",
         "description": "SettingsWindow.DrawLoot"
     },
     "ShowRollOverlay": {
@@ -165,14 +165,6 @@
     },
     "RollDisplayMode_HelpMarker": {
         "message": "when to show roll monitor overlay",
-        "description": "SettingsWindow.DrawRolls"
-    },
-    "RollNameFormat": {
-        "message": "Name Format",
-        "description": "SettingsWindow.DrawRolls"
-    },
-    "RollNameFormat_HelpMarker": {
-        "message": "how to display player names in the roll monitor overlay",
         "description": "SettingsWindow.DrawRolls"
     },
     "RollMonitorAddedTimeout": {

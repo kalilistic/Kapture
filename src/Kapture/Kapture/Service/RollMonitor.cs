@@ -100,7 +100,7 @@ namespace Kapture
                             lootRoll.Rollers.Add(new LootRoller
                             {
                                 PlayerName = this.plugin.FormatPlayerName(
-                                    this.plugin.Configuration.RollNameFormat,
+                                    this.plugin.Configuration.ChatNameFormat,
                                     player.Name.ToString()),
                                 RollColor = ImGuiColorUtil.GetColorByNumber(0),
                                 IsLocalPlayer = player.ObjectId == KapturePlugin.ClientState.LocalPlayer?.ObjectId,
@@ -133,7 +133,7 @@ namespace Kapture
                             lootRoll.Rollers.Add(new LootRoller
                             {
                                 PlayerName = this.plugin.FormatPlayerName(
-                                    this.plugin.Configuration.RollNameFormat,
+                                    this.plugin.Configuration.ChatNameFormat,
                                     lootEvent.PlayerName),
                                 RollColor = ImGuiColorUtil.GetColorByNumber(0),
                                 HasRolled = true,
@@ -159,7 +159,7 @@ namespace Kapture
                         if (lootRoller.Roll != 0)
                         {
                             lootRoller.PlayerName = this.plugin.FormatPlayerName(
-                                                                 this.plugin.Configuration.RollNameFormat,
+                                                                 this.plugin.Configuration.ChatNameFormat,
                                                                  lootRoller.PlayerName) + " [" + lootRoller.Roll + "]";
                         }
 
@@ -179,7 +179,7 @@ namespace Kapture
                         lootRoll.Timestamp = lootEvent.Timestamp;
                         lootRoll.IsWon = true;
                         lootRoll.Winner =
-                            this.plugin.FormatPlayerName(this.plugin.Configuration.RollNameFormat, lootEvent.PlayerName);
+                            this.plugin.FormatPlayerName(this.plugin.Configuration.ChatNameFormat, lootEvent.PlayerName);
                         if (lootEvent.IsLocalPlayer && this.plugin.Configuration.WatchListItems.Contains(lootEvent.LootMessage.ItemId))
                         {
                             KapturePlugin.Chat.PluginPrintNotice(string.Format(

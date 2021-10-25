@@ -238,8 +238,6 @@ namespace Kapture
 
                 if (nameFormatCode == NameFormat.FullName.Code) return playerName;
 
-                if (nameFormatCode == NameFormat.FirstName.Code) return playerName.Split(' ')[0];
-
                 if (nameFormatCode == NameFormat.Initials.Code)
                 {
                     var splitName = playerName.Split(' ');

@@ -23,24 +23,19 @@ namespace Kapture
         public static readonly NameFormat FullName = new (0, "Full Name");
 
         /// <summary>
-        /// Name format: first name.
-        /// </summary>
-        public static readonly NameFormat FirstName = new (1, "First Name");
-
-        /// <summary>
-        /// Name format: initials.
-        /// </summary>
-        public static readonly NameFormat Initials = new (2, "Initials");
-
-        /// <summary>
         /// Name format: surname abbreviated.
         /// </summary>
-        public static readonly NameFormat SurnameAbbreviated = new (3, "Surname Abbreviated");
+        public static readonly NameFormat SurnameAbbreviated = new (1, "Surname Abbreviated");
 
         /// <summary>
         /// Name format: forename abbreviated.
         /// </summary>
-        public static readonly NameFormat ForenameAbbreviated = new (4, "Forename Abbreviated");
+        public static readonly NameFormat ForenameAbbreviated = new (2, "Forename Abbreviated");
+
+        /// <summary>
+        /// Name format: initials.
+        /// </summary>
+        public static readonly NameFormat Initials = new (3, "Initials");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NameFormat"/> class.

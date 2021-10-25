@@ -209,7 +209,7 @@ namespace Kapture
                         : lootEvent.LootMessage.ItemName.Substring(0, 26) + "...";
                 }
 
-                lootEvent.PlayerDisplayName = this.Plugin.FormatPlayerName(this.Plugin.Configuration.LootNameFormat, lootEvent.PlayerName);
+                lootEvent.PlayerName = this.Plugin.FormatPlayerName(this.Plugin.Configuration.ChatNameFormat, lootEvent.PlayerName);
                 if (lootEvent.LootMessage.IsHq)
                     lootEvent.ItemNameAbbreviated += " " + this.Plugin.GetSeIcon(SeIconChar.HighQuality);
                 return lootEvent;
