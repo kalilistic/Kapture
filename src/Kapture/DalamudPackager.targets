@@ -4,7 +4,6 @@
                 ProjectDir="$(ProjectDir)"
                 OutputPath="$(OutputPath)"
                 AssemblyName="$(AssemblyName)"
-                VersionComponents="4"
                 MakeZip="true"/>
     </Target>
 </Project>
