@@ -229,6 +229,12 @@ namespace Kapture
         }
 
         /// <inheritdoc />
+        public string GetLocalPlayerWorld()
+        {
+            return ClientState.LocalPlayer?.HomeWorld.GameData.Name.ToString() ?? string.Empty;
+        }
+
+        /// <inheritdoc />
         public ushort ClientLanguage()
         {
             return (ushort)ClientState.ClientLanguage;
@@ -524,6 +530,10 @@ namespace Kapture
                         lootMessage.ItemName = itemPayload.Item.Name.ToString();
                         lootMessage.Item = itemPayload.Item;
                         lootMessage.IsHq = itemPayload.IsHQ;
+                        break;
+                    case PlayerPayload playerPayload:
+                        if (lootMessage.Player is not null) break;
+                        lootMessage.Player = playerPayload;
                         break;
                 }
             }

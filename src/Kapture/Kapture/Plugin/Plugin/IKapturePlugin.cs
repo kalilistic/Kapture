@@ -74,6 +74,12 @@ namespace Kapture
         string GetLocalPlayerName();
 
         /// <summary>
+        /// Get local player home world name.
+        /// </summary>
+        /// <returns>local player home world name.</returns>
+        string GetLocalPlayerWorld();
+
+        /// <summary>
         /// Client language.
         /// </summary>
         /// <returns>client language.</returns>

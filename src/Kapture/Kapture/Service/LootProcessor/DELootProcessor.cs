@@ -60,6 +60,7 @@ namespace Kapture
                     LootEventType = LootEventType.Search,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -89,6 +90,7 @@ namespace Kapture
                     LootEventType = LootEventType.Purchase,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -100,6 +102,7 @@ namespace Kapture
                     LootEventType = LootEventType.Discard,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -111,6 +114,7 @@ namespace Kapture
                     LootEventType = LootEventType.Obtain,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -122,6 +126,7 @@ namespace Kapture
                     LootEventType = LootEventType.Obtain,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -133,6 +138,7 @@ namespace Kapture
                     LootEventType = LootEventType.Lost,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -148,6 +154,7 @@ namespace Kapture
                 LootEventType = LootEventType.Obtain,
                 IsLocalPlayer = true,
                 PlayerName = this.Plugin.GetLocalPlayerName(),
+                World = this.Plugin.GetLocalPlayerWorld(),
             };
         }
 
@@ -158,6 +165,7 @@ namespace Kapture
             {
                 IsLocalPlayer = true,
                 PlayerName = this.Plugin.GetLocalPlayerName(),
+                World = this.Plugin.GetLocalPlayerWorld(),
             };
 
             // Cast Lot (Local Player)
@@ -196,6 +204,7 @@ namespace Kapture
                 LootEventType = LootEventType.Obtain,
                 IsLocalPlayer = false,
                 PlayerName = message.MessageParts[0],
+                World = message.Player?.World.Name.ToString() ?? string.Empty,
             };
         }
 
@@ -206,6 +215,7 @@ namespace Kapture
             {
                 IsLocalPlayer = false,
                 PlayerName = message.MessageParts[0],
+                World = message.Player?.World.Name.ToString() ?? string.Empty,
             };
 
             // Cast Lot (Other Player)
@@ -246,6 +256,7 @@ namespace Kapture
                     LootEventType = LootEventType.Desynth,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -257,6 +268,7 @@ namespace Kapture
                     LootEventType = LootEventType.Use,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -268,6 +280,7 @@ namespace Kapture
                     LootEventType = LootEventType.Sell,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -283,6 +296,7 @@ namespace Kapture
                 LootEventType = LootEventType.Use,
                 IsLocalPlayer = true,
                 PlayerName = this.Plugin.GetLocalPlayerName(),
+                World = this.Plugin.GetLocalPlayerWorld(),
             };
         }
 
@@ -295,6 +309,7 @@ namespace Kapture
                 LootEventType = LootEventType.Obtain,
                 IsLocalPlayer = true,
                 PlayerName = this.Plugin.GetLocalPlayerName(),
+                World = this.Plugin.GetLocalPlayerWorld(),
             };
         }
 
@@ -308,6 +323,7 @@ namespace Kapture
                 {
                     LootEventType = LootEventType.Use,
                     PlayerName = message.MessageParts[0],
+                    World = message.Player?.World.Name.ToString() ?? string.Empty,
                 };
             }
 
@@ -325,6 +341,7 @@ namespace Kapture
                     LootEventType = LootEventType.Use,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -336,6 +353,7 @@ namespace Kapture
                     LootEventType = LootEventType.Obtain,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -347,6 +365,7 @@ namespace Kapture
                     LootEventType = LootEventType.Craft,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -364,6 +383,7 @@ namespace Kapture
                     LootEventType = LootEventType.Gather,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -375,6 +395,7 @@ namespace Kapture
                     LootEventType = LootEventType.Gather,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -392,6 +413,7 @@ namespace Kapture
                     LootEventType = LootEventType.Craft,
                     IsLocalPlayer = true,
                     PlayerName = this.Plugin.GetLocalPlayerName(),
+                    World = this.Plugin.GetLocalPlayerWorld(),
                 };
             }
 
@@ -408,6 +430,7 @@ namespace Kapture
                 {
                     LootEventType = LootEventType.Craft,
                     PlayerName = message.MessageParts[0],
+                    World = message.Player?.World.Name.ToString() ?? string.Empty,
                 };
             }
 

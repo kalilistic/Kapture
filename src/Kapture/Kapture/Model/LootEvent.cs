@@ -41,6 +41,11 @@ namespace Kapture
         public string PlayerName { get; set; } = string.Empty;
 
         /// <summary>
+        /// Gets or sets player home world name.
+        /// </summary>
+        public string World { get; set; } = string.Empty;
+
+        /// <summary>
         /// Gets or sets player display name.
         /// </summary>
         public string PlayerDisplayName { get; set; } = string.Empty;
@@ -93,6 +98,7 @@ namespace Kapture
                 "ItemName",
                 "IsHQ",
                 "PlayerName",
+                "World",
                 "Roll",
             });
         }
@@ -120,6 +126,7 @@ namespace Kapture
                 this.LootMessage.ItemName,
                 this.LootMessage.IsHq.ToString(),
                 this.PlayerName,
+                this.World,
                 this.Roll.ToString(),
             });
         }
