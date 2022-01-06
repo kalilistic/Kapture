@@ -84,6 +84,12 @@ namespace Kapture.Test
         {
             return "Pika Chu";
         }
+        
+        /// <inheritdoc />
+        public string GetLocalPlayerWorld()
+        {
+            return "Pandaemonium";
+        }
 
         /// <inheritdoc />
         public ushort ClientLanguage()

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 
+using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Lumina.Excel.GeneratedSheets;
 using Newtonsoft.Json;
 
@@ -60,6 +61,12 @@ namespace Kapture
         /// </summary>
         [JsonIgnore]
         public Item Item { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets playerPayload.
+        /// </summary>
+        [JsonIgnore]
+        public PlayerPayload? Player { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether hq.
