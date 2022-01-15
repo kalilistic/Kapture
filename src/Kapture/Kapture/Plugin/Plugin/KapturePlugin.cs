@@ -27,7 +27,6 @@ namespace Kapture
     // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class KapturePlugin : IKapturePlugin, IDalamudPlugin
     {
-        private const string RepoName = "Dalamud.Kapture";
         private readonly Localization localization = null!;
         private readonly object locker = new ();
 
@@ -43,6 +42,7 @@ namespace Kapture
                 this.InitItems();
                 this.PluginDataManager = new PluginDataManager(this);
                 this.LoadConfig();
+                this.FixConfig();
                 this.LoadServices();
                 this.SetupCommands();
                 this.LoadUI();
@@ -313,15 +313,21 @@ namespace Kapture
         /// </summary>
         public void Dispose()
         {
-            this.DisposeListeners();
-            this.LootLogger.Dispose();
-            this.LootHTTP.Dispose();
-            this.LootDiscord.Dispose();
-            this.RollMonitor.Dispose();
-            this.RemoveCommands();
-            this.ClearData();
-            PluginInterface.Dispose();
-            this.localization.Dispose();
+            try
+            {
+                this.DisposeListeners();
+                this.LootLogger.Dispose();
+                this.LootHTTP.Dispose();
+                this.LootDiscord.Dispose();
+                this.RollMonitor.Dispose();
+                this.RemoveCommands();
+                this.ClearData();
+                this.localization.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Failed to dispose plugin properly.");
+            }
         }
 
         /// <inheritdoc />
@@ -383,8 +389,36 @@ namespace Kapture
             this.WindowManager.SettingsWindow?.Toggle();
         }
 
+        private void FixConfig()
+        {
+            if (this.Configuration.RollMonitorProcessFrequency == 0)
+            {
+                this.Configuration.RollMonitorProcessFrequency = 3000;
+                this.SaveConfig();
+            }
+
+            if (this.Configuration.WriteToLogFrequency == 0)
+            {
+                this.Configuration.WriteToLogFrequency = 30000;
+                this.SaveConfig();
+            }
+
+            if (this.Configuration.SendHTTPFrequency == 0)
+            {
+                this.Configuration.SendHTTPFrequency = 5000;
+                this.SaveConfig();
+            }
+
+            if (this.Configuration.SendDiscordFrequency == 0)
+            {
+                this.Configuration.SendDiscordFrequency = 5000;
+                this.SaveConfig();
+            }
+        }
+
         private void LoadServices()
         {
+            // setup services
             this.RollMonitor = new RollMonitor(this);
             var langCode = this.ClientLanguage();
             this.LootProcessor = langCode switch

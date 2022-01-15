@@ -916,7 +916,7 @@ namespace Kapture
                                            "SendHTTPFrequency_HelpMarker",
                                            "frequency to send HTTP requests in seconds"));
             var sendHTTPFrequency = this.plugin.Configuration.SendHTTPFrequency.FromMillisecondsToSeconds();
-            if (ImGui.SliderInt("###Kapture_SendHTTPFrequency_Slider", ref sendHTTPFrequency, 0, 300))
+            if (ImGui.SliderInt("###Kapture_SendHTTPFrequency_Slider", ref sendHTTPFrequency, 1, 300))
             {
                 this.plugin.Configuration.SendHTTPFrequency = sendHTTPFrequency.FromSecondsToMilliseconds();
                 this.plugin.SaveConfig();
@@ -983,7 +983,7 @@ namespace Kapture
                                            "SendDiscordFrequency_HelpMarker",
                                            "frequency to send discord requests in seconds"));
             var sendDiscordFrequency = this.plugin.Configuration.SendDiscordFrequency.FromMillisecondsToSeconds();
-            if (ImGui.SliderInt("###Kapture_SendDiscordFrequency_Slider", ref sendDiscordFrequency, 0, 300))
+            if (ImGui.SliderInt("###Kapture_SendDiscordFrequency_Slider", ref sendDiscordFrequency, 1, 300))
             {
                 this.plugin.Configuration.SendDiscordFrequency = sendDiscordFrequency.FromSecondsToMilliseconds();
                 this.plugin.SaveConfig();

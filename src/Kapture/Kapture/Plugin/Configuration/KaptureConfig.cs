@@ -161,9 +161,9 @@ namespace Kapture
         public bool RestrictToCustomItems { get; set; }
 
         /// <summary>
-        /// Gets frequency to write to log.
+        /// Gets or sets frequency to write to log.
         /// </summary>
-        public int WriteToLogFrequency { get; } = 30000;
+        public int WriteToLogFrequency { get; set; } = 30000;
 
         /// <summary>
         /// Gets or sets a value indicating whether to enable logging.
