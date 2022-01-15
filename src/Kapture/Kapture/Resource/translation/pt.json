@@ -7,6 +7,10 @@
         "message": "Use /loot and /roll for the overlays and /lootconfig for settings.",
         "description": "KapturePlugin.HandleFreshInstall"
     },
+    "LeftZone": {
+        "message": "Zona deixada",
+        "description": "KapturePlugin.TerritoryChanged"
+    },
     "WatchListAddedAlert": {
         "message": "{0} dropou e está na sua lista de interesses.",
         "description": "RollMonitor.ProcessRoll"
@@ -18,6 +22,10 @@
     "RollMonitorLost": {
         "message": "Dropped to floor",
         "description": "RollMonitor.ProcessRoll"
+    },
+    "RollReminder": {
+        "message": "Role logo em {0}!",
+        "description": "RollMonitor.SendRollReminder"
     },
     "LootOverlayWindow": {
         "message": "Loot",
@@ -85,6 +93,10 @@
     },
     "Log": {
         "message": "Log",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "Discord": {
+        "message": "Discord",
         "description": "SettingsWindow.DrawTabs"
     },
     "HTTP": {
@@ -177,6 +189,10 @@
     },
     "RollReminderTime": {
         "message": "Lembrete de Roll (segundos)",
+        "description": "SettingsWindow.DrawRolls"
+    },
+    "RollReminderTime_HelpMarker": {
+        "message": "tempo para notificar antes que perca a chance de rolar loot",
         "description": "SettingsWindow.DrawRolls"
     },
     "AddEnabled": {
@@ -334,6 +350,78 @@
     "LogFormat_HelpMarker": {
         "message": "set format for log file with loot info",
         "description": "SettingsWindow.DrawLog"
+    },
+    "SendHTTPEnabled": {
+        "message": "Ativar envio para Endpoint HTTP",
+        "description": "SettingsWindow.DrawHTTP"
+    },
+    "SendHTTPEnabled_HelpMarker": {
+        "message": "envie suas mensagens de loot para um endpoint http",
+        "description": "SettingsWindow.DrawHTTP"
+    },
+    "HTTPEndpoint": {
+        "message": "Endpoint HTTP",
+        "description": "SettingsWindow.DrawHTTP"
+    },
+    "HTTPEndpoint_HelpMarker": {
+        "message": "endpoint http para onde serão enviadas mensagens de loot",
+        "description": "SettingsWindow.DrawHTTP"
+    },
+    "SendHTTPFrequency": {
+        "message": "Frequência de envio HTTP",
+        "description": "SettingsWindow.DrawHTTP"
+    },
+    "SendHTTPFrequency_HelpMarker": {
+        "message": "frequência de envio de requisições HTTP em segundos",
+        "description": "SettingsWindow.DrawHTTP"
+    },
+    "SendHTTPRequestTimeout": {
+        "message": "Timeout de requisição HTTP",
+        "description": "SettingsWindow.DrawHTTP"
+    },
+    "SendHTTPRequestTimeout_HelpMarker": {
+        "message": "tempo necessário para que a requisição dê timeout",
+        "description": "SettingsWindow.DrawHTTP"
+    },
+    "CustomJSON": {
+        "message": "JSON customizado",
+        "description": "SettingsWindow.DrawHTTP"
+    },
+    "CustomJSON_HelpMarker": {
+        "message": "json customizado para cada requisição http",
+        "description": "SettingsWindow.DrawHTTP"
+    },
+    "SendDiscordEnabled": {
+        "message": "Ativar envio para o Discord",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "SendDiscordEnabled_HelpMarker": {
+        "message": "requer instalação e configuração do plugin Discord Bridge para que funcione",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "SendDiscordFrequency": {
+        "message": "Frequência de envio de mensagens para o Discord",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "SendDiscordFrequency_HelpMarker": {
+        "message": "frequência de envio ao discord em segundos",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "DiscordInstructionsHeading": {
+        "message": "Instruções",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "DiscordInstructions1": {
+        "message": "* Instale o plugin DiscordBridge.",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "DiscordInstructions2": {
+        "message": "* Instale e configure o DiscordBridge para envio de mensagens ao seu servidor.",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "DiscordInstructions3": {
+        "message": "* Execute \"xl!setchannel ipc\" no Discord (o tipo de chat usado para mensagens do Kapture).",
+        "description": "SettingsWindow.DrawDiscord"
     },
     "LoadTestData": {
         "message": "Test Data",
