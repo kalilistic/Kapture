@@ -91,6 +91,14 @@
         "message": "记录",
         "description": "SettingsWindow.DrawTabs"
     },
+    "Discord": {
+        "message": "Discord",
+        "description": "SettingsWindow.DrawTabs"
+    },
+    "HTTP": {
+        "message": "HTTP",
+        "description": "SettingsWindow.DrawTabs"
+    },
     "Links": {
         "message": "链接",
         "description": "SettingsWindow.DrawTabs"
@@ -330,6 +338,34 @@
     "LogFormat_HelpMarker": {
         "message": "设置掉落信息的记录格式",
         "description": "SettingsWindow.DrawLog"
+    },
+    "SendHTTPFrequency_HelpMarker": {
+        "message": "发送HTTP请求的频率（秒）",
+        "description": "SettingsWindow.DrawHTTP"
+    },
+    "SendHTTPRequestTimeout": {
+        "message": "HTTP请求超时",
+        "description": "SettingsWindow.DrawHTTP"
+    },
+    "CustomJSON": {
+        "message": "自定义JSON文件",
+        "description": "SettingsWindow.DrawHTTP"
+    },
+    "SendDiscordEnabled": {
+        "message": "启用发送消息到Discord",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "SendDiscordFrequency_HelpMarker": {
+        "message": "发送Discord请求的频率（秒）",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "DiscordInstructions1": {
+        "message": "*安装DiscordBridge插件",
+        "description": "SettingsWindow.DrawDiscord"
+    },
+    "DiscordInstructions2": {
+        "message": "*设置DiscordBridge将消息发送到你的服务器。",
+        "description": "SettingsWindow.DrawDiscord"
     },
     "LoadTestData": {
         "message": "测试数据（不要点）",
