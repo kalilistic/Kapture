@@ -20,6 +20,7 @@ using Dalamud.Plugin;
 using Lumina.Excel.GeneratedSheets;
 
 using Condition = Dalamud.Game.ClientState.Conditions.Condition;
+#pragma warning disable CS8618, CS8602
 
 namespace Kapture
 {
@@ -27,7 +28,7 @@ namespace Kapture
     // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class KapturePlugin : IKapturePlugin, IDalamudPlugin
     {
-        private readonly Localization localization = null!;
+        private readonly Localization localization;
         private readonly object locker = new ();
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace Kapture
                 this.HandleFreshInstall();
                 this.SetupListeners();
                 this.IsInitializing = false;
-                this.WindowManager.AddWindows();
+                this.WindowManager?.AddWindows();
             }
             catch (Exception ex)
             {
@@ -166,7 +167,7 @@ namespace Kapture
         public List<LootRoll>? LootRollsDisplay { get; set; } = new ();
 
         /// <inheritdoc />
-        public PluginDataManager PluginDataManager { get; private set; } = null!;
+        public PluginDataManager PluginDataManager { get; private set; }
 
         /// <inheritdoc />
         public KaptureConfig Configuration { get; private set; } = null!;
@@ -174,7 +175,7 @@ namespace Kapture
         /// <summary>
         /// Gets or sets window manager.
         /// </summary>
-        public WindowManager WindowManager { get; set; } = null!;
+        public WindowManager WindowManager { get; set; }
 
         /// <summary>
         /// Gets or sets list of content ids.
@@ -231,7 +232,7 @@ namespace Kapture
         /// <inheritdoc />
         public string GetLocalPlayerWorld()
         {
-            return ClientState.LocalPlayer?.HomeWorld.GameData.Name.ToString() ?? string.Empty;
+            return ClientState.LocalPlayer?.HomeWorld.GameData?.Name.ToString() ?? string.Empty;
         }
 
         /// <inheritdoc />
@@ -556,7 +557,11 @@ namespace Kapture
                 switch (payload)
                 {
                     case TextPayload textPayload:
-                        lootMessage.MessageParts.Add(textPayload.Text);
+                        if (textPayload.Text != null)
+                        {
+                            lootMessage.MessageParts.Add(textPayload.Text);
+                        }
+
                         break;
                     case ItemPayload itemPayload:
                         if (lootMessage.ItemId != 0) break;
