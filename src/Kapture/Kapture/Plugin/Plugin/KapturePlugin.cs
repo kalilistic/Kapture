@@ -605,9 +605,12 @@ namespace Kapture
             this.RollMonitor.LootEvents.Enqueue(lootEvent);
 
             // output
-            if (this.Configuration.LoggingEnabled) this.LootLogger.LogLoot(lootEvent);
-            if (this.Configuration.SendHTTPEnabled) this.LootHTTP.SendToHTTPQueue(lootEvent);
-            if (this.Configuration.SendDiscordEnabled) this.LootDiscord.SendToDiscordQueue(lootEvent);
+            if (this.LootProcessor.IsEnabledEvent(lootEvent))
+            {
+                if (this.Configuration.LoggingEnabled) this.LootLogger.LogLoot(lootEvent);
+                if (this.Configuration.SendHTTPEnabled) this.LootHTTP.SendToHTTPQueue(lootEvent);
+                if (this.Configuration.SendDiscordEnabled) this.LootDiscord.SendToDiscordQueue(lootEvent);
+            }
         }
 
         private bool IsHighEndDuty()
