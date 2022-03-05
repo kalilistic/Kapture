@@ -46,11 +46,6 @@ namespace Kapture
         public string World { get; set; } = string.Empty;
 
         /// <summary>
-        /// Gets or sets player display name.
-        /// </summary>
-        public string PlayerDisplayName { get; set; } = string.Empty;
-
-        /// <summary>
         /// Gets or sets roll.
         /// </summary>
         public ushort Roll { get; set; }

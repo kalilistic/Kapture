@@ -48,7 +48,7 @@ namespace Kapture
                         ImGui.SameLine(col1);
                         ImGui.Text(lootEvent.LootEventTypeName);
                         ImGui.SameLine(col2);
-                        ImGui.Text(lootEvent.PlayerDisplayName);
+                        ImGui.Text(lootEvent.PlayerName);
                         ImGui.NextColumn();
                     }
                 }

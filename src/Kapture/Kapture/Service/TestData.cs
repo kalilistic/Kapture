@@ -114,7 +114,6 @@ namespace Kapture
                 ItemName = testDataSet.ItemName1,
                 ItemNameAbbreviated = testDataSet.ItemName1,
                 PlayerName = testDataSet.PlayerName1,
-                PlayerDisplayName = testDataSet.PlayerName1,
             };
             plugin.RollMonitor.ProcessRoll(event3);
             plugin.LootEvents.Add(event3);
@@ -136,7 +135,6 @@ namespace Kapture
                 ItemName = testDataSet.ItemName1,
                 ItemNameAbbreviated = testDataSet.ItemName1,
                 PlayerName = testDataSet.PlayerName2,
-                PlayerDisplayName = testDataSet.PlayerName2,
             };
             plugin.RollMonitor.ProcessRoll(event4);
             plugin.LootEvents.Add(event4);
@@ -158,7 +156,6 @@ namespace Kapture
                 ItemName = testDataSet.ItemName1,
                 ItemNameAbbreviated = testDataSet.ItemName1,
                 PlayerName = testDataSet.PlayerName2,
-                PlayerDisplayName = testDataSet.PlayerName2,
                 Roll = 45,
             };
             plugin.RollMonitor.ProcessRoll(event5);
@@ -181,7 +178,6 @@ namespace Kapture
                 ItemName = testDataSet.ItemName1,
                 ItemNameAbbreviated = testDataSet.ItemName1,
                 PlayerName = testDataSet.PlayerName1,
-                PlayerDisplayName = testDataSet.PlayerName1,
                 Roll = 57,
             };
             plugin.RollMonitor.ProcessRoll(event6);
@@ -204,7 +200,6 @@ namespace Kapture
                 ItemName = testDataSet.ItemName1,
                 ItemNameAbbreviated = testDataSet.ItemName1,
                 PlayerName = testDataSet.PlayerName1,
-                PlayerDisplayName = testDataSet.PlayerName1,
             };
             plugin.RollMonitor.ProcessRoll(event7);
             plugin.LootEvents.Add(event7);
