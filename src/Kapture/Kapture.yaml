@@ -9,5 +9,5 @@ tags:
     - track
     - roll
 repo_url: https://github.com/kalilistic/Dalamud.Kapture
-icon_url: https://raw.githubusercontent.com/goatcorp/DalamudPlugins/api5/plugins/Kapture/images/icon.png
-dalamud_api_level: 5
+icon_url: https://raw.githubusercontent.com/goatcorp/DalamudPlugins/api6/plugins/Kapture/images/icon.png
+dalamud_api_level: 6
