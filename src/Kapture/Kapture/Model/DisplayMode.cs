@@ -10,27 +10,27 @@ namespace Kapture
         /// <summary>
         /// Display modes.
         /// </summary>
-        public static readonly List<DisplayMode> DisplayModes = new ();
+        public static readonly List<DisplayMode> DisplayModes = new();
 
         /// <summary>
         /// Display mode names.
         /// </summary>
-        public static readonly List<string> DisplayModeNames = new ();
+        public static readonly List<string> DisplayModeNames = new();
 
         /// <summary>
         /// Display Mode: always.
         /// </summary>
-        public static readonly DisplayMode AlwaysOn = new (0, "Always On");
+        public static readonly DisplayMode AlwaysOn = new(0, "Always On");
 
         /// <summary>
         /// Display Mode: content only.
         /// </summary>
-        public static readonly DisplayMode ContentOnly = new (1, "During Content Only");
+        public static readonly DisplayMode ContentOnly = new(1, "During Content Only");
 
         /// <summary>
         /// Display Mode: rolls only.
         /// </summary>
-        public static readonly DisplayMode DuringRollsOnly = new (2, "During Rolls Only");
+        public static readonly DisplayMode DuringRollsOnly = new(2, "During Rolls Only");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DisplayMode"/> class.

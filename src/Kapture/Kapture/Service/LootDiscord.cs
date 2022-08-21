@@ -12,8 +12,8 @@ namespace Kapture
     /// </summary>
     public class LootDiscord
     {
-        private readonly object locker = new ();
-        private readonly Queue<LootEvent> discordEventQueue = new ();
+        private readonly object locker = new();
+        private readonly Queue<LootEvent> discordEventQueue = new();
         private readonly KapturePlugin plugin;
         private readonly Timer sendTimer;
         private readonly DiscordBridgeConsumer discordBridgeConsumer;
@@ -62,7 +62,7 @@ namespace Kapture
             this.sendTimer.Dispose();
         }
 
-        private void SendToDiscord(object sender, ElapsedEventArgs? e)
+        private void SendToDiscord(object? sender, ElapsedEventArgs? e)
         {
             if (this.isProcessing) return;
             this.isProcessing = true;

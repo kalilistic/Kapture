@@ -10,32 +10,32 @@ namespace Kapture
         /// <summary>
         /// Name formats.
         /// </summary>
-        public static readonly List<NameFormat> NameFormats = new ();
+        public static readonly List<NameFormat> NameFormats = new();
 
         /// <summary>
         /// Name format names.
         /// </summary>
-        public static readonly List<string> NameFormatNames = new ();
+        public static readonly List<string> NameFormatNames = new();
 
         /// <summary>
         /// Name format: full name.
         /// </summary>
-        public static readonly NameFormat FullName = new (0, "Full Name");
+        public static readonly NameFormat FullName = new(0, "Full Name");
 
         /// <summary>
         /// Name format: surname abbreviated.
         /// </summary>
-        public static readonly NameFormat SurnameAbbreviated = new (1, "Surname Abbreviated");
+        public static readonly NameFormat SurnameAbbreviated = new(1, "Surname Abbreviated");
 
         /// <summary>
         /// Name format: forename abbreviated.
         /// </summary>
-        public static readonly NameFormat ForenameAbbreviated = new (2, "Forename Abbreviated");
+        public static readonly NameFormat ForenameAbbreviated = new(2, "Forename Abbreviated");
 
         /// <summary>
         /// Name format: initials.
         /// </summary>
-        public static readonly NameFormat Initials = new (3, "Initials");
+        public static readonly NameFormat Initials = new(3, "Initials");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NameFormat"/> class.

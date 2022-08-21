@@ -18,7 +18,7 @@ namespace Kapture
         /// <summary>
         /// Queue of loot events.
         /// </summary>
-        public readonly ConcurrentQueue<LootEvent> LootEvents = new ();
+        public readonly ConcurrentQueue<LootEvent> LootEvents = new();
 
         private readonly IKapturePlugin plugin;
         private readonly Timer processTimer;
@@ -102,7 +102,7 @@ namespace Kapture
                                 PlayerName = this.plugin.FormatPlayerName(
                                     this.plugin.Configuration.ChatNameFormat,
                                     player.Name.ToString()),
-                                RollColor = ImGuiColorUtil.GetColorByNumber(0),
+                                RollColor = ImGuiUtil.GetColorByNumber(0),
                                 IsLocalPlayer = player.ObjectId == KapturePlugin.ClientState.LocalPlayer?.ObjectId,
                             });
                         }
@@ -135,7 +135,7 @@ namespace Kapture
                                 PlayerName = this.plugin.FormatPlayerName(
                                     this.plugin.Configuration.ChatNameFormat,
                                     lootEvent.PlayerName),
-                                RollColor = ImGuiColorUtil.GetColorByNumber(0),
+                                RollColor = ImGuiUtil.GetColorByNumber(0),
                                 HasRolled = true,
                             });
                         }
@@ -155,7 +155,7 @@ namespace Kapture
                             roller.PlayerName.Equals(lootEvent.PlayerName) && roller.Roll == 0);
                         if (lootRoller == null) return;
                         lootRoller.Roll = lootEvent.Roll;
-                        lootRoller.RollColor = ImGuiColorUtil.GetColorByNumber(lootRoller.Roll);
+                        lootRoller.RollColor = ImGuiUtil.GetColorByNumber(lootRoller.Roll);
                         if (lootRoller.Roll != 0)
                         {
                             lootRoller.PlayerName = this.plugin.FormatPlayerName(
@@ -232,7 +232,7 @@ namespace Kapture
             }
         }
 
-        private void ProcessRolls(object source, ElapsedEventArgs e)
+        private void ProcessRolls(object? source, ElapsedEventArgs e)
         {
             if (this.isProcessing) return;
             if (this.ShouldWait()) return;

@@ -11,7 +11,7 @@ namespace Kapture
     /// </summary>
     public class LootLogger
     {
-        private readonly Queue<LootEvent> logEventQueue = new ();
+        private readonly Queue<LootEvent> logEventQueue = new();
         private readonly IKapturePlugin plugin;
         private readonly Timer writeTimer;
         private bool isProcessing;
@@ -74,7 +74,7 @@ namespace Kapture
             this.writeTimer.Stop();
         }
 
-        private void WriteToLogFile(object sender, ElapsedEventArgs? e)
+        private void WriteToLogFile(object? sender, ElapsedEventArgs? e)
         {
             try
             {

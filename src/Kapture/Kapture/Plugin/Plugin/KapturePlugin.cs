@@ -29,7 +29,7 @@ namespace Kapture
     public sealed class KapturePlugin : IKapturePlugin, IDalamudPlugin
     {
         private readonly Localization localization;
-        private readonly object locker = new ();
+        private readonly object locker = new();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="KapturePlugin"/> class.
@@ -158,13 +158,13 @@ namespace Kapture
         public bool IsInitializing { get; private set; }
 
         /// <inheritdoc />
-        public List<LootEvent> LootEvents { get; } = new ();
+        public List<LootEvent> LootEvents { get; } = new();
 
         /// <inheritdoc />
-        public List<LootRoll> LootRolls { get; } = new ();
+        public List<LootRoll> LootRolls { get; } = new();
 
         /// <inheritdoc />
-        public List<LootRoll>? LootRollsDisplay { get; set; } = new ();
+        public List<LootRoll>? LootRollsDisplay { get; set; } = new();
 
         /// <inheritdoc />
         public PluginDataManager PluginDataManager { get; private set; }
@@ -634,7 +634,7 @@ namespace Kapture
             {
                 var excludedContent = new List<uint> { 69, 70, 71 };
                 var contentTypes = new List<uint> { 2, 4, 5, 6, 26, 28, 29 };
-                var contentList = DataManager.GetExcelSheet<ContentFinderCondition>() !
+                var contentList = DataManager.GetExcelSheet<ContentFinderCondition>()!
                                              .Where(content =>
                                                         contentTypes.Contains(content.ContentType.Row) && !excludedContent.Contains(content.RowId))
                                              .ToList();
@@ -655,7 +655,7 @@ namespace Kapture
             try
             {
                 // create item list
-                var itemDataList = DataManager.GetExcelSheet<Item>() !.Where(item => !string.IsNullOrEmpty(item.Name)).ToList();
+                var itemDataList = DataManager.GetExcelSheet<Item>()!.Where(item => !string.IsNullOrEmpty(item.Name)).ToList();
 
                 // add all items
                 var itemIds = itemDataList.Select(item => item.RowId).ToArray();
@@ -664,7 +664,7 @@ namespace Kapture
                 this.ItemNames = itemNames;
 
                 // item categories
-                var categoryList = DataManager.GetExcelSheet<ItemUICategory>() !
+                var categoryList = DataManager.GetExcelSheet<ItemUICategory>()!
                                               .Where(category => category.RowId != 0).ToList();
                 var categoryNames = PluginInterface.Sanitizer.Sanitize(categoryList.Select(category => category.Name.ToString())).ToArray();
                 var categoryIds = categoryList.Select(category => category.RowId).ToArray();

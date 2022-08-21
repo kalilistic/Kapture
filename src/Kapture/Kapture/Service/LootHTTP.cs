@@ -15,8 +15,8 @@ namespace Kapture
     /// </summary>
     public class LootHTTP
     {
-        private readonly object locker = new ();
-        private readonly Queue<string> httpEventQueue = new ();
+        private readonly object locker = new();
+        private readonly Queue<string> httpEventQueue = new();
         private readonly IKapturePlugin plugin;
         private readonly Timer sendTimer;
         private readonly JsonSerializerSettings jsonSerializerSettings;
@@ -84,7 +84,7 @@ namespace Kapture
             this.httpClient.Dispose();
         }
 
-        private async void SendToHTTPEndpoint(object sender, ElapsedEventArgs? e)
+        private async void SendToHTTPEndpoint(object? sender, ElapsedEventArgs? e)
         {
             if (this.httpEventQueue.Count == 0) return;
             try

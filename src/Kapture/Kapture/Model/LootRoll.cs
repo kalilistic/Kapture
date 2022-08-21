@@ -32,7 +32,7 @@ namespace Kapture
         /// <summary>
         /// Gets list of rollers.
         /// </summary>
-        public List<LootRoller> Rollers { get; } = new ();
+        public List<LootRoller> Rollers { get; } = new();
 
         /// <summary>
         /// Gets or sets roller count.

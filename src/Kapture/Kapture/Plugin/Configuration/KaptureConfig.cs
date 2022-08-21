@@ -143,17 +143,17 @@ namespace Kapture
         /// <summary>
         /// Gets or sets list of permitted content.
         /// </summary>
-        public List<uint> PermittedContent { get; set; } = new ();
+        public List<uint> PermittedContent { get; set; } = new();
 
         /// <summary>
         /// Gets or sets list of permitted items.
         /// </summary>
-        public List<uint> PermittedItems { get; set; } = new ();
+        public List<uint> PermittedItems { get; set; } = new();
 
         /// <summary>
         /// Gets or sets list of watch list items.
         /// </summary>
-        public List<uint> WatchListItems { get; set; } = new ();
+        public List<uint> WatchListItems { get; set; } = new();
 
         /// <summary>
         /// Gets or sets a value indicating whether to restrict to list of items.

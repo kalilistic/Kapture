@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  PUBLIC_NAME: Kapture
+  INTERNAL_NAME: Kapture
+  GITHUB_REPOSITORY_OWNER: $GITHUB_REPOSITORY_OWNER
+  GITHUB_SERVER_URL: $GITHUB_SERVER_URL
+  GITHUB_REPOSITORY: $GITHUB_REPOSITORY
+  GITHUB_SHA: $GITHUB_SHA
+  MESSAGE: ${{ github.event.head_commit.message }}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, '[STABLE]') || contains(github.event.head_commit.message, '[TEST]')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Run script file
+        run: |
+          sudo apt-get install dos2unix
+          dos2unix .github/script.sh
+          chmod +x ".github/script.sh"
+          ".github/script.sh" ${{ secrets.PAT }}
+        shell: bash

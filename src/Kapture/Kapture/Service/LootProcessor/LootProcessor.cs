@@ -238,7 +238,7 @@ namespace Kapture
         /// <returns>Precompiled regex.</returns>
         protected static Regex BuildRegex(string pattern)
         {
-            return new (pattern, RegexOptions.Compiled);
+            return new(pattern, RegexOptions.Compiled);
         }
 
                 /// <summary>

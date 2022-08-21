@@ -44,7 +44,7 @@ namespace Kapture
         /// <summary>
         /// Gets or sets message parts from payload.
         /// </summary>
-        public List<string> MessageParts { get; set; } = new ();
+        public List<string> MessageParts { get; set; } = new();
 
         /// <summary>
         /// Gets or sets itemId.

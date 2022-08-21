@@ -1,162 +1,125 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-		<PropertyGroup>
-			<Title>Kapture</Title>
-			<Authors>kalilistic</Authors>
-			<TargetFramework>net5.0-windows</TargetFramework>
-			<Platforms>x64</Platforms>
-			<LangVersion>9</LangVersion>
-			<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-			<Nullable>enable</Nullable>
-			<Deterministic>true</Deterministic>
-			<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-			<GenerateDocumentationFile>true</GenerateDocumentationFile>
-			<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-			<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-			<OutputPath>bin\$(Configuration)\</OutputPath>
-			<DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
-			<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-			<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
-		</PropertyGroup>
-		
-		<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-			<DebugSymbols>true</DebugSymbols>
-			<DebugType>full</DebugType>
-			<Optimize>false</Optimize>
-			<OutputPath>bin\Debug\</OutputPath>
-			<DefineConstants>DEBUG;TRACE</DefineConstants>
-			<ErrorReport>prompt</ErrorReport>
-			<WarningLevel>4</WarningLevel>
-		</PropertyGroup>
-		
-		<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-			<DebugType>pdbonly</DebugType>
-			<Optimize>true</Optimize>
-			<OutputPath>bin\Release\</OutputPath>
-			<DefineConstants>TRACE</DefineConstants>
-			<ErrorReport>prompt</ErrorReport>
-			<WarningLevel>4</WarningLevel>
-		</PropertyGroup>
-	
-    <ItemGroup>
-			<None Remove="stylecop.json" />
-			<AdditionalFiles Include="..\stylecop.json">
-				<Link>stylecop.json</Link>
-			</AdditionalFiles>
-    </ItemGroup>
-		
-		<ItemGroup>
-      <None Remove="Kapture\Resource\loc\de.json" />
-      <None Remove="Kapture\Resource\loc\es.json" />
-      <None Remove="Kapture\Resource\loc\fr.json" />
-      <None Remove="Kapture\Resource\loc\it.json" />
-      <None Remove="Kapture\Resource\loc\ja.json" />
-      <None Remove="Kapture\Resource\loc\no.json" />
-      <None Remove="Kapture\Resource\loc\pt.json" />
-      <None Remove="Kapture\Resource\loc\ru.json" />
-      <None Remove="Kapture\Resource\loc\zh.json" />
-    </ItemGroup>
-		
-    <ItemGroup>
-			<Reference Include="CheapLoc">
-				<HintPath>$(AppData)\XIVLauncher\addon\Hooks\dev\CheapLoc.dll</HintPath>
-				<Private>False</Private>
-			</Reference>
-			<Reference Include="Dalamud">
-				<HintPath>$(AppData)\XIVLauncher\addon\Hooks\dev\Dalamud.dll</HintPath>
-				<Private>False</Private>
-			</Reference>
-			<Reference Include="FFXIVClientStructs">
-				<HintPath>$(AppData)\XIVLauncher\addon\Hooks\dev\FFXIVClientStructs.dll</HintPath>
-				<Private>False</Private>
-			</Reference>
-			<Reference Include="ImGui.NET">
-				<HintPath>$(AppData)\XIVLauncher\addon\Hooks\dev\ImGui.NET.dll</HintPath>
-				<Private>False</Private>
-			</Reference>
-			<Reference Include="ImGuiScene">
-				<HintPath>$(AppData)\XIVLauncher\addon\Hooks\dev\ImGuiScene.dll</HintPath>
-				<Private>False</Private>
-			</Reference>
-			<Reference Include="Lumina">
-				<HintPath>$(AppData)\XIVLauncher\addon\Hooks\dev\Lumina.dll</HintPath>
-				<Private>False</Private>
-			</Reference>
-			<Reference Include="Lumina.Excel">
-				<HintPath>$(AppData)\XIVLauncher\addon\Hooks\dev\Lumina.Excel.dll</HintPath>
-				<Private>False</Private>
-			</Reference>
-			<Reference Include="ImGui.NET">
-				<HintPath>$(AppData)\XIVLauncher\addon\Hooks\dev\ImGui.NET.dll</HintPath>
-				<Private>False</Private>
-			</Reference>
-			<Reference Include="Newtonsoft.Json">
-				<HintPath>$(AppData)\XIVLauncher\addon\Hooks\dev\Newtonsoft.Json.dll</HintPath>
-				<Private>False</Private>
-			</Reference>
-    </ItemGroup>
-		
-    <ItemGroup>
-			<PackageReference Include="ILRepack" Version="2.0.18" />
-			<PackageReference Include="DalamudPackager" Version="2.1.6" />
-      <PackageReference Include="Dalamud.DrunkenToad" Version="1.1.6" />
-      <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-    </ItemGroup>
-		
-    <ItemGroup>
-      <Folder Include="Kapture\Resource\translation" />
-    </ItemGroup>
-		
-    <ItemGroup>
-      <None Remove="Kapture\Resource\translation\de.json" />
-      <EmbeddedResource Include="Kapture\Resource\translation\de.json" />
-      <None Remove="Kapture\Resource\translation\es.json" />
-      <EmbeddedResource Include="Kapture\Resource\translation\es.json" />
-      <None Remove="Kapture\Resource\translation\fr.json" />
-      <EmbeddedResource Include="Kapture\Resource\translation\fr.json" />
-      <None Remove="Kapture\Resource\translation\it.json" />
-      <EmbeddedResource Include="Kapture\Resource\translation\it.json" />
-      <None Remove="Kapture\Resource\translation\ja.json" />
-      <EmbeddedResource Include="Kapture\Resource\translation\ja.json" />
-      <None Remove="Kapture\Resource\translation\no.json" />
-      <EmbeddedResource Include="Kapture\Resource\translation\no.json" />
-      <None Remove="Kapture\Resource\translation\pt.json" />
-      <EmbeddedResource Include="Kapture\Resource\translation\pt.json" />
-      <None Remove="Kapture\Resource\translation\ru.json" />
-      <EmbeddedResource Include="Kapture\Resource\translation\ru.json" />
-      <None Remove="Kapture\Resource\translation\zh.json" />
-      <EmbeddedResource Include="Kapture\Resource\translation\zh.json" />
-    </ItemGroup>
-
-		<Target Name="MergeDeps" AfterTargets="Build">
-			<ItemGroup>
-				<InputAssemblies Include="$(TargetPath)" />
-				<InputAssemblies Include="$(TargetDir)*.dll" Exclude="$(TargetPath)" />
-				<DeleteFiles Include="$(TargetDir)*.dll" Exclude="$(TargetDir)$(TargetFileName)" />
-			</ItemGroup>
-			<Exec Command="$(PkgILRepack)\tools\ILRepack.exe /union /lib:$(DalamudLibPath) /out:$(TargetDir)$(TargetFileName) @(InputAssemblies, ' ')" />
-			<Delete Files="@(DeleteFiles)" />
-		</Target>
-		
-		<Target Name="CopyToDevPlugins" AfterTargets="MergeDeps" Condition="'$(Configuration)' == 'Debug'">
-			<Exec Command="if not exist $(AppData)\XIVLauncher\devPlugins\$(TargetName) (mkdir $(AppData)\XIVLauncher\devPlugins\$(TargetName))" />
-			<Exec Command="copy $(TargetDir)$(TargetFileName) $(AppData)\XIVLauncher\devPlugins\$(TargetName)\$(TargetFileName)" />
-			<Exec Command="copy $(TargetDir)*.pdb $(AppData)\XIVLauncher\devPlugins\$(TargetName)" />
-		</Target>
-		
-		<Target Name="Cleanup" AfterTargets="MergeDeps" Condition=" '$(Configuration)' == 'Release' ">
-			<ItemGroup>
-				<DeleteFiles Include="$(TargetDir)*.xml;$(TargetDir)*.json;$(TargetDir)*.pdb" />
-			</ItemGroup>
-			<Delete Files="@(DeleteFiles)" />
-		</Target>
-		
-		<Target Name="CopyImages" AfterTargets="Package" Condition=" '$(Configuration)' == 'Release' ">
-			<MakeDir Directories="$(TargetDir)$(AssemblyName)\images" />
-			<Exec Command="copy $(ProjectDir)..\..\assets\*.png $(TargetDir)$(AssemblyName)\images\*.png" />
-		</Target>
-		
+	<PropertyGroup>
+		<Version>1.5.0.0</Version>
+		<Title>Kapture</Title>
+		<Authors>kalilistic</Authors>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Platforms>x64</Platforms>
+		<LangVersion>9</LangVersion>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<Nullable>enable</Nullable>
+		<Deterministic>true</Deterministic>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<OutputPath>bin\$(Configuration)\</OutputPath>
+		<DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\Debug\</OutputPath>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\Release\</OutputPath>
+		<DefineConstants>TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="stylecop.json" />
+		<AdditionalFiles Include="..\stylecop.json">
+			<Link>stylecop.json</Link>
+		</AdditionalFiles>
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="Kapture\Resource\loc\de.json" />
+		<None Remove="Kapture\Resource\loc\es.json" />
+		<None Remove="Kapture\Resource\loc\fr.json" />
+		<None Remove="Kapture\Resource\loc\it.json" />
+		<None Remove="Kapture\Resource\loc\ja.json" />
+		<None Remove="Kapture\Resource\loc\no.json" />
+		<None Remove="Kapture\Resource\loc\pt.json" />
+		<None Remove="Kapture\Resource\loc\ru.json" />
+		<None Remove="Kapture\Resource\loc\zh.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="CheapLoc">
+			<HintPath>$(DalamudLibPath)CheapLoc.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Dalamud">
+			<HintPath>$(DalamudLibPath)Dalamud.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="FFXIVClientStructs">
+			<HintPath>$(DalamudLibPath)FFXIVClientStructs.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="ImGui.NET">
+			<HintPath>$(DalamudLibPath)ImGui.NET.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="ImGuiScene">
+			<HintPath>$(DalamudLibPath)ImGuiScene.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Lumina">
+			<HintPath>$(DalamudLibPath)Lumina.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Lumina.Excel">
+			<HintPath>$(DalamudLibPath)Lumina.Excel.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="ImGui.NET">
+			<HintPath>$(DalamudLibPath)ImGui.NET.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>$(DalamudLibPath)Newtonsoft.Json.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DalamudPackager" Version="2.1.7" />
+		<PackageReference Include="Dalamud.DrunkenToad" Version="1.2.0" />
+		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Kapture\Resource\translation" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="Kapture\Resource\translation\de.json" />
+		<EmbeddedResource Include="Kapture\Resource\translation\de.json" />
+		<None Remove="Kapture\Resource\translation\es.json" />
+		<EmbeddedResource Include="Kapture\Resource\translation\es.json" />
+		<None Remove="Kapture\Resource\translation\fr.json" />
+		<EmbeddedResource Include="Kapture\Resource\translation\fr.json" />
+		<None Remove="Kapture\Resource\translation\it.json" />
+		<EmbeddedResource Include="Kapture\Resource\translation\it.json" />
+		<None Remove="Kapture\Resource\translation\ja.json" />
+		<EmbeddedResource Include="Kapture\Resource\translation\ja.json" />
+		<None Remove="Kapture\Resource\translation\no.json" />
+		<EmbeddedResource Include="Kapture\Resource\translation\no.json" />
+		<None Remove="Kapture\Resource\translation\pt.json" />
+		<EmbeddedResource Include="Kapture\Resource\translation\pt.json" />
+		<None Remove="Kapture\Resource\translation\ru.json" />
+		<EmbeddedResource Include="Kapture\Resource\translation\ru.json" />
+		<None Remove="Kapture\Resource\translation\zh.json" />
+		<EmbeddedResource Include="Kapture\Resource\translation\zh.json" />
+	</ItemGroup>
 </Project>
