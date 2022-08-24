@@ -46,8 +46,8 @@
       },
       "DalamudPackager": {
         "type": "Transitive",
-        "resolved": "2.1.7",
-        "contentHash": "jnZ/sdInyn07ycuWI+pPOtP/xE3v+c4+jYJfDt36FWnBF9NKqkpzfviJtPl/jGLgbaCmFIXu+Yid0N8GvdKefg=="
+        "resolved": "2.1.8",
+        "contentHash": "YqagNXs9InxmqkXzq7kLveImxnodkBEicAhydMXVp7dFjC7xb76U6zGgAax4/BWIWfZeWzr5DJyQSev31kj81A=="
       },
       "LiteDB": {
         "type": "Transitive",
@@ -1039,7 +1039,7 @@
         "type": "Project",
         "dependencies": {
           "Dalamud.DrunkenToad": "1.2.0",
-          "DalamudPackager": "2.1.7"
+          "DalamudPackager": "2.1.8"
         }
       }
     }

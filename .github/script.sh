@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 version=$(grep "<Version>" < src/${INTERNAL_NAME}/${INTERNAL_NAME}.csproj | sed "s/.*<Version>\(.*\)<\/Version>/\1/")
-echo "Version detected: ${version}"
+echo "> Version detected: ${version}"
 
 echo "> Logging into GitHub"
 echo "$1" | gh auth login --with-token
@@ -41,9 +41,9 @@ rm -rf repo/testing/net6/${INTERNAL_NAME}
 echo "> Creating new plugin manifest directory"
 commitMessage="${PUBLIC_NAME} ${version}"
 if [[ ${MESSAGE} =~ .*"[TEST]".* ]]; then
-    mkdir repo/testing/net6/${INTERNAL_NAME}
-    cp -r images repo/testing/net6/${INTERNAL_NAME}
-    cd repo/testing/net6/${INTERNAL_NAME}
+    mkdir repo/testing/live/${INTERNAL_NAME}
+    cp -r images repo/testing/live/${INTERNAL_NAME}
+    cd repo/testing/live/${INTERNAL_NAME}
     commitMessage="[Testing] ${commitMessage}"
 else
     mkdir repo/stable/${INTERNAL_NAME}
