@@ -4,18 +4,19 @@
     "net7.0-windows7.0": {
       "Dalamud.DrunkenToad": {
         "type": "Direct",
-        "requested": "[1.2.0, )",
-        "resolved": "1.2.0",
-        "contentHash": "tyn7QTX48abk9mcyk4OOGdHCDA0uJl5k76s9r6ntMP4NIKSYLCchpB6o4pa350MpY7t+r0sr68C/YIoZSrWcSg==",
+        "requested": "[1.7.2, )",
+        "resolved": "1.7.2",
+        "contentHash": "qAkd047H3vWtngB4QalK89Sd5SOZW3lz54MimLv490ojMs1slGDwJBjBjEJ49IQcdhEBo6wirvhwApcq6SUTxg==",
         "dependencies": {
-          "LiteDB": "5.0.11"
+          "Dalamud.Loc": "1.1.1",
+          "Microsoft.Extensions.DependencyInjection": "7.0.0"
         }
       },
       "DalamudPackager": {
         "type": "Direct",
-        "requested": "[2.1.10, )",
-        "resolved": "2.1.10",
-        "contentHash": "S6NrvvOnLgT4GDdgwuKVJjbFo+8ZEj+JsEYk9ojjOR/MMfv1dIFpT8aRJQfI24rtDcw1uF+GnSSMN4WW1yt7fw=="
+        "requested": "[2.1.12, )",
+        "resolved": "2.1.12",
+        "contentHash": "Sc0PVxvgg4NQjcI8n10/VfUQBAS4O+Fw2pZrAqBdRMbthYGeogzu5+xmIGCGmsEZ/ukMOBuAqiNiB5qA3MRalg=="
       },
       "StyleCop.Analyzers": {
         "type": "Direct",
@@ -26,10 +27,23 @@
           "StyleCop.Analyzers.Unstable": "1.2.0.435"
         }
       },
-      "LiteDB": {
+      "Dalamud.Loc": {
         "type": "Transitive",
-        "resolved": "5.0.11",
-        "contentHash": "6cL4bOmVCUB0gIK+6qIr68HeqjjHZicPDGQjvJ87mIOvkFsEsJWkIps3yoKNeLpHhJQur++yoQ9Q8gxsdos0xQ=="
+        "resolved": "1.1.1",
+        "contentHash": "fPVMmkiK2WaShXfLbl9ow8QTPxpJgcT92u+HqU5eNCskjwpwYWi3fkWMM1IIvPI/x9qCo2UIRUSDybeGVoE2/Q=="
+      },
+      "Microsoft.Extensions.DependencyInjection": {
+        "type": "Transitive",
+        "resolved": "7.0.0",
+        "contentHash": "elNeOmkeX3eDVG6pYVeV82p29hr+UKDaBhrZyWvWLw/EVZSYEkZlQdkp0V39k/Xehs2Qa0mvoCvkVj3eQxNQ1Q==",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions": {
+        "type": "Transitive",
+        "resolved": "7.0.0",
+        "contentHash": "h3j/QfmFN4S0w4C2A6X7arXij/M/OVw3uQHSOFxnND4DyAzO1F9eMX7Eti7lU/OkSthEE0WzRsfT/Dmx86jzCw=="
       },
       "StyleCop.Analyzers.Unstable": {
         "type": "Transitive",

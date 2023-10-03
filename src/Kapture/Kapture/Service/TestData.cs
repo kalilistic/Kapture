@@ -1,6 +1,7 @@
 using System;
 
 using Dalamud.DrunkenToad;
+using Dalamud.DrunkenToad.Helpers;
 
 namespace Kapture
 {
@@ -62,7 +63,7 @@ namespace Kapture
             {
                 LootEventType = LootEventType.Add,
                 LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Add) ?? string.Empty,
-                Timestamp = DateUtil.CurrentTime(),
+                Timestamp = UnixTimestampHelper.CurrentTime(),
                 LootEventId = Guid.NewGuid(),
                 TerritoryTypeId = 1,
                 ContentId = 1,
@@ -82,7 +83,7 @@ namespace Kapture
             {
                 LootEventType = LootEventType.Add,
                 LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Add) ?? string.Empty,
-                Timestamp = DateUtil.CurrentTime(),
+                Timestamp = UnixTimestampHelper.CurrentTime(),
                 LootEventId = Guid.NewGuid(),
                 TerritoryTypeId = 1,
                 ContentId = 1,
@@ -102,7 +103,7 @@ namespace Kapture
             {
                 LootEventType = LootEventType.Cast,
                 LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Cast) ?? string.Empty,
-                Timestamp = DateUtil.CurrentTime(),
+                Timestamp = UnixTimestampHelper.CurrentTime(),
                 LootEventId = Guid.NewGuid(),
                 TerritoryTypeId = 1,
                 ContentId = 1,
@@ -123,7 +124,7 @@ namespace Kapture
             {
                 LootEventType = LootEventType.Cast,
                 LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Cast) ?? string.Empty,
-                Timestamp = DateUtil.CurrentTime(),
+                Timestamp = UnixTimestampHelper.CurrentTime(),
                 LootEventId = Guid.NewGuid(),
                 TerritoryTypeId = 1,
                 ContentId = 1,
@@ -144,7 +145,7 @@ namespace Kapture
             {
                 LootEventType = LootEventType.Need,
                 LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Need) ?? string.Empty,
-                Timestamp = DateUtil.CurrentTime(),
+                Timestamp = UnixTimestampHelper.CurrentTime(),
                 LootEventId = Guid.NewGuid(),
                 TerritoryTypeId = 1,
                 ContentId = 1,
@@ -166,7 +167,7 @@ namespace Kapture
             {
                 LootEventType = LootEventType.Need,
                 LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Need) ?? string.Empty,
-                Timestamp = DateUtil.CurrentTime(),
+                Timestamp = UnixTimestampHelper.CurrentTime(),
                 LootEventId = Guid.NewGuid(),
                 TerritoryTypeId = 1,
                 ContentId = 1,
@@ -188,7 +189,7 @@ namespace Kapture
             {
                 LootEventType = LootEventType.Obtain,
                 LootEventTypeName = Enum.GetName(typeof(LootEventType), LootEventType.Obtain) ?? string.Empty,
-                Timestamp = DateUtil.CurrentTime(),
+                Timestamp = UnixTimestampHelper.CurrentTime(),
                 LootEventId = Guid.NewGuid(),
                 TerritoryTypeId = 1,
                 ContentId = 1,

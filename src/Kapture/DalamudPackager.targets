@@ -1,5 +1,5 @@
 <Project>
-    <Target Name="Package" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <Target Name="Package" AfterTargets="Build">
         <DalamudPackager
                 ProjectDir="$(ProjectDir)"
                 OutputPath="$(OutputPath)"

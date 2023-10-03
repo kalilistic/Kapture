@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 
 using Dalamud.DrunkenToad;
 using Dalamud.Game.Text;
+using Dalamud.Logging;
 
 namespace Kapture
 {
@@ -216,7 +217,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to process item.");
+                PluginLog.LogError(ex, "Failed to process item.");
                 return null;
             }
         }

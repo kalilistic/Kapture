@@ -5,6 +5,7 @@ using System.Text;
 using System.Timers;
 
 using Dalamud.DrunkenToad;
+using Dalamud.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -98,7 +99,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to send http event.");
+                PluginLog.LogError(ex, "Failed to send http event.");
             }
 
             this.isProcessing = false;

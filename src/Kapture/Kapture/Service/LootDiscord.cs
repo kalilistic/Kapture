@@ -4,6 +4,7 @@ using System.Timers;
 
 using Dalamud.DrunkenToad;
 using Dalamud.Game.Text;
+using Dalamud.Logging;
 
 namespace Kapture
 {
@@ -84,13 +85,13 @@ namespace Kapture
                     }
 
                     this.discordBridgeConsumer.SendMessage(
-                        this.plugin.Name,
+                        "Kapture",
                         "https://raw.githubusercontent.com/goatcorp/DalamudPlugins/api4/plugins/Kapture/images/icon.png",
                         message);
                 }
                 catch (Exception ex)
                 {
-                    Logger.LogError(ex, "Failed to sync with discord bridge.");
+                    PluginLog.LogError(ex, "Failed to sync with discord bridge.");
                     this.isDiscordBridgeAvailable = this.discordBridgeConsumer.IsAvailable();
                 }
             }

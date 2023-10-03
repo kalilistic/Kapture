@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 
 using Dalamud.DrunkenToad;
+using Dalamud.Logging;
 
 namespace Kapture
 {
@@ -65,7 +66,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to write data file.");
+                PluginLog.LogError(ex, "Failed to write data file.");
             }
         }
 
@@ -80,7 +81,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to create data directory.");
+                PluginLog.LogError(ex, "Failed to create data directory.");
             }
         }
 
@@ -125,7 +126,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to write data file.");
+                PluginLog.LogError(ex, "Failed to write data file.");
             }
         }
 
@@ -142,7 +143,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to write data file.");
+                PluginLog.LogError(ex, "Failed to write data file.");
             }
         }
 
@@ -159,7 +160,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to read data file.");
+                PluginLog.LogError(ex, "Failed to read data file.");
             }
 
             return string.Empty;
@@ -183,7 +184,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to read data file.");
+                PluginLog.LogError(ex, "Failed to read data file.");
             }
 
             return new List<string>();

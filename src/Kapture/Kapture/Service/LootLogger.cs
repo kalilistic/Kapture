@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Timers;
 
 using Dalamud.DrunkenToad;
+using Dalamud.Logging;
 
 namespace Kapture
 {
@@ -87,7 +88,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to write loot log event.");
+                PluginLog.LogError(ex, "Failed to write loot log event.");
             }
 
             this.isProcessing = false;

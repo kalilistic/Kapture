@@ -5,21 +5,20 @@ using System.Linq;
 using System.Threading;
 
 using CheapLoc;
-using Dalamud.Data;
-using Dalamud.DrunkenToad;
-using Dalamud.Game;
-using Dalamud.Game.ClientState;
+using Dalamud.DrunkenToad.Extensions;
+using Dalamud.DrunkenToad.Helpers;
 using Dalamud.Game.ClientState.Party;
 using Dalamud.Game.Command;
-using Dalamud.Game.Gui;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Dalamud.IoC;
+using Dalamud.Logging;
 using Dalamud.Plugin;
+using Dalamud.Plugin.Services;
+using Kapture.Localization;
 using Lumina.Excel.GeneratedSheets;
 
-using Condition = Dalamud.Game.ClientState.Conditions.Condition;
 #pragma warning disable CS8618, CS8602
 
 namespace Kapture
@@ -28,7 +27,7 @@ namespace Kapture
     // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class KapturePlugin : IKapturePlugin, IDalamudPlugin
     {
-        private readonly Localization localization;
+        private readonly LegacyLoc localization;
         private readonly object locker = new();
 
         /// <summary>
@@ -38,7 +37,7 @@ namespace Kapture
         {
             try
             {
-                this.localization = new Localization(PluginInterface, CommandManager);
+                this.localization = new LegacyLoc(PluginInterface, CommandManager);
                 this.InitContent();
                 this.InitItems();
                 this.PluginDataManager = new PluginDataManager(this);
@@ -54,7 +53,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to initialize.");
+                PluginLog.LogError(ex, "Failed to initialize.");
                 this.Dispose();
             }
         }
@@ -71,52 +70,49 @@ namespace Kapture
         /// </summary>
         [PluginService]
         [RequiredVersion("1.0")]
-        public static DataManager DataManager { get; private set; } = null!;
+        public static IDataManager DataManager { get; private set; } = null!;
 
         /// <summary>
         /// Gets command manager.
         /// </summary>
         [PluginService]
         [RequiredVersion("1.0")]
-        public static CommandManager CommandManager { get; private set; } = null!;
+        public static ICommandManager CommandManager { get; private set; } = null!;
 
         /// <summary>
         /// Gets client state.
         /// </summary>
         [PluginService]
         [RequiredVersion("1.0")]
-        public static ClientState ClientState { get; private set; } = null!;
+        public static IClientState ClientState { get; private set; } = null!;
 
         /// <summary>
         /// Gets chat gui.
         /// </summary>
         [PluginService]
         [RequiredVersion("1.0")]
-        public static ChatGui Chat { get; private set; } = null!;
+        public static IChatGui Chat { get; private set; } = null!;
 
         /// <summary>
         /// Gets condition.
         /// </summary>
         [PluginService]
         [RequiredVersion("1.0")]
-        public static Condition Condition { get; private set; } = null!;
+        public static ICondition Condition { get; private set; } = null!;
 
         /// <summary>
         /// Gets party list.
         /// </summary>
         [PluginService]
         [RequiredVersion("1.0")]
-        public static PartyList PartyList { get; private set; } = null!;
+        public static IPartyList PartyList { get; private set; } = null!;
 
         /// <summary>
         /// Gets framework.
         /// </summary>
         [PluginService]
         [RequiredVersion("1.0")]
-        public static Framework Framework { get; private set; } = null!;
-
-        /// <inheritdoc />
-        public string Name => "Kapture";
+        public static IFramework Framework { get; private set; } = null!;
 
         /// <inheritdoc />
         public PartyMember[] CurrentPartyList { get; set; } = Array.Empty<PartyMember>();
@@ -130,7 +126,7 @@ namespace Kapture
         public LootProcessor LootProcessor { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets loot Logger.
+        /// Gets or sets loot PluginLog.
         /// </summary>
         public LootLogger LootLogger { get; set; } = null!;
 
@@ -272,7 +268,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to format name.");
+                PluginLog.LogError(ex, "Failed to format name.");
             }
 
             return string.Empty;
@@ -327,7 +323,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to dispose plugin properly.");
+                PluginLog.LogError(ex, "Failed to dispose plugin properly.");
             }
         }
 
@@ -370,7 +366,7 @@ namespace Kapture
 
         private void ToggleLootOverlay(string command, string args)
         {
-            Logger.LogInfo("Running command {0} with args {1}", command, args);
+            PluginLog.Log("Running command {0} with args {1}", command, args);
             this.Configuration.ShowLootOverlay = !this.Configuration.ShowLootOverlay;
             this.WindowManager.LootWindow?.Toggle();
             this.SaveConfig();
@@ -378,7 +374,7 @@ namespace Kapture
 
         private void ToggleRollOverlay(string command, string args)
         {
-            Logger.LogInfo("Running command {0} with args {1}", command, args);
+            PluginLog.Log("Running command {0} with args {1}", command, args);
             this.Configuration.ShowRollMonitorOverlay = !this.Configuration.ShowRollMonitorOverlay;
             this.WindowManager.RollWindow?.Toggle();
             this.SaveConfig();
@@ -386,7 +382,7 @@ namespace Kapture
 
         private void ToggleConfig(string command, string args)
         {
-            Logger.LogInfo("Running command {0} with args {1}", command, args);
+            PluginLog.Log("Running command {0} with args {1}", command, args);
             this.WindowManager.SettingsWindow?.Toggle();
         }
 
@@ -471,7 +467,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError("Failed to load config so creating new one.", ex);
+                PluginLog.LogError("Failed to load config so creating new one.", ex);
                 this.Configuration = new KaptureConfig();
                 this.SaveConfig();
             }
@@ -489,7 +485,7 @@ namespace Kapture
             ClientState.TerritoryChanged -= this.TerritoryChanged;
         }
 
-        private void TerritoryChanged(object? sender, ushort e)
+        private void TerritoryChanged(ushort territoryType)
         {
             try
             {
@@ -514,7 +510,7 @@ namespace Kapture
             if (!this.Configuration.Enabled) return;
 
             // log for debugging
-            if (this.Configuration.DebugLoggingEnabled) Logger.LogInfo("[ChatMessage]" + type + ":" + message);
+            if (this.Configuration.DebugLoggingEnabled) PluginLog.Log("[ChatMessage]" + type + ":" + message);
 
             // combat check
             if (this.Configuration.RestrictInCombat && this.InCombat()) return;
@@ -581,7 +577,7 @@ namespace Kapture
             if (this.Configuration.RestrictToCustomItems && !this.Configuration.PermittedItems.Contains(lootMessage.ItemId)) return;
 
             // log for debugging
-            if (this.Configuration.DebugLoggingEnabled) Logger.LogInfo("[LootChatMessage]" + lootMessage);
+            if (this.Configuration.DebugLoggingEnabled) PluginLog.Log("[LootChatMessage]" + lootMessage);
 
             // send to loot processor
             var lootEvent = this.LootProcessor.ProcessLoot(lootMessage);
@@ -590,10 +586,10 @@ namespace Kapture
             if (lootEvent == null) return;
 
             // log for debugging
-            if (this.Configuration.DebugLoggingEnabled) Logger.LogInfo("[LootEvent]" + lootEvent);
+            if (this.Configuration.DebugLoggingEnabled) PluginLog.Log("[LootEvent]" + lootEvent);
 
             // enrich
-            lootEvent.Timestamp = DateUtil.CurrentTime();
+            lootEvent.Timestamp = UnixTimestampHelper.CurrentTime();
             lootEvent.LootEventId = Guid.NewGuid();
             lootEvent.TerritoryTypeId = territoryTypeId;
             lootEvent.ContentId = contentId;
@@ -646,7 +642,7 @@ namespace Kapture
             }
             catch
             {
-                Logger.LogVerbose("Failed to initialize content list.");
+                PluginLog.LogVerbose("Failed to initialize content list.");
             }
         }
 
@@ -694,7 +690,7 @@ namespace Kapture
             }
             catch
             {
-                Logger.LogVerbose("Failed to initialize content list.");
+                PluginLog.LogVerbose("Failed to initialize content list.");
             }
         }
     }

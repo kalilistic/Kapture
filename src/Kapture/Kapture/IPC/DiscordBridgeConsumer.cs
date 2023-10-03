@@ -1,6 +1,6 @@
 using System;
 
-using Dalamud.DrunkenToad;
+using Dalamud.Logging;
 using Dalamud.Plugin.Ipc;
 
 namespace Kapture
@@ -35,7 +35,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogDebug($"Failed to subscribe to DiscordBridge.:\n{ex}");
+                PluginLog.LogDebug($"Failed to subscribe to DiscordBridge.:\n{ex}");
             }
         }
 

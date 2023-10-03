@@ -4,10 +4,10 @@ using System.Linq;
 using System.Numerics;
 
 using CheapLoc;
-using Dalamud.DrunkenToad;
-using Dalamud.Interface;
+using Dalamud.DrunkenToad.Extensions;
 using Dalamud.Interface.Colors;
 using Dalamud.Interface.Components;
+using Dalamud.Interface.Utility;
 using ImGuiNET;
 
 using static Kapture.DisplayMode;

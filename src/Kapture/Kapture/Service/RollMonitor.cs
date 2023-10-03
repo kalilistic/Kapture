@@ -2,10 +2,15 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Timers;
 
 using CheapLoc;
 using Dalamud.DrunkenToad;
+using Dalamud.DrunkenToad.Extensions;
+using Dalamud.DrunkenToad.Helpers;
+using Dalamud.Interface.Colors;
+using Dalamud.Logging;
 using Newtonsoft.Json;
 
 namespace Kapture
@@ -55,7 +60,7 @@ namespace Kapture
             try
             {
                 if (this.plugin.LootRolls.Count == 0) return;
-                var currentTime = DateUtil.CurrentTime();
+                var currentTime = UnixTimestampHelper.CurrentTime();
                 this.plugin.LootRolls.RemoveAll(roll => !roll.IsWon &&
                                                     currentTime - roll.Timestamp >
                                                     this.plugin.Configuration.RollMonitorAddedTimeout);
@@ -68,7 +73,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to remove old rolls.");
+                PluginLog.LogError(ex, "Failed to remove old rolls.");
             }
         }
 
@@ -102,7 +107,7 @@ namespace Kapture
                                 PlayerName = this.plugin.FormatPlayerName(
                                     this.plugin.Configuration.ChatNameFormat,
                                     player.Name.ToString()),
-                                RollColor = ImGuiUtil.GetColorByNumber(0),
+                                RollColor = GetColorByNumber(0),
                                 IsLocalPlayer = player.ObjectId == KapturePlugin.ClientState.LocalPlayer?.ObjectId,
                             });
                         }
@@ -135,7 +140,7 @@ namespace Kapture
                                 PlayerName = this.plugin.FormatPlayerName(
                                     this.plugin.Configuration.ChatNameFormat,
                                     lootEvent.PlayerName),
-                                RollColor = ImGuiUtil.GetColorByNumber(0),
+                                RollColor = GetColorByNumber(0),
                                 HasRolled = true,
                             });
                         }
@@ -155,7 +160,7 @@ namespace Kapture
                             roller.PlayerName.Equals(lootEvent.PlayerName) && roller.Roll == 0);
                         if (lootRoller == null) return;
                         lootRoller.Roll = lootEvent.Roll;
-                        lootRoller.RollColor = ImGuiUtil.GetColorByNumber(lootRoller.Roll);
+                        lootRoller.RollColor = GetColorByNumber(lootRoller.Roll);
                         if (lootRoller.Roll != 0)
                         {
                             lootRoller.PlayerName = this.plugin.FormatPlayerName(
@@ -228,8 +233,23 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Failed to process for roll monitor.");
+                PluginLog.LogError(ex, "Failed to process for roll monitor.");
             }
+        }
+
+        private static Vector4 GetColorByNumber(uint num)
+        {
+            return num switch
+            {
+                0 => ImGuiColors.DalamudWhite,
+                < 25 => ImGuiColors.ParsedGrey,
+                >= 25 and <= 49 => ImGuiColors.ParsedGreen,
+                >= 50 and <= 74 => ImGuiColors.ParsedBlue,
+                >= 75 and <= 94 => ImGuiColors.ParsedPurple,
+                >= 95 and <= 98 => ImGuiColors.ParsedOrange,
+                99 => ImGuiColors.ParsedPink,
+                _ => ImGuiColors.ParsedGold,
+            };
         }
 
         private void ProcessRolls(object? source, ElapsedEventArgs e)
@@ -269,7 +289,7 @@ namespace Kapture
                 var rollerMatch = lootRoll.Rollers.FirstOrDefault(roller =>
                                                          roller.IsLocalPlayer &&
                                                          !roller.HasRolled && !roller.IsReminderSent &&
-                                                         DateUtil.CurrentTime() > lootRoll.Timestamp + 300000 - this.plugin.Configuration.RollReminderTime);
+                                                         UnixTimestampHelper.CurrentTime() > lootRoll.Timestamp + 300000 - this.plugin.Configuration.RollReminderTime);
                 if (rollerMatch != null)
                 {
                     rollerMatch.IsReminderSent = true;
