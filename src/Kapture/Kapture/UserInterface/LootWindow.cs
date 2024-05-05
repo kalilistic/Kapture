@@ -19,7 +19,7 @@ namespace Kapture
         /// </summary>
         /// <param name="plugin">plugin.</param>
         public LootWindow(KapturePlugin plugin)
-            : base(plugin, Loc.Localize("LootOverlayWindow", "Loot") + "###Kapture_Loot_Window")
+            : base(plugin, Loc.Localize("LootOverlayWindow", "Loot") + "###Kapture_Loot_Window", ImGuiWindowFlags.NoFocusOnAppearing)
         {
             this.plugin = plugin;
         }

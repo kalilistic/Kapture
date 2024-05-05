@@ -19,7 +19,7 @@ namespace Kapture
         /// </summary>
         /// <param name="plugin">plugin.</param>
         public RollWindow(KapturePlugin plugin)
-            : base(plugin, Loc.Localize("RollMonitorOverlayWindow", "Roll Monitor") + "###Kapture_RollMonitor_Window")
+            : base(plugin, Loc.Localize("RollMonitorOverlayWindow", "Roll Monitor") + "###Kapture_RollMonitor_Window", ImGuiWindowFlags.NoFocusOnAppearing)
         {
             this.plugin = plugin;
         }
