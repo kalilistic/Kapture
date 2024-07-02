@@ -2,7 +2,6 @@
 using System.Numerics;
 
 using CheapLoc;
-using Dalamud.Interface;
 using Dalamud.Interface.Colors;
 using Dalamud.Interface.Utility;
 using ImGuiNET;

@@ -2,9 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Timers;
 
-using Dalamud.DrunkenToad;
 using Dalamud.Game.Text;
-using Dalamud.Logging;
 
 namespace Kapture
 {
@@ -13,8 +11,8 @@ namespace Kapture
     /// </summary>
     public class LootDiscord
     {
-        private readonly object locker = new();
-        private readonly Queue<LootEvent> discordEventQueue = new();
+        private readonly object locker = new ();
+        private readonly Queue<LootEvent> discordEventQueue = new ();
         private readonly KapturePlugin plugin;
         private readonly Timer sendTimer;
         private readonly DiscordBridgeConsumer discordBridgeConsumer;
@@ -91,7 +89,7 @@ namespace Kapture
                 }
                 catch (Exception ex)
                 {
-                    PluginLog.LogError(ex, "Failed to sync with discord bridge.");
+                    KapturePlugin.PluginLog.Error(ex, "Failed to sync with discord bridge.");
                     this.isDiscordBridgeAvailable = this.discordBridgeConsumer.IsAvailable();
                 }
             }

@@ -1,6 +1,5 @@
 using System;
 
-using Dalamud.DrunkenToad;
 using Dalamud.DrunkenToad.Helpers;
 
 namespace Kapture

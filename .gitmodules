@@ -1,0 +1,3 @@
+[submodule "DrunkenToad"]
+	path = DrunkenToad
+	url = https://github.com/kalilistic/dalamud.drunkentoad

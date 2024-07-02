@@ -4,8 +4,6 @@ using System.Net.Http;
 using System.Text;
 using System.Timers;
 
-using Dalamud.DrunkenToad;
-using Dalamud.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -16,8 +14,8 @@ namespace Kapture
     /// </summary>
     public class LootHTTP
     {
-        private readonly object locker = new();
-        private readonly Queue<string> httpEventQueue = new();
+        private readonly object locker = new ();
+        private readonly Queue<string> httpEventQueue = new ();
         private readonly IKapturePlugin plugin;
         private readonly Timer sendTimer;
         private readonly JsonSerializerSettings jsonSerializerSettings;
@@ -99,7 +97,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                PluginLog.LogError(ex, "Failed to send http event.");
+                KapturePlugin.PluginLog.Error(ex, "Failed to send http event.");
             }
 
             this.isProcessing = false;

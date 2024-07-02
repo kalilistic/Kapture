@@ -6,13 +6,13 @@ using System.Numerics;
 using System.Timers;
 
 using CheapLoc;
-using Dalamud.DrunkenToad;
 using Dalamud.DrunkenToad.Extensions;
 using Dalamud.DrunkenToad.Helpers;
 using Dalamud.Interface.Colors;
-using Dalamud.Logging;
 using Newtonsoft.Json;
 
+// ReSharper disable PatternIsRedundant
+// ReSharper disable MergeIntoPattern
 namespace Kapture
 {
     /// <summary>
@@ -23,7 +23,7 @@ namespace Kapture
         /// <summary>
         /// Queue of loot events.
         /// </summary>
-        public readonly ConcurrentQueue<LootEvent> LootEvents = new();
+        public readonly ConcurrentQueue<LootEvent> LootEvents = new ();
 
         private readonly IKapturePlugin plugin;
         private readonly Timer processTimer;
@@ -73,7 +73,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                PluginLog.LogError(ex, "Failed to remove old rolls.");
+                KapturePlugin.PluginLog.Error(ex, "Failed to remove old rolls.");
             }
         }
 
@@ -108,7 +108,7 @@ namespace Kapture
                                     this.plugin.Configuration.ChatNameFormat,
                                     player.Name.ToString()),
                                 RollColor = GetColorByNumber(0),
-                                IsLocalPlayer = player.ObjectId == KapturePlugin.ClientState.LocalPlayer?.ObjectId,
+                                IsLocalPlayer = player.ObjectId == KapturePlugin.ClientState.LocalPlayer?.EntityId,
                             });
                         }
 
@@ -233,7 +233,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                PluginLog.LogError(ex, "Failed to process for roll monitor.");
+                KapturePlugin.PluginLog.Error(ex, "Failed to process for roll monitor.");
             }
         }
 

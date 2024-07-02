@@ -43,7 +43,7 @@ namespace Kapture
         /// <summary>
         /// Gets or sets current party list.
         /// </summary>
-        public PartyMember[] CurrentPartyList { get; set; }
+        public IPartyMember[] CurrentPartyList { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether in content.
@@ -109,6 +109,6 @@ namespace Kapture
         /// Get party members.
         /// </summary>
         /// <returns>list of party members.</returns>
-        IEnumerable<PartyMember> GetPartyMembers();
+        IEnumerable<IPartyMember> GetPartyMembers();
     }
 }

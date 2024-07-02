@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kapture", "Kapture\Kapture.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kapture.Test", "Kapture.Test\Kapture.Test.csproj", "{F6C7FE5A-25BE-4C8D-AB4D-E58C9D15AACC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrunkenToad", "..\DrunkenToad\DrunkenToad.csproj", "{24C09ED7-296E-48DB-ACE2-7FAF2E2C1C16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{13C812E9-0D42-4B95-8646-40EEBF30636F}.Debug|Any CPU.Build.0 = Debug|x64
 		{F6C7FE5A-25BE-4C8D-AB4D-E58C9D15AACC}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{F6C7FE5A-25BE-4C8D-AB4D-E58C9D15AACC}.Debug|Any CPU.Build.0 = Debug|x64
+		{24C09ED7-296E-48DB-ACE2-7FAF2E2C1C16}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{24C09ED7-296E-48DB-ACE2-7FAF2E2C1C16}.Debug|Any CPU.Build.0 = Debug|x64
+		{24C09ED7-296E-48DB-ACE2-7FAF2E2C1C16}.Release|Any CPU.ActiveCfg = Release|x64
+		{24C09ED7-296E-48DB-ACE2-7FAF2E2C1C16}.Release|Any CPU.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

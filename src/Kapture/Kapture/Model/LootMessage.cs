@@ -4,6 +4,7 @@ using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Lumina.Excel.GeneratedSheets;
 using Newtonsoft.Json;
 
+// ReSharper disable PropertyCanBeMadeInitOnly.Global
 namespace Kapture
 {
     /// <summary>
@@ -44,7 +45,7 @@ namespace Kapture
         /// <summary>
         /// Gets or sets message parts from payload.
         /// </summary>
-        public List<string> MessageParts { get; set; } = new();
+        public List<string> MessageParts { get; set; } = new ();
 
         /// <summary>
         /// Gets or sets itemId.

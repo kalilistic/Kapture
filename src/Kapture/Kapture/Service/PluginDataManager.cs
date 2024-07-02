@@ -2,9 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-using Dalamud.DrunkenToad;
-using Dalamud.Logging;
-
+// ReSharper disable UseCollectionExpression
 namespace Kapture
 {
     /// <summary>
@@ -66,7 +64,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                PluginLog.LogError(ex, "Failed to write data file.");
+                KapturePlugin.PluginLog.Error(ex, "Failed to write data file.");
             }
         }
 
@@ -81,7 +79,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                PluginLog.LogError(ex, "Failed to create data directory.");
+                KapturePlugin.PluginLog.Error(ex, "Failed to create data directory.");
             }
         }
 
@@ -126,7 +124,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                PluginLog.LogError(ex, "Failed to write data file.");
+                KapturePlugin.PluginLog.Error(ex, "Failed to write data file.");
             }
         }
 
@@ -143,7 +141,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                PluginLog.LogError(ex, "Failed to write data file.");
+                KapturePlugin.PluginLog.Error(ex, "Failed to write data file.");
             }
         }
 
@@ -160,7 +158,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                PluginLog.LogError(ex, "Failed to read data file.");
+                KapturePlugin.PluginLog.Error(ex, "Failed to read data file.");
             }
 
             return string.Empty;
@@ -184,7 +182,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                PluginLog.LogError(ex, "Failed to read data file.");
+                KapturePlugin.PluginLog.Error(ex, "Failed to read data file.");
             }
 
             return new List<string>();

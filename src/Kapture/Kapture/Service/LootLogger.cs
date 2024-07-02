@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Timers;
 
-using Dalamud.DrunkenToad;
-using Dalamud.Logging;
-
 namespace Kapture
 {
     /// <summary>
@@ -12,7 +9,7 @@ namespace Kapture
     /// </summary>
     public class LootLogger
     {
-        private readonly Queue<LootEvent> logEventQueue = new();
+        private readonly Queue<LootEvent> logEventQueue = new ();
         private readonly IKapturePlugin plugin;
         private readonly Timer writeTimer;
         private bool isProcessing;
@@ -88,7 +85,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                PluginLog.LogError(ex, "Failed to write loot log event.");
+                KapturePlugin.PluginLog.Error(ex, "Failed to write loot log event.");
             }
 
             this.isProcessing = false;

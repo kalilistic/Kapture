@@ -2,12 +2,13 @@ using System.Collections.Generic;
 using Dalamud.Game.ClientState.Party;
 using Dalamud.Game.Text;
 
+// ReSharper disable UseCollectionExpression
 namespace Kapture.Test
 {
     /// <inheritdoc />
     public class KapturePluginMock : IKapturePlugin
     {
-        private readonly List<KeyValuePair<uint, ItemList>> itemLists = new();
+        private readonly List<KeyValuePair<uint, ItemList>> itemLists = new ();
 
         /// <summary>
         /// Constructor.
@@ -45,7 +46,7 @@ namespace Kapture.Test
         }
 
         /// <inheritdoc />
-        public PartyMember[] CurrentPartyList { get; set; } = System.Array.Empty<PartyMember>();
+        public IPartyMember[] CurrentPartyList { get; set; } = System.Array.Empty<IPartyMember>();
 
         /// <inheritdoc />
         public KaptureConfig Configuration { get; }
@@ -116,7 +117,7 @@ namespace Kapture.Test
         }
 
         /// <inheritdoc />
-        public IEnumerable<PartyMember> GetPartyMembers()
+        public IEnumerable<IPartyMember> GetPartyMembers()
         {
             throw new System.NotImplementedException();
         }

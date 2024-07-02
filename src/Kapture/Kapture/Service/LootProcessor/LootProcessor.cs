@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-using Dalamud.DrunkenToad;
 using Dalamud.Game.Text;
-using Dalamud.Logging;
 
+// ReSharper disable ArrangeObjectCreationWhenTypeNotEvident
 namespace Kapture
 {
     /// <summary>
@@ -217,7 +216,7 @@ namespace Kapture
             }
             catch (Exception ex)
             {
-                PluginLog.LogError(ex, "Failed to process item.");
+                KapturePlugin.PluginLog.Error(ex, "Failed to process item.");
                 return null;
             }
         }
@@ -239,7 +238,7 @@ namespace Kapture
         /// <returns>Precompiled regex.</returns>
         protected static Regex BuildRegex(string pattern)
         {
-            return new(pattern, RegexOptions.Compiled);
+            return new (pattern, RegexOptions.Compiled);
         }
 
                 /// <summary>

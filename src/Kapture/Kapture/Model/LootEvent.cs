@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
+// ReSharper disable PropertyCanBeMadeInitOnly.Global
 namespace Kapture
 {
     /// <summary>

@@ -149,7 +149,7 @@ namespace Kapture
         protected override LootEvent ProcessLocalPlayerObtainLoot(LootMessage message)
         {
             // Obtain Loot (Local Player)
-            return new()
+            return new ()
             {
                 LootEventType = LootEventType.Obtain,
                 IsLocalPlayer = true,
@@ -199,7 +199,7 @@ namespace Kapture
         protected override LootEvent ProcessOtherPlayerObtainLoot(LootMessage message)
         {
             // Obtain Loot (Other Player)
-            return new()
+            return new ()
             {
                 LootEventType = LootEventType.Obtain,
                 IsLocalPlayer = false,
@@ -304,7 +304,7 @@ namespace Kapture
         protected override LootEvent ProcessLocalPlayerSpecialObtain(LootMessage message)
         {
             // Obtain via Item (Local Player)
-            return new()
+            return new ()
             {
                 LootEventType = LootEventType.Obtain,
                 IsLocalPlayer = true,

@@ -11,27 +11,27 @@ namespace Kapture
         /// <summary>
         /// Log formats.
         /// </summary>
-        public static readonly List<LogFormat> LogFormats = new();
+        public static readonly List<LogFormat> LogFormats = new ();
 
         /// <summary>
         /// Log format names.
         /// </summary>
-        public static readonly List<string> LogFormatNames = new();
+        public static readonly List<string> LogFormatNames = new ();
 
         /// <summary>
         /// Log format: CSV.
         /// </summary>
-        public static readonly LogFormat CSV = new(0, "CSV", ".csv", 1);
+        public static readonly LogFormat CSV = new (0, "CSV", ".csv", 1);
 
         /// <summary>
         /// Log Format: JSON.
         /// </summary>
-        public static readonly LogFormat JSON = new(1, "JSON", ".json", 1);
+        public static readonly LogFormat JSON = new (1, "JSON", ".json", 1);
 
         /// <summary>
         /// Log Format: Chat Log.
         /// </summary>
-        public static readonly LogFormat ChatLog = new(2, "Chat Log", ".log", 1);
+        public static readonly LogFormat ChatLog = new (2, "Chat Log", ".log", 1);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LogFormat"/> class.
