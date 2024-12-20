@@ -1,12 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
 
 using CheapLoc;
-using Dalamud.DrunkenToad.Extensions;
-using Dalamud.DrunkenToad.Helpers;
+using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.ClientState.Party;
 using Dalamud.Game.Command;
 using Dalamud.Game.Text;
@@ -15,8 +14,13 @@ using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
+using Kapture.Kapture.Extensions;
 using Kapture.Localization;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel;
+using Lumina.Extensions;
+using Lumina.Excel.Sheets;
+using static FFXIVClientStructs.FFXIV.Client.Game.UI.NpcTrade;
+using Dalamud.Utility;
 
 // ReSharper disable UseCollectionExpression
 // ReSharper disable once ClassNeverInstantiated.Global
@@ -223,7 +227,7 @@ namespace Kapture
         /// <inheritdoc />
         public string GetLocalPlayerWorld()
         {
-            return ClientState.LocalPlayer?.HomeWorld.GameData?.Name.ToString() ?? string.Empty;
+            return ClientState.LocalPlayer?.HomeWorld.Value.Name.ToString() ?? string.Empty;
         }
 
         /// <inheritdoc />
@@ -296,9 +300,7 @@ namespace Kapture
 
         /// <inheritdoc />
         public bool InCombat()
-        {
-            return Condition.InCombat();
-        }
+        => Condition[ConditionFlag.InCombat];
 
         /// <summary>
         /// Dispose plugin.
@@ -557,8 +559,15 @@ namespace Kapture
                     case ItemPayload itemPayload:
                         if (lootMessage.ItemId != 0) break;
                         lootMessage.ItemId = itemPayload.Item.RowId;
-                        lootMessage.ItemName = itemPayload.Item.Name.ToString();
-                        lootMessage.Item = itemPayload.Item;
+                        lootMessage.ItemName = itemPayload.DisplayName.ToString();
+                        if (itemPayload.Item.TryGetValue(out EventItem resolvedEventItem))
+                        {
+                            break;
+                        }
+                        else if (itemPayload.Item.TryGetValue(out Lumina.Excel.Sheets.Item resolvedItem))
+                        {
+                            lootMessage.Item = resolvedItem;
+                        }
                         lootMessage.IsHq = itemPayload.IsHQ;
                         break;
                     case PlayerPayload playerPayload:
@@ -584,7 +593,7 @@ namespace Kapture
             if (this.Configuration.DebugLoggingEnabled) PluginLog.Info("[LootEvent]" + lootEvent);
 
             // enrich
-            lootEvent.Timestamp = UnixTimestampHelper.CurrentTime();
+            lootEvent.Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
             lootEvent.LootEventId = Guid.NewGuid();
             lootEvent.TerritoryTypeId = territoryTypeId;
             lootEvent.ContentId = contentId;
@@ -606,12 +615,12 @@ namespace Kapture
 
         private bool IsHighEndDuty()
         {
-            return DataManager.InHighEndDuty(ClientState.TerritoryType);
+            return ContentExtension.InHighEndDuty(DataManager, ClientState.TerritoryType);
         }
 
         private uint GetContentId()
         {
-            return DataManager.ContentId(ClientState.TerritoryType);
+            return ContentExtension.ContentId(DataManager, ClientState.TerritoryType);
         }
 
         private uint GetTerritoryType()
@@ -627,9 +636,9 @@ namespace Kapture
                 var contentTypes = new List<uint> { 2, 4, 5, 6, 26, 28, 29 };
                 var contentList = DataManager.GetExcelSheet<ContentFinderCondition>() !
                                              .Where(content =>
-                                                        contentTypes.Contains(content.ContentType.Row) && !excludedContent.Contains(content.RowId))
+                                                        contentTypes.Contains(content.ContentType.RowId) && !excludedContent.Contains(content.RowId))
                                              .ToList();
-                var contentNames = PluginInterface.Sanitizer.Sanitize(contentList.Select(content => content.Name.ToString())).ToArray();
+                var contentNames = PluginInterface.Sanitizer.Sanitize(contentList.Select(content => content.Name.ToDalamudString().TextValue.Replace("\u0002\u001F\u0001\u0003", "-"))).ToArray();
                 var contentIds = contentList.Select(content => content.RowId).ToArray();
                 Array.Sort(contentNames, contentIds);
                 this.ContentIds = contentIds;
@@ -646,18 +655,18 @@ namespace Kapture
             try
             {
                 // create item list
-                var itemDataList = DataManager.GetExcelSheet<Item>() !.Where(item => !string.IsNullOrEmpty(item.Name)).ToList();
+                var itemDataList = DataManager.GetExcelSheet<Lumina.Excel.Sheets.Item>() !.Where(item => !string.IsNullOrEmpty(item.Name.ExtractText())).ToList();
 
                 // add all items
                 var itemIds = itemDataList.Select(item => item.RowId).ToArray();
-                var itemNames = PluginInterface.Sanitizer.Sanitize(itemDataList.Select(item => item.Name.ToString())).ToArray();
+                var itemNames = PluginInterface.Sanitizer.Sanitize(itemDataList.Select(item => item.Name.ToDalamudString().TextValue.Replace("\u0002\u001F\u0001\u0003", "-"))).ToArray();
                 this.ItemIds = itemIds;
                 this.ItemNames = itemNames;
 
                 // item categories
                 var categoryList = DataManager.GetExcelSheet<ItemUICategory>() !
                                               .Where(category => category.RowId != 0).ToList();
-                var categoryNames = PluginInterface.Sanitizer.Sanitize(categoryList.Select(category => category.Name.ToString())).ToArray();
+                var categoryNames = PluginInterface.Sanitizer.Sanitize(categoryList.Select(category => category.Name.ToDalamudString().TextValue.Replace("\u0002\u001F\u0001\u0003", "-"))).ToArray();
                 var categoryIds = categoryList.Select(category => category.RowId).ToArray();
                 Array.Sort(categoryNames, categoryIds);
                 this.ItemCategoryIds = categoryIds;
@@ -668,10 +677,10 @@ namespace Kapture
                 foreach (var categoryId in categoryIds)
                 {
                     var itemCategoryDataList =
-                        itemDataList.Where(item => item.ItemUICategory.Row == categoryId).ToList();
+                        itemDataList.Where(item => item.ItemUICategory.RowId == categoryId).ToList();
                     var itemCategoryIds = itemCategoryDataList.Select(item => item.RowId).ToArray();
                     var itemCategoryNames =
-                        PluginInterface.Sanitizer.Sanitize(itemCategoryDataList.Select(item => item.Name.ToString())).ToArray();
+                        PluginInterface.Sanitizer.Sanitize(itemCategoryDataList.Select(item => item.Name.ToDalamudString().TextValue.Replace("\u0002\u001F\u0001\u0003", "-"))).ToArray();
                     Array.Sort(itemCategoryNames, itemCategoryIds);
                     var itemList = new ItemList
                     {

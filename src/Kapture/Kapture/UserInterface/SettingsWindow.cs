@@ -1,10 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 
 using CheapLoc;
-using Dalamud.DrunkenToad.Extensions;
 using Dalamud.Interface.Colors;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
@@ -333,11 +332,11 @@ namespace Kapture
                                            "RollMonitorAddedTimeout_HelpMarker",
                                            "amount of time before removing added items from roll monitor"));
             var rollMonitorAddedTimeout =
-                this.plugin.Configuration.RollMonitorAddedTimeout.FromMillisecondsToMinutes();
+                this.plugin.Configuration.RollMonitorAddedTimeout / 60000;
             if (ImGui.SliderInt("###PlayerTrack_RollMonitorAddedTimeout_Slider", ref rollMonitorAddedTimeout, 5, 60))
             {
                 this.plugin.Configuration.RollMonitorAddedTimeout =
-                    rollMonitorAddedTimeout.FromMinutesToMilliseconds();
+                    rollMonitorAddedTimeout * 60000;
                 this.plugin.SaveConfig();
             }
 
@@ -349,11 +348,11 @@ namespace Kapture
                 "RollMonitorObtainedTimeout_HelpMarker",
                 "amount of time before removing obtained/lost items from roll monitor"));
             var rollMonitorObtainedTimeout =
-                this.plugin.Configuration.RollMonitorObtainedTimeout.FromMillisecondsToSeconds();
+                this.plugin.Configuration.RollMonitorObtainedTimeout / 1000;
             if (ImGui.SliderInt("###PlayerTrack_RollMonitorObtainedTimeout_Slider", ref rollMonitorObtainedTimeout, 5, 300))
             {
                 this.plugin.Configuration.RollMonitorObtainedTimeout =
-                    rollMonitorObtainedTimeout.FromSecondsToMilliseconds();
+                    rollMonitorObtainedTimeout * 1000;
                 this.plugin.SaveConfig();
             }
 
@@ -365,11 +364,11 @@ namespace Kapture
                                            "RollReminderTime_HelpMarker",
                                            "amount of time in advanced of missing roll to send reminder"));
             var rollReminderTime =
-                this.plugin.Configuration.RollReminderTime.FromMillisecondsToSeconds();
+                this.plugin.Configuration.RollReminderTime/ 1000;
             if (ImGui.SliderInt("###PlayerTrack_RollReminderTime_Slider", ref rollReminderTime, 5, 60))
             {
                 this.plugin.Configuration.RollReminderTime =
-                    rollReminderTime.FromSecondsToMilliseconds();
+                    rollReminderTime * 1000;
                 this.plugin.SaveConfig();
             }
 
@@ -915,10 +914,10 @@ namespace Kapture
             ImGuiComponents.HelpMarker(Loc.Localize(
                                            "SendHTTPFrequency_HelpMarker",
                                            "frequency to send HTTP requests in seconds"));
-            var sendHTTPFrequency = this.plugin.Configuration.SendHTTPFrequency.FromMillisecondsToSeconds();
+            var sendHTTPFrequency = this.plugin.Configuration.SendHTTPFrequency / 1000;
             if (ImGui.SliderInt("###Kapture_SendHTTPFrequency_Slider", ref sendHTTPFrequency, 1, 300))
             {
-                this.plugin.Configuration.SendHTTPFrequency = sendHTTPFrequency.FromSecondsToMilliseconds();
+                this.plugin.Configuration.SendHTTPFrequency = sendHTTPFrequency * 1000;
                 this.plugin.SaveConfig();
             }
 
@@ -929,10 +928,10 @@ namespace Kapture
             ImGuiComponents.HelpMarker(Loc.Localize(
                                            "SendHTTPRequestTimeout_HelpMarker",
                                            "amount of time before request time out"));
-            var sendHTTPRequestTimeout = this.plugin.Configuration.SendHTTPRequestTimeout.FromMillisecondsToSeconds();
+            var sendHTTPRequestTimeout = this.plugin.Configuration.SendHTTPRequestTimeout * 1000;
             if (ImGui.SliderInt("###Kapture_SendHTTPRequestTimeout_Slider", ref sendHTTPRequestTimeout, 0, 300))
             {
-                this.plugin.Configuration.SendHTTPRequestTimeout = sendHTTPRequestTimeout.FromSecondsToMilliseconds();
+                this.plugin.Configuration.SendHTTPRequestTimeout = sendHTTPRequestTimeout * 1000;
                 this.plugin.SaveConfig();
             }
 
@@ -982,10 +981,10 @@ namespace Kapture
             ImGuiComponents.HelpMarker(Loc.Localize(
                                            "SendDiscordFrequency_HelpMarker",
                                            "frequency to send discord requests in seconds"));
-            var sendDiscordFrequency = this.plugin.Configuration.SendDiscordFrequency.FromMillisecondsToSeconds();
+            var sendDiscordFrequency = this.plugin.Configuration.SendDiscordFrequency / 1000;
             if (ImGui.SliderInt("###Kapture_SendDiscordFrequency_Slider", ref sendDiscordFrequency, 1, 300))
             {
-                this.plugin.Configuration.SendDiscordFrequency = sendDiscordFrequency.FromSecondsToMilliseconds();
+                this.plugin.Configuration.SendDiscordFrequency = sendDiscordFrequency * 1000;
                 this.plugin.SaveConfig();
             }
 

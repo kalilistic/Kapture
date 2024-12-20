@@ -35,7 +35,4 @@
 			<Private>False</Private>
 		</Reference>
 	</ItemGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\..\DrunkenToad\DrunkenToad.csproj" />
-	</ItemGroup>
 </Project>

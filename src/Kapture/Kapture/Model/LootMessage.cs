@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 using Dalamud.Game.Text.SeStringHandling.Payloads;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 using Newtonsoft.Json;
 
 // ReSharper disable PropertyCanBeMadeInitOnly.Global
@@ -61,7 +61,7 @@ namespace Kapture
         /// Gets or sets item.
         /// </summary>
         [JsonIgnore]
-        public Item Item { get; set; } = null!;
+        public Lumina.Excel.Sheets.Item Item { get; set; }
 
         /// <summary>
         /// Gets or sets playerPayload.

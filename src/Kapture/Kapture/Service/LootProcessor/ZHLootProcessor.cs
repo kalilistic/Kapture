@@ -226,7 +226,7 @@ namespace Kapture
                 LootEventType = LootEventType.Obtain,
                 IsLocalPlayer = false,
                 PlayerName = message.MessageParts[0],
-                World = message.Player?.World.Name.ToString() ?? string.Empty,
+                World = message.Player?.World.Value.Name.ToString() ?? string.Empty,
             };
         }
 
@@ -237,7 +237,7 @@ namespace Kapture
             {
                 IsLocalPlayer = false,
                 PlayerName = message.MessageParts[0],
-                World = message.Player?.World.Name.ToString() ?? string.Empty,
+                World = message.Player?.World.Value.Name.ToString() ?? string.Empty,
             };
 
             // Cast Lot (Other Player)
@@ -333,7 +333,7 @@ namespace Kapture
                 {
                     LootEventType = LootEventType.Use,
                     PlayerName = message.MessageParts[0],
-                    World = message.Player?.World.Name.ToString() ?? string.Empty,
+                    World = message.Player?.World.Value.Name.ToString() ?? string.Empty,
                 };
             }
 
@@ -444,7 +444,7 @@ namespace Kapture
                 {
                     LootEventType = LootEventType.Craft,
                     PlayerName = message.MessageParts[0],
-                    World = message.Player?.World.Name.ToString() ?? string.Empty,
+                    World = message.Player?.World.Value.Name.ToString() ?? string.Empty,
                 };
             }
 
