@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +6,8 @@ using System.Numerics;
 using System.Timers;
 
 using CheapLoc;
-using Dalamud.DrunkenToad.Extensions;
-using Dalamud.DrunkenToad.Helpers;
 using Dalamud.Interface.Colors;
+using Kapture.Kapture.Extensions;
 using Newtonsoft.Json;
 
 // ReSharper disable PatternIsRedundant
@@ -60,7 +59,7 @@ namespace Kapture
             try
             {
                 if (this.plugin.LootRolls.Count == 0) return;
-                var currentTime = UnixTimestampHelper.CurrentTime();
+                var currentTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
                 this.plugin.LootRolls.RemoveAll(roll => !roll.IsWon &&
                                                     currentTime - roll.Timestamp >
                                                     this.plugin.Configuration.RollMonitorAddedTimeout);
@@ -289,7 +288,7 @@ namespace Kapture
                 var rollerMatch = lootRoll.Rollers.FirstOrDefault(roller =>
                                                          roller.IsLocalPlayer &&
                                                          !roller.HasRolled && !roller.IsReminderSent &&
-                                                         UnixTimestampHelper.CurrentTime() > lootRoll.Timestamp + 300000 - this.plugin.Configuration.RollReminderTime);
+                                                         DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() > lootRoll.Timestamp + 300000 - this.plugin.Configuration.RollReminderTime);
                 if (rollerMatch != null)
                 {
                     rollerMatch.IsReminderSent = true;

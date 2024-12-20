@@ -42,8 +42,8 @@
       },
       "DalamudPackager": {
         "type": "Transitive",
-        "resolved": "2.1.13",
-        "contentHash": "rMN1omGe8536f4xLMvx9NwfvpAc9YFFfeXJ1t4P4PE6Gu8WCIoFliR1sh07hM+bfODmesk/dvMbji7vNI+B/pQ=="
+        "resolved": "11.0.0",
+        "contentHash": "bjT7XUlhIJSmsE/O76b7weUX+evvGQctbQB8aKXt94o+oPWxHpCepxAGMs7Thow3AzCyqWs7cOpp9/2wcgRRQA=="
       },
       "Microsoft.CodeCoverage": {
         "type": "Transitive",
@@ -140,8 +140,7 @@
       "kapture": {
         "type": "Project",
         "dependencies": {
-          "DalamudPackager": "[2.1.13, )",
-          "DrunkenToad": "[1.0.0, )"
+          "DalamudPackager": "[11.0.0, )"
         }
       }
     }
